@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="Bdeny.github.io/"/>
+  <link href="Yobe.github.io/"/>
   <updated>2019-03-29T00:02:10.876Z</updated>
-  <id>Bdeny.github.io/</id>
+  <id>Yobe.github.io/</id>
   
   <author>
     <name>周岳标</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>test-Hexo</title>
-    <link href="Bdeny.github.io/2019/03/29/test-Hexo/"/>
-    <id>Bdeny.github.io/2019/03/29/test-Hexo/</id>
+    <link href="Yobe.github.io/2019/03/29/test-Hexo/"/>
+    <id>Yobe.github.io/2019/03/29/test-Hexo/</id>
     <published>2019-03-28T16:08:46.000Z</published>
     <updated>2019-03-29T00:02:10.876Z</updated>
     
@@ -35,25 +35,25 @@
     
     </summary>
     
-      <category term="第一个博客" scheme="Bdeny.github.io/categories/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/"/>
+      <category term="第一个博客" scheme="Yobe.github.io/categories/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/"/>
     
     
-      <category term="hexo" scheme="Bdeny.github.io/tags/hexo/"/>
+      <category term="hexo" scheme="Yobe.github.io/tags/hexo/"/>
     
-      <category term="github" scheme="Bdeny.github.io/tags/github/"/>
+      <category term="github" scheme="Yobe.github.io/tags/github/"/>
     
-      <category term="测试" scheme="Bdeny.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
+      <category term="测试" scheme="Yobe.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
     
-      <category term="TEST" scheme="Bdeny.github.io/tags/TEST/"/>
+      <category term="TEST" scheme="Yobe.github.io/tags/TEST/"/>
     
-      <category term="基础" scheme="Bdeny.github.io/tags/%E5%9F%BA%E7%A1%80/"/>
+      <category term="基础" scheme="Yobe.github.io/tags/%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="Bdeny.github.io/2019/03/28/hello-world/"/>
-    <id>Bdeny.github.io/2019/03/28/hello-world/</id>
+    <link href="Yobe.github.io/2019/03/28/hello-world/"/>
+    <id>Yobe.github.io/2019/03/28/hello-world/</id>
     <published>2019-03-28T12:31:54.527Z</published>
     <updated>2019-03-28T12:31:54.527Z</updated>
     
