@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="Yobe.github.io/"/>
-  <updated>2019-03-30T04:15:09.120Z</updated>
+  <updated>2019-03-30T05:40:16.623Z</updated>
   <id>Yobe.github.io/</id>
   
   <author>
@@ -17,11 +17,46 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>HexoEditor</title>
-    <link href="Yobe.github.io/2019/03/30/HexoEditor/"/>
-    <id>Yobe.github.io/2019/03/30/HexoEditor/</id>
+    <title>Hexo基本设置</title>
+    <link href="Yobe.github.io/2019/03/30/Hexo%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE/"/>
+    <id>Yobe.github.io/2019/03/30/Hexo基本设置/</id>
+    <published>2019-03-30T05:40:16.000Z</published>
+    <updated>2019-03-30T05:40:16.623Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>“Hexo+Github Page+个人域名”搭建个人专属博客</title>
+    <link href="Yobe.github.io/2019/03/30/%E2%80%9CHexo+Giuthub_Page-%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D%E2%80%9D%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E4%B8%93%E5%B1%9E%E5%8D%9A%E5%AE%A2/"/>
+    <id>Yobe.github.io/2019/03/30/“Hexo+Giuthub_Page-个人域名”搭建个人专属博客/</id>
+    <published>2019-03-30T05:29:53.000Z</published>
+    <updated>2019-03-30T05:44:25.114Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><h1 id="Hexo部分"><a href="#Hexo部分" class="headerlink" title="Hexo部分"></a>Hexo部分</h1><h2 id="Hexo简介"><a href="#Hexo简介" class="headerlink" title="Hexo简介"></a>Hexo简介</h2><h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><h2 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h2><h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><h1 id="Github部分"><a href="#Github部分" class="headerlink" title="Github部分"></a>Github部分</h1><h2 id="Github创建个人仓库"><a href="#Github创建个人仓库" class="headerlink" title="Github创建个人仓库"></a>Github创建个人仓库</h2><h2 id="生成SSH并添加"><a href="#生成SSH并添加" class="headerlink" title="生成SSH并添加"></a>生成SSH并添加</h2><h2 id="将Hexo部署到Github"><a href="#将Hexo部署到Github" class="headerlink" title="将Hexo部署到Github"></a>将Hexo部署到Github</h2><h1 id="绑定个人域名"><a href="#绑定个人域名" class="headerlink" title="绑定个人域名"></a>绑定个人域名</h1><h2 id="域名申请"><a href="#域名申请" class="headerlink" title="域名申请"></a>域名申请</h2><h2 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h2><h1 id="后续学习"><a href="#后续学习" class="headerlink" title="后续学习"></a>后续学习</h1><p>本文中介绍完基于Hexo及Github page搭建专属的个人博客的详细方法。万事开头难，现在我们仅仅是把平台搭建好了，接下来我们应该趁热打铁继续深入学习探索，请参考我的其他文章：<br>[Hexo基本设置]<br>[hexo使用技巧]<br>[Hexo的专用编辑器-HexoEditor]<br>[什么是Markdown？]</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h1&gt;&lt;h1 id=&quot;Hexo部分&quot;&gt;&lt;a href=&quot;#Hexo部分&quot; class=&quot;headerlink&quot; title=&quot;Hexo部分&quot;&gt;&lt;/a&gt;H
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo的专用编辑器-HexoEditor</title>
+    <link href="Yobe.github.io/2019/03/30/Hexo%E7%9A%84%E4%B8%93%E7%94%A8%E7%BC%96%E8%BE%91%E5%99%A8-HexoEditor/"/>
+    <id>Yobe.github.io/2019/03/30/Hexo的专用编辑器-HexoEditor/</id>
     <published>2019-03-30T03:41:40.000Z</published>
-    <updated>2019-03-30T04:15:09.120Z</updated>
+    <updated>2019-03-30T05:33:36.803Z</updated>
     
     <content type="html"><![CDATA[<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>‘Hexo’ 是一款基于 ‘Node.js’ 的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在 ‘GitHub’ 和 ‘Coding’ 上，是搭建博客的首选框架。 由于 ‘Hexo’ 使用[markdown]语法的纯文本编辑，所以在写作的时候我们需要使用一些工具方能达到事半功倍的效果。</p><h1 id="HexoEditor"><a href="#HexoEditor" class="headerlink" title="HexoEditor"></a>HexoEditor</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>接下来要介绍给大家的 ‘HexoEditor’ 便是网上有人针对 ‘Hexo’ 做了优化的 ‘Markdown’ 编辑器，其使用 [Electron] 做框架，修改自 [Moeditor] 支持 Markdown，Latex 等。使用它我们可以为 ‘Hexo’ 下的博客更好的去书写内容。这是<a href="https://github.com/zhuzhuyule/HexoEditor/" target="_blank" rel="noopener">HexoEditor</a>的开源项目地址。</p><h2 id="快速下载安装"><a href="#快速下载安装" class="headerlink" title="快速下载安装"></a>快速下载安装</h2><p>在 ‘Github’ 项目中并没有给出，可安装的 ‘releases’ 版本，如想省去麻烦的安装过程请在下面的地址下载。<br>下载地址：</p><p>Windows x64:</p><pre><code>https://github.com/zhuzhuyule/HexoEditor/releases/download/v1.5.30/HexoEditor_1.5.30_win_x64.exe</code></pre><p>Macx64:</p><pre><code>https://github.com/zhuzhuyule/HexoEditor/releases/download/v1.5.30/HexoEditor_1.5.30_mac_x64.dmg</code></pre><h2 id="使用技巧"><a href="#使用技巧" class="headerlink" title="使用技巧"></a>使用技巧</h2><table><thead><tr><th style="text-align:left">按键</th><th style="text-align:center">方法</th><th style="text-align:center">说明</th></tr></thead><tbody><tr><td style="text-align:left">Tab</td><td style="text-align:center">tabAdd</td><td style="text-align:center">添加缩进</td></tr><tr><td style="text-align:left">Shift - Tab</td><td style="text-align:center">tabSubtract</td><td style="text-align:center">减少缩进</td></tr><tr><td style="text-align:left">Ctrl - B</td><td style="text-align:center">toggleBlod</td><td style="text-align:center">切换粗体</td></tr><tr><td style="text-align:left">Ctrl - I</td><td style="text-align:center">toggleItalic</td><td style="text-align:center">切换斜体</td></tr><tr><td style="text-align:left">Ctrl - D</td><td style="text-align:center">toggleDelete</td><td style="text-align:center">删除当前行</td></tr><tr><td style="text-align:left">Ctrl - `</td><td style="text-align:center">toggleComment</td><td style="text-align:center">切换注解</td></tr><tr><td style="text-align:left">Ctrl - L</td><td style="text-align:center">toggleUnOrderedList</td><td style="text-align:center">切换无序列表</td></tr><tr><td style="text-align:left">Ctrl - Alt - L</td><td style="text-align:center">toggleOrderedList</td><td style="text-align:center">切换有序列表</td></tr><tr><td style="text-align:left">Ctrl - ]</td><td style="text-align:center">toggleHeader</td><td style="text-align:center">降级标题</td></tr><tr><td style="text-align:left">Ctrl - [</td><td style="text-align:center">toggleUnHeader</td><td style="text-align:center">升级标题</td></tr><tr><td style="text-align:left">Ctrl - =</td><td style="text-align:center">toggleBlockquote</td><td style="text-align:center">增加引用</td></tr><tr><td style="text-align:left">Ctrl - -</td><td style="text-align:center">toggleUnBlockquote</td><td style="text-align:center">减少引用</td></tr><tr><td style="text-align:left">Ctrl - U</td><td style="text-align:center">drawLink</td><td style="text-align:center">添加超级链接</td></tr><tr><td style="text-align:left">Ctrl - Alt - U</td><td style="text-align:center">drawImageLink</td><td style="text-align:center">添加图片</td></tr><tr><td style="text-align:left">Ctrl - T</td><td style="text-align:center">drawTable(row col)</td><td style="text-align:center">添加表格(行 列)</td></tr><tr><td style="text-align:left">Ctrl - V</td><td style="text-align:center">pasteOriginContent</td><td style="text-align:center">源内容粘贴</td></tr><tr><td style="text-align:left">Shift - Ctrl - V</td><td style="text-align:center">pasteContent</td><td style="text-align:center">智能粘贴</td></tr><tr><td style="text-align:left">Alt - F</td><td style="text-align:center">formatTables</td><td style="text-align:center">格式化表格</td></tr><tr><td style="text-align:left">Ctrl - N</td><td style="text-align:center"></td><td style="text-align:center">新建md文档</td></tr><tr><td style="text-align:left">Ctrl - H</td><td style="text-align:center"></td><td style="text-align:center">新建Hexo文档</td></tr><tr><td style="text-align:left">Ctrl - O</td><td style="text-align:center"></td><td style="text-align:center">打开md文件</td></tr><tr><td style="text-align:left">Ctrl - S</td><td style="text-align:center"></td><td style="text-align:center">保存文档</td></tr><tr><td style="text-align:left">Shift - Ctrl - S</td><td style="text-align:center"></td><td style="text-align:center">另存为</td></tr><tr><td style="text-align:left">Alt - Ctrl - S</td><td style="text-align:center"></td><td style="text-align:center">打开设置</td></tr><tr><td style="text-align:left">Ctrl - W</td><td style="text-align:center"></td><td style="text-align:center">切换写作模式</td></tr><tr><td style="text-align:left">Ctrl - P</td><td style="text-align:center"></td><td style="text-align:center">切换预览模式</td></tr><tr><td style="text-align:left">Ctrl - R</td><td style="text-align:center"></td><td style="text-align:center">切换阅读模式</td></tr></tbody></table><pre><code>提示: 在 Mac OS下, 请使用 Cmd 来代替 Ctrl .</code></pre>]]></content>
     
