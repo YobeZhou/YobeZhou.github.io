@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Yobe">
 <meta property="og:description" content="最近开始使用Hexo写自己的个人博客，下面是对在使用过程中的一些技巧的总结。如果想要阅读官方的帮助文档请移步Hexo帮助文档。 写作篇Hexo使用[markdown]语法的纯文本编辑，文件后缀名.m ,文件默认存放在我们的站点目录下“/source/_post”文件夹下。 创建一篇新文章1$ hexo new [layout] &amp;lt;title&amp;gt; Hexo有三种默认布局：post、page">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-30T04:23:28.824Z">
+<meta property="og:updated_time" content="2019-03-30T06:31:59.820Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo使用技巧">
 <meta name="twitter:description" content="最近开始使用Hexo写自己的个人博客，下面是对在使用过程中的一些技巧的总结。如果想要阅读官方的帮助文档请移步Hexo帮助文档。 写作篇Hexo使用[markdown]语法的纯文本编辑，文件后缀名.m ,文件默认存放在我们的站点目录下“/source/_post”文件夹下。 创建一篇新文章1$ hexo new [layout] &amp;lt;title&amp;gt; Hexo有三种默认布局：post、page">
@@ -380,7 +380,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  353
+                  534
                 </span>
               
 
@@ -396,7 +396,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -420,13 +420,17 @@
         <p>最近开始使用<a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a>写自己的个人博客，下面是对在使用过程中的一些技巧的总结。如果想要阅读官方的帮助文档请移步<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">Hexo帮助文档</a>。</p>
 <h1 id="写作篇"><a href="#写作篇" class="headerlink" title="写作篇"></a>写作篇</h1><p>Hexo使用[markdown]语法的纯文本编辑，文件后缀名.m ,文件默认存放在我们的站点目录下“/source/_post”文件夹下。</p>
 <h3 id="创建一篇新文章"><a href="#创建一篇新文章" class="headerlink" title="创建一篇新文章"></a>创建一篇新文章</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
-<p>Hexo有三种默认布局：post、page 和 draft，它们分别对应不同的路径，而我们自定义的其他布局和 post 相同，都将储存到 “source/_posts” 文件夹。<br>可以在命令中指定文章的布局（layout），若不指定[layout]则布局将默认为 post，默认布局可以通过修改 _config.yml 中的 default_layout 参数来指定。</p>
+<p>Hexo有三种默认布局：post、page 和 draft，它们分别对应不同的路径，而我们自定义的其他布局和 post 相同，都将储存到 “source/_posts” 文件夹。可以在命令中指定文章的布局（layout），若不指定[layout]则布局将默认为 post，默认布局可以通过修改 _config.yml 中的 default_layout 参数来指定。</p>
 <h1 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h1><p>部署前请确保网络连接，并且当前目录在hexo的根目录。</p>
 <h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>Hexo 提供了快速方便的一键部署功能，让您只需一条命令就能将网站部署到服务器上。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></p>
 <p>在开始之前，必须先在 _config.yml 中修改参数，一个正确的部署配置中至少要有 type 参数，例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br></pre></td></tr></table></figure></p>
 <p>还可同时使用多个 deployer，Hexo 会依照顺序执行每个 deployer。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">- <span class="built_in">type</span>: git</span><br><span class="line">  repo:</span><br><span class="line">- <span class="built_in">type</span>: heroku</span><br><span class="line">  repo:</span><br></pre></td></tr></table></figure></p>
 <h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
 <p>或hexo素质三连<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo d</span><br><span class="line">$ hexo -g</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="Hexo中添加本地图片和使用网络图片"><a href="#Hexo中添加本地图片和使用网络图片" class="headerlink" title="Hexo中添加本地图片和使用网络图片"></a>Hexo中添加本地图片和使用网络图片</h1><h2 id="方法一-相对引用"><a href="#方法一-相对引用" class="headerlink" title="方法一 相对引用"></a>方法一 相对引用</h2><p>由于首页和主页相对图片位置不一致，网站首页和内页很可能仅有一处能正常加载。<br>1.调整程序配置文件_config.yml 里的post_asset_folder:这个选项设置为True<br>2.在source下创建/images文件夹，先把图片xx.jpg/png复制到这个文件夹<br>3.最后在xxxx.md中想引入图片时，只需要在xxxx.md中按照markdown的格式引入图片：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">Tip</span>](<span class="link">/images/xx.jpg</span>)</span><br></pre></td></tr></table></figure></p>
+<h2 id="方法二-图床"><a href="#方法二-图床" class="headerlink" title="方法二 图床"></a>方法二 图床</h2><p>如SMMS图床无需注册<br>以下是测试：<br><figure class="highlight https"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">https://i.loli.net/2018/02/09/5a7d6a402e15e.jpg</span></span><br></pre></td></tr></table></figure></p>
+<p>注：请备份Delete Link,必要时访问此链接删除图片。</p>
 
       
     </div>
@@ -663,7 +667,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#写作篇"><span class="nav-number">1.</span> <span class="nav-text">写作篇</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建一篇新文章"><span class="nav-number">1.0.1.</span> <span class="nav-text">创建一篇新文章</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#部署"><span class="nav-number">2.</span> <span class="nav-text">部署</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一"><span class="nav-number">2.1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二"><span class="nav-number">2.2.</span> <span class="nav-text">方法二</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#写作篇"><span class="nav-number">1.</span> <span class="nav-text">写作篇</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建一篇新文章"><span class="nav-number">1.0.1.</span> <span class="nav-text">创建一篇新文章</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#部署"><span class="nav-number">2.</span> <span class="nav-text">部署</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一"><span class="nav-number">2.1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二"><span class="nav-number">2.2.</span> <span class="nav-text">方法二</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo中添加本地图片和使用网络图片"><span class="nav-number">3.</span> <span class="nav-text">Hexo中添加本地图片和使用网络图片</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一-相对引用"><span class="nav-number">3.1.</span> <span class="nav-text">方法一 相对引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二-图床"><span class="nav-number">3.2.</span> <span class="nav-text">方法二 图床</span></a></li></ol></li></div>
             
 
           </div>
@@ -699,7 +703,7 @@ pure.mini.js"></script>
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1.7k</span>
+    <span title="Site words total count">1.9k</span>
   
 </div>
 
@@ -711,7 +715,7 @@ pure.mini.js"></script>
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共1.7k字</span>
+  <span class="post-count">博客全站共1.9k字</span>
 </div>
 
 <!-- 底部隐藏由Hexo强力驱动、主题--NexT.Mist -->
