@@ -46,7 +46,7 @@
     <link href="Yobe.github.io/2019/03/30/%E4%BB%80%E4%B9%88%E6%98%AFMarkdown%EF%BC%9F/"/>
     <id>Yobe.github.io/2019/03/30/什么是Markdown？/</id>
     <published>2019-03-30T03:31:52.000Z</published>
-    <updated>2019-03-30T03:56:28.288Z</updated>
+    <updated>2019-03-30T04:30:50.257Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Markdown的简单介绍"><a href="#Markdown的简单介绍" class="headerlink" title="Markdown的简单介绍"></a>Markdown的简单介绍</h1><p>  <a href="https://www.markdownguide.org/" target="_blank" rel="noopener">Markdown</a> 是由 ‘John Gruber’ 和 ‘Aaron Swartz’ 共同创建的一种轻量级纯文本格式语法。Markdown 可以让用户“以易读、易写的纯文本格式来进行写作，然后可以将其转换为有效格式的 XHTML（或 HTML）“。Markdown 语法只包含一些非常容易记住的符号。其学习曲线平缓；你可以在炒蘑菇的同时一点点学习 Markdown 语法（大约 10 分钟）。通过使用尽可能简单的语法，错误率达到了最小化。除了拥有友好的语法，它还具有直接输出干净、有效的（X）HTML 文件的强大功能。如果你看过我的 HTML 文件，你就会知道这个功能是多么的重要。</p><p>  ‘Markdown’ 格式语法的主要目标是实现最大的可读性。用户能够以纯文本的形式发布一份 ‘Markdown’ 格式的文件。用 ‘Markdown’ 进行文本写作的一个优点是易于在计算机、智能手机和个人之间共享。几乎所有的内容管理系统都支持 ‘Markdown’ 。它作为一种网络写作格式流行起来，其产生一些被许多服务采用的变种，比如 GitHub 和 Stack Exchange 。</p><p>  我们可以使用任何文本编辑器来写 ‘Markdown’ 文件。但我建议使用一个专门为这种语法设计的编辑器。这篇文章中所讨论的软件允许你使用 ‘Markdown’ 语法来写各种格式的专业文档，包括博客文章、演示文稿、报告、电子邮件以及幻灯片等。另外，所有的应用都是在开源许可证下发布的，在 Linux、OS X 和 Windows 操作系统下均可用。</p>]]></content>
     
@@ -59,6 +59,8 @@
     
     </summary>
     
+    
+      <category term="Markdown" scheme="Yobe.github.io/tags/Markdown/"/>
     
   </entry>
   
