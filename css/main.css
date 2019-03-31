@@ -1934,7 +1934,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #8b2078;
+  background: #b899ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2927,7 +2927,7 @@ hr {
   margin: 0;
 }
 .posts-expand .post-tags {
-  text-align: left;
+  text-align: right;
 }
 .posts-expand .post-tags a {
   padding: 1px 5px;
@@ -2947,9 +2947,10 @@ hr {
 .post-button a {
   padding: 0;
   font-size: 14px;
+  color: Red;
   background: none;
   border: none;
-  border-bottom: 2px solid #666;
+  border-bottom: 2px solid Red;
   transition-property: border;
 }
 @media (max-width: 767px) {
