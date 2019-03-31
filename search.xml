@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[Hexo提交搜索引擎收录（Google+Baidu）]]></title>
+    <url>%2F2019%2F03%2F31%2FHexo%E6%8F%90%E4%BA%A4%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95%EF%BC%88Google-Baidu%EF%BC%89%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[递增与减运算符：++与--]]></title>
+    <url>%2F2019%2F03%2F31%2F%E9%80%92%E5%A2%9E%E4%B8%8E%E5%87%8F%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%9A%2B%2B%E4%B8%8E--%2F</url>
+    <content type="text"><![CDATA[紧凑的代码让程序更为整洁，而且通常其生成的机器代码效率更高。 递增与递减运算符递增运算符(increment operator)将其运算对象递增1；递减运算符(decrement operator)将其运算递减1，该运算符以两种方式出现(两种模式的区别在于递增&amp;递减行为发生的时间不同)： 1. &quot;++&quot;出现在其作用的变量前面---前缀模式(++a) 如：q = 2*++a; • 首先，a递增1； • 然后，2乘以a，并将结果赋给q 2. &quot;++&quot;出现在其作用的变量后面---后缀模式(a++) 如：q = 2*a++; • 首先，2乘以a，并将结果赋给q； • 然后，a递增1 同理可得： &quot;--&quot;出现在其作用的变量前面 ----&gt; 前缀模式(--a) &quot;--&quot;出现在其作用的变量后面 ----&gt; 后缀模式(a--)]]></content>
+      <tags>
+        <tag>C</tag>
+        <tag>C/C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo博客next主题添加Gitment评论系统]]></title>
+    <url>%2F2019%2F03%2F30%2FHexo%E5%8D%9A%E5%AE%A2next%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0Gitment%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%2F</url>
+    <content type="text"><![CDATA[前言Hexo框架搭建好之后，默认的功能模块有限，因此很多模块需要我们自己去添加，对于我们的博客网站来说，没有评论系统怎么行呢？毕竟我们需要采集良言，及时发现文章的不足并且可以帮助仍有疑问的朋友解答问题。话不多说，我们开始搭建博客的评论系统吧。 Gitment评论系统Gitment简介Gitment 是基于 GitHub Issues 的评论系统，是 imsun 利用 github 上的 issues 做的评论系统。支持在前端直接引入，不需要任何后端代码。可以在页面进行登录、查看、评论、点赞等操作，同时有完整的 Markdown&amp;GFM 和代码高亮支持。尤为适合各种基于 GitHub Pages 的静态博客或项目页面。想了解具体效果，可以点击查看官方Demo Page:Gitment Demo。 注册OAuth Application首先我们先去 OAuth application 进行注册，申请一个 Github OAuth Application。填写参考如下： Application name: 博客名字 Homepage URL: 网站主页地址(这里我填写的是域名或github项目地址/index.html大部分的默认网页都是index.html) Application description: 描述，选填 Authorization callback URL: 填写域名或github项目地址 填写相关信息时注意在 Authorization callback URL 一项填自己的网站url：1https://username.github.io 填写完毕后点击 Register application 若创建成功则将跳转到另外一个界面，此时我们会得到一个 client ID 和一个 client secret，它们将被用于之后的用户登录。 修改 _config.yml我们需要在 Hexo 主题目录下编辑修改 _config.yml 配置文件。不同的主题的配置文件存放路径有所差别，下面以 netx 主题为例说明：1next主题的配置文件路径：&quot;/themes/next/_config.yml&quot; 打开配置文件后，我们搜索关键字“Gitment”将定位到配置位置。默认的配置内容为：1234567891011121314# Gitmentgitment: enable: false mint: true # RECOMMEND, A mint on Gitment, to support count, language and proxy_gateway count: true # Show comments count in post meta area lazy: false # Comments lazy loading with a button cleanly: false # Hide 'Powered by ...' on footer, and more language: # Force language, or auto switch by theme github_user: # MUST HAVE, Your Github ID github_repo: # MUST HAVE, The repo you use to store Gitment comments client_id: # MUST HAVE, Github client id for the Gitment client_secret: # EITHER this or proxy_gateway, Github access secret token for the Gitment proxy_gateway: # Address of api proxy, See: https://github.com/aimingoo/intersect redirect_protocol: # Protocol of redirect_uri with force_redirect_protocol when mint enabled 我们修改成自己的配置内容：123456789101112131415# 添加Gitment评论系统# Gitmentgitment: enable: true # 修改为 true mint: true # RECOMMEND, A mint on Gitment, to support count, language and proxy_gateway count: true # Show comments count in post meta area lazy: false # Comments lazy loading with a button cleanly: false # Hide 'Powered by ...' on footer, and more language: # Force language, or auto switch by theme github_user: 123456 # 填写自己的 github ID github_repo: # MUST HAVE, The repo you use to store Gitment comments client_id: abcd123456abcd # 填写获取到的 client_id client_secret: abcd123456efg # 填写获取到的 client_secret proxy_gateway: # Address of api proxy, See: https://github.com/aimingoo/intersect redirect_protocol: # Protocol of redirect_uri with force_redirect_protocol when mint enabled 获取自己的 Github ID在浏览器中打开下面的地址，”Your github username”需要修改为自己的Github username:1https://api.github.com/users/"Your github username" 验证 在 Hexo 根目录输入：1$ hexo s 浏览器打开地址：1http://localhost:4000/ 浏览自己的一篇博客到最后，如果发现有评论界面则大功告成！如果没有应该时配置信息没写对，请检查自己的配置内容。 最后部署到我们的 Github 上:1$ hexo d -g]]></content>
+      <categories>
+        <category>Hexo相关</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Gitment</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[计算机术语-簇]]></title>
+    <url>%2F2019%2F03%2F30%2F%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%9C%AF%E8%AF%AD-%E7%B0%87%2F</url>
+    <content type="text"><![CDATA[引言 数据存储在硬盘的时候都是以簇为单位，所以无论文件大小是多少，除非正好是簇大小的倍数，否则文件所占用的最后一个簇或多或少都会产生一些剩余的空间，且这些空间又不能给其它文件使用，即使这个文件只有0字节，也不允许两个文件或两个以上的文件共用一个簇，不然会造成数据混乱。 中文名 簇 外文名 CLUST 存储管理 最小单位 属 性 单位名称 本 意 “一群”、“一组” 解 释 一组扇区 微软操作系统（DOS、WINDOWS等）中磁盘文件存储管理的最小单位叫做“簇” 一个文件通常存放在一个或多个簇里，但至少要单独占据一个“簇”。 也就是说两个文件不能存放在同一个簇中。簇（CLUST）的本意就是“一群”、“一组”，即一组扇区(一个磁道可以分割成若干个大小相等的圆弧，叫扇区)的意思。因为扇区的单位太小，因此把它捆在一起，组成一个更大的单位更方便进行灵活管理。簇的大小通常是可以变化的，是由操作系统在所谓“（高级）格式化”时规定的，因此管理也更加灵活。 通俗地讲文件就好比是一个家庭，数据就是人，即家庭成员；所谓簇就是一些单元套房；扇区是组成这些单元套房的一个个大小相等的房间。一个家庭可能住在一套或多套单元房子里，但一套房子不能同时住进两个家庭的成员。 文件系统是操作系统与驱动器之间的接口，当操作系统请求从硬盘里读取一个文件时，会请求相应的文件系统（FAT 16/FAT32/NTFS）打开文件。扇区是磁盘最小的物理存储单元，但由于操作系统无法对数目众多的扇区进行寻址，所以操作系统就将相邻的扇区组合在一起，形成一个簇，然后再对簇进行管理。每个簇可以包括2、4、8、16、32或64个扇区。显然，簇是操作系统所使用的逻辑概念，而非磁盘的物理特性。 为了更好地管理磁盘空间和更高效地从硬盘读取数据，操作系统规定一个簇中只能放置一个文件的内容，因此文件所占用的空间，只能是簇的整数倍；如果文件实际大小小于一簇，它也要占一簇的空间。如果文件实际大小大于一簇，根据逻辑推算，那么该文件就要占两个簇的空间。所以，一般情况下文件所占空间要略大于文件的实际大小，只有在少数情况下，即文件的实际大小恰好是簇的整数倍时，文件的实际大小才会与所占空间完全一致。 一个簇只能容纳一个文件占用，即使这个文件只有0字节，也决不允许两个文件或两个以上的文件共用一个簇，不然会造成数据混乱。]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo基本设置]]></title>
+    <url>%2F2019%2F03%2F30%2FHexo%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>Hexo相关</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[“Hexo+Github Page+个人域名”搭建个人专属博客]]></title>
+    <url>%2F2019%2F03%2F30%2F%E2%80%9CHexo%2BGiuthub_Page-%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D%E2%80%9D%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E4%B8%93%E5%B1%9E%E5%8D%9A%E5%AE%A2%2F</url>
+    <content type="text"><![CDATA[引言Hexo部分Hexo简介安装git安装nodejs安装HexoGithub部分Github创建个人仓库生成SSH并添加将Hexo部署到Github绑定个人域名域名申请域名解析博客域名升级HttpsGithub 从 2009 年开始支持自定义域名，从 2016 年开始 *.github.io 域名支持 Https，从2018年5月14日 GitHub Pages 上的自定义域名也开始支持 Https。Github 和 Let’s Encrypt 合作对建立在其上的自定义域名站点进行的证书颁发和认证。如果之前域名是做的 CNAME 或者 Alias 的 DNS 记录，则直接支持 Https 访问；如果是 A 记录做的解析，则需要更换 A 记录指向的 IP 地址为新的给定地址。最后在 Github Pages 仓库的设置页选中 “Enforce HTTPS” 选项即可。配置过程非常简单，设置完稍等几分钟再次访问自己的主页将会发现已经升级成功！ 后续学习本文中介绍完基于Hexo及Github page搭建专属的个人博客的详细方法。万事开头难，现在我们仅仅是把平台搭建好了，接下来我们应该趁热打铁继续深入学习探索，请参考我的其他文章：[Hexo基本设置][hexo使用技巧][Hexo的专用编辑器-HexoEditor][什么是Markdown？]]]></content>
+      <categories>
+        <category>Hexo相关</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo的专用编辑器-HexoEditor]]></title>
+    <url>%2F2019%2F03%2F30%2FHexo%E7%9A%84%E4%B8%93%E7%94%A8%E7%BC%96%E8%BE%91%E5%99%A8-HexoEditor%2F</url>
+    <content type="text"><![CDATA[引言‘Hexo’ 是一款基于 ‘Node.js’ 的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在 ‘GitHub’ 和 ‘Coding’ 上，是搭建博客的首选框架。 由于 ‘Hexo’ 使用[markdown]语法的纯文本编辑，所以在写作的时候我们需要使用一些工具方能达到事半功倍的效果。 HexoEditor简介接下来要介绍给大家的 ‘HexoEditor’ 便是网上有人针对 ‘Hexo’ 做了优化的 ‘Markdown’ 编辑器，其使用 [Electron] 做框架，修改自 [Moeditor] 支持 Markdown，Latex 等。使用它我们可以为 ‘Hexo’ 下的博客更好的去书写内容。这是HexoEditor的开源项目地址。 快速下载安装在 ‘Github’ 项目中并没有给出，可安装的 ‘releases’ 版本，如想省去麻烦的安装过程请在下面的地址下载。下载地址： Windows x64: https://github.com/zhuzhuyule/HexoEditor/releases/download/v1.5.30/HexoEditor_1.5.30_win_x64.exe Macx64: https://github.com/zhuzhuyule/HexoEditor/releases/download/v1.5.30/HexoEditor_1.5.30_mac_x64.dmg 使用技巧 按键 方法 说明 Tab tabAdd 添加缩进 Shift - Tab tabSubtract 减少缩进 Ctrl - B toggleBlod 切换粗体 Ctrl - I toggleItalic 切换斜体 Ctrl - D toggleDelete 删除当前行 Ctrl - ` toggleComment 切换注解 Ctrl - L toggleUnOrderedList 切换无序列表 Ctrl - Alt - L toggleOrderedList 切换有序列表 Ctrl - ] toggleHeader 降级标题 Ctrl - [ toggleUnHeader 升级标题 Ctrl - = toggleBlockquote 增加引用 Ctrl - - toggleUnBlockquote 减少引用 Ctrl - U drawLink 添加超级链接 Ctrl - Alt - U drawImageLink 添加图片 Ctrl - T drawTable(row col) 添加表格(行 列) Ctrl - V pasteOriginContent 源内容粘贴 Shift - Ctrl - V pasteContent 智能粘贴 Alt - F formatTables 格式化表格 Ctrl - N 新建md文档 Ctrl - H 新建Hexo文档 Ctrl - O 打开md文件 Ctrl - S 保存文档 Shift - Ctrl - S 另存为 Alt - Ctrl - S 打开设置 Ctrl - W 切换写作模式 Ctrl - P 切换预览模式 Ctrl - R 切换阅读模式 提示: 在 Mac OS下, 请使用 Cmd 来代替 Ctrl .]]></content>
+      <categories>
+        <category>Hexo相关</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>tools</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[什么是Markdown？]]></title>
+    <url>%2F2019%2F03%2F30%2F%E4%BB%80%E4%B9%88%E6%98%AFMarkdown%EF%BC%9F%2F</url>
+    <content type="text"><![CDATA[Markdown的简单介绍 Markdown 是由 ‘John Gruber’ 和 ‘Aaron Swartz’ 共同创建的一种轻量级纯文本格式语法。Markdown 可以让用户“以易读、易写的纯文本格式来进行写作，然后可以将其转换为有效格式的 XHTML（或 HTML）“。Markdown 语法只包含一些非常容易记住的符号。其学习曲线平缓；你可以在炒蘑菇的同时一点点学习 Markdown 语法（大约 10 分钟）。通过使用尽可能简单的语法，错误率达到了最小化。除了拥有友好的语法，它还具有直接输出干净、有效的（X）HTML 文件的强大功能。如果你看过我的 HTML 文件，你就会知道这个功能是多么的重要。 ‘Markdown’ 格式语法的主要目标是实现最大的可读性。用户能够以纯文本的形式发布一份 ‘Markdown’ 格式的文件。用 ‘Markdown’ 进行文本写作的一个优点是易于在计算机、智能手机和个人之间共享。几乎所有的内容管理系统都支持 ‘Markdown’ 。它作为一种网络写作格式流行起来，其产生一些被许多服务采用的变种，比如 GitHub 和 Stack Exchange 。 我们可以使用任何文本编辑器来写 ‘Markdown’ 文件。但我建议使用一个专门为这种语法设计的编辑器。这篇文章中所讨论的软件允许你使用 ‘Markdown’ 语法来写各种格式的专业文档，包括博客文章、演示文稿、报告、电子邮件以及幻灯片等。另外，所有的应用都是在开源许可证下发布的，在 Linux、OS X 和 Windows 操作系统下均可用。]]></content>
+      <categories>
+        <category>Hexo相关</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[hexo使用技巧]]></title>
+    <url>%2F2019%2F03%2F30%2Fhexo%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%2F</url>
+    <content type="text"><![CDATA[最近开始使用Hexo写自己的个人博客，下面是对在使用过程中的一些技巧的总结。如果想要阅读官方的帮助文档请移步Hexo帮助文档。 写作篇Hexo使用[markdown]语法的纯文本编辑，文件后缀名.m ,文件默认存放在我们的站点目录下“/source/_post”文件夹下。 创建一篇新文章1$ hexo new [layout] &lt;title&gt; Hexo有三种默认布局：post、page 和 draft，它们分别对应不同的路径，而我们自定义的其他布局和 post 相同，都将储存到 “source/_posts” 文件夹。可以在命令中指定文章的布局（layout），若不指定[layout]则布局将默认为 post，默认布局可以通过修改 _config.yml 中的 default_layout 参数来指定。 部署部署前请确保网络连接，并且当前目录在hexo的根目录。 方法一Hexo 提供了快速方便的一键部署功能，让您只需一条命令就能将网站部署到服务器上。1$ hexo deploy 在开始之前，必须先在 _config.yml 中修改参数，一个正确的部署配置中至少要有 type 参数，例如：12deploy: type: git 还可同时使用多个 deployer，Hexo 会依照顺序执行每个 deployer。12345deploy:- type: git repo:- type: heroku repo: 方法二1hexo d -g 或hexo素质三连123$ hexo clean$ hexo d$ hexo -g Hexo中添加本地图片和使用网络图片方法一 相对引用由于首页和主页相对图片位置不一致，网站首页和内页很可能仅有一处能正常加载。1.调整程序配置文件_config.yml 里的post_asset_folder:这个选项设置为True2.在source下创建/images文件夹，先把图片xx.jpg/png复制到这个文件夹3.最后在xxxx.md中想引入图片时，只需要在xxxx.md中按照markdown的格式引入图片：1![Tip](/images/xx.jpg) 方法二 图床如SMMS图床无需注册以下是测试：1https://i.loli.net/2018/02/09/5a7d6a402e15e.jpg 注：请备份Delete Link,必要时访问此链接删除图片。]]></content>
+      <categories>
+        <category>Hexo相关</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2019%2F03%2F28%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+</search>

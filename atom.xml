@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="Yobe.github.io/"/>
-  <updated>2019-03-31T01:31:44.130Z</updated>
+  <updated>2019-03-31T03:42:24.811Z</updated>
   <id>Yobe.github.io/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo提交搜索引擎收录（Google+Baidu）</title>
+    <link href="Yobe.github.io/2019/03/31/Hexo%E6%8F%90%E4%BA%A4%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95%EF%BC%88Google-Baidu%EF%BC%89/"/>
+    <id>Yobe.github.io/2019/03/31/Hexo提交搜索引擎收录（Google-Baidu）/</id>
+    <published>2019-03-31T03:42:24.000Z</published>
+    <updated>2019-03-31T03:42:24.811Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>递增与减运算符：++与--</title>
+    <link href="Yobe.github.io/2019/03/31/%E9%80%92%E5%A2%9E%E4%B8%8E%E5%87%8F%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%9A++%E4%B8%8E--/"/>
+    <id>Yobe.github.io/2019/03/31/递增与减运算符：++与--/</id>
+    <published>2019-03-31T03:04:12.000Z</published>
+    <updated>2019-03-31T03:12:14.942Z</updated>
+    
+    <content type="html"><![CDATA[<p>紧凑的代码让程序更为整洁，而且通常其生成的机器代码效率更高。</p><h1 id="递增与递减运算符"><a href="#递增与递减运算符" class="headerlink" title="递增与递减运算符"></a>递增与递减运算符</h1><p>递增运算符(increment operator)将其运算对象递增1；递减运算符(decrement operator)将其运算递减1，该运算符以两种方式出现(两种模式的区别在于递增&amp;递减行为发生的时间不同)：</p><pre><code>1. &quot;++&quot;出现在其作用的变量前面---前缀模式(++a)    如：q = 2*++a;        • 首先，a递增1；        • 然后，2乘以a，并将结果赋给q2. &quot;++&quot;出现在其作用的变量后面---后缀模式(a++)    如：q = 2*a++;        • 首先，2乘以a，并将结果赋给q；        • 然后，a递增1</code></pre><p>同理可得：</p><pre><code>&quot;--&quot;出现在其作用的变量前面 ----&gt; 前缀模式(--a)&quot;--&quot;出现在其作用的变量后面 ----&gt; 后缀模式(a--)</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;紧凑的代码让程序更为整洁，而且通常其生成的机器代码效率更高。&lt;/p&gt;
+&lt;h1 id=&quot;递增与递减运算符&quot;&gt;&lt;a href=&quot;#递增与递减运算符&quot; class=&quot;headerlink&quot; title=&quot;递增与递减运算符&quot;&gt;&lt;/a&gt;递增与递减运算符&lt;/h1&gt;&lt;p&gt;递增运算符(in
+      
+    
+    </summary>
+    
+    
+      <category term="C" scheme="Yobe.github.io/tags/C/"/>
+    
+      <category term="C/C++" scheme="Yobe.github.io/tags/C-C/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo博客next主题添加Gitment评论系统</title>
