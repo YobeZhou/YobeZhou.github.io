@@ -1934,7 +1934,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #e3ff7a;
+  background: #8b2078;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2941,8 +2941,8 @@ hr {
   margin-top: 40px;
 }
 .post-button {
-  margin-top: 20px;
-  text-align: left;
+  margin-top: 5px;
+  text-align: right;
 }
 .post-button a {
   padding: 0;
@@ -2964,6 +2964,10 @@ hr {
 }
 .post-button a:hover {
   border-bottom-color: #222;
+}
+.posts-expand .post {
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 .links-of-blogroll-inline .links-of-blogroll-item {
   display: inline-block;
