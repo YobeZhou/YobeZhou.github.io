@@ -92,7 +92,7 @@
 <meta property="og:description" content="前言Hexo框架搭建好之后，默认的功能模块有限，因此很多模块需要我们自己去添加，对于我们的博客网站来说，没有评论系统怎么行呢？毕竟我们需要采集良言，及时发现文章的不足并且可以帮助仍有疑问的朋友解答问题。话不多说，我们开始搭建博客的评论系统吧。 Gitment评论系统我们首先了解一下国内的几个第三方评论系统，如“多说”，“畅言”，“友言”，“新浪云跟贴”：  多说，曾经较火的评论系统，网上介绍文章比">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="/images/Gitment_test_interface.png">
-<meta property="og:updated_time" content="2019-04-01T03:06:04.702Z">
+<meta property="og:updated_time" content="2019-04-01T03:31:32.301Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo博客next主题添加Gitment评论系统">
 <meta name="twitter:description" content="前言Hexo框架搭建好之后，默认的功能模块有限，因此很多模块需要我们自己去添加，对于我们的博客网站来说，没有评论系统怎么行呢？毕竟我们需要采集良言，及时发现文章的不足并且可以帮助仍有疑问的朋友解答问题。话不多说，我们开始搭建博客的评论系统吧。 Gitment评论系统我们首先了解一下国内的几个第三方评论系统，如“多说”，“畅言”，“友言”，“新浪云跟贴”：  多说，曾经较火的评论系统，网上介绍文章比">
@@ -458,8 +458,8 @@
 <p>浏览自己的一篇博客到最后，如果发现有评论界面则大功告成！如果没有应该时配置信息没写对，请检查自己的配置内容。</p>
 <div style="width: auto; margin: auto"><img src="/images/Gitment_test_interface.png" alt="Gitment_test_interface"></div>
 
-
-<p>最后部署到我们的 Github 上:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure></p>
+<p>但是此时出现了错误：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error:Not Found</span><br></pre></td></tr></table></figure></p>
+<p>经过检查后发现是 owner 或 repo 配置错误<br>    将 github_user 直接填写自己的Github用户名即可。<br>最后部署到我们的 Github 上:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -944,7 +944,7 @@ pure.mini.js"></script>
             owner: 'YobeZhou',
             repo: 'Yobe.github.io',
             
-            lang: "zh-Hans" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
             
             oauth: {
             
