@@ -92,7 +92,8 @@
 <meta property="og:description" content="前言Hexo框架搭建好之后，默认的功能模块有限，因此很多模块需要我们自己去添加，对于我们的博客网站来说，没有评论系统怎么行呢？毕竟我们需要采集良言，及时发现文章的不足并且可以帮助仍有疑问的朋友解答问题。话不多说，我们开始搭建博客的评论系统吧。 Gitment评论系统我们首先了解一下国内的几个第三方评论系统，如“多说”，“畅言”，“友言”，“新浪云跟贴”：  多说，曾经较火的评论系统，网上介绍文章比">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="/images/Gitment_test_interface.png">
-<meta property="og:updated_time" content="2019-04-01T03:31:32.301Z">
+<meta property="og:image" content="/images/Gitment_CommentsNotInitialized.png">
+<meta property="og:updated_time" content="2019-04-01T03:48:04.958Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo博客next主题添加Gitment评论系统">
 <meta name="twitter:description" content="前言Hexo框架搭建好之后，默认的功能模块有限，因此很多模块需要我们自己去添加，对于我们的博客网站来说，没有评论系统怎么行呢？毕竟我们需要采集良言，及时发现文章的不足并且可以帮助仍有疑问的朋友解答问题。话不多说，我们开始搭建博客的评论系统吧。 Gitment评论系统我们首先了解一下国内的几个第三方评论系统，如“多说”，“畅言”，“友言”，“新浪云跟贴”：  多说，曾经较火的评论系统，网上介绍文章比">
@@ -398,7 +399,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.1k
+                  1.3k
                 </span>
               
 
@@ -414,7 +415,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  5
                 </span>
               
             </div>
@@ -459,7 +460,15 @@
 <div style="width: auto; margin: auto"><img src="/images/Gitment_test_interface.png" alt="Gitment_test_interface"></div>
 
 <p>但是此时出现了错误：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error:Not Found</span><br></pre></td></tr></table></figure></p>
-<p>经过检查后发现是 owner 或 repo 配置错误<br>    将 github_user 直接填写自己的Github用户名即可。<br>最后部署到我们的 Github 上:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure></p>
+<p>经过检查后发现是 owner 或 repo 配置错误<br>    将 github_user 直接填写自己的Github用户名即可。</p>
+<p>然而此时仍有可能出现如下的问题：<br><img src="/images/Gitment_CommentsNotInitialized.png" alt><br>或英文提示：”Error: Comments Not Initialized”。原因有如下两点：</p>
+<ol>
+<li>在该页面的Gitment评论区登陆GitHub账号</li>
+<li>之前OAuth Application callback填写有误<br>若当点击评论区的“使用Github登陆”跳转出现报错，则可以确定是之前“OAuth Application callback”填写有误，我们需要返回到自己的Github设置上去修改过来：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Github头像下拉菜单 --&gt; Settings --&gt; 左边Developer settings下的OAuth Application --&gt; Register a new application，进入到填写相关信息页面。</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Authorization callback URL 一定要写自己Github Pages的URL.</span><br><span class="line">如：https://Yobe.github.io</span><br></pre></td></tr></table></figure>
+<p>检查无误可正常使用后，即可部署到我们的 Github 上:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -715,7 +724,7 @@ pure.mini.js"></script>
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">8.8k</span>
+    <span title="Site words total count">9k</span>
   
 </div>
 
@@ -766,7 +775,7 @@ pure.mini.js"></script>
 <div class="theme-info">
   <div class="powered-by"></div>
   <span class="post-meta-divider">|</span>
-  <span class="post-count">博客全站共8.8k字</span>
+  <span class="post-count">博客全站共9k字</span>
 </div>
 
 <!-- 底部隐藏由Hexo强力驱动、主题--NexT.Mist -->
