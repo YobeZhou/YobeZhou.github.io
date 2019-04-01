@@ -90,7 +90,7 @@
   <entry>
     <title><![CDATA[“Hexo+Github Page+个人域名”搭建个人专属博客]]></title>
     <url>%2F2019%2F03%2F30%2F%E2%80%9CHexo%2BGiuthub_Page-%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D%E2%80%9D%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E4%B8%93%E5%B1%9E%E5%8D%9A%E5%AE%A2%2F</url>
-    <content type="text"><![CDATA[前言Hexo部分Hexo简介安装git安装nodejs安装HexoGithub部分Github创建个人仓库生成SSH并添加将Hexo部署到Github绑定个人域名域名申请域名解析博客域名升级HttpsGithub 从 2009 年开始支持自定义域名，从 2016 年开始 *.github.io 域名支持 Https，从2018年5月14日 GitHub Pages 上的自定义域名也开始支持 Https。Github 和 Let’s Encrypt 合作对建立在其上的自定义域名站点进行的证书颁发和认证。如果之前域名是做的 CNAME 或者 Alias 的 DNS 记录，则直接支持 Https 访问；如果是 A 记录做的解析，则需要更换 A 记录指向的 IP 地址为新的给定地址。最后在 Github Pages 仓库的设置页选中 “Enforce HTTPS” 选项即可。配置过程非常简单，设置完稍等几分钟再次访问自己的主页将会发现已经升级成功！ 后续学习本文中介绍完基于Hexo及Github page搭建专属的个人博客的详细方法。万事开头难，现在我们仅仅是把平台搭建好了，接下来我们应该趁热打铁继续深入学习探索，请参考我的其他文章：[Hexo基本设置][hexo使用技巧][Hexo的专用编辑器-HexoEditor][什么是Markdown？]]]></content>
+    <content type="text"><![CDATA[前言Hexo部分Hexo简介安装git安装nodejs安装HexoGithub部分Github创建个人仓库生成SSH并添加将Hexo部署到Github绑定个人域名域名申请域名解析博客域名升级HttpsGithub 从 2009 年开始支持自定义域名，从 2016 年开始 *.github.io 域名支持 Https，从2018年5月1日起 GitHub Pages 上的自定义域名也开始支持 Https。Github 和 Let’s Encrypt 合作对建立在其上的自定义域名站点进行的证书颁发和认证。如果之前域名是做的 CNAME 或者 Alias 的 DNS 记录，则直接支持 Https 访问；如果是 A 记录做的解析，则需要更换 A 记录指向的 IP 地址为新的给定地址。最后在 Github Pages 仓库的设置页选中 “Enforce HTTPS” 选项即可。配置过程非常简单，设置完稍等几分钟再次访问自己的主页将会发现已经升级成功！ 后续学习本文中介绍完基于Hexo及Github page搭建专属的个人博客的详细方法。万事开头难，现在我们仅仅是把平台搭建好了，接下来我们应该趁热打铁继续深入学习探索，请参考我的其他文章：[Hexo基本设置][hexo使用技巧][Hexo的专用编辑器-HexoEditor][什么是Markdown？]]]></content>
       <categories>
         <category>Hexo相关</category>
       </categories>
