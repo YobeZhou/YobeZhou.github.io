@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Yobe</title>
+  <title>YobeZhou</title>
   
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="Yobe.github.io/"/>
+  <link href="YobeZhou.github.io/"/>
   <updated>2019-04-01T02:58:57.825Z</updated>
-  <id>Yobe.github.io/</id>
+  <id>YobeZhou.github.io/</id>
   
   <author>
     <name>周岳标</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>标准库函数与运算符的区别</title>
-    <link href="Yobe.github.io/2019/04/01/%E6%A0%87%E5%87%86%E5%BA%93%E5%87%BD%E6%95%B0%E4%B8%8E%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
-    <id>Yobe.github.io/2019/04/01/标准库函数与运算符的区别/</id>
+    <link href="YobeZhou.github.io/2019/04/01/%E6%A0%87%E5%87%86%E5%BA%93%E5%87%BD%E6%95%B0%E4%B8%8E%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>YobeZhou.github.io/2019/04/01/标准库函数与运算符的区别/</id>
     <published>2019-04-01T02:26:52.000Z</published>
     <updated>2019-04-01T02:58:57.825Z</updated>
     
@@ -34,19 +34,19 @@
     
     </summary>
     
-      <category term="C/C++" scheme="Yobe.github.io/categories/C-C/"/>
+      <category term="C/C++" scheme="YobeZhou.github.io/categories/C-C/"/>
     
     
-      <category term="C" scheme="Yobe.github.io/tags/C/"/>
+      <category term="C" scheme="YobeZhou.github.io/tags/C/"/>
     
-      <category term="C++" scheme="Yobe.github.io/tags/C/"/>
+      <category term="C++" scheme="YobeZhou.github.io/tags/C/"/>
     
   </entry>
   
   <entry>
     <title>Hexo博客主页文章展示实用设置</title>
-    <link href="Yobe.github.io/2019/03/31/Hexo%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A1%B5%E6%96%87%E7%AB%A0%E5%B1%95%E7%A4%BA%E5%AE%9E%E7%94%A8%E8%AE%BE%E7%BD%AE/"/>
-    <id>Yobe.github.io/2019/03/31/Hexo博客主页文章展示实用设置/</id>
+    <link href="YobeZhou.github.io/2019/03/31/Hexo%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A1%B5%E6%96%87%E7%AB%A0%E5%B1%95%E7%A4%BA%E5%AE%9E%E7%94%A8%E8%AE%BE%E7%BD%AE/"/>
+    <id>YobeZhou.github.io/2019/03/31/Hexo博客主页文章展示实用设置/</id>
     <published>2019-03-31T14:26:30.000Z</published>
     <updated>2019-03-31T14:32:45.696Z</updated>
     
@@ -61,17 +61,17 @@
     
     </summary>
     
-      <category term="Hexo相关" scheme="Yobe.github.io/categories/Hexo%E7%9B%B8%E5%85%B3/"/>
+      <category term="Hexo相关" scheme="YobeZhou.github.io/categories/Hexo%E7%9B%B8%E5%85%B3/"/>
     
     
-      <category term="Hexo" scheme="Yobe.github.io/tags/Hexo/"/>
+      <category term="Hexo" scheme="YobeZhou.github.io/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>内存的三种地址及其转换</title>
-    <link href="Yobe.github.io/2019/03/31/%E5%86%85%E5%AD%98%E7%9A%84%E4%B8%89%E7%A7%8D%E5%9C%B0%E5%9D%80%E5%8F%8A%E5%85%B6%E8%BD%AC%E6%8D%A2/"/>
-    <id>Yobe.github.io/2019/03/31/内存的三种地址及其转换/</id>
+    <link href="YobeZhou.github.io/2019/03/31/%E5%86%85%E5%AD%98%E7%9A%84%E4%B8%89%E7%A7%8D%E5%9C%B0%E5%9D%80%E5%8F%8A%E5%85%B6%E8%BD%AC%E6%8D%A2/"/>
+    <id>YobeZhou.github.io/2019/03/31/内存的三种地址及其转换/</id>
     <published>2019-03-31T13:09:11.000Z</published>
     <updated>2019-03-31T14:37:06.234Z</updated>
     
@@ -86,21 +86,21 @@
     
     </summary>
     
-      <category term="嵌入式" scheme="Yobe.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+      <category term="嵌入式" scheme="YobeZhou.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
     
     
-      <category term="操作系统" scheme="Yobe.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+      <category term="操作系统" scheme="YobeZhou.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
-      <category term="嵌入式" scheme="Yobe.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+      <category term="嵌入式" scheme="YobeZhou.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
     
-      <category term="硬件" scheme="Yobe.github.io/tags/%E7%A1%AC%E4%BB%B6/"/>
+      <category term="硬件" scheme="YobeZhou.github.io/tags/%E7%A1%AC%E4%BB%B6/"/>
     
   </entry>
   
   <entry>
     <title>Hexo提交搜索引擎收录（Google+Baidu）</title>
-    <link href="Yobe.github.io/2019/03/31/Hexo%E6%8F%90%E4%BA%A4%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95%EF%BC%88Google-Baidu%EF%BC%89/"/>
-    <id>Yobe.github.io/2019/03/31/Hexo提交搜索引擎收录（Google-Baidu）/</id>
+    <link href="YobeZhou.github.io/2019/03/31/Hexo%E6%8F%90%E4%BA%A4%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95%EF%BC%88Google-Baidu%EF%BC%89/"/>
+    <id>YobeZhou.github.io/2019/03/31/Hexo提交搜索引擎收录（Google-Baidu）/</id>
     <published>2019-03-31T03:42:24.000Z</published>
     <updated>2019-03-31T03:42:24.811Z</updated>
     
@@ -113,8 +113,8 @@
   
   <entry>
     <title>递增与减运算符：++与--</title>
-    <link href="Yobe.github.io/2019/03/31/%E9%80%92%E5%A2%9E%E4%B8%8E%E5%87%8F%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%9A++%E4%B8%8E--/"/>
-    <id>Yobe.github.io/2019/03/31/递增与减运算符：++与--/</id>
+    <link href="YobeZhou.github.io/2019/03/31/%E9%80%92%E5%A2%9E%E4%B8%8E%E5%87%8F%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%9A++%E4%B8%8E--/"/>
+    <id>YobeZhou.github.io/2019/03/31/递增与减运算符：++与--/</id>
     <published>2019-03-31T03:04:12.000Z</published>
     <updated>2019-04-01T02:58:12.969Z</updated>
     
@@ -130,19 +130,19 @@
     
     </summary>
     
-      <category term="C/C++" scheme="Yobe.github.io/categories/C-C/"/>
+      <category term="C/C++" scheme="YobeZhou.github.io/categories/C-C/"/>
     
     
-      <category term="C/C++" scheme="Yobe.github.io/tags/C-C/"/>
+      <category term="C" scheme="YobeZhou.github.io/tags/C/"/>
     
-      <category term="C" scheme="Yobe.github.io/tags/C/"/>
+      <category term="C/C++" scheme="YobeZhou.github.io/tags/C-C/"/>
     
   </entry>
   
   <entry>
     <title>Hexo博客next主题添加Gitment评论系统</title>
-    <link href="Yobe.github.io/2019/03/30/Hexo%E5%8D%9A%E5%AE%A2next%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0Gitment%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/"/>
-    <id>Yobe.github.io/2019/03/30/Hexo博客next主题添加Gitment评论系统/</id>
+    <link href="YobeZhou.github.io/2019/03/30/Hexo%E5%8D%9A%E5%AE%A2next%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0Gitment%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/"/>
+    <id>YobeZhou.github.io/2019/03/30/Hexo博客next主题添加Gitment评论系统/</id>
     <published>2019-03-30T14:12:49.000Z</published>
     <updated>2019-04-01T03:48:04.958Z</updated>
     
@@ -157,19 +157,19 @@
     
     </summary>
     
-      <category term="Hexo相关" scheme="Yobe.github.io/categories/Hexo%E7%9B%B8%E5%85%B3/"/>
+      <category term="Hexo相关" scheme="YobeZhou.github.io/categories/Hexo%E7%9B%B8%E5%85%B3/"/>
     
     
-      <category term="Hexo" scheme="Yobe.github.io/tags/Hexo/"/>
+      <category term="Hexo" scheme="YobeZhou.github.io/tags/Hexo/"/>
     
-      <category term="Gitment" scheme="Yobe.github.io/tags/Gitment/"/>
+      <category term="Gitment" scheme="YobeZhou.github.io/tags/Gitment/"/>
     
   </entry>
   
   <entry>
     <title>计算机术语-簇</title>
-    <link href="Yobe.github.io/2019/03/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%9C%AF%E8%AF%AD-%E7%B0%87/"/>
-    <id>Yobe.github.io/2019/03/30/计算机术语-簇/</id>
+    <link href="YobeZhou.github.io/2019/03/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%9C%AF%E8%AF%AD-%E7%B0%87/"/>
+    <id>YobeZhou.github.io/2019/03/30/计算机术语-簇/</id>
     <published>2019-03-30T12:31:06.000Z</published>
     <updated>2019-03-31T14:00:24.123Z</updated>
     
@@ -184,17 +184,17 @@
     
     </summary>
     
-      <category term="操作系统" scheme="Yobe.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+      <category term="操作系统" scheme="YobeZhou.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     
-      <category term="操作系统" scheme="Yobe.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+      <category term="操作系统" scheme="YobeZhou.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
   </entry>
   
   <entry>
     <title>Hexo基本设置</title>
-    <link href="Yobe.github.io/2019/03/30/Hexo%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE/"/>
-    <id>Yobe.github.io/2019/03/30/Hexo基本设置/</id>
+    <link href="YobeZhou.github.io/2019/03/30/Hexo%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE/"/>
+    <id>YobeZhou.github.io/2019/03/30/Hexo基本设置/</id>
     <published>2019-03-30T05:40:16.000Z</published>
     <updated>2019-03-30T15:31:18.317Z</updated>
     
@@ -202,17 +202,17 @@
     
     </summary>
     
-      <category term="Hexo相关" scheme="Yobe.github.io/categories/Hexo%E7%9B%B8%E5%85%B3/"/>
+      <category term="Hexo相关" scheme="YobeZhou.github.io/categories/Hexo%E7%9B%B8%E5%85%B3/"/>
     
     
-      <category term="Hexo" scheme="Yobe.github.io/tags/Hexo/"/>
+      <category term="Hexo" scheme="YobeZhou.github.io/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>“Hexo+Github Page+个人域名”搭建个人专属博客</title>
-    <link href="Yobe.github.io/2019/03/30/%E2%80%9CHexo+Giuthub_Page-%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D%E2%80%9D%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E4%B8%93%E5%B1%9E%E5%8D%9A%E5%AE%A2/"/>
-    <id>Yobe.github.io/2019/03/30/“Hexo+Giuthub_Page-个人域名”搭建个人专属博客/</id>
+    <link href="YobeZhou.github.io/2019/03/30/%E2%80%9CHexo+Giuthub_Page-%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D%E2%80%9D%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E4%B8%93%E5%B1%9E%E5%8D%9A%E5%AE%A2/"/>
+    <id>YobeZhou.github.io/2019/03/30/“Hexo+Giuthub_Page-个人域名”搭建个人专属博客/</id>
     <published>2019-03-30T05:29:53.000Z</published>
     <updated>2019-03-31T13:59:54.667Z</updated>
     
@@ -227,17 +227,17 @@
     
     </summary>
     
-      <category term="Hexo相关" scheme="Yobe.github.io/categories/Hexo%E7%9B%B8%E5%85%B3/"/>
+      <category term="Hexo相关" scheme="YobeZhou.github.io/categories/Hexo%E7%9B%B8%E5%85%B3/"/>
     
     
-      <category term="Hexo" scheme="Yobe.github.io/tags/Hexo/"/>
+      <category term="Hexo" scheme="YobeZhou.github.io/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>Hexo的专用编辑器-HexoEditor</title>
-    <link href="Yobe.github.io/2019/03/30/Hexo%E7%9A%84%E4%B8%93%E7%94%A8%E7%BC%96%E8%BE%91%E5%99%A8-HexoEditor/"/>
-    <id>Yobe.github.io/2019/03/30/Hexo的专用编辑器-HexoEditor/</id>
+    <link href="YobeZhou.github.io/2019/03/30/Hexo%E7%9A%84%E4%B8%93%E7%94%A8%E7%BC%96%E8%BE%91%E5%99%A8-HexoEditor/"/>
+    <id>YobeZhou.github.io/2019/03/30/Hexo的专用编辑器-HexoEditor/</id>
     <published>2019-03-30T03:41:40.000Z</published>
     <updated>2019-03-31T14:00:15.572Z</updated>
     
@@ -252,19 +252,19 @@
     
     </summary>
     
-      <category term="Hexo相关" scheme="Yobe.github.io/categories/Hexo%E7%9B%B8%E5%85%B3/"/>
+      <category term="Hexo相关" scheme="YobeZhou.github.io/categories/Hexo%E7%9B%B8%E5%85%B3/"/>
     
     
-      <category term="Hexo" scheme="Yobe.github.io/tags/Hexo/"/>
+      <category term="Hexo" scheme="YobeZhou.github.io/tags/Hexo/"/>
     
-      <category term="tools" scheme="Yobe.github.io/tags/tools/"/>
+      <category term="tools" scheme="YobeZhou.github.io/tags/tools/"/>
     
   </entry>
   
   <entry>
     <title>什么是Markdown？</title>
-    <link href="Yobe.github.io/2019/03/30/%E4%BB%80%E4%B9%88%E6%98%AFMarkdown%EF%BC%9F/"/>
-    <id>Yobe.github.io/2019/03/30/什么是Markdown？/</id>
+    <link href="YobeZhou.github.io/2019/03/30/%E4%BB%80%E4%B9%88%E6%98%AFMarkdown%EF%BC%9F/"/>
+    <id>YobeZhou.github.io/2019/03/30/什么是Markdown？/</id>
     <published>2019-03-30T03:31:52.000Z</published>
     <updated>2019-04-01T02:56:36.768Z</updated>
     
@@ -279,17 +279,17 @@
     
     </summary>
     
-      <category term="Hexo相关" scheme="Yobe.github.io/categories/Hexo%E7%9B%B8%E5%85%B3/"/>
+      <category term="Hexo相关" scheme="YobeZhou.github.io/categories/Hexo%E7%9B%B8%E5%85%B3/"/>
     
     
-      <category term="Markdown" scheme="Yobe.github.io/tags/Markdown/"/>
+      <category term="Markdown" scheme="YobeZhou.github.io/tags/Markdown/"/>
     
   </entry>
   
   <entry>
     <title>Hexo使用技巧</title>
-    <link href="Yobe.github.io/2019/03/30/Hexo%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
-    <id>Yobe.github.io/2019/03/30/Hexo使用技巧/</id>
+    <link href="YobeZhou.github.io/2019/03/30/Hexo%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
+    <id>YobeZhou.github.io/2019/03/30/Hexo使用技巧/</id>
     <published>2019-03-30T03:06:08.000Z</published>
     <updated>2019-03-31T14:27:14.450Z</updated>
     
@@ -304,17 +304,17 @@
     
     </summary>
     
-      <category term="Hexo相关" scheme="Yobe.github.io/categories/Hexo%E7%9B%B8%E5%85%B3/"/>
+      <category term="Hexo相关" scheme="YobeZhou.github.io/categories/Hexo%E7%9B%B8%E5%85%B3/"/>
     
     
-      <category term="Hexo" scheme="Yobe.github.io/tags/Hexo/"/>
+      <category term="Hexo" scheme="YobeZhou.github.io/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="Yobe.github.io/2019/03/28/hello-world/"/>
-    <id>Yobe.github.io/2019/03/28/hello-world/</id>
+    <link href="YobeZhou.github.io/2019/03/28/hello-world/"/>
+    <id>YobeZhou.github.io/2019/03/28/hello-world/</id>
     <published>2019-03-28T12:31:54.527Z</published>
     <updated>2019-03-28T12:31:54.527Z</updated>
     
