@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,">
+  <meta name="keywords" content="C,C++,">
 
 
 
@@ -83,18 +83,18 @@
 
 
 
-<meta name="description" content="前言最近开始使用Hexo写自己的个人博客，下面是对在使用过程中的一些技巧的总结。如果想要阅读官方的帮助文档请移步Hexo帮助文档。 写作篇Hexo使用[markdown]语法的纯文本编辑，文件后缀名.m ,文件默认存放在我们的站点目录下“/source/_post”文件夹下。 创建一篇新文章1$ hexo new [layout] &amp;lt;title&amp;gt; Hexo有三种默认布局：post、pa">
-<meta name="keywords" content="Hexo">
+<meta name="description" content="前言malloc与free是C++/C语言的标准库函数，new/delete是C++的运算符。它们都可用于申请动态内存和释放内存。下面来看他们的区别。 标准库函数与运算符的区别一、操作对象有所不同malloc与free是C++/C语言的标准库函数，new/delete是C++的运算符。对于非内部数据类型的对象而言，光用malloc/free无法满足动态对象的要求。 对象在创建的同时要自动执行构造函">
+<meta name="keywords" content="C,C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo使用技巧">
-<meta property="og:url" content="Yobe.github.io/2019/03/30/Hexo使用技巧/index.html">
+<meta property="og:title" content="标准库函数与运算符的区别">
+<meta property="og:url" content="Yobe.github.io/2019/04/01/标准库函数与运算符的区别/index.html">
 <meta property="og:site_name" content="Yobe">
-<meta property="og:description" content="前言最近开始使用Hexo写自己的个人博客，下面是对在使用过程中的一些技巧的总结。如果想要阅读官方的帮助文档请移步Hexo帮助文档。 写作篇Hexo使用[markdown]语法的纯文本编辑，文件后缀名.m ,文件默认存放在我们的站点目录下“/source/_post”文件夹下。 创建一篇新文章1$ hexo new [layout] &amp;lt;title&amp;gt; Hexo有三种默认布局：post、pa">
+<meta property="og:description" content="前言malloc与free是C++/C语言的标准库函数，new/delete是C++的运算符。它们都可用于申请动态内存和释放内存。下面来看他们的区别。 标准库函数与运算符的区别一、操作对象有所不同malloc与free是C++/C语言的标准库函数，new/delete是C++的运算符。对于非内部数据类型的对象而言，光用malloc/free无法满足动态对象的要求。 对象在创建的同时要自动执行构造函">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-31T14:27:14.450Z">
+<meta property="og:updated_time" content="2019-04-01T02:58:57.825Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo使用技巧">
-<meta name="twitter:description" content="前言最近开始使用Hexo写自己的个人博客，下面是对在使用过程中的一些技巧的总结。如果想要阅读官方的帮助文档请移步Hexo帮助文档。 写作篇Hexo使用[markdown]语法的纯文本编辑，文件后缀名.m ,文件默认存放在我们的站点目录下“/source/_post”文件夹下。 创建一篇新文章1$ hexo new [layout] &amp;lt;title&amp;gt; Hexo有三种默认布局：post、pa">
+<meta name="twitter:title" content="标准库函数与运算符的区别">
+<meta name="twitter:description" content="前言malloc与free是C++/C语言的标准库函数，new/delete是C++的运算符。它们都可用于申请动态内存和释放内存。下面来看他们的区别。 标准库函数与运算符的区别一、操作对象有所不同malloc与free是C++/C语言的标准库函数，new/delete是C++的运算符。对于非内部数据类型的对象而言，光用malloc/free无法满足动态对象的要求。 对象在创建的同时要自动执行构造函">
 
 
 
@@ -124,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="Yobe.github.io/2019/03/30/Hexo使用技巧/">
+  <link rel="canonical" href="Yobe.github.io/2019/04/01/标准库函数与运算符的区别/">
 
 
 
 
 
-  <title>Hexo使用技巧 | Yobe</title>
+  <title>标准库函数与运算符的区别 | Yobe</title>
   
 
 
@@ -303,7 +303,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="Yobe.github.io/2019/03/30/Hexo使用技巧/">
+    <link itemprop="mainEntityOfPage" href="Yobe.github.io/2019/04/01/标准库函数与运算符的区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="周岳标">
@@ -320,7 +320,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hexo使用技巧</h1>
+          <h1 class="post-title" itemprop="name headline">标准库函数与运算符的区别</h1>
         
 
         <div class="post-meta">
@@ -332,8 +332,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-30T11:06:08+08:00">
-                2019-03-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-01T10:26:52+08:00">
+                2019-04-01
               </time>
             
 
@@ -355,8 +355,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo相关/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo相关</span>
+                  <a href="/categories/C-C/" itemprop="url" rel="index">
+                    <span itemprop="name">C/C++</span>
                   </a>
                 </span>
 
@@ -373,8 +373,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/03/30/Hexo使用技巧/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/03/30/Hexo使用技巧/" itemprop="commentsCount"></span>
+                <a href="/2019/04/01/标准库函数与运算符的区别/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/04/01/标准库函数与运算符的区别/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -396,7 +396,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  536
+                  1.6k
                 </span>
               
 
@@ -412,7 +412,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  6
                 </span>
               
             </div>
@@ -433,20 +433,40 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近开始使用<a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a>写自己的个人博客，下面是对在使用过程中的一些技巧的总结。如果想要阅读官方的帮助文档请移步<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">Hexo帮助文档</a>。</p>
-<h1 id="写作篇"><a href="#写作篇" class="headerlink" title="写作篇"></a>写作篇</h1><p>Hexo使用[markdown]语法的纯文本编辑，文件后缀名.m ,文件默认存放在我们的站点目录下“/source/_post”文件夹下。</p>
-<h3 id="创建一篇新文章"><a href="#创建一篇新文章" class="headerlink" title="创建一篇新文章"></a>创建一篇新文章</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
-<p>Hexo有三种默认布局：post、page 和 draft，它们分别对应不同的路径，而我们自定义的其他布局和 post 相同，都将储存到 “source/_posts” 文件夹。可以在命令中指定文章的布局（layout），若不指定[layout]则布局将默认为 post，默认布局可以通过修改 _config.yml 中的 default_layout 参数来指定。</p>
-<h1 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h1><p>部署前请确保网络连接，并且当前目录在hexo的根目录。</p>
-<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>Hexo 提供了快速方便的一键部署功能，让您只需一条命令就能将网站部署到服务器上。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></p>
-<p>在开始之前，必须先在 _config.yml 中修改参数，一个正确的部署配置中至少要有 type 参数，例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br></pre></td></tr></table></figure></p>
-<p>还可同时使用多个 deployer，Hexo 会依照顺序执行每个 deployer。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">- <span class="built_in">type</span>: git</span><br><span class="line">  repo:</span><br><span class="line">- <span class="built_in">type</span>: heroku</span><br><span class="line">  repo:</span><br></pre></td></tr></table></figure></p>
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
-<p>或hexo素质三连<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo d</span><br><span class="line">$ hexo -g</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h1 id="Hexo中添加本地图片和使用网络图片"><a href="#Hexo中添加本地图片和使用网络图片" class="headerlink" title="Hexo中添加本地图片和使用网络图片"></a>Hexo中添加本地图片和使用网络图片</h1><h2 id="方法一-相对引用"><a href="#方法一-相对引用" class="headerlink" title="方法一 相对引用"></a>方法一 相对引用</h2><p>由于首页和主页相对图片位置不一致，网站首页和内页很可能仅有一处能正常加载。<br>1.调整程序配置文件_config.yml 里的post_asset_folder:这个选项设置为True<br>2.在source下创建/images文件夹，先把图片xx.jpg/png复制到这个文件夹<br>3.最后在xxxx.md中想引入图片时，只需要在xxxx.md中按照markdown的格式引入图片：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">Tip</span>](<span class="link">/images/xx.jpg</span>)</span><br></pre></td></tr></table></figure></p>
-<h2 id="方法二-图床"><a href="#方法二-图床" class="headerlink" title="方法二 图床"></a>方法二 图床</h2><p>如SMMS图床无需注册<br>以下是测试：<br><figure class="highlight https"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">https://i.loli.net/2018/02/09/5a7d6a402e15e.jpg</span></span><br></pre></td></tr></table></figure></p>
-<p>注：请备份Delete Link,必要时访问此链接删除图片。</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>malloc与free是C++/C语言的标准库函数，new/delete是C++的运算符。它们都可用于申请动态内存和释放内存。下面来看他们的区别。</p>
+<h1 id="标准库函数与运算符的区别"><a href="#标准库函数与运算符的区别" class="headerlink" title="标准库函数与运算符的区别"></a>标准库函数与运算符的区别</h1><h2 id="一、操作对象有所不同"><a href="#一、操作对象有所不同" class="headerlink" title="一、操作对象有所不同"></a>一、操作对象有所不同</h2><p>malloc与free是C++/C语言的标准库函数，new/delete是C++的运算符。对于非内部数据类型的对象而言，光用malloc/free无法满足动态对象的要求。</p>
+<p>对象在创建的同时要自动执行构造函数，对象消亡之前要自动执行析构函数。由于malloc/free是库函数而不是运算符，不在编译器控制权限之内，不能把执行构造函数和析构函数的任务强加于malloc/free（注意：即malloc不会执行对象的构造函数，free不会执行对象的析构函数，而new会自动执行构造函数，delete会自动执行析构函数）。</p>
+<p>运算符是语言自身的特性，它有固定的语义，而且编译器也知道意味着什么。就像 +-*/ 一样，由编译器解释语义，生成相应的代码。 库函数是依赖于库的，没有库就没有它，也就是一定程度上独立于语言的。理论上，编译器不知道也不关心函数的作用，编译器只保证编译函数，以及调用该函数时参数和返回值符合语法，并生成相应 call 函数的代码。但实际中一些高级点的编译器，都会对标准库自带的一些函数进行特别处理。</p>
+<h2 id="二、在用法上也有所不同"><a href="#二、在用法上也有所不同" class="headerlink" title="二、在用法上也有所不同"></a>二、在用法上也有所不同</h2><p>函数malloc的原型如下：<br>void * malloc(size_t size);<br>用malloc 申请一块长度为length 的整数类型的内存，程序如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *p = (<span class="keyword">int</span> *) <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>) * length);</span><br></pre></td></tr></table></figure></p>
+<p>我们应当把注意力集中在两个要素上：“类型转换”和“sizeof”。</p>
+<ol>
+<li><p>malloc返回值的类型是void <em>，所以在调用malloc时要显示地进行类型转换，将void </em> 转换成所需要的指针类型。</p>
+</li>
+<li><p>mallo函数本身并不识别要申请的内存是什么类型，它只关心内存的总字节数。</p>
+</li>
+</ol>
+<p>函数free的原型如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">free</span><span class="params">( <span class="keyword">void</span> * memblock )</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p><strong>为什么free 函数不象malloc 函数那样复杂呢？</strong><br>这是因为指针p的类型以及它所指的内存的容量事先都是知道的，语句free(p)能正确地释放内存。如果p是NULL指针，那么free对p无论操作多少次都不会出问题。如果p不是NULL指针，那么free对p连续操作两次就会导致程序运行错误。</p>
+<h1 id="new-delete的使用要点"><a href="#new-delete的使用要点" class="headerlink" title="new/delete的使用要点"></a>new/delete的使用要点</h1><p>运算符new使用起来要比函数malloc简单得多，例如<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *p1 = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>) * length);  </span><br><span class="line"><span class="keyword">int</span> *p2 = <span class="keyword">new</span> <span class="keyword">int</span>[length];</span><br></pre></td></tr></table></figure></p>
+<p>这是因为new 内置了sizeof、类型转换和类型安全检查功能。对于非内部数据类型的对象而言，new在创建动态对象的同时完成了初始化工作。如果对象有多个构造函数，那么new的语句也可以有多种形式。</p>
+<p>如果new创建对象数组，那么只能使用对象的无参构造函数。例如：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Obj *objects = <span class="keyword">new</span> Obj[<span class="number">100</span>]; <span class="comment">// 创建100 个动态对象</span></span><br></pre></td></tr></table></figure></p>
+<p>不能写成<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Obj *objects = <span class="keyword">new</span> Obj[<span class="number">100</span>](<span class="number">1</span>);<span class="comment">// 创建100 个动态对象的同时赋初值1</span></span><br></pre></td></tr></table></figure></p>
+<p>在用delete 释放对象数组时，留意不要丢了符号‘[ ]’。例如<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> []objects; <span class="comment">// 正确的用法  </span></span><br><span class="line"><span class="keyword">delete</span> objects; <span class="comment">// 错误的用法</span></span><br></pre></td></tr></table></figure></p>
+<p>后者相当于<strong>delete objects[0]</strong>，漏掉了另外99个对象。</p>
+<h2 id="两者区别"><a href="#两者区别" class="headerlink" title="两者区别"></a>两者区别</h2><ol>
+<li>new自动计算需要分配的空间，而malloc需要手工计算字节数</li>
+<li><p>new是类型安全的，而malloc不是，比如：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>* p = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">2</span>]; <span class="comment">// 编译时指出错误  </span></span><br><span class="line"><span class="keyword">int</span>* p = <span class="built_in">malloc</span>(<span class="number">2</span>*<span class="keyword">sizeof</span>(<span class="keyword">float</span>)); <span class="comment">// 编译时无法指出错误</span></span><br></pre></td></tr></table></figure>
+<p> <em>new operator 由两步构成，分别是 operator new 和 construct（构造）</em></p>
+</li>
+<li>operator new对应于malloc，但operator new可以重载，可以自定义内存分配策略，甚至不做内存分配，甚至分配到非内存设备上。而malloc无能为力</li>
+<li>new将调用constructor（构造函数），而malloc不能；delete将调用destructor（析构函数），而free不能。</li>
+<li>malloc/free要库文件支持，new/delete不要。</li>
+</ol>
+<h2 id="本质区别"><a href="#本质区别" class="headerlink" title="本质区别"></a>本质区别</h2><p>malloc/free是c/C++语言的标准库函数，new/delete是C++的运算符。<br>对于用户自定义的对象而言，用malloc/free无法满足动态管理对象的要求。对象在创建的同时要自动执行构造函数，对象在消亡之前要自动执行析构函数。由于malloc/free是库函数而不是运算符，不在编译器控制权限之内，不能够把执行构造函数和析构函数的任务强加于malloc/free。因此，C++需要一个能完成动态内存分配和初始化工作的运算符new，以及一个能完成清理与释放内存工作的运算符delete。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Obj</span>  </span></span><br><span class="line"><span class="class">&#123;</span>  </span><br><span class="line">    <span class="keyword">public</span> :  </span><br><span class="line">    Obj( ) &#123; <span class="built_in">cout</span> &lt;&lt; “Initialization” &lt;&lt; <span class="built_in">endl</span>; &#125;  </span><br><span class="line">    ~ Obj( ) &#123; <span class="built_in">cout</span> &lt;&lt; “Destroy” &lt;&lt; <span class="built_in">endl</span>; &#125;  </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Initialize</span><span class="params">( )</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; “Initialization” &lt;&lt; <span class="built_in">endl</span>; &#125;  </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Destroy</span><span class="params">( )</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; “Destroy” &lt;&lt; <span class="built_in">endl</span>; &#125;  </span><br><span class="line">&#125;;  </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">UseMallocFree</span><span class="params">( )</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    Obj * a = (Obj * ) <span class="built_in">malloc</span>( <span class="keyword">sizeof</span> ( Obj ) ); <span class="comment">// allocate memory   </span></span><br><span class="line">    a -&gt; Initialize(); <span class="comment">// initialization  </span></span><br><span class="line">    <span class="comment">// …   </span></span><br><span class="line">    a -&gt; Destroy(); <span class="comment">// deconstruction   </span></span><br><span class="line">    <span class="built_in">free</span>(a); <span class="comment">// release memory  </span></span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">UseNewDelete</span><span class="params">( <span class="keyword">void</span> )</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    Obj * a = <span class="keyword">new</span> Obj;   </span><br><span class="line">    <span class="comment">// …   </span></span><br><span class="line">    <span class="keyword">delete</span> a;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>类Obj的函数Initialize实现了构造函数的功能，函数Destroy实现了析构函数的功能。函数UseMallocFree中，由于 malloc/free不能执行构造函数与析构函数，必须调用成员函数Initialize和Destroy来完成“构造”与“析构”。（注意：即malloc不会执行对象的构造函数，free不会执行对象的析构函数，而new会自动执行构造函数，delete会自动执行析构函数）。<br>所以我们不要用 malloc/free来完成动态对象的内存管理，应该用new/delete。由于内部数据类型的“对象”没有构造与析构的过程，对它们而言 malloc/free和new/delete是等价的。</p>
+<h2 id="两者的联系"><a href="#两者的联系" class="headerlink" title="两者的联系"></a>两者的联系</h2><p>既然new/delete的功能完全覆盖了malloc /free，为什么C++还保留malloc/free呢？因为C++程序经常要调用C函数，而C程序只能用malloc/free管理动态内存。如果用 free释放“new创建的动态对象”，那么该对象因无法执行析构函数而可能导致程序出错。如果用delete释放“malloc申请的动态内存”，理论上讲程序不会出错，但是该程序的可读性很差。所以new/delete，malloc/free必须配对使用。</p>
 
       
     </div>
@@ -475,7 +495,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+            <a href="/tags/C/" rel="tag"># C</a>
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
           
         </div>
       
@@ -488,8 +510,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/28/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2019/03/31/Hexo博客主页文章展示实用设置/" rel="next" title="Hexo博客主页文章展示实用设置">
+                <i class="fa fa-chevron-left"></i> Hexo博客主页文章展示实用设置
               </a>
             
           </div>
@@ -497,10 +519,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/30/什么是Markdown？/" rel="prev" title="什么是Markdown？">
-                什么是Markdown？ <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -664,7 +682,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#写作篇"><span class="nav-number">2.</span> <span class="nav-text">写作篇</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建一篇新文章"><span class="nav-number">2.0.1.</span> <span class="nav-text">创建一篇新文章</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#部署"><span class="nav-number">3.</span> <span class="nav-text">部署</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一"><span class="nav-number">3.1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二"><span class="nav-number">3.2.</span> <span class="nav-text">方法二</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo中添加本地图片和使用网络图片"><span class="nav-number">4.</span> <span class="nav-text">Hexo中添加本地图片和使用网络图片</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一-相对引用"><span class="nav-number">4.1.</span> <span class="nav-text">方法一 相对引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二-图床"><span class="nav-number">4.2.</span> <span class="nav-text">方法二 图床</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#标准库函数与运算符的区别"><span class="nav-number">2.</span> <span class="nav-text">标准库函数与运算符的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、操作对象有所不同"><span class="nav-number">2.1.</span> <span class="nav-text">一、操作对象有所不同</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、在用法上也有所不同"><span class="nav-number">2.2.</span> <span class="nav-text">二、在用法上也有所不同</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#new-delete的使用要点"><span class="nav-number">3.</span> <span class="nav-text">new/delete的使用要点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#两者区别"><span class="nav-number">3.1.</span> <span class="nav-text">两者区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本质区别"><span class="nav-number">3.2.</span> <span class="nav-text">本质区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两者的联系"><span class="nav-number">3.3.</span> <span class="nav-text">两者的联系</span></a></li></ol></li></ol></div>
             
 
           </div>

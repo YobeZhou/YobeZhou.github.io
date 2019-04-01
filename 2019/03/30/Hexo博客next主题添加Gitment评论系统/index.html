@@ -83,19 +83,19 @@
 
 
 
-<meta name="description" content="前言Hexo框架搭建好之后，默认的功能模块有限，因此很多模块需要我们自己去添加，对于我们的博客网站来说，没有评论系统怎么行呢？毕竟我们需要采集良言，及时发现文章的不足并且可以帮助仍有疑问的朋友解答问题。话不多说，我们开始搭建博客的评论系统吧。 Gitment评论系统Gitment简介Gitment 是基于 GitHub Issues 的评论系统，是 imsun 利用 github 上的 issue">
+<meta name="description" content="前言Hexo框架搭建好之后，默认的功能模块有限，因此很多模块需要我们自己去添加，对于我们的博客网站来说，没有评论系统怎么行呢？毕竟我们需要采集良言，及时发现文章的不足并且可以帮助仍有疑问的朋友解答问题。话不多说，我们开始搭建博客的评论系统吧。 Gitment评论系统我们首先了解一下国内的几个第三方评论系统，如“多说”，“畅言”，“友言”，“新浪云跟贴”：  多说，曾经较火的评论系统，网上介绍文章比">
 <meta name="keywords" content="Hexo,Gitment">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo博客next主题添加Gitment评论系统">
 <meta property="og:url" content="Yobe.github.io/2019/03/30/Hexo博客next主题添加Gitment评论系统/index.html">
 <meta property="og:site_name" content="Yobe">
-<meta property="og:description" content="前言Hexo框架搭建好之后，默认的功能模块有限，因此很多模块需要我们自己去添加，对于我们的博客网站来说，没有评论系统怎么行呢？毕竟我们需要采集良言，及时发现文章的不足并且可以帮助仍有疑问的朋友解答问题。话不多说，我们开始搭建博客的评论系统吧。 Gitment评论系统Gitment简介Gitment 是基于 GitHub Issues 的评论系统，是 imsun 利用 github 上的 issue">
+<meta property="og:description" content="前言Hexo框架搭建好之后，默认的功能模块有限，因此很多模块需要我们自己去添加，对于我们的博客网站来说，没有评论系统怎么行呢？毕竟我们需要采集良言，及时发现文章的不足并且可以帮助仍有疑问的朋友解答问题。话不多说，我们开始搭建博客的评论系统吧。 Gitment评论系统我们首先了解一下国内的几个第三方评论系统，如“多说”，“畅言”，“友言”，“新浪云跟贴”：  多说，曾经较火的评论系统，网上介绍文章比">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="/images/Gitment_test_interface.png">
-<meta property="og:updated_time" content="2019-03-31T01:31:44.130Z">
+<meta property="og:updated_time" content="2019-04-01T02:46:21.406Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo博客next主题添加Gitment评论系统">
-<meta name="twitter:description" content="前言Hexo框架搭建好之后，默认的功能模块有限，因此很多模块需要我们自己去添加，对于我们的博客网站来说，没有评论系统怎么行呢？毕竟我们需要采集良言，及时发现文章的不足并且可以帮助仍有疑问的朋友解答问题。话不多说，我们开始搭建博客的评论系统吧。 Gitment评论系统Gitment简介Gitment 是基于 GitHub Issues 的评论系统，是 imsun 利用 github 上的 issue">
+<meta name="twitter:description" content="前言Hexo框架搭建好之后，默认的功能模块有限，因此很多模块需要我们自己去添加，对于我们的博客网站来说，没有评论系统怎么行呢？毕竟我们需要采集良言，及时发现文章的不足并且可以帮助仍有疑问的朋友解答问题。话不多说，我们开始搭建博客的评论系统吧。 Gitment评论系统我们首先了解一下国内的几个第三方评论系统，如“多说”，“畅言”，“友言”，“新浪云跟贴”：  多说，曾经较火的评论系统，网上介绍文章比">
 <meta name="twitter:image" content="/images/Gitment_test_interface.png">
 
 
@@ -398,7 +398,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  868
+                  1.1k
                 </span>
               
 
@@ -414,7 +414,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  4
                 </span>
               
             </div>
@@ -436,9 +436,12 @@
 
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Hexo框架搭建好之后，默认的功能模块有限，因此很多模块需要我们自己去添加，对于我们的博客网站来说，没有评论系统怎么行呢？毕竟我们需要采集良言，及时发现文章的不足并且可以帮助仍有疑问的朋友解答问题。话不多说，我们开始搭建博客的评论系统吧。</p>
-<h1 id="Gitment评论系统"><a href="#Gitment评论系统" class="headerlink" title="Gitment评论系统"></a>Gitment评论系统</h1><h2 id="Gitment简介"><a href="#Gitment简介" class="headerlink" title="Gitment简介"></a>Gitment简介</h2><p><a href="https://github.com/imsun/gitment" target="_blank" rel="noopener">Gitment</a> 是基于 GitHub Issues 的评论系统，是 imsun 利用 github 上的 issues 做的评论系统。支持在前端直接引入，不需要任何后端代码。可以在页面进行登录、查看、评论、点赞等操作，同时有完整的 Markdown&amp;GFM 和代码高亮支持。尤为适合各种基于 GitHub Pages 的静态博客或项目页面。想了解具体效果，可以点击查看官方Demo Page:<a href="https://imsun.github.io/gitment/" target="_blank" rel="noopener">Gitment Demo</a>。</p>
-<h2 id="注册OAuth-Application"><a href="#注册OAuth-Application" class="headerlink" title="注册OAuth Application"></a>注册OAuth Application</h2><p>首先我们先去 <a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">OAuth application</a> 进行注册，申请一个 Github OAuth Application。填写参考如下：</p>
+<h1 id="Gitment评论系统"><a href="#Gitment评论系统" class="headerlink" title="Gitment评论系统"></a>Gitment评论系统</h1><p>我们首先了解一下国内的几个第三方评论系统，如“多说”，“畅言”，“友言”，“新浪云跟贴”：</p>
 <ol>
+<li>多说，曾经较火的评论系统，网上介绍文章比较多，但已关闭，无法再用了。</li>
+<li>畅言，sohu旗下的，但是需要个人博客备案后才能使用，但github pages个人博客感觉备案比较难。</li>
+<li>友言，jiaThis旗下的，由于时http请求，github pages现在都是https了， 在https站点无法调用http请求，故也无法使用。</li>
+<li>网易云跟贴，曾被当作“多说”的替代品，可惜官方通报说也将在2017.08.01关闭了。<br><strong>Gitment，一款由国内大神imsun开发的基于github issues的评论系统, 具体介绍请看<a href="https://github.com/imsun/gitment" target="_blank" rel="noopener">项目主页</a></strong><h2 id="Gitment简介"><a href="#Gitment简介" class="headerlink" title="Gitment简介"></a>Gitment简介</h2><a href="https://github.com/imsun/gitment" target="_blank" rel="noopener">Gitment</a> 是基于 GitHub Issues 的评论系统，是 imsun 利用 github 上的 issues 做的评论系统。支持在前端直接引入，不需要任何后端代码。可以在页面进行登录、查看、评论、点赞等操作，同时有完整的 Markdown&amp;GFM 和代码高亮支持。尤为适合各种基于 GitHub Pages 的静态博客或项目页面。想了解具体效果，可以点击查看官方Demo Page:<a href="https://imsun.github.io/gitment/" target="_blank" rel="noopener">Gitment Demo</a>。<h2 id="注册OAuth-Application"><a href="#注册OAuth-Application" class="headerlink" title="注册OAuth Application"></a>注册OAuth Application</h2>首先我们先去 <a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">OAuth application</a> 进行注册，申请一个 Github OAuth Application。填写参考如下：</li>
 <li>Application name: 博客名字</li>
 <li>Homepage URL: 网站主页地址(这里我填写的是域名或github项目地址/index.html大部分的默认网页都是index.html)</li>
 <li>Application description: 描述，选填</li>
@@ -598,7 +601,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -609,7 +612,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -620,7 +623,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -641,7 +644,7 @@
             <div class="links-of-author motion-element">
                 
                   <span class="links-of-author-item">
-                    <a href="https://github.com/Bdeny" target="_blank" title="GitHub">
+                    <a href="https://github.com/YobeZhou" target="_blank" title="GitHub">
                       
                         <i class="fa fa-fw fa-globe"></i>GitHub</a>
                   </span>
@@ -712,7 +715,7 @@ pure.mini.js"></script>
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">7k</span>
+    <span title="Site words total count">8.8k</span>
   
 </div>
 
@@ -763,7 +766,7 @@ pure.mini.js"></script>
 <div class="theme-info">
   <div class="powered-by"></div>
   <span class="post-meta-divider">|</span>
-  <span class="post-count">博客全站共7k字</span>
+  <span class="post-count">博客全站共8.8k字</span>
 </div>
 
 <!-- 底部隐藏由Hexo强力驱动、主题--NexT.Mist -->
