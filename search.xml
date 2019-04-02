@@ -89,13 +89,14 @@
   </entry>
   <entry>
     <title><![CDATA[“Hexo+Github Page+个人域名”搭建个人专属博客]]></title>
-    <url>%2F2019%2F03%2F30%2F%E2%80%9CHexo%2BGiuthub_Page-%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D%E2%80%9D%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E4%B8%93%E5%B1%9E%E5%8D%9A%E5%AE%A2%2F</url>
-    <content type="text"><![CDATA[前言Hexo部分Hexo简介安装git安装nodejs安装HexoGithub部分Github创建个人仓库生成SSH并添加将Hexo部署到Github绑定个人域名域名申请域名解析博客域名升级HttpsGithub 从 2009 年开始支持自定义域名，从 2016 年开始 *.github.io 域名支持 Https，从2018年5月1日起 GitHub Pages 上的自定义域名也开始支持 Https。Github 和 Let’s Encrypt 合作对建立在其上的自定义域名站点进行的证书颁发和认证。如果之前域名是做的 CNAME 或者 Alias 的 DNS 记录，则直接支持 Https 访问；如果是 A 记录做的解析，则需要更换 A 记录指向的 IP 地址为新的给定地址。最后在 Github Pages 仓库的设置页选中 “Enforce HTTPS” 选项即可。配置过程非常简单，设置完稍等几分钟再次访问自己的主页将会发现已经升级成功！ 后续学习本文中介绍完基于Hexo及Github page搭建专属的个人博客的详细方法。万事开头难，现在我们仅仅是把平台搭建好了，接下来我们应该趁热打铁继续深入学习探索，请参考我的其他文章：[Hexo基本设置][hexo使用技巧][Hexo的专用编辑器-HexoEditor][什么是Markdown？]]]></content>
+    <url>%2F2019%2F03%2F30%2F%E2%80%9CHexo%2BGithub_Page%2B%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D%E2%80%9D%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E4%B8%93%E5%B1%9E%E5%8D%9A%E5%AE%A2%2F</url>
+    <content type="text"><![CDATA[引言使用 Hexo+Github我们快速的搭建自己的个人博客，整个过程下来我们几乎不需要什么金钱成本（个人服务器上部署可选），所付出的仅仅是自己对于其的时间精力上的管理成本。而 Hexo 基于MakrDown 语法编辑页面，在书写方面我们将得到极大的便利。最后绑定自己的个人域名我们的博客访问过程将更加便利。 本文的操作环境为： Windows 10 64bit。 Hexo简介Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，我们可以非常方便快速地利用靓丽的主题生成自定义的静态网页。 Hexo的优缺点分析 优点 免费 - GitHub 快速 - Node运行环境、前端个人站点首选 简洁 - MarkDown 轻量 - 全部静态文件 支持导入WordPress等博客*不足 更换电脑不变 - 需重新安装环境 静态博客 - 不便于后期维护 多媒体管理不方便 Hexok工作原理hexo 可以理解为是基于node.js制作的一个博客工具，不是我们理解的一个开源的博客系统。我们不需要将 Hexo 部署到我们的服务器上，我们的服务器上保存的，其实是基于在hexo通过markdown编写的文章，然后hexo帮我们生成静态的html页面，然后，将生成的html上传到我们的服务器，也就是说我们可以几乎没有任何成本地搭建一个自己的个人博客。简而言之：hexo是个静态页面生成、上传的工具。 Hexo 环境搭建我们可以在服务器上或在自己的本地电脑上安装部署 Hexo，安装 Hexo 的过程非常简单，只需几分钟即可完成！ 安装前提在安装前，我们必须检查电脑中是否已安装下列应用程序，如果是第一次安装请先去对应的官网下载安装包： Node.js Git 安装Node.jsNode.js的过程非常简单按照提示安装即可，打开cmd命令行，成功界面如下： 安装gitgit的过程非常简单按照提示安装即可，安装成功后我们在电脑上任何位置鼠标右键能够出现如下两个选择： 注意：一般出于安全考虑，只有在Git Bash Here中才能进行Git的相关操作。如果需要在cmd命令行里调用Git，那么就要配置电脑的环境变量Path，或者在安装的时候选择use Git from the Windows Command Prompt。这个可有可无，影响不大，成功配置的界面如图 安装HexoGithub部分Github创建个人仓库生成SSH并添加将Hexo部署到Github绑定个人域名域名申请域名解析博客域名升级HttpsGithub 从 2009 年开始支持自定义域名，从 2016 年开始 *.github.io 域名支持 Https，从2018年5月14日 GitHub Pages 上的自定义域名也开始支持 Https。Github 和 Let’s Encrypt 合作对建立在其上的自定义域名站点进行的证书颁发和认证。如果之前域名是做的 CNAME 或者 Alias 的 DNS 记录，则直接支持 Https 访问；如果是 A 记录做的解析，则需要更换 A 记录指向的 IP 地址为新的给定地址。最后在 Github Pages 仓库的设置页选中 “Enforce HTTPS” 选项即可。配置过程非常简单，设置完稍等几分钟再次访问自己的主页将会发现已经升级成功！ 后续学习本文中介绍完基于Hexo及Github page搭建专属的个人博客的详细方法。万事开头难，现在我们仅仅是把平台搭建好了，接下来我们应该趁热打铁继续深入学习探索，请参考我的其他文章：[Hexo基本设置][hexo使用技巧][Hexo的专用编辑器-HexoEditor][什么是Markdown？]]]></content>
       <categories>
         <category>Hexo相关</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
+        <tag>Github</tag>
       </tags>
   </entry>
   <entry>
