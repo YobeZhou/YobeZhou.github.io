@@ -54,6 +54,17 @@
     <content type="text"></content>
   </entry>
   <entry>
+    <title><![CDATA[Hexo使用技巧]]></title>
+    <url>%2F2019%2F03%2F31%2FHexo%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%2F</url>
+    <content type="text"><![CDATA[前言最近开始使用Hexo写自己的个人博客，下面是对在使用过程中的一些技巧的总结。如果想要阅读官方的帮助文档请移步Hexo帮助文档。 写作篇Hexo使用[markdown]语法的纯文本编辑，文件后缀名.m ,文件默认存放在我们的站点目录下“/source/_post”文件夹下。 创建一篇新文章1$ hexo new [layout] &lt;title&gt; Hexo有三种默认布局：post、page 和 draft，它们分别对应不同的路径，而我们自定义的其他布局和 post 相同，都将储存到 “source/_posts” 文件夹。可以在命令中指定文章的布局（layout），若不指定[layout]则布局将默认为 post，默认布局可以通过修改 _config.yml 中的 default_layout 参数来指定。 部署部署前请确保网络连接，并且当前目录在hexo的根目录。 方法一Hexo 提供了快速方便的一键部署功能，让您只需一条命令就能将网站部署到服务器上。1$ hexo deploy 在开始之前，必须先在 _config.yml 中修改参数，一个正确的部署配置中至少要有 type 参数，例如：12deploy: type: git 还可同时使用多个 deployer，Hexo 会依照顺序执行每个 deployer。12345deploy:- type: git repo:- type: heroku repo: 方法二1hexo d -g 或hexo素质三连123$ hexo clean$ hexo d$ hexo -g Hexo中添加本地图片和使用网络图片方法一 相对引用由于首页和主页相对图片位置不一致，网站首页和内页很可能仅有一处能正常加载。1.调整程序配置文件_config.yml 里的post_asset_folder:这个选项设置为True2.在source下创建/images文件夹，先把图片xx.jpg/png复制到这个文件夹3.最后在xxxx.md中想引入图片时，只需要在xxxx.md中按照markdown的格式引入图片：1![Tip](/images/xx.jpg) 方法二 图床如SMMS图床无需注册以下是测试：1https://i.loli.net/2018/02/09/5a7d6a402e15e.jpg 注：请备份Delete Link,必要时访问此链接删除图片。]]></content>
+      <categories>
+        <category>Hexo相关</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[递增与减运算符：++与--]]></title>
     <url>%2F2019%2F03%2F31%2F%E9%80%92%E5%A2%9E%E4%B8%8E%E5%87%8F%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%9A%2B%2B%E4%B8%8E--%2F</url>
     <content type="text"><![CDATA[前言紧凑的代码让程序更为整洁，而且通常其生成的机器代码效率更高。 递增与递减运算符递增运算符(increment operator)将其运算对象递增1；递减运算符(decrement operator)将其运算递减1，该运算符以两种方式出现(两种模式的区别在于递增&amp;递减行为发生的时间不同)： 1. &quot;++&quot;出现在其作用的变量前面---前缀模式(++a) 如：q = 2*++a; • 首先，a递增1； • 然后，2乘以a，并将结果赋给q 2. &quot;++&quot;出现在其作用的变量后面---后缀模式(a++) 如：q = 2*a++; • 首先，2乘以a，并将结果赋给q； • 然后，a递增1 同理可得： &quot;--&quot;出现在其作用的变量前面 ----&gt; 前缀模式(--a) &quot;--&quot;出现在其作用的变量后面 ----&gt; 后缀模式(a--)]]></content>
@@ -132,17 +143,6 @@
       </categories>
       <tags>
         <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hexo使用技巧]]></title>
-    <url>%2F2019%2F03%2F30%2FHexo%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%2F</url>
-    <content type="text"><![CDATA[前言最近开始使用Hexo写自己的个人博客，下面是对在使用过程中的一些技巧的总结。如果想要阅读官方的帮助文档请移步Hexo帮助文档。 写作篇Hexo使用[markdown]语法的纯文本编辑，文件后缀名.m ,文件默认存放在我们的站点目录下“/source/_post”文件夹下。 创建一篇新文章1$ hexo new [layout] &lt;title&gt; Hexo有三种默认布局：post、page 和 draft，它们分别对应不同的路径，而我们自定义的其他布局和 post 相同，都将储存到 “source/_posts” 文件夹。可以在命令中指定文章的布局（layout），若不指定[layout]则布局将默认为 post，默认布局可以通过修改 _config.yml 中的 default_layout 参数来指定。 部署部署前请确保网络连接，并且当前目录在hexo的根目录。 方法一Hexo 提供了快速方便的一键部署功能，让您只需一条命令就能将网站部署到服务器上。1$ hexo deploy 在开始之前，必须先在 _config.yml 中修改参数，一个正确的部署配置中至少要有 type 参数，例如：12deploy: type: git 还可同时使用多个 deployer，Hexo 会依照顺序执行每个 deployer。12345deploy:- type: git repo:- type: heroku repo: 方法二1hexo d -g 或hexo素质三连123$ hexo clean$ hexo d$ hexo -g Hexo中添加本地图片和使用网络图片方法一 相对引用由于首页和主页相对图片位置不一致，网站首页和内页很可能仅有一处能正常加载。1.调整程序配置文件_config.yml 里的post_asset_folder:这个选项设置为True2.在source下创建/images文件夹，先把图片xx.jpg/png复制到这个文件夹3.最后在xxxx.md中想引入图片时，只需要在xxxx.md中按照markdown的格式引入图片：1![Tip](/images/xx.jpg) 方法二 图床如SMMS图床无需注册以下是测试：1https://i.loli.net/2018/02/09/5a7d6a402e15e.jpg 注：请备份Delete Link,必要时访问此链接删除图片。]]></content>
-      <categories>
-        <category>Hexo相关</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
