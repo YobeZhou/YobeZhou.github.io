@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="操作系统,嵌入式,硬件,">
+  <meta name="keywords" content="Python,TensorFlow,">
 
 
 
@@ -83,18 +83,18 @@
 
 
 
-<meta name="description" content="前言今天我们来学习一下 Linux 下的内存寻址，通常我们在谈内存地址的时候，我们在谈什么呢？所以首先我们得明确三种地址（以80x86微处理器为例）：  逻辑地址（logical address）：机器语言指令中用来指定一个操作数或者一条指令的地址，每一个逻辑地址由一个段和偏移量组成，偏移量指明了从段开始的地方到实际地址之间的距离。 线性地址（linear address 也叫做虚拟地址 virt">
-<meta name="keywords" content="操作系统,嵌入式,硬件">
+<meta name="description" content="前言在使用TensorFlow做物体分类识别时，发现其调用的读取视频帧的 read() 函数时发现其数据处理与数据产生的速度跟不上而导致延迟非常高，甚至内存溢出。1retval, image	=	cv.VideoCapture.read(	[, image]	) 这是因为OpenCV读取视频流时，数据处理程序需要消耗的CPU时间过于长（不同硬件配置情况不可一概而论），而VideoCapture的r">
+<meta name="keywords" content="Python,TensorFlow">
 <meta property="og:type" content="article">
-<meta property="og:title" content="内存的三种地址及其转换">
-<meta property="og:url" content="YobeZhou.github.io/2019/03/31/内存的三种地址及其转换/index.html">
+<meta property="og:title" content="Python多进程解决TensorFlow中的OpenCV视频流读取延迟问题">
+<meta property="og:url" content="YobeZhou.github.io/2019/04/06/Python多进程解决TensorFlow中的OpenCV视频流读取延迟问题/index.html">
 <meta property="og:site_name" content="YobeZhou">
-<meta property="og:description" content="前言今天我们来学习一下 Linux 下的内存寻址，通常我们在谈内存地址的时候，我们在谈什么呢？所以首先我们得明确三种地址（以80x86微处理器为例）：  逻辑地址（logical address）：机器语言指令中用来指定一个操作数或者一条指令的地址，每一个逻辑地址由一个段和偏移量组成，偏移量指明了从段开始的地方到实际地址之间的距离。 线性地址（linear address 也叫做虚拟地址 virt">
+<meta property="og:description" content="前言在使用TensorFlow做物体分类识别时，发现其调用的读取视频帧的 read() 函数时发现其数据处理与数据产生的速度跟不上而导致延迟非常高，甚至内存溢出。1retval, image	=	cv.VideoCapture.read(	[, image]	) 这是因为OpenCV读取视频流时，数据处理程序需要消耗的CPU时间过于长（不同硬件配置情况不可一概而论），而VideoCapture的r">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-31T14:37:06.234Z">
+<meta property="og:updated_time" content="2019-04-06T15:56:43.689Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="内存的三种地址及其转换">
-<meta name="twitter:description" content="前言今天我们来学习一下 Linux 下的内存寻址，通常我们在谈内存地址的时候，我们在谈什么呢？所以首先我们得明确三种地址（以80x86微处理器为例）：  逻辑地址（logical address）：机器语言指令中用来指定一个操作数或者一条指令的地址，每一个逻辑地址由一个段和偏移量组成，偏移量指明了从段开始的地方到实际地址之间的距离。 线性地址（linear address 也叫做虚拟地址 virt">
+<meta name="twitter:title" content="Python多进程解决TensorFlow中的OpenCV视频流读取延迟问题">
+<meta name="twitter:description" content="前言在使用TensorFlow做物体分类识别时，发现其调用的读取视频帧的 read() 函数时发现其数据处理与数据产生的速度跟不上而导致延迟非常高，甚至内存溢出。1retval, image	=	cv.VideoCapture.read(	[, image]	) 这是因为OpenCV读取视频流时，数据处理程序需要消耗的CPU时间过于长（不同硬件配置情况不可一概而论），而VideoCapture的r">
 
 
 
@@ -124,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="YobeZhou.github.io/2019/03/31/内存的三种地址及其转换/">
+  <link rel="canonical" href="YobeZhou.github.io/2019/04/06/Python多进程解决TensorFlow中的OpenCV视频流读取延迟问题/">
 
 
 
 
 
-  <title>内存的三种地址及其转换 | YobeZhou</title>
+  <title>Python多进程解决TensorFlow中的OpenCV视频流读取延迟问题 | YobeZhou</title>
   
 
 
@@ -303,7 +303,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="YobeZhou.github.io/2019/03/31/内存的三种地址及其转换/">
+    <link itemprop="mainEntityOfPage" href="YobeZhou.github.io/2019/04/06/Python多进程解决TensorFlow中的OpenCV视频流读取延迟问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="周岳标">
@@ -320,7 +320,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">内存的三种地址及其转换</h1>
+          <h1 class="post-title" itemprop="name headline">Python多进程解决TensorFlow中的OpenCV视频流读取延迟问题</h1>
         
 
         <div class="post-meta">
@@ -332,8 +332,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-31T21:09:11+08:00">
-                2019-03-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-06T23:25:45+08:00">
+                2019-04-06
               </time>
             
 
@@ -355,8 +355,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/嵌入式/" itemprop="url" rel="index">
-                    <span itemprop="name">嵌入式</span>
+                  <a href="/categories/TensorFlow/" itemprop="url" rel="index">
+                    <span itemprop="name">TensorFlow</span>
                   </a>
                 </span>
 
@@ -373,8 +373,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/03/31/内存的三种地址及其转换/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/03/31/内存的三种地址及其转换/" itemprop="commentsCount"></span>
+                <a href="/2019/04/06/Python多进程解决TensorFlow中的OpenCV视频流读取延迟问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/04/06/Python多进程解决TensorFlow中的OpenCV视频流读取延迟问题/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -396,7 +396,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3k
+                  1.5k
                 </span>
               
 
@@ -412,7 +412,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  10
+                  7
                 </span>
               
             </div>
@@ -433,65 +433,20 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天我们来学习一下 Linux 下的内存寻址，通常我们在谈内存地址的时候，我们在谈什么呢？所以首先我们得明确三种地址（以80x86微处理器为例）：</p>
-<ul>
-<li>逻辑地址（logical address）：机器语言指令中用来指定一个操作数或者一条指令的地址，每一个逻辑地址由一个段和偏移量组成，偏移量指明了从段开始的地方到实际地址之间的距离。</li>
-<li>线性地址（linear address 也叫做虚拟地址 virtual address）：是一个 32 位无符号整数，可以用来表达 4GB 的地址，通常用十六进制数表示。</li>
-<li>物理地址（physical address）：用于内存芯片内的内存单元寻址，它们从微处理器的地址引脚发送到内存总线上的电信号对应。<br><em>以上内容来自 《Understanding The Linux Kernel》</em></li>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在使用TensorFlow做物体分类识别时，发现其调用的读取视频帧的 read() 函数时发现其数据处理与数据产生的速度跟不上而导致延迟非常高，甚至内存溢出。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">retval, image	=	cv.VideoCapture.read(	[, image]	)</span><br></pre></td></tr></table></figure></p>
+<p>这是因为OpenCV读取视频流时，数据处理程序需要消耗的CPU时间过于长（不同硬件配置情况不可一概而论），而VideoCapture的read是按帧队列读取，先进先出，所以出现了上面所说的问题。<br>由此联想到我们需要将读取视频数据和处理视频数据的过程分开处理，从而试图消除延迟。</p>
+<h1 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h1><p>我们可以使用多进程或多线程将读取视频数据和处理视频数据的过程分开处理，但是由于实时视频处理术语CPU密集型任务，多线程的优势发挥不出来，因此我们选择多进程方式。</p>
+<h2 id="所用到的库"><a href="#所用到的库" class="headerlink" title="所用到的库"></a>所用到的库</h2><p>实现多进程所用到的库：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> gc</span><br><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Process, Manager</span><br></pre></td></tr></table></figure></p>
+<p>两个子进程：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">write()</span><br><span class="line">read()</span><br></pre></td></tr></table></figure></p>
+<h2 id="在两个子进程中传递参数"><a href="#在两个子进程中传递参数" class="headerlink" title="在两个子进程中传递参数"></a>在两个子进程中传递参数</h2><ul>
+<li>multiprocessing中有Quaue、SimpleQuaue等进程间传参类，以及Manager统领全局。</li>
+<li>使用Manager我们可以在进程键传递字典、列表灯Python原生数据类型</li>
+<li>Quaue时严格的数据结构队列类型<h2 id="在读取进程中得到最新的视频帧数据"><a href="#在读取进程中得到最新的视频帧数据" class="headerlink" title="在读取进程中得到最新的视频帧数据"></a>在读取进程中得到最新的视频帧数据</h2></li>
+<li>首先’VideoCapture’是队列，先进先出。因此我们需要将其转换为压栈存储视频帧数据，才能达到后进先出而获取最新的视频帧数据，因此不能使用Quaue来传递参数。</li>
+<li>为了达到压栈的效果，我们可以使用Python的列表，其append与pop操作可以达到模拟压栈的效果。因此，我们可以使用multiprocessing.Manager.list进行进程间传参类型。<h2 id="清理传参栈"><a href="#清理传参栈" class="headerlink" title="清理传参栈"></a>清理传参栈</h2>由于压栈频率肯定是要比出栈频率高的，时间一长就会在栈中积累大量无法出栈的视频帧，会导致程序崩溃，因此我们需要考虑传参栈自动清理的问题，我们需要一个自动清理的机制：</li>
+<li>我们可以设定传参栈的容量，每当达到这个容量时就直接把栈清空，再利用gc库手动发起一次python垃圾回收。这样就不会导致严重的内存溢出和程序崩溃。<h1 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h1>综上所述，实际上这个程序就是把VideoCapture的队列读取改成了栈读取。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"><span class="comment"># Import packages</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> gc</span><br><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Process, Manager</span><br><span class="line"></span><br><span class="line"><span class="comment"># Import utilites</span></span><br><span class="line"><span class="keyword">from</span> utils <span class="keyword">import</span> label_map_util</span><br><span class="line"><span class="keyword">from</span> utils <span class="keyword">import</span> visualization_utils <span class="keyword">as</span> vis_util</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 向共享缓冲栈中写入数据:</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write</span><span class="params">(stack, cam, top: int)</span> -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    :param cam: 摄像头参数</span></span><br><span class="line"><span class="string">    :param stack: Manager.list对象</span></span><br><span class="line"><span class="string">    :param top: 缓冲栈容量</span></span><br><span class="line"><span class="string">    :return: None</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    print(<span class="string">'Process to write: %s'</span> % os.getpid())</span><br><span class="line"></span><br><span class="line">    video = cv2.VideoCapture(cam)</span><br><span class="line">    ret = video.set(<span class="number">3</span>,<span class="number">640</span>)</span><br><span class="line">    ret = video.set(<span class="number">4</span>,<span class="number">480</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 查询指定属性的值。查询VideoCapture实例使用的后端不支持的属性时返回值0 。</span></span><br><span class="line">    <span class="comment"># 	retval	=	cv.VideoCapture.get(	propId	)</span></span><br><span class="line">    retval = video.get(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">print</span> (cam)</span><br><span class="line">    print(retval)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(video.isOpened()):</span><br><span class="line">        ret, img = video.read()</span><br><span class="line">        <span class="keyword">if</span> ret:</span><br><span class="line">            stack.append(img)</span><br><span class="line">            <span class="comment"># 每到一定容量清空一次缓冲栈</span></span><br><span class="line">            <span class="comment"># 利用gc库，手动清理内存垃圾，防止内存溢出</span></span><br><span class="line">            <span class="keyword">if</span> len(stack) &gt;= top:</span><br><span class="line">                <span class="keyword">del</span> stack[:]</span><br><span class="line">                gc.collect()</span><br><span class="line">        <span class="comment"># Press 'q' to quit</span></span><br><span class="line">            <span class="keyword">if</span> cv2.waitKey(<span class="number">1</span>) == ord(<span class="string">'q'</span>):</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">    <span class="comment"># Clean up</span></span><br><span class="line">    video.release()</span><br><span class="line">    cv2.destroyAllWindows()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在缓冲栈中读取数据:</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read</span><span class="params">(stack)</span> -&gt; <span class="keyword">None</span>:</span></span><br><span class="line"></span><br><span class="line">    DST_IP = <span class="string">"192.168.0.125"</span></span><br><span class="line">    DST_PORT = <span class="number">8888</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">'Process to read: %s'</span> % os.getpid())</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#建立Socket，SOCK_DGRAM表示Socket类型为UDP</span></span><br><span class="line">    print(<span class="string">"Starting socket: UDP..."</span>)</span><br><span class="line">    socket_udp = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)</span><br><span class="line">    <span class="comment">#向目的地址和端口，发送数据</span></span><br><span class="line">    print(<span class="string">"Sending package to %s:%d..."</span> %(DST_IP, DST_PORT))</span><br><span class="line">    dst_addr = (DST_IP, DST_PORT)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Name of the directory containing the object detection module we're using</span></span><br><span class="line">    MODEL_NAME = <span class="string">'inference_graph'</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Grab path to current working directory</span></span><br><span class="line">    CWD_PATH = os.getcwd()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Path to frozen detection graph .pb file, which contains the model that is used</span></span><br><span class="line">    <span class="comment"># for object detection.</span></span><br><span class="line">    PATH_TO_CKPT = os.path.join(CWD_PATH,MODEL_NAME,<span class="string">'frozen_inference_graph.pb'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Path to label map file</span></span><br><span class="line">    PATH_TO_LABELS = os.path.join(CWD_PATH,<span class="string">'training'</span>,<span class="string">'labelmap.pbtxt'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Number of classes the object detector can identify</span></span><br><span class="line">    NUM_CLASSES = <span class="number">4</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">## Load the label map.</span></span><br><span class="line">    <span class="comment"># Label maps map indices to category names, so that when our convolution</span></span><br><span class="line">    <span class="comment"># network predicts `5`, we know that this corresponds to `king`.</span></span><br><span class="line">    <span class="comment"># Here we use internal utility functions, but anything that returns a</span></span><br><span class="line">    <span class="comment"># dictionary mapping integers to appropriate string labels would be fine</span></span><br><span class="line">    label_map = label_map_util.load_labelmap(PATH_TO_LABELS)</span><br><span class="line">    categories = label_map_util.convert_label_map_to_categories(label_map, max_num_classes=NUM_CLASSES, use_display_name=<span class="literal">True</span>)</span><br><span class="line">    category_index = label_map_util.create_category_index(categories)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Load the Tensorflow model into memory.</span></span><br><span class="line">    detection_graph = tf.Graph()</span><br><span class="line">    <span class="keyword">with</span> detection_graph.as_default():</span><br><span class="line">        od_graph_def = tf.GraphDef()</span><br><span class="line">        <span class="keyword">with</span> tf.gfile.GFile(PATH_TO_CKPT, <span class="string">'rb'</span>) <span class="keyword">as</span> fid:</span><br><span class="line">            serialized_graph = fid.read()</span><br><span class="line">            od_graph_def.ParseFromString(serialized_graph)</span><br><span class="line">            tf.import_graph_def(od_graph_def, name=<span class="string">''</span>)</span><br><span class="line"></span><br><span class="line">        sess = tf.Session(graph=detection_graph)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Define input and output tensors (i.e. data) for the object detection classifier</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Input tensor is the image</span></span><br><span class="line">    image_tensor = detection_graph.get_tensor_by_name(<span class="string">'image_tensor:0'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Output tensors are the detection boxes, scores, and classes</span></span><br><span class="line">    <span class="comment"># Each box represents a part of the image where a particular object was detected</span></span><br><span class="line">    detection_boxes = detection_graph.get_tensor_by_name(<span class="string">'detection_boxes:0'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Each score represents level of confidence for each of the objects.</span></span><br><span class="line">    <span class="comment"># The score is shown on the result image, together with the class label.</span></span><br><span class="line">    detection_scores = detection_graph.get_tensor_by_name(<span class="string">'detection_scores:0'</span>)</span><br><span class="line">    detection_classes = detection_graph.get_tensor_by_name(<span class="string">'detection_classes:0'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Number of objects detected</span></span><br><span class="line">    num_detections = detection_graph.get_tensor_by_name(<span class="string">'num_detections:0'</span>)</span><br><span class="line"></span><br><span class="line">    tablename_befor = <span class="string">'init'</span></span><br><span class="line">    count = <span class="number">6</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">        <span class="keyword">if</span> len(stack) != <span class="number">0</span>: </span><br><span class="line">            <span class="comment"># Acquire frame and expand frame dimensions to have shape: [1, None, None, 3]</span></span><br><span class="line">            <span class="comment"># i.e. a single-column array, where each item in the column has the pixel RGB value</span></span><br><span class="line">            frame = stack.pop()</span><br><span class="line"></span><br><span class="line">            frame_expanded = np.expand_dims(frame, axis=<span class="number">0</span>)</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># Perform the actual detection by running the model with the image as input</span></span><br><span class="line">            (boxes, scores, classes, num) = sess.run(</span><br><span class="line">                [detection_boxes, detection_scores, detection_classes, num_detections],</span><br><span class="line">                feed_dict=&#123;image_tensor: frame_expanded&#125;)</span><br><span class="line">            <span class="comment"># Draw the results of the detection (aka 'visulaize the results') </span></span><br><span class="line">            <span class="comment"># visualize boxes and labels on image array</span></span><br><span class="line">            image,tablename = vis_util.my_visualize_boxes_and_labels_on_image_array(</span><br><span class="line">                frame,</span><br><span class="line">                np.squeeze(boxes),</span><br><span class="line">                np.squeeze(classes).astype(np.int32),</span><br><span class="line">                np.squeeze(scores),</span><br><span class="line">                category_index,</span><br><span class="line">                use_normalized_coordinates=<span class="literal">True</span>,</span><br><span class="line">                line_thickness=<span class="number">8</span>,</span><br><span class="line">                min_score_thresh=<span class="number">0.60</span>)</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># All the results have been drawn on the frame, so it's time to display it.	</span></span><br><span class="line">            cv2.imshow(<span class="string">'Object detector'</span>, frame)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> ((tablename_befor != tablename) <span class="keyword">and</span> count &gt; <span class="number">5</span>):</span><br><span class="line">                <span class="keyword">print</span> (tablename)</span><br><span class="line">                <span class="comment"># 2019年4月6日 08点22分 发现识别延迟大、速度较慢、画面不够实时，检查后发现是树莓视频流传输问题*/</span></span><br><span class="line">                <span class="keyword">if</span> tablename == <span class="string">'metal'</span>:</span><br><span class="line">                    socket_udp.sendto(<span class="string">b'metal'</span>, dst_addr)</span><br><span class="line">                <span class="keyword">elif</span> tablename == <span class="string">'plastic'</span>:</span><br><span class="line">                    socket_udp.sendto(<span class="string">b'plastic'</span>, dst_addr)</span><br><span class="line">                <span class="keyword">elif</span> tablename == <span class="string">'paper'</span>:</span><br><span class="line">                    socket_udp.sendto(<span class="string">b'paper'</span>, dst_addr)</span><br><span class="line">                <span class="keyword">elif</span> tablename == <span class="string">'peel'</span>:</span><br><span class="line">                    socket_udp.sendto(<span class="string">b'peel'</span>, dst_addr) </span><br><span class="line">                <span class="comment">#else:</span></span><br><span class="line">                <span class="comment">#    socket_udp.sendto(b'N\A', dst_addr)</span></span><br><span class="line">                <span class="comment">#time.sleep(2)</span></span><br><span class="line">                tablename_befor = tablename</span><br><span class="line">                count = <span class="number">0</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                count = count + <span class="number">1</span></span><br><span class="line">            <span class="comment"># Press 'q' to quit</span></span><br><span class="line">            <span class="keyword">if</span> cv2.waitKey(<span class="number">1</span>) == ord(<span class="string">'q'</span>):</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    </span><br><span class="line">    print(tf.__version__)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># This is needed since the notebook is stored in the object_detection folder.</span></span><br><span class="line">    sys.path.append(<span class="string">".."</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Initialize webcam feed</span></span><br><span class="line">    url = <span class="string">'http://192.168.0.125:8081/'</span></span><br><span class="line">    <span class="comment">#video = cv2.VideoCapture(0)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 父进程创建缓冲栈，并传给各个子进程：</span></span><br><span class="line">    q = Manager().list()</span><br><span class="line">    pw = Process(target=write, args=(q, url, <span class="number">100</span>))</span><br><span class="line">    pr = Process(target=read, args=(q,))</span><br><span class="line"></span><br><span class="line">    pw.start()</span><br><span class="line">    <span class="comment"># 启动子进程pr，读取:</span></span><br><span class="line">    pr.start()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 等待进程结束</span></span><br><span class="line">    pw.join()</span><br><span class="line">    pr.join()</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<p>内存管理单元（Memory Management Unit, MMU）通过分段单元的把一个逻辑地址转换成线性地址，通过分页单元把线性地址转换成物理地址。</p>
-<h1 id="三种内存地址"><a href="#三种内存地址" class="headerlink" title="三种内存地址"></a>三种内存地址</h1><h2 id="逻辑地址"><a href="#逻辑地址" class="headerlink" title="逻辑地址"></a>逻辑地址</h2><p>包含在机器语言指令中用来指定一个操作数或一条指令的地址。这种寻址方式在 80X86 著名的分段结构中表现得尤为具体，它促使 MS-DOS 或 Windows 程序员把程序分成若干段。每一个逻辑地址都是有一个段和偏移量组成，偏移量指明了从段开始的地方到时间地址之间的距离。</p>
-<h2 id="线性地址（虚拟地址）"><a href="#线性地址（虚拟地址）" class="headerlink" title="线性地址（虚拟地址）"></a>线性地址（虚拟地址）</h2><p>是一个32位无符号整数，可以用来表示高达4GB的地址，也就是高达4294967296个内存单元。线性地址通常用十六进制数字表示。</p>
-<h2 id="物理地址"><a href="#物理地址" class="headerlink" title="物理地址"></a>物理地址</h2><p>用于内存芯片级内存单元寻址。它们与从微处理器的地址引脚发送到内存总线上的电信号相对应。物理地址由32位或36位无符号整数表示。</p>
-<p>内存控制单元（MMU）通过一种称为分段单元的硬件电路把一个逻辑地址转换成线性地址</p>
-<h1 id="分段与分页机制"><a href="#分段与分页机制" class="headerlink" title="分段与分页机制"></a>分段与分页机制</h1><p>从 80286 开始，Intel 处理器以两种不同的方式执行地址转换，分别为实模式（real mode）和保护模式（protected mode）。下面我们就展开描述，在保护模式下，硬件的分段机制和分页机制</p>
-<h2 id="分段机制"><a href="#分段机制" class="headerlink" title="分段机制"></a>分段机制</h2><p>段选择符和段寄存器<br>逻辑地址有两部分组成：一个段标识符和一个偏移量。短标识符是一个 16 位的字段，成为段选择符；偏移量是一个 32 位长的字段。<br>为了快速找到段选择符，处理器提供了段寄存器用来存放段选择符，分别为 cs，ss，ds，es，fs，gs。<br>其中有三个有专门的用途：</p>
-<ul>
-<li>cs：代码段寄存器，指向包含程序指令的段</li>
-<li>ss：栈段寄存器，指向包含当前程序栈的段</li>
-<li>ds：数据段寄存器，指向包含静态数据或者全局数据段<br>其中，cs 含有一个两位的字段，用来指明当前的 CPU 特权等级（CPL），0 代表最高等级、3 代表最低等级。 Linux 只用到了 0 和 3，分别称为 内核态 和 用户态</li>
-</ul>
-<h3 id="段描述符"><a href="#段描述符" class="headerlink" title="段描述符"></a>段描述符</h3><p>每个段由一个 8 字节的段描述符表示，描述了段的基本信息。段描述符放在全局描述符表（GDT）或者局部描述符表（LDT）中。<br>通常只会定义一个 GDT，每个进程除了放在 GDT 中的段以外，如还需要创建附加的段，就可以有自己的 LDT。GDT 在主存中的地址和大小存放在 gdtr 控制寄存器中，LDT 的地址和大小则存放在 ldtr 中。<br>段描述符包涵以下关键字段：</p>
-<p>Base：包含段的首字节的线性地址<br>Type：描述了段的类型特征和它的存取权限<br>DPL：限制对这个段的存取权限，表示访问这个段的要求的最小 CPU 特权等级<br>P：Segment-Present 标志，表明当前段是否在内存中。Linux 总是把这个标志设为 1，从来不会把整个段交换到磁盘上去</p>
-<h3 id="分段单元"><a href="#分段单元" class="headerlink" title="分段单元"></a>分段单元</h3><p>那么逻辑地址是如何转换到线性地址的呢？</p>
-<ol>
-<li>先检查段选择符的TI字段，已决定段描述符保存在哪一个描述符表中。TI字段指明描述符是在GDT中（在这种情况下，分段单元从gdtr寄存器中得到GDT的线性基地址）还是在激活的LDT中（在这种情况下，分段单元从ldtr寄存器中得到LDT的线性基地址）</li>
-<li>从段选择符的index字段计算段描述符的地址，index字段的值乘以8，这个结果与gdtr或ldtr寄存器的内容相加</li>
-<li>把逻辑地址的偏移量与段描述符base字段的值相加就得到了线性地址</li>
-</ol>
-<p>第二个称为分页单元的硬件电路把线性地址转化成一个物理地址。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">       分段单元       分页单元</span><br><span class="line">逻辑地址 ----&gt; 线性地址 ----&gt; 物理地址</span><br></pre></td></tr></table></figure></p>
-<p>实际上，分段和分页在某种程度上有点多余，因为它们都可以划分进程的物理地址空间：<br>分段可以给每一个进程分配不同的线性地址空间，而分页可以把同一线性地址空间映射到不同的物理空间，与分段相比，Linux更喜欢使用分页方式。<br>因为当所有进程使用相同的段寄存器值时，内存管理变得更简单，也就是说它们能共享同样的一组线性地址。<br>Linux设计目标之一是可以把它移植到绝大多数流行的处理器平台上。然而，RISC体系结构对分段的支持很有限。<br>在多处理系统中，所有与CPU都共享同一内存；这意味着RAM芯片可以由独立的CPU并发访问。<br>因为在RAM芯片上的读或写操作必须串行的执行。因此一种所谓内存仲裁器的硬件电路插在总线和每个RAM芯片之间，作用是如果某个RAM芯片空闲，就准予一个CPU访问，如果该芯片忙于为另一个处理器提出的请求服务，就延迟这个CPU的访问。<br>即使在单处理器上也使用内存仲裁器，因为单处理器系统中包含有一个叫做DMA控制器的特殊处理器，而DMA控制器与CPU并发操作。<br>在多处理器系统的情况下，因为仲裁器有多个输入端口，所以其结构更加复杂。<br>例如：双Pentium在每个芯片的入口维持一个两端口仲裁器，并在试图使用公用总线前请求两个CPU交换同步信息。</p>
-<p>仲裁器由硬件电路管理，是隐藏的。</p>
-<h3 id="快速访问分段机制"><a href="#快速访问分段机制" class="headerlink" title="快速访问分段机制"></a>快速访问分段机制</h3><p>如果每次都执行上述的过程，可能会比较耗时，因为 GDT 是存储在主存中的，每次都访问主存，可能会比较慢，所以为了提高逻辑地址到线性地址的转换速度，80x86 处理器提供了一组6个不可编程寄存器。每一个不可编程寄存器含有 8 个字节的段描述符，具体的值由相对应的段寄存器中的段描述符确定。每当一个段选择符被装入段寄存器，相对应的段描述符就由主存装入到对应的不可编程寄存器，这样就可以不需要上面三个过程中的前两个，就可以得到线性地址了。</p>
-<h2 id="分页机制"><a href="#分页机制" class="headerlink" title="分页机制"></a>分页机制</h2><h3 id="页、页框和页表"><a href="#页、页框和页表" class="headerlink" title="页、页框和页表"></a>页、页框和页表</h3><p>分页单元把线性地址转换成物理地址，其中的关键任务是把所请求的访问类型与线性地址的访问权限做对比。</p>
-<ul>
-<li>页：为了更高效和更经济的管理内存，线性地址被分为以固定长度为单位的组，成为页。页内部连续的线性地址空间被映射到连续的物理地址中。这样，内核可以指定一个页的物理地址和对应的存取权限，而不用指定全部线性地址的存取权限。这里说页，同时指一组线性地址以及这组地址包含的数据</li>
-<li>页框：分页单元把所有的 RAM 分成固定长度的页框，每一个页框包含一个页。页框是主存的一部分，因此也是一个存储区域。页和页框相比，前者只是一个数据块，可以存放在页框或者磁盘中。</li>
-<li>页表：把线性地址映射到物理地址的数据结构成为页表，页表存放在主存中，并在启用分页单元之前必须由内核对页表进行适当的初始化</li>
-</ul>
-<h3 id="常规的分页"><a href="#常规的分页" class="headerlink" title="常规的分页"></a>常规的分页</h3><p>从 80386 开始，Intel 处理器的页大小为 4KB。<br>32 位的线性地址被分为 3 个域：</p>
-<ul>
-<li>Directory（目录）：最高 10 位</li>
-<li>Table（页表）：中间 10 位</li>
-<li>Offset（偏移量）：最低 12 位<br>线性地址的转换分两步完成，每一步都基于一种转换表，第一种转换表成为页目录表，第二种转换表成为页表。</li>
-</ul>
-<p>为什么需要两级呢？目的在于减少每个进程页表所需的 RAM 的数量。如果使用简单的一级页表，将需要高达 2^20 个表项来表示每个进程的页表，即时一个进程并不使用所有的地址，二级模式通过职位进程实际使用的那些虚拟内存区请求页表来减少内存容量。每个活动的进程必须有一个页目录，但是却没有必要马上为所有进程的所有页表都分配 RAM，只有在实际需要一个页表时候才给该页表分配 RAM。</p>
-<p>页目录项和页表项的结构如下：</p>
-<ul>
-<li>Present 标志：为 1 则表示页在主存中；如果为 0 则表示不在内存中，如果执行一个地址转换的时候，所需的页表项或者页目录项中的该标志为 0，那么分页单元就把该线性地址存在在控制寄存器 cr2 中，并产生 14 号异常：缺页异常。</li>
-<li>包含页框物理地址最高 20 位的字段</li>
-<li>Dirty：当对页框进行写操作时就设置这个标志</li>
-<li>Read/Write 标志：含有页或者页表的存取权限</li>
-<li>User/Supervisor：含有访问页或者页表所需的特权等级</li>
-</ul>
-<p>了解了以上结构之后，我们看看如何从线性地址转换到物理地址的：</p>
-<ul>
-<li>线性地址中的 Directory 字段决定页目录中的目录项，目录项指向适当的页表</li>
-<li>线性地址中的 Table 字段又决定页表的页表项，页表项含有页所在页框的物理地址</li>
-<li>线性地址中的 Offset 地段决定了页框内的相对位置，由于 offset 为 12 为，所以一页含有 4096 字节的数据</li>
-</ul>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>以上描述的为 80x86 微处理器硬件分页机制，不同架构的 64 位处理器分页机制，大体的思路就是将二级模式拓展为三级（ia64）或者四级（x86_64），以达到对更大范围寻址空间的支持。</p>
-<h1 id="笔记：16进制线性地址转换"><a href="#笔记：16进制线性地址转换" class="headerlink" title="笔记：16进制线性地址转换"></a>笔记：16进制线性地址转换</h1><p>16进制的线性地址转化为地址的物理空间大小。<br>如：0x00000000  -  0x08000000的物理空间大小为128MB<br>    换算：0x08000000 === 134217728 (Bytes)<br>          134217728(Bytes) / 1024 = 131072(KB)<br>          131072(KB) / 1024 = 128(MB)  </p>
 
       
     </div>
@@ -520,11 +475,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/操作系统/" rel="tag"># 操作系统</a>
+            <a href="/tags/Python/" rel="tag"># Python</a>
           
-            <a href="/tags/嵌入式/" rel="tag"># 嵌入式</a>
-          
-            <a href="/tags/硬件/" rel="tag"># 硬件</a>
+            <a href="/tags/TensorFlow/" rel="tag"># TensorFlow</a>
           
         </div>
       
@@ -537,8 +490,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/31/Hexo提交搜索引擎收录（Google-Baidu）/" rel="next" title="Hexo提交搜索引擎收录（Google+Baidu）">
-                <i class="fa fa-chevron-left"></i> Hexo提交搜索引擎收录（Google+Baidu）
+              <a href="/2019/04/05/Qt串口读取连贯数据/" rel="next" title="Qt串口读取连贯数据">
+                <i class="fa fa-chevron-left"></i> Qt串口读取连贯数据
               </a>
             
           </div>
@@ -546,10 +499,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/31/Hexo博客主页文章展示实用设置/" rel="prev" title="Hexo博客主页文章展示实用设置">
-                Hexo博客主页文章展示实用设置 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -713,7 +662,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三种内存地址"><span class="nav-number">2.</span> <span class="nav-text">三种内存地址</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑地址"><span class="nav-number">2.1.</span> <span class="nav-text">逻辑地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性地址（虚拟地址）"><span class="nav-number">2.2.</span> <span class="nav-text">线性地址（虚拟地址）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#物理地址"><span class="nav-number">2.3.</span> <span class="nav-text">物理地址</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分段与分页机制"><span class="nav-number">3.</span> <span class="nav-text">分段与分页机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分段机制"><span class="nav-number">3.1.</span> <span class="nav-text">分段机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#段描述符"><span class="nav-number">3.1.1.</span> <span class="nav-text">段描述符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分段单元"><span class="nav-number">3.1.2.</span> <span class="nav-text">分段单元</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速访问分段机制"><span class="nav-number">3.1.3.</span> <span class="nav-text">快速访问分段机制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分页机制"><span class="nav-number">3.2.</span> <span class="nav-text">分页机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#页、页框和页表"><span class="nav-number">3.2.1.</span> <span class="nav-text">页、页框和页表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常规的分页"><span class="nav-number">3.2.2.</span> <span class="nav-text">常规的分页</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#笔记：16进制线性地址转换"><span class="nav-number">5.</span> <span class="nav-text">笔记：16进制线性地址转换</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#思路分析"><span class="nav-number">2.</span> <span class="nav-text">思路分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#所用到的库"><span class="nav-number">2.1.</span> <span class="nav-text">所用到的库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在两个子进程中传递参数"><span class="nav-number">2.2.</span> <span class="nav-text">在两个子进程中传递参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在读取进程中得到最新的视频帧数据"><span class="nav-number">2.3.</span> <span class="nav-text">在读取进程中得到最新的视频帧数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清理传参栈"><span class="nav-number">2.4.</span> <span class="nav-text">清理传参栈</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现代码"><span class="nav-number">3.</span> <span class="nav-text">实现代码</span></a></li></ol></div>
             
 
           </div>
