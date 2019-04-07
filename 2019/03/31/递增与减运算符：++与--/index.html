@@ -83,18 +83,18 @@
 
 
 
-<meta name="description" content="前言紧凑的代码让程序更为整洁，而且通常其生成的机器代码效率更高。 递增与递减运算符递增运算符(increment operator)将其运算对象递增1；递减运算符(decrement operator)将其运算递减1，该运算符以两种方式出现(两种模式的区别在于递增&amp;amp;递减行为发生的时间不同)： 1. &amp;quot;++&amp;quot;出现在其作用的变量前面---前缀模式(++a)     如：q">
+<meta name="description" content="前言&amp;emsp;紧凑的代码让程序更为整洁，而且通常其生成的机器代码效率更高。 递增与递减运算符&amp;emsp;递增运算符(increment operator)将其运算对象递增1；递减运算符(decrement operator)将其运算递减1，该运算符以两种方式出现(两种模式的区别在于递增&amp;amp;递减行为发生的时间不同)： 1. &amp;quot;++&amp;quot;出现在其作用的变量前面---前缀模式(+">
 <meta name="keywords" content="C,C&#x2F;C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="递增与减运算符：++与--">
 <meta property="og:url" content="YobeZhou.github.io/2019/03/31/递增与减运算符：++与--/index.html">
 <meta property="og:site_name" content="YobeZhou">
-<meta property="og:description" content="前言紧凑的代码让程序更为整洁，而且通常其生成的机器代码效率更高。 递增与递减运算符递增运算符(increment operator)将其运算对象递增1；递减运算符(decrement operator)将其运算递减1，该运算符以两种方式出现(两种模式的区别在于递增&amp;amp;递减行为发生的时间不同)： 1. &amp;quot;++&amp;quot;出现在其作用的变量前面---前缀模式(++a)     如：q">
+<meta property="og:description" content="前言&amp;emsp;紧凑的代码让程序更为整洁，而且通常其生成的机器代码效率更高。 递增与递减运算符&amp;emsp;递增运算符(increment operator)将其运算对象递增1；递减运算符(decrement operator)将其运算递减1，该运算符以两种方式出现(两种模式的区别在于递增&amp;amp;递减行为发生的时间不同)： 1. &amp;quot;++&amp;quot;出现在其作用的变量前面---前缀模式(+">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-01T02:58:12.969Z">
+<meta property="og:updated_time" content="2019-04-07T13:18:42.972Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="递增与减运算符：++与--">
-<meta name="twitter:description" content="前言紧凑的代码让程序更为整洁，而且通常其生成的机器代码效率更高。 递增与递减运算符递增运算符(increment operator)将其运算对象递增1；递减运算符(decrement operator)将其运算递减1，该运算符以两种方式出现(两种模式的区别在于递增&amp;amp;递减行为发生的时间不同)： 1. &amp;quot;++&amp;quot;出现在其作用的变量前面---前缀模式(++a)     如：q">
+<meta name="twitter:description" content="前言&amp;emsp;紧凑的代码让程序更为整洁，而且通常其生成的机器代码效率更高。 递增与递减运算符&amp;emsp;递增运算符(increment operator)将其运算对象递增1；递减运算符(decrement operator)将其运算递减1，该运算符以两种方式出现(两种模式的区别在于递增&amp;amp;递减行为发生的时间不同)： 1. &amp;quot;++&amp;quot;出现在其作用的变量前面---前缀模式(+">
 
 
 
@@ -396,7 +396,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  224
+                  227
                 </span>
               
 
@@ -433,8 +433,8 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>紧凑的代码让程序更为整洁，而且通常其生成的机器代码效率更高。</p>
-<h1 id="递增与递减运算符"><a href="#递增与递减运算符" class="headerlink" title="递增与递减运算符"></a>递增与递减运算符</h1><p>递增运算符(increment operator)将其运算对象递增1；递减运算符(decrement operator)将其运算递减1，该运算符以两种方式出现(两种模式的区别在于递增&amp;递减行为发生的时间不同)：</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp;紧凑的代码让程序更为整洁，而且通常其生成的机器代码效率更高。</p>
+<h1 id="递增与递减运算符"><a href="#递增与递减运算符" class="headerlink" title="递增与递减运算符"></a>递增与递减运算符</h1><p>&emsp;递增运算符(increment operator)将其运算对象递增1；递减运算符(decrement operator)将其运算递减1，该运算符以两种方式出现(两种模式的区别在于递增&amp;递减行为发生的时间不同)：</p>
 <pre><code>1. &quot;++&quot;出现在其作用的变量前面---前缀模式(++a)
     如：q = 2*++a;
         • 首先，a递增1；
@@ -444,7 +444,7 @@
     如：q = 2*a++;
         • 首先，2乘以a，并将结果赋给q；
         • 然后，a递增1
-</code></pre><p>同理可得：</p>
+</code></pre><p>&emsp;同理可得：</p>
 <pre><code>&quot;--&quot;出现在其作用的变量前面 ----&gt; 前缀模式(--a)
 &quot;--&quot;出现在其作用的变量后面 ----&gt; 后缀模式(a--)
 </code></pre>
@@ -702,7 +702,7 @@ pure.mini.js"></script>
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">13.3k</span>
+    <span title="Site words total count">13.4k</span>
   
 </div>
 
@@ -753,7 +753,7 @@ pure.mini.js"></script>
 <div class="theme-info">
   <div class="powered-by"></div>
   <span class="post-meta-divider">|</span>
-  <span class="post-count">博客全站共13.3k字</span>
+  <span class="post-count">博客全站共13.4k字</span>
 </div>
 
 <!-- 底部隐藏由Hexo强力驱动、主题--NexT.Mist -->

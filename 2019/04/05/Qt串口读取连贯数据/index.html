@@ -83,18 +83,18 @@
 
 
 
-<meta name="description" content="前言Qt的“信号与槽”机制极大的便利了内部事件的处理，但是在接收串口数据时我们利用到Qt的这一机制，却发现接收到的数据往往是不连贯的，这是由于当有数据到来时便立即触发读取操作，串口数据发送亦然，借此我们的程序能够及时处理串口中的数据。然而由于串口传输速率以及延迟问题，此时如果没有对接收到的串口数据做缓冲处理，最终导致我们接收到的数据呈现出来的将是断断续续的状态。因此下面的笔记为Qt中加了缓冲区的串">
+<meta name="description" content="前言&amp;emsp;Qt的“信号与槽”机制极大的便利了内部事件的处理，但是在接收串口数据时我们利用到Qt的这一机制，却发现接收到的数据往往是不连贯的，这是由于当有数据到来时便立即触发读取操作，串口数据发送亦然，借此我们的程序能够及时处理串口中的数据。然而由于串口传输速率以及延迟问题，此时如果没有对接收到的串口数据做缓冲处理，最终导致我们接收到的数据呈现出来的将是断断续续的状态。因此下面的笔记为Qt中加">
 <meta name="keywords" content="Qt,C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Qt串口读取连贯数据">
 <meta property="og:url" content="YobeZhou.github.io/2019/04/05/Qt串口读取连贯数据/index.html">
 <meta property="og:site_name" content="YobeZhou">
-<meta property="og:description" content="前言Qt的“信号与槽”机制极大的便利了内部事件的处理，但是在接收串口数据时我们利用到Qt的这一机制，却发现接收到的数据往往是不连贯的，这是由于当有数据到来时便立即触发读取操作，串口数据发送亦然，借此我们的程序能够及时处理串口中的数据。然而由于串口传输速率以及延迟问题，此时如果没有对接收到的串口数据做缓冲处理，最终导致我们接收到的数据呈现出来的将是断断续续的状态。因此下面的笔记为Qt中加了缓冲区的串">
+<meta property="og:description" content="前言&amp;emsp;Qt的“信号与槽”机制极大的便利了内部事件的处理，但是在接收串口数据时我们利用到Qt的这一机制，却发现接收到的数据往往是不连贯的，这是由于当有数据到来时便立即触发读取操作，串口数据发送亦然，借此我们的程序能够及时处理串口中的数据。然而由于串口传输速率以及延迟问题，此时如果没有对接收到的串口数据做缓冲处理，最终导致我们接收到的数据呈现出来的将是断断续续的状态。因此下面的笔记为Qt中加">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-05T01:00:06.899Z">
+<meta property="og:updated_time" content="2019-04-07T13:12:37.437Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Qt串口读取连贯数据">
-<meta name="twitter:description" content="前言Qt的“信号与槽”机制极大的便利了内部事件的处理，但是在接收串口数据时我们利用到Qt的这一机制，却发现接收到的数据往往是不连贯的，这是由于当有数据到来时便立即触发读取操作，串口数据发送亦然，借此我们的程序能够及时处理串口中的数据。然而由于串口传输速率以及延迟问题，此时如果没有对接收到的串口数据做缓冲处理，最终导致我们接收到的数据呈现出来的将是断断续续的状态。因此下面的笔记为Qt中加了缓冲区的串">
+<meta name="twitter:description" content="前言&amp;emsp;Qt的“信号与槽”机制极大的便利了内部事件的处理，但是在接收串口数据时我们利用到Qt的这一机制，却发现接收到的数据往往是不连贯的，这是由于当有数据到来时便立即触发读取操作，串口数据发送亦然，借此我们的程序能够及时处理串口中的数据。然而由于串口传输速率以及延迟问题，此时如果没有对接收到的串口数据做缓冲处理，最终导致我们接收到的数据呈现出来的将是断断续续的状态。因此下面的笔记为Qt中加">
 
 
 
@@ -396,7 +396,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  534
+                  535
                 </span>
               
 
@@ -433,7 +433,7 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Qt的“信号与槽”机制极大的便利了内部事件的处理，但是在接收串口数据时我们利用到Qt的这一机制，却发现接收到的数据往往是不连贯的，这是由于当有数据到来时便立即触发读取操作，串口数据发送亦然，借此我们的程序能够及时处理串口中的数据。然而由于串口传输速率以及延迟问题，此时如果没有对接收到的串口数据做缓冲处理，最终导致我们接收到的数据呈现出来的将是断断续续的状态。<br>因此下面的笔记为Qt中加了缓冲区的串口读取操作。</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp;Qt的“信号与槽”机制极大的便利了内部事件的处理，但是在接收串口数据时我们利用到Qt的这一机制，却发现接收到的数据往往是不连贯的，这是由于当有数据到来时便立即触发读取操作，串口数据发送亦然，借此我们的程序能够及时处理串口中的数据。然而由于串口传输速率以及延迟问题，此时如果没有对接收到的串口数据做缓冲处理，最终导致我们接收到的数据呈现出来的将是断断续续的状态。<br>因此下面的笔记为Qt中加了缓冲区的串口读取操作。</p>
 <h2 id="串口缓冲区读取操作"><a href="#串口缓冲区读取操作" class="headerlink" title="串口缓冲区读取操作"></a>串口缓冲区读取操作</h2><figure class="highlight qt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 创建静态全局变量，用以串口读取缓冲区 */</span></span><br><span class="line">static QByreArry s_serialDataBuf;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*！</span></span><br><span class="line"><span class="comment">  * \rief Qt串口数据读取</span></span><br><span class="line"><span class="comment">  * \param 无输入参数</span></span><br><span class="line"><span class="comment">  * \return 无返回值</span></span><br><span class="line"><span class="comment">  * \attention 仅作参考</span></span><br><span class="line"><span class="comment">  * \author Yobe Zhou</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">void</span> <span class="attribute">MainWindow</span>::readSerialData()</span><br><span class="line">&#123;</span><br><span class="line">    QString readData;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 读取串口数据，当串口有数据到来时马上读取 */</span></span><br><span class="line">    <span class="keyword">const</span> QByreArry bufferData = m_serial-&gt;readAll();</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 将读取到数据追加到缓冲区 */</span></span><br><span class="line">    s_serialDataBuf.append(bufferData);</span><br><span class="line">    <span class="comment">/* 追加数据直到缓冲区有至少一条目标语句 */</span></span><br><span class="line">    <span class="keyword">if</span> (s_serialBuffer.contains(<span class="string">'B'</span>)) &amp;&amp; (s_serialDataBuf.contains(<span class="string">'\n'</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        QString tempString;</span><br><span class="line">        QList&lt;QByteArry&gt; lineList;</span><br><span class="line">        <span class="built_in">int</span> listCount = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        tempString = s_serialDataBuf;</span><br><span class="line">        <span class="comment">/* 根据字头标识分割各条语句 */</span></span><br><span class="line">        lineList = s_serialDataBuf.split(<span class="string">'B'</span>);</span><br><span class="line">        <span class="comment">/* 清空缓冲区用以下一轮接收 */</span></span><br><span class="line">        s_serialDataBuf.clear();</span><br><span class="line">        <span class="comment">/* 确定有多少目标语句 */</span></span><br><span class="line">        listCount = lineList.count();</span><br><span class="line"></span><br><span class="line">        <span class="comment">/* 处理分割后的每条语句 */</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; listCount; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            readData = lineList.at(i);</span><br><span class="line"></span><br><span class="line">            <span class="comment">/* 当出现语句不完整（断句） */</span></span><br><span class="line">            <span class="keyword">if</span> (!(readData.contains(<span class="string">'\n'</span>)))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">/* 当前处理语句为待处理语句的最后一句（有效断句） */</span></span><br><span class="line">                <span class="keyword">if</span> (i == listCount - <span class="number">1</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="comment">/* 为断句补充标识 */</span></span><br><span class="line">                    s_serialDataBUf.append(<span class="string">'B'</span>);</span><br><span class="line">                    <span class="comment">/* 保存断句（存入清空后的缓冲区），承接下一轮接收 */</span></span><br><span class="line">                    s_serialDataBuf.append(readData);</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">/* 不是有效断句，直接跳过 */</span></span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;                </span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">/* 语句中包含标识字符1 */</span></span><br><span class="line">            <span class="keyword">if</span> (readData.contains(<span class="string">"Target character2"</span>))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">/* code */</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">/* 语句中包含标识字符2 */</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (readData.contains(<span class="string">"Target character"</span>))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">/* code */</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">/*....*/</span></span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">/* code */</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
@@ -690,7 +690,7 @@ pure.mini.js"></script>
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">13.3k</span>
+    <span title="Site words total count">13.4k</span>
   
 </div>
 
@@ -741,7 +741,7 @@ pure.mini.js"></script>
 <div class="theme-info">
   <div class="powered-by"></div>
   <span class="post-meta-divider">|</span>
-  <span class="post-count">博客全站共13.3k字</span>
+  <span class="post-count">博客全站共13.4k字</span>
 </div>
 
 <!-- 底部隐藏由Hexo强力驱动、主题--NexT.Mist -->
