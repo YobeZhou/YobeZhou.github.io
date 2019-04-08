@@ -83,18 +83,18 @@
 
 
 
-<meta name="description" content="前言&amp;emsp;在使用TensorFlow做物体分类识别时，发现其调用的读取视频帧的 read() 函数时发现其数据处理与数据产生的速度跟不上而导致延迟非常高，甚至内存溢出，因此开始思考解决措施。1retval, image = cv.VideoCapture.read([, image]) &amp;emsp;这是因为OpenCV读取视频流时，数据处理程序需要消耗的CPU时间过于长（不同硬件配置情况不可">
+<meta name="description" content="前言&amp;emsp;最近在做的一个项目涉及到TensoFlow。然而在使用TensorFlow做物体分类识别时，发现其调用的读取视频帧的 read() 函数时发现其数据处理与数据产生的速度跟不上而导致延迟非常高，甚至内存溢出，因此开始思考解决措施。1retval, image = cv.VideoCapture.read([, image]) &amp;emsp;这是因为OpenCV读取视频流时，数据处理程序">
 <meta name="keywords" content="Python,TensorFlow">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python多进程解决TensorFlow中的OpenCV视频流读取延迟问题">
 <meta property="og:url" content="YobeZhou.github.io/2019/04/06/Python多进程解决TensorFlow中的OpenCV视频流读取延迟问题/index.html">
 <meta property="og:site_name" content="YobeZhou">
-<meta property="og:description" content="前言&amp;emsp;在使用TensorFlow做物体分类识别时，发现其调用的读取视频帧的 read() 函数时发现其数据处理与数据产生的速度跟不上而导致延迟非常高，甚至内存溢出，因此开始思考解决措施。1retval, image = cv.VideoCapture.read([, image]) &amp;emsp;这是因为OpenCV读取视频流时，数据处理程序需要消耗的CPU时间过于长（不同硬件配置情况不可">
+<meta property="og:description" content="前言&amp;emsp;最近在做的一个项目涉及到TensoFlow。然而在使用TensorFlow做物体分类识别时，发现其调用的读取视频帧的 read() 函数时发现其数据处理与数据产生的速度跟不上而导致延迟非常高，甚至内存溢出，因此开始思考解决措施。1retval, image = cv.VideoCapture.read([, image]) &amp;emsp;这是因为OpenCV读取视频流时，数据处理程序">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-07T13:12:30.441Z">
+<meta property="og:updated_time" content="2019-04-08T15:12:22.905Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python多进程解决TensorFlow中的OpenCV视频流读取延迟问题">
-<meta name="twitter:description" content="前言&amp;emsp;在使用TensorFlow做物体分类识别时，发现其调用的读取视频帧的 read() 函数时发现其数据处理与数据产生的速度跟不上而导致延迟非常高，甚至内存溢出，因此开始思考解决措施。1retval, image = cv.VideoCapture.read([, image]) &amp;emsp;这是因为OpenCV读取视频流时，数据处理程序需要消耗的CPU时间过于长（不同硬件配置情况不可">
+<meta name="twitter:description" content="前言&amp;emsp;最近在做的一个项目涉及到TensoFlow。然而在使用TensorFlow做物体分类识别时，发现其调用的读取视频帧的 read() 函数时发现其数据处理与数据产生的速度跟不上而导致延迟非常高，甚至内存溢出，因此开始思考解决措施。1retval, image = cv.VideoCapture.read([, image]) &amp;emsp;这是因为OpenCV读取视频流时，数据处理程序">
 
 
 
@@ -433,7 +433,7 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp;在使用TensorFlow做物体分类识别时，发现其调用的读取视频帧的 read() 函数时发现其数据处理与数据产生的速度跟不上而导致延迟非常高，甚至内存溢出，因此开始思考解决措施。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">retval, image = cv.VideoCapture.read([, image])</span><br></pre></td></tr></table></figure></p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp;最近在做的一个项目涉及到TensoFlow。然而在使用TensorFlow做物体分类识别时，发现其调用的读取视频帧的 read() 函数时发现其数据处理与数据产生的速度跟不上而导致延迟非常高，甚至内存溢出，因此开始思考解决措施。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">retval, image = cv.VideoCapture.read([, image])</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;这是因为OpenCV读取视频流时，数据处理程序需要消耗的CPU时间过于长（不同硬件配置情况不可一概而论），而VideoCapture的read是按帧队列读取且先进先出，最后导致视频帧数据产生的速度与读取、处理速度不平衡，所以出现了上面所说的问题。<br>由此联想到我们可以试图将需要读取视频数据和处理视频数据的过程分开处理，从而解决延迟问题。</p>
 <h1 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h1><p>&emsp;我们可以使用多进程或多线程将读取视频数据和处理视频数据的过程分开处理，但是由于实时视频处理属于CPU密集型任务，多线程的优势发挥不出来，因此我们选择多进程方式。</p>
 <h2 id="所用到的库"><a href="#所用到的库" class="headerlink" title="所用到的库"></a>所用到的库</h2><p>&emsp;实现多进程所用到的库：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> gc</span><br><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Process, Manager</span><br></pre></td></tr></table></figure></p>
@@ -707,7 +707,7 @@ pure.mini.js"></script>
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">14.7k</span>
+    <span title="Site words total count">14.8k</span>
   
 </div>
 
@@ -758,7 +758,7 @@ pure.mini.js"></script>
 <div class="theme-info">
   <div class="powered-by"></div>
   <span class="post-meta-divider">|</span>
-  <span class="post-count">博客全站共14.7k字</span>
+  <span class="post-count">博客全站共14.8k字</span>
 </div>
 
 <!-- 底部隐藏由Hexo强力驱动、主题--NexT.Mist -->
