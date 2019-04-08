@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>YobeZhou.github.io/about/index.html</loc>
+    
+    <lastmod>2019-04-08T01:05:17.846Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>YobeZhou.github.io/2019/03/31/%E9%80%92%E5%A2%9E%E4%B8%8E%E5%87%8F%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%9A++%E4%B8%8E--/</loc>
     
     <lastmod>2019-04-07T13:18:42.972Z</lastmod>
@@ -51,14 +58,14 @@
   </url>
   
   <url>
-    <loc>YobeZhou.github.io/2019/03/30/Hexo%E5%8D%9A%E5%AE%A2next%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0Gitment%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</loc>
+    <loc>YobeZhou.github.io/2019/03/30/Hexo%E7%9A%84%E4%B8%93%E7%94%A8%E7%BC%96%E8%BE%91%E5%99%A8-HexoEditor/</loc>
     
     <lastmod>2019-04-07T13:12:03.897Z</lastmod>
     
   </url>
   
   <url>
-    <loc>YobeZhou.github.io/2019/03/30/Hexo%E7%9A%84%E4%B8%93%E7%94%A8%E7%BC%96%E8%BE%91%E5%99%A8-HexoEditor/</loc>
+    <loc>YobeZhou.github.io/2019/03/30/Hexo%E5%8D%9A%E5%AE%A2next%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0Gitment%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</loc>
     
     <lastmod>2019-04-07T13:12:03.897Z</lastmod>
     
@@ -117,13 +124,6 @@
     <loc>YobeZhou.github.io/2019/03/31/Hexo%E6%8F%90%E4%BA%A4%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95%EF%BC%88Google-Baidu%EF%BC%89/</loc>
     
     <lastmod>2019-03-31T03:42:24.811Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>YobeZhou.github.io/about/index.html</loc>
-    
-    <lastmod>2019-03-30T16:38:51.959Z</lastmod>
     
   </url>
   
