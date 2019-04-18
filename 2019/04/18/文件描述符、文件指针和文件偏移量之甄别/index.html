@@ -83,17 +83,17 @@
 
 
 
-<meta name="description" content="前言&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;在 C 程序中,文件由文件指针或者文件描述符表示。 文件描述符&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;在 linux 系统中打开文件就会获得文件描述符，它是个很小的正整数。每个进程在 PCB（Process Control Block）中保存着一份文件描述符表，文件描述符就是这个表的索引，每个表项都有一个指向已打开">
+<meta name="description" content="前言&amp;emsp;&amp;emsp;在 C 程序中,文件由文件指针或者文件描述符表示。 文件描述符&amp;emsp;&amp;emsp;在 linux 系统中打开文件就会获得文件描述符，它是个很小的正整数。每个进程在 PCB（Process Control Block）中保存着一份文件描述符表，文件描述符就是这个表的索引，每个表项都有一个指向已打开文件的指针，也就是说每一个文件描述符都是一个问文件的索引，当然也可以出现">
 <meta property="og:type" content="article">
 <meta property="og:title" content="文件描述符、文件指针和文件偏移量之甄别">
 <meta property="og:url" content="YobeZhou.github.io/2019/04/18/文件描述符、文件指针和文件偏移量之甄别/index.html">
 <meta property="og:site_name" content="YobeZhou">
-<meta property="og:description" content="前言&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;在 C 程序中,文件由文件指针或者文件描述符表示。 文件描述符&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;在 linux 系统中打开文件就会获得文件描述符，它是个很小的正整数。每个进程在 PCB（Process Control Block）中保存着一份文件描述符表，文件描述符就是这个表的索引，每个表项都有一个指向已打开">
+<meta property="og:description" content="前言&amp;emsp;&amp;emsp;在 C 程序中,文件由文件指针或者文件描述符表示。 文件描述符&amp;emsp;&amp;emsp;在 linux 系统中打开文件就会获得文件描述符，它是个很小的正整数。每个进程在 PCB（Process Control Block）中保存着一份文件描述符表，文件描述符就是这个表的索引，每个表项都有一个指向已打开文件的指针，也就是说每一个文件描述符都是一个问文件的索引，当然也可以出现">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-18T07:41:55.140Z">
+<meta property="og:updated_time" content="2019-04-18T07:45:15.726Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="文件描述符、文件指针和文件偏移量之甄别">
-<meta name="twitter:description" content="前言&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;在 C 程序中,文件由文件指针或者文件描述符表示。 文件描述符&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;在 linux 系统中打开文件就会获得文件描述符，它是个很小的正整数。每个进程在 PCB（Process Control Block）中保存着一份文件描述符表，文件描述符就是这个表的索引，每个表项都有一个指向已打开">
+<meta name="twitter:description" content="前言&amp;emsp;&amp;emsp;在 C 程序中,文件由文件指针或者文件描述符表示。 文件描述符&amp;emsp;&amp;emsp;在 linux 系统中打开文件就会获得文件描述符，它是个很小的正整数。每个进程在 PCB（Process Control Block）中保存着一份文件描述符表，文件描述符就是这个表的索引，每个表项都有一个指向已打开文件的指针，也就是说每一个文件描述符都是一个问文件的索引，当然也可以出现">
 
 
 
@@ -373,7 +373,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  383
+                  373
                 </span>
               
 
@@ -410,8 +410,8 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp;&emsp;&emsp;&emsp;在 C 程序中,文件由文件指针或者文件描述符表示。</p>
-<h1 id="文件描述符"><a href="#文件描述符" class="headerlink" title="文件描述符"></a>文件描述符</h1><p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;在 linux 系统中打开文件就会获得文件描述符，它是个很小的正整数。每个进程在 PCB（Process Control Block）中保存着一份文件描述符表，文件描述符就是这个表的索引，每个表项都有一个指向已打开文件的指针，也就是说每一个文件描述符都是一个问文件的索引，当然也可以出现多个不同的文件描述符索引同一个文件。<br>Linux标准文件描述符:</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp;&emsp;在 C 程序中,文件由文件指针或者文件描述符表示。</p>
+<h1 id="文件描述符"><a href="#文件描述符" class="headerlink" title="文件描述符"></a>文件描述符</h1><p>&emsp;&emsp;在 linux 系统中打开文件就会获得文件描述符，它是个很小的正整数。每个进程在 PCB（Process Control Block）中保存着一份文件描述符表，文件描述符就是这个表的索引，每个表项都有一个指向已打开文件的指针，也就是说每一个文件描述符都是一个问文件的索引，当然也可以出现多个不同的文件描述符索引同一个文件。<br>Linux标准文件描述符:</p>
 <table>
 <thead>
 <tr>
@@ -438,8 +438,8 @@
 </tr>
 </tbody>
 </table>
-<h1 id="文件指针"><a href="#文件指针" class="headerlink" title="文件指针"></a>文件指针</h1><p>&emsp;&emsp;&emsp;&emsp;C语言中使用文件指针做为 I/O 的句柄。文件指针指向进程用户区中的一个被称为 FILE 结构的数据结构。 FILE 结构包括一个缓冲区和一个文件描述符。而文件描述符是文件描述符表的一个索引，因此从某种意义上说文件指针就是句柄的句柄（在 Windows 系统上，文件描述符被称作文件句柄）。</p>
-<h1 id="文件偏移量"><a href="#文件偏移量" class="headerlink" title="文件偏移量"></a>文件偏移量</h1><p>&emsp;&emsp;&emsp;&emsp;每个打开的文件都有一个与其相关联的“当前文件偏移量”。它通常是一个非负整数，用以度量从文件开始处计算的字节数。</p>
+<h1 id="文件指针"><a href="#文件指针" class="headerlink" title="文件指针"></a>文件指针</h1><p>&emsp;&emsp;C语言中使用文件指针做为 I/O 的句柄。文件指针指向进程用户区中的一个被称为 FILE 结构的数据结构。 FILE 结构包括一个缓冲区和一个文件描述符。而文件描述符是文件描述符表的一个索引，因此从某种意义上说文件指针就是句柄的句柄（在 Windows 系统上，文件描述符被称作文件句柄）。</p>
+<h1 id="文件偏移量"><a href="#文件偏移量" class="headerlink" title="文件偏移量"></a>文件偏移量</h1><p>&emsp;&emsp;每个打开的文件都有一个与其相关联的“当前文件偏移量”。它通常是一个非负整数，用以度量从文件开始处计算的字节数。</p>
 
       
     </div>
