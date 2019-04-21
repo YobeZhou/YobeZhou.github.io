@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="嵌入式Linux,操作系统,">
 
 
 
@@ -83,13 +83,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="YobeZhou">
-<meta property="og:url" content="YobeZhou.github.io/categories/C-C/index.html">
+<meta name="description" content="前言&amp;emsp;&amp;emsp;在嵌入式操作系统中，BootLoader 是系统的一个引导加载程序，其在操作系统内核运行之前运行。BootLoader 可以初始化硬件设备、建立内存空间映射图，从而将系统的软硬件环境带到一个合适状态，以便为最终调用操作系统内核准备好正确的环境。&amp;emsp;&amp;emsp;Bootloader不但依赖于CPU的体系结构，而且依赖于嵌入式系统板级设备的配置。对于嵌入式系统，Bo">
+<meta name="keywords" content="嵌入式Linux,操作系统">
+<meta property="og:type" content="article">
+<meta property="og:title" content="什么是BootLoader？">
+<meta property="og:url" content="YobeZhou.github.io/2019/04/21/什么是Bootloader？/index.html">
 <meta property="og:site_name" content="YobeZhou">
+<meta property="og:description" content="前言&amp;emsp;&amp;emsp;在嵌入式操作系统中，BootLoader 是系统的一个引导加载程序，其在操作系统内核运行之前运行。BootLoader 可以初始化硬件设备、建立内存空间映射图，从而将系统的软硬件环境带到一个合适状态，以便为最终调用操作系统内核准备好正确的环境。&amp;emsp;&amp;emsp;Bootloader不但依赖于CPU的体系结构，而且依赖于嵌入式系统板级设备的配置。对于嵌入式系统，Bo">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-21T01:51:36.100Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YobeZhou">
+<meta name="twitter:title" content="什么是BootLoader？">
+<meta name="twitter:description" content="前言&amp;emsp;&amp;emsp;在嵌入式操作系统中，BootLoader 是系统的一个引导加载程序，其在操作系统内核运行之前运行。BootLoader 可以初始化硬件设备、建立内存空间映射图，从而将系统的软硬件环境带到一个合适状态，以便为最终调用操作系统内核准备好正确的环境。&amp;emsp;&amp;emsp;Bootloader不但依赖于CPU的体系结构，而且依赖于嵌入式系统板级设备的配置。对于嵌入式系统，Bo">
 
 
 
@@ -119,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="YobeZhou.github.io/categories/C-C/">
+  <link rel="canonical" href="YobeZhou.github.io/2019/04/21/什么是Bootloader？/">
 
 
 
 
 
-  <title>分类: C/C++ | YobeZhou</title>
+  <title>什么是BootLoader？ | YobeZhou</title>
   
 
 
@@ -144,7 +149,7 @@
     
   
 
-  <div class="container sidebar-position-right ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
     <!-- a href="https://github.com/Bdeny"><img style="position:absolute; top: 0; left: 0; border: 0;" width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_left_orange_ff7600.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a> -->
     <!-- GitHub Corners: http://tholman.com/github-corners/ -->
@@ -284,79 +289,249 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>C/C++<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="YobeZhou.github.io/2019/04/21/什么是Bootloader？/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="周岳标">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YobeZhou">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/04/01/标准库函数与运算符的区别/" itemprop="url">
-              
-                <span itemprop="name">标准库函数与运算符的区别</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">什么是BootLoader？</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-01T10:26:52+08:00" content="2019-04-01">
-          04-01
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-21T09:15:32+08:00">
+                2019-04-21
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/嵌入式Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">嵌入式Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/04/21/什么是Bootloader？/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/04/21/什么是Bootloader？/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.8k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/03/31/递增与减运算符：++与--/" itemprop="url">
-              
-                <span itemprop="name">递增与减运算符：++与--</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-31T11:04:12+08:00" content="2019-03-31">
-          03-31
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp;&emsp;在嵌入式操作系统中，BootLoader 是系统的一个引导加载程序，其在操作系统内核运行之前运行。BootLoader 可以初始化硬件设备、建立内存空间映射图，从而将系统的软硬件环境带到一个合适状态，以便为最终调用操作系统内核准备好正确的环境。<br>&emsp;&emsp;Bootloader不但依赖于CPU的体系结构，而且依赖于嵌入式系统板级设备的配置。对于嵌入式系统，Bootloader是基于特定硬件平台来实现的。因此，几乎不可能为所有的嵌入式系统建立一个通用的Bootloader，不同的处理器架构都有不同的Bootloader。<br>&emsp;&emsp;在一个基于ARM7TDMI core的嵌入式系统中，系统在上电或复位时通常都从地址0x00000000处开始执行，而在这个地址处安排的通常就是系统的BootLoader程序。</p>
+<h1 id="操作模式"><a href="#操作模式" class="headerlink" title="操作模式"></a>操作模式</h1><ul>
+<li>自启动模式：在这种模式下，bootloader从目标机上的某个固态存储设备上将操作系统加载到RAM中运行，整个过程并没有用户的介入。</li>
+<li>交互模式：在这种模式下，目标机上的bootloader将通过串口或网络等通行手段从开发主机（Host）上下载内核映像等到RAM中。可以被bootloader写到目标机上的固态存储媒质中，或者直接进入系统的引导。也可以通过串口接收用户的命令。</li>
+</ul>
+<h1 id="启动过程"><a href="#启动过程" class="headerlink" title="启动过程"></a>启动过程</h1><p>&emsp;&emsp;Bootloader启动大多数都分为两个阶段。第一阶段主要包含依赖于CPU的体系结构硬件初始化的代码，通常都用汇编语言来实现。这个阶段的任务有：</p>
+<pre><code>1. 基本的硬件设备初始化（屏蔽所有的中断、关闭处理器内部指令/数据Cache等）。
+2. 为第二阶段准备RAM空间。
+3. 如果是从某个固态存储媒质中，则复制Bootloader的第二阶段代码到RAM。
+4. 设置堆栈。
+5. 跳转到第二阶段的C程序入口点。
+</code></pre><p>&emsp;&emsp;第二阶段通常用C语言完成，以便实现更复杂的功能，也使程序有更好的可读性和可移植性。这个阶段的任务有：</p>
+<pre><code>1. 初始化本阶段要使用到的硬件设备。
+2. 检测系统内存映射。
+3. 将内核映像和根文件系统映像从Flash读到RAM。
+4. 为内核设置启动参数。
+5. 调用内核。
+</code></pre><blockquote>
+<p>在第一阶段中为什么要关闭Cache？通常使用Cache以及写缓冲是为了提高系统性能，但由于Cache的使用可能改变访问主存的数量、类型和时间，因此Bootloader通常是不需要的。</p>
+</blockquote>
+<h1 id="常见的Bootloader"><a href="#常见的Bootloader" class="headerlink" title="常见的Bootloader"></a>常见的Bootloader</h1><p>BootLoader可以是U-Boot\Eboot\vivi等待其他一切方式。BootLoader是所有boot的总称。</p>
+<h2 id="ARMboot"><a href="#ARMboot" class="headerlink" title="ARMboot"></a>ARMboot</h2><p>&emsp;&emsp;ARMboot是一个ARM平台的开源固件项目，它特别基于PPCBoot，一个为PowerPC平台上的系统提供类似功能的姊妹项目。鉴于对PPCBoot的严重依赖性，已经与PPCBoot项目合并，新的项目为U-Boot。<br>&emsp;&emsp;ARMboot发布的最后版本为ARMboot-1.1.0，2002年ARMboot终止了维护。</p>
+<h2 id="U-Boot"><a href="#U-Boot" class="headerlink" title="U-Boot"></a>U-Boot</h2><p>&emsp;&emsp;U-Boot是由开源项目PPCBoot发展起来的，ARMboot并入了PPCBoot，和其他一些arch的Loader合称U-Boot。2002年12月17日第一个版本U-Boot-0.2.0发布，同时PPCBoot和ARMboot停止维护。<br>&emsp;&emsp;U-Boot支持的处理器构架包括PowerPC (MPC5xx，MPC8xx，MPC82xx，MPC7xx，MPC74xx，4xx)， ARM （ARM7，ARM9，StrongARM，Xscale），MIPS (4Kc，5Kc)，x86等等， U-Boot（Universal Bootloader）从名字就可以看出，它是在GPL下资源代码最完整的一个通用Boot Loader。<br>&emsp;&emsp;U-Boot提供两种操作模式：启动加载（Boot loading）模式和下载（Downloading）模式,并具有大型Boot Loader的全部功能。<br>&emsp;&emsp;U-Boot的功能是如此之强大，涵盖了绝大部分处理器构架，提供大量外设驱动，支持多个文件系统，附带调试、脚本、引导等工具，特别支持Linux,为板级移植做了大量的工作。U-Boot1.1.1版本特别包含了对SA1100和44B0芯片的移植，所以44B0移植主要是针对Board 的移植，包括FLASH、内存配置以及串口波特率等等。U-Boot的完整功能性和后续不断的支持，使系统的升级维护变得十分方便。</p>
+<h2 id="Eboot"><a href="#Eboot" class="headerlink" title="Eboot"></a>Eboot</h2><p>&emsp;&emsp;是使用网口的意思，是微软提供的一般是wince下的bootloader，但是经过修改也可以兼容运行在其他OS下，如linux。如果直接说eboot也是bootloader”这样说不够严谨，对于基于norflash的bootloader来说是对的，如果bootloader是从nandflash开始执行就不对了，但我们所说的bootloader=nboot+eboot，其中nboot负责把eboot加载到SDRAM指定的内存处，然后运行eboot，接着eboot会把NK加载到SDRAM中并且执行。</p>
+<h2 id="vivi"><a href="#vivi" class="headerlink" title="vivi"></a>vivi</h2><p>&emsp;&emsp;vivi是韩国mizi 公司开发的bootloader, 适用于ARM9处理器。Vivi有两种工作模式：启动加载模式和下载模式。启动加载模式可以在一段时间后（这个时间可更改）自行启动linux内核，这是vivi的默认模式。在下载模式下，vivi为用户提供一个命令行接口，通过接口可以使用vivi提供的一些命令</p>
+<h2 id="Redboot"><a href="#Redboot" class="headerlink" title="Redboot"></a>Redboot</h2><p>&emsp;&emsp;Redboot是Redhat公司随eCos发布的一个BOOT方案，是一个开源项目。<br>&emsp;&emsp;Redboot支持的处理器构架有ARM，MIPS，MN10300，PowerPC， Renesas SHx，v850，x86等，是一个完善的嵌入式系统Boot Loader。<br>&emsp;&emsp;Redboot是在ECOS的基础上剥离出来的，继承了ECOS的简洁、轻巧、可灵活配置、稳定可靠等品质优点。它可以使用X-modem或Y-modem协议经由串口下载，也可以经由以太网口通过BOOTP/DHCP服务获得IP参数，使用TFTP方式下载程序映像文件，常用于调试支持和系统初始化（Flash下载更新和网络启动）。Redboot可以通过串口和以太网口与GDB进行通信，调试应用程序，甚至能中断被GDB运行的应用程序。Redboot为管理FLASH映像，映像下载，Redboot配置以及其他如串口、以太网口提供了一个交互式命令行接口，自动启动后，REDBOOT用来从TFTP服务器或者从Flash下载映像文件加载系统的引导脚本文件保存在Flash上。<br>&emsp;&emsp;Redboot是标准的嵌入式调试和引导解决方案，支持几乎所有的处理器构架以及大量的外围硬件接口，并且还在不断地完善过程中。</p>
+<h2 id="Blob"><a href="#Blob" class="headerlink" title="Blob"></a>Blob</h2><p>&emsp;&emsp;Blob(Boot Loader Object)是由Jan-Derk Bakker and Erik Mouw发布的，是专门为StrongARM 构架下的LART设计的Boot Loader。<br>&emsp;&emsp;Blob也提供两种工作模式，在启动时处于正常的启动加载模式，但是它会延时 10 秒等待终端用户按下任意键而将 Blob 切换到下载模式。如果在 10 秒内没有用户按键，则 Blob 继续启动 Linux内核。<br>&emsp;&emsp;Blob功能比较齐全，代码较少，比较适合做修改移植，用来引导Liunx，目前大部分S3C44B0板都用Blob修改移植后来加载uClinux。</p>
 
       
     </div>
+    
+    
+    
+    
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
 
+  
+</div>
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/嵌入式Linux/" rel="tag"># 嵌入式Linux</a>
+          
+            <a href="/tags/操作系统/" rel="tag"># 操作系统</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/18/文件描述符、文件指针和文件偏移量之甄别/" rel="next" title="文件描述符、文件指针和文件偏移量之甄别">
+                <i class="fa fa-chevron-left"></i> 文件描述符、文件指针和文件偏移量之甄别
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -364,6 +539,17 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -384,8 +570,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -470,6 +665,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#操作模式"><span class="nav-number">2.</span> <span class="nav-text">操作模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#启动过程"><span class="nav-number">3.</span> <span class="nav-text">启动过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常见的Bootloader"><span class="nav-number">4.</span> <span class="nav-text">常见的Bootloader</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ARMboot"><span class="nav-number">4.1.</span> <span class="nav-text">ARMboot</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#U-Boot"><span class="nav-number">4.2.</span> <span class="nav-text">U-Boot</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Eboot"><span class="nav-number">4.3.</span> <span class="nav-text">Eboot</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vivi"><span class="nav-number">4.4.</span> <span class="nav-text">vivi</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redboot"><span class="nav-number">4.5.</span> <span class="nav-text">Redboot</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Blob"><span class="nav-number">4.6.</span> <span class="nav-text">Blob</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -666,6 +877,10 @@ pure.mini.js"></script>
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -717,6 +932,30 @@ pure.mini.js"></script>
       </style>
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'YobeZhou',
+            repo: 'YobeZhou.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '039ad01b3cde730c21c25a64e58963ef0887ab8f',
+            
+                client_id: 'b5c9998b778eb5a905ed'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
     
 
 
