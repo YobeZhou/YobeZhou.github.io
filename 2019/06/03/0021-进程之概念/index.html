@@ -96,7 +96,7 @@
 <meta property="og:image" content="/images/operating-system/process/04_Process-Control-Block-(PCB).png">
 <meta property="og:image" content="/images/operating-system/process/05_CPU-Switch-From-Process-to-Process.png">
 <meta property="og:image" content="/images/operating-system/process/06_task-struct-double-linuxked-list.png">
-<meta property="og:updated_time" content="2019-06-03T03:00:09.283Z">
+<meta property="og:updated_time" content="2019-06-03T03:10:01.334Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="进程之概念">
 <meta name="twitter:description" content="前言&amp;emsp;&amp;emsp;可以将进程（process）看作执行的程序。进程需要一定的资源，如CPU时间、内存、文件和I/O设备，用以执行任务。这些资源在创建进程或执行进程时得以分配。&amp;emsp;&amp;emsp;进程时大多数系统的工作单元。这种操作系统包含一组进程：操作系统进程执行系统代码，而用户进程执行用户代码。所有这些进程可以并发执行。&amp;emsp;&amp;emsp;操作系统负责进程和线程管理的多个方面：">
@@ -473,8 +473,9 @@
 </ul>
 <h1 id="程序与进程的关系"><a href="#程序与进程的关系" class="headerlink" title="程序与进程的关系"></a>程序与进程的关系</h1><p>&emsp;&emsp;程序本身不是进程。程序只是被动（passive）实体，如存储在磁盘上包含一系列指令的文件（我们常称之为“可执行文件”（executable file））。相反，进程是活动（active）实体，具有一个程序计数器用于表示可执行命令和一组相关资源。当一个可执行文件被加载到内存时，这个程序就成为进程。</p>
 <blockquote>
-<p>加载可执行文件通常由两种方法：双击一个代表可执行文件的图标或在命令行上输入可执行文件的名称（如prog.exe或a.out）。<br>&emsp;&emsp;图1-3 展示的是程序与进程的关系：<br><img src="/images/operating-system/process/03_program-and-process.png" alt="程序与进程"><br>&emsp;&emsp;虽然多个进程可以与同一个程序相关联，但是实际上每个都是单独的执行序列。比如，多个用户可以运行电子邮件的不同副本，或者同意用户可以调用Web浏览器程序的多个副本。每个副本（进程）都是单独运行的；虽然文本段相同，但是数据、堆、及堆栈却不同。进程在运行时也经常会生成许多进程（子进程）。</p>
+<p>加载可执行文件通常由两种方法：双击一个代表可执行文件的图标或在命令行上输入可执行文件的名称（如prog.exe或a.out）。</p>
 </blockquote>
+<p>&emsp;&emsp;图1-3 程序与进程的关系：<br><img src="/images/operating-system/process/03_program-and-process.png" alt="程序与进程"><br>&emsp;&emsp;虽然多个进程可以与同一个程序相关联，但是实际上每个都是单独的执行序列。比如，多个用户可以运行电子邮件的不同副本，或者同意用户可以调用Web浏览器程序的多个副本。每个副本（进程）都是单独运行的；虽然文本段相同，但是数据、堆、及堆栈却不同。进程在运行时也经常会生成许多进程（子进程）。</p>
 <h1 id="进程控制块"><a href="#进程控制块" class="headerlink" title="进程控制块"></a>进程控制块</h1><p>&emsp;&emsp;操作系统内的每个进程表示，都采用进程控制块表示（Process Control Block），也称任务控制块（task control block）。当可执行程序被进行时，内核中实际上产生了一个叫”task_struct{}”的结构体来表示这个进程，进程是一个“活动的实体”，这个活动的实体从一开始诞生就需要各种各样的资源以便于生存下去，而这些信息都被记录在”task_struct”结构体之中，这个结构体被常常称之为进程控制块（PCB，即Process Control Block）。<br>进程控制块包括：</p>
 <ul>
 <li>进程状态：状态可以包括由新的、就绪、运行、等待、停止等。</li>
