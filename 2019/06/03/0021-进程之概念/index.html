@@ -94,8 +94,10 @@
 <meta property="og:image" content="/images/operating-system/process/01_Process-in-Memory.png">
 <meta property="og:image" content="/images/operating-system/process/02_Diagram-of-Process-State.png">
 <meta property="og:image" content="/images/operating-system/process/03_program-and-process.png">
+<meta property="og:image" content="/images/operating-system/process/04_Process-Control-Block-(PCB).png">
+<meta property="og:image" content="/images/operating-system/process/05_CPU-Switch-From-Process-to-Process.png">
 <meta property="og:image" content="/images/operating-system/process/06_task-struct-double-linuxked-list.png">
-<meta property="og:updated_time" content="2019-06-04T01:27:21.721Z">
+<meta property="og:updated_time" content="2019-06-04T01:37:40.233Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="进程之基础概念">
 <meta name="twitter:description" content="前言&amp;emsp;&amp;emsp;可以将进程（process）看作执行的程序。进程需要一定的资源，如CPU时间、内存、文件和I/O设备，用以执行任务。这些资源在创建进程或执行进程时得以分配。&amp;emsp;&amp;emsp;进程是大多数系统的工作单元。这种操作系统包含一组进程：操作系统进程执行系统代码，而用户进程执行用户代码。所有这些进程可以并发执行。&amp;emsp;&amp;emsp;操作系统负责进程和线程管理的多个方面：">
@@ -439,7 +441,8 @@
 
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp;&emsp;可以将进程（process）看作执行的程序。进程需要一定的资源，如CPU时间、内存、文件和I/O设备，用以执行任务。这些资源在创建进程或执行进程时得以分配。<br>&emsp;&emsp;进程是大多数系统的工作单元。这种操作系统包含一组进程：操作系统进程执行系统代码，而用户进程执行用户代码。所有这些进程可以并发执行。<br>&emsp;&emsp;操作系统负责进程和线程管理的多个方面：用户进程与系统进程的创建与删除，进程调度，用于进程同步、进程通信与进程死锁处理的机制等。</p>
-<h1 id="进程概念"><a href="#进程概念" class="headerlink" title="进程概念"></a>进程概念</h1><p>&emsp;&emsp;一个程序文件（program），只是一堆待执行的代码和部分待处理的数据，他们只有被加载到内存中，然后让CPU逐条执行其代码，并根据代码做出相应的动作，才能形成一个真正“活动”、动态的进程（process），因此进程时一个动态变化的过程，是一出有始有终的戏，而程序文件只是这一系列动作的原始蓝本，是一个静态的剧本。<br><img src="/images/operating-system/process/01_Process-in-Memory.png" alt="内存中的进程"></p>
+<h1 id="进程概念"><a href="#进程概念" class="headerlink" title="进程概念"></a>进程概念</h1><p>&emsp;&emsp;一个程序文件（program），只是一堆待执行的代码和部分待处理的数据，他们只有被加载到内存中，然后让CPU逐条执行其代码，并根据代码做出相应的动作，才能形成一个真正“活动”、动态的进程（process），因此进程时一个动态变化的过程，是一出有始有终的戏，而程序文件只是这一系列动作的原始蓝本，是一个静态的剧本。</p>
+<p><img src="/images/operating-system/process/01_Process-in-Memory.png" alt="内存中的进程"></p>
 <center>图2-1 进程的内存结构</center>
 &emsp;&emsp;进程是执行的程序。进程不只是程序代码，进程代码有时称为“文本段（text section）”（或“代码段（code section）”）。
 &emsp;&emsp;进程还包括：
@@ -454,11 +457,12 @@
 <li>运行（running）：指令正在执行；</li>
 <li>等待（waiting）：进程正在等待发生某个时间（如I/O完成或受到信号）；</li>
 <li>就绪（ready）：进程等待分配处理器；</li>
-<li>终止（terminated）：进程已经完成执行。<br><img src="/images/operating-system/process/02_Diagram-of-Process-State.png" alt="进程状态"><center>图3-1 进程状态图</center>
+<li>终止（terminated）：进程已经完成执行。</li>
+</ul>
+<p><img src="/images/operating-system/process/02_Diagram-of-Process-State.png" alt="进程状态"></p>
+<center>图3-1 进程状态图</center>
 > 一次只有一个进程可在处理器上运行（running）；但是可多个进程处于就绪（ready）或者等待（waiting）状态。
 
-</li>
-</ul>
 <h1 id="程序与进程的关系"><a href="#程序与进程的关系" class="headerlink" title="程序与进程的关系"></a>程序与进程的关系</h1><p>&emsp;&emsp;程序本身不是进程。程序是被动（passive）实体，如存储在磁盘上包含一系列指令的文件（我们常称之为“可执行文件”（executable file））。相反，进程是活动（active）实体，具有一个程序计数器用于表示可执行命令和一组相关资源。当一个可执行文件被加载到内存时，这个程序就成为进程。</p>
 <blockquote>
 <p>加载可执行文件通常由两种方法：双击一个代表可执行文件的图标或在命令行上输入可执行文件的名称（如prog.exe或a.out）。</p>
@@ -477,26 +481,28 @@
 * 记账信息：这类信息包括CPU时间、实际使用时间、时间期限、记账数据、作业或进程数量等。
 I/O状态信息：这类信息包括分配给进程的I/O设备列表、打开文件列表等。
 &emsp;&emsp;简而言之，PCB简单地作为这些信息的仓库，这些信息也会随着进程的不同而不同。
-![进程控制块](/images/operating-system/process/04_Process-Control-Block-(PCB).png)
+
+<p><img src="/images/operating-system/process/04_Process-Control-Block-(PCB).png" alt="进程控制块"></p>
 <center>图5-1 进程控制块</center>
-![进程间的CPU切换](/images/operating-system/process/05_CPU-Switch-From-Process-to-Process.png)
+
+<p><img src="/images/operating-system/process/05_CPU-Switch-From-Process-to-Process.png" alt="进程间的CPU切换"></p>
 <center>图5-2 进程间的CPU切换</center>
-# Linux的进程表示
-&emsp;&emsp;Linux操作系统的进程控制块采用C语言结构体 task_struct 来表示，它位于Linux内核源代码目录内的头文件<linux sched.h>。这个结构体包含用于表示进程的所有必要信息，包括进程的状态、调度和内存管理信息、打开文件列表、指向父进程的指针及指向子进程和兄弟进程列表的指针等。（父进程（parent process）为创建他的进程，子进程（child process）为它本身创建的进程，兄弟进程（sibling process）为具有同一父进程的进程。）
-这些成员包括：
+
+<h1 id="Linux的进程表示"><a href="#Linux的进程表示" class="headerlink" title="Linux的进程表示"></a>Linux的进程表示</h1><p>&emsp;&emsp;Linux操作系统的进程控制块采用C语言结构体 task_struct 来表示，它位于Linux内核源代码目录内的头文件&lt;linux/sched.h&gt;。这个结构体包含用于表示进程的所有必要信息，包括进程的状态、调度和内存管理信息、打开文件列表、指向父进程的指针及指向子进程和兄弟进程列表的指针等。（父进程（parent process）为创建他的进程，子进程（child process）为它本身创建的进程，兄弟进程（sibling process）为具有同一父进程的进程。）<br>这些成员包括：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pid t pid;                  <span class="comment">/* process identifier */</span> </span><br><span class="line"><span class="keyword">long</span> state;                 <span class="comment">/* state of the process */</span> </span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> time slice     <span class="comment">/* scheduling information */</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">task</span> <span class="title">struct</span> *<span class="title">parent</span>;</span> <span class="comment">/* this process’s parent */</span> </span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">list</span> <span class="title">head</span> <span class="title">children</span>;</span>  <span class="comment">/* this process’s children */</span> </span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">files</span> <span class="title">struct</span> *<span class="title">files</span>;</span> <span class="comment">/* list of open files */</span> </span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">mm</span> <span class="title">struct</span> *<span class="title">mm</span>;</span>       <span class="comment">/* address space of this process */</span></span><br></pre></td></tr></table></figure>
 
-<p>&emsp;&emsp;例如，进程状态是由这个结构的成员 long state 来表示的。在Linux内核中，所有活动进程的表示都采用task_struct 的双向链表。内核采用一个指针即 current，用于指向当前系统正在执行的进车.<br><img src="/images/operating-system/process/06_task-struct-double-linuxked-list.png" alt="task_struct双向链表"></p>
+<p>&emsp;&emsp;例如，进程状态是由这个结构的成员 long state 来表示的。在Linux内核中，所有活动进程的表示都采用task_struct 的双向链表。内核采用一个指针即 current，用于指向当前系统正在执行的进车.</p>
+<p><img src="/images/operating-system/process/06_task-struct-double-linuxked-list.png" alt="task_struct双向链表"></p>
 <center>图6-1 task_struct双向链表</center>
-# Linux的进程表示
-&emsp;&emsp;下面举例说明，内核如何修改某个特定进程的 task_struct 的成员，假设系统需要将当前运行状态改成值 new_state。如果current 为指向当前运行进程的指针，那么可以这样改变状态：
+
+<h1 id="Linux的进程表示-1"><a href="#Linux的进程表示-1" class="headerlink" title="Linux的进程表示"></a>Linux的进程表示</h1><p>&emsp;&emsp;下面举例说明，内核如何修改某个特定进程的 task_struct 的成员，假设系统需要将当前运行状态改成值 new_state。如果current 为指向当前运行进程的指针，那么可以这样改变状态：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">current-&gt;state = new_state;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>Linux内核代码纷繁复杂，千万头绪，这个结构体是系统进程在执行过程中所有设计的方方面面的缩影，因此以这个所谓的进程控制块（PCB）为切入点，是研究内核的一个很好的窗口。</p>
 </blockquote>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&emsp;&emsp;进程是可执行的程序。随着进程的执行，它会改变状态。<br>&emsp;&emsp;程序本身不是进程。程序只是被动实体，进程是活动实体，当一个可执行文件被加载到内存时，这个程序就成为进程。进程状态是由进程当前活动定义的。<br>&emsp;&emsp;每个进程都可以处于如下状态的某一种：新的、就绪、运行、等待或终止。<br>&emsp;&emsp;在操作系统中，每个进程通过它的进程控制块（PCB）来表示。</p>
-</linux>
+
       
     </div>
     
@@ -715,7 +721,7 @@ I/O状态信息：这类信息包括分配给进程的I/O设备列表、打开�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进程概念"><span class="nav-number">2.</span> <span class="nav-text">进程概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进程的状态"><span class="nav-number">3.</span> <span class="nav-text">进程的状态</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#程序与进程的关系"><span class="nav-number">4.</span> <span class="nav-text">程序与进程的关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进程概念"><span class="nav-number">2.</span> <span class="nav-text">进程概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进程的状态"><span class="nav-number">3.</span> <span class="nav-text">进程的状态</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#程序与进程的关系"><span class="nav-number">4.</span> <span class="nav-text">程序与进程的关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux的进程表示"><span class="nav-number">5.</span> <span class="nav-text">Linux的进程表示</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux的进程表示-1"><span class="nav-number">6.</span> <span class="nav-text">Linux的进程表示</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
