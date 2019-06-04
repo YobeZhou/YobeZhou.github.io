@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="YobeZhou.github.io/"/>
-  <updated>2019-06-04T01:40:05.143Z</updated>
+  <updated>2019-06-04T01:37:40.233Z</updated>
   <id>YobeZhou.github.io/</id>
   
   <author>
@@ -15,33 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>进程之进程调度</title>
-    <link href="YobeZhou.github.io/2019/06/03/0022-%E8%BF%9B%E7%A8%8B%E4%B9%8B%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6/"/>
-    <id>YobeZhou.github.io/2019/06/03/0022-进程之进程调度/</id>
-    <published>2019-06-03T09:41:46.000Z</published>
-    <updated>2019-06-04T01:40:05.143Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp;&emsp;多道程序设计的目标是，无论何时都有进程运行，从而最大化CPU利用率。分时操作系统的目的是在进程之间快速切换CPU，以便用户在程序运行时能与其交互。为了满足这些目标，进程调度器（process scheduler）选择一个可用进程（可能从多个可用进程集合中）到CPU上执行。单处理器系统不会具有多个正在运行的进程。如果有多个进程，那么余下的需要等待CPU空闲并能重新调度。</p><h1 id="调度队列"><a href="#调度队列" class="headerlink" title="调度队列"></a>调度队列</h1><p>&emsp;&emsp;进程在进入系统时，会被加到作业队列（job queue），这个队列包括系统内的所有进程。驻留在内存中的、就绪的、等待运行的进程保存在就绪队列（ready queue）上。这个队列通常用链表实现；其头节点有两个指针，用于指向链表的第一个和最后一个PCB块，每个PCB还包括一个指针，指向就绪队列的下一个PCB。<br>&emsp;&emsp;系统还有其他队列。当一个进程被分配了CPU后，它执行一段时间，最终退出，或被中断，或等待特定事件发生，如I/O请求的完成。我们假设进程向一个共享设备，如磁盘，发出I/O请求。由于系统具有许多进程，磁盘可能忙于其他进程的I/O请求，因此该进程可能需要等待磁盘空闲。等待特定I/O设备的进程列表，称为设备队列（device queue）。每个设备都有自己的设备队列。</p><p><img src="/images/operating-system/process/2-1_Ready-Queue-And-Various-IO-Device-Queues.png" alt="就绪队列和各种IO设备队列"></p><center>图2-1 就绪队列和各种IO设备队列</center>&emsp;&emsp;进程调度通常用队列图（queueing diagram）来表示，如图1-2所示。每个举行框代表一个队列；这里具有两种队列：就绪队列和设备队列。圆圈表示服务队列的资源；箭头表示系统内的进程流向。<p><img src="/images/operating-system/process/2-2_Representation-of-Process-Scheduling.jpg" alt="表示进程调度的队列图"></p><center>图2-2 表示进程调度的队列</center>&emsp;&emsp;最初，新进程被加载到就绪队列；之后它便在就绪队列中一直等待，知道被选中执行或被分配（dispatched）。当该进程分配到CPU并执行时，以下事件可能发生：* 进程可能发出I/O请求，并被放到I/O队列。* 进程可能创建一个新的子进程，并等待其终止。* 进程可能由于中断而被强制释放CPU，并被放回到就绪队列。对于前面两种情况，进程最终从等待状态切换到就绪状态，并放回到就绪队列。进程重复这一循环直到终止；然后它会从所有队列中删除，其PCB和资源也被释放。<h1 id="调度程序"><a href="#调度程序" class="headerlink" title="调度程序"></a>调度程序</h1><p>&emsp;&emsp;进程在整个生命周期中，会在葛总调度队列之间迁移。操作系统为了调度必须按一定方式从这些队列中选择进程。进程选择通过适当调度器或调度程序(scheduler)来执行。<br>&emsp;&emsp;通常，对于批处理系统（又名批处理操作系统），提交的进程多于可以立即执行的。这些进程会被保存到大容量存储设备(通常为磁盘)的缓冲池，以便以后执行。长期调度程序(long-term scheduler)或作业调度程序(job scheduler)从该池中选择进程，加到内存，以便执行。短期调度程序（short-term scheduler）或CPU调度程序(CPU scheduler)从准备执行的进程中选择进程，并分配CPU。<br>&emsp;&emsp;这两种调度程序的主要区别是执行频率。短期调度程序必须经常为CPU选择新的进程。进程可能执行几毫秒(ms)，就会等待I/0请求。通常，短期调度程序每100ms至少执行一次。由于执行之间的时间短，短期调度程序必须快速.如果花费10ms来确定执行一个运行一个100ms的进程，那么 10/(100+10)=9% 的CPU时间会用在(或浪费在)调度工作上。<br>&emsp;&emsp;长期调度程序执行并不频繁；在新进程的创建之间，可能有几分钟间隔。长期调度程序控制多道程序程度(degree of multiprogramming)(内存中的进程数量)。如果多道程序程度稳定，那么创建进程的平均每度必须等于进程离开系统的平均速度。因此，只有在进程离开系统时，才需要长期调度程序的调度。由于每次执行之间的更长时间间隔，长期调度程序可以负担得起更多时间，以便决定应该选择执行哪个进程。<br>&emsp;&emsp;重要的是，长期调度程序进行认真选择。通常，大多数进程可分为：I/0为主或CPU为主。I/0密集型进程(I/O-bound process)，执行I/0比执行计算需要花费更多时间。相反，CPU密集型进程(CPU-bound process)很少产生I/O请求，而是将更多时间用于执行计算。重要的是，长期调度程序应该选择I/O密集型和CPU密集型的合理进程组合。</p><ul><li>如果所有进程都是I/O密集型的，那么就绪队列几乎总是为空，从而短期调度程序没有什么可做。</li><li>如果所有进程都是CPU密集型的，那么I/0等待队列几乎总是为空，从而设备没有得到使用，因而系统会不平衡。为了使得性能最佳，系统需要I/O密集型和CPU密集型的进程合理组合。</li></ul><p>&emsp;&emsp;有的系统，可能没有或极少采用长期调度程序。例如，UNIX或微软Windows的分时系统通常没有长期调度程序，只是简单将所有新进程放于内存，以供短期调度程序使用。这些系统的稳定性取决于物理限制(如可用的终端数)或用户的自我调整。如果多用户系统性能下降到令人难以接受，那么有的用户就会退出。<br>&emsp;&emsp;有的操作系统如分时系统，可能引人一个额外的中期调度程序(medium-term scheduler)。中期调度程序的核心思想是可将进程从内存(或从CPU竞争)中移出，从而降低多道程序程度。之后，进程可被重新调人内存，并从中断处继续执行。这种方案称为交换（swap）。通过中期调度，进程可换出（swap out），并在后来可换入（swap in）。为了改善进程组合，或者由于内存需求改变导致过渡使用内存从而需要释放内存，就有必要使用交换。</p><p><img src="/images/operating-system/process/2-3_Addition-of-Medium-Term-Scheduling.png" alt="添加中级进程调度到队列"></p><center>图3-1 添加中级进程调度到队列</center><h1 id="上下文切换"><a href="#上下文切换" class="headerlink" title="上下文切换"></a>上下文切换</h1><p>&emsp;&emsp;中断导致CPU从执行当前任务改变到执行内核程序。这种操作在通用系统中经常发生。当中断发生时，系统需要保存当前运行在CPU上的进程的上下文，以便在处理后能够恢复上下文，即先挂起进程，在恢复进程。进程上下文采用进程PCB表示，包括CPU寄存器的值、进程状态和内存管理信息等。通常，通过执行状态保存（state save），保存CPU当前状态（包括系统模式和用户模式）；之后，装填回复（state restore）重新开始运行。<br>&emsp;&emsp;切换CPU到另一个进程需要保存当前进程状态和恢复另一个进程的状态，这个任务称上下文切换(context swiitch)。当进行上下文切换时，内核会将旧进程状态保存在其PCB中，然后加载经调度而要执行的新进程的上下文。上下文切换的时间是纯粹的开销，因为在切换时系统并没有做任何有用工作。上下文切换的速度因机器不同而有所不同，它依赖于内存速度、必须复制的寄存器数量、是否有特殊指令(如加载或存储所有寄存器的单个指令)。典型速度为几毫秒。<br>&emsp;&emsp;上下文切换的时间与硬件支持密切相关。例如，有的处理器(如Sun U1traspARC)提供了多个寄存器组，上下文切换只需简单改变当前寄存器组的指针。当然，如果活动进程数量超过寄存器的组数，那么系统需要像以前一样在寄存器与内存之间进行数据复制。而且，操作系统越复杂，上下文切换所要做的就越多。高级的内存管理技术在每次上下文切换时，所需切换的数据会更多。例如，在使用下一个进程的地址空间之前，需要保存当前进程的地址空间。如何保存地址空间，需要做什么才能保存等，取决于操作系统的内存管理方法。</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&emsp;&emsp;进程，当不执行时，位于某个等待队列。操作系统有两种主要队列：I/O请求队列和就绪队列。就绪队列包括所有准备执行并等待CPU的进程，每个进程都用PCB来表示。<br>&emsp;&emsp;操作系统应从各个调度队列中选择进程。长期调度（用于作业）选择进程以便竞争CPU。通常长期调度充分考虑资源分配，尤其是内存管理。短期调度从就绪队列中选择进程。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;多道程序设计的目标是，无论何时都有进程运行，从而最大化CPU利用率。分时操作系统的目的是在进程之间快速切换CPU，以
-      
-    
-    </summary>
-    
-      <category term="操作系统" scheme="YobeZhou.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
-    
-    
-      <category term="操作系统" scheme="YobeZhou.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
-    
-      <category term="进程" scheme="YobeZhou.github.io/tags/%E8%BF%9B%E7%A8%8B/"/>
-    
-  </entry>
   
   <entry>
     <title>进程之基础概念</title>
@@ -522,6 +495,31 @@
       <category term="Hexo" scheme="YobeZhou.github.io/tags/Hexo/"/>
     
       <category term="tools" scheme="YobeZhou.github.io/tags/tools/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>什么是Markdown？</title>
+    <link href="YobeZhou.github.io/2019/03/30/0002-%E4%BB%80%E4%B9%88%E6%98%AFMarkdown%EF%BC%9F/"/>
+    <id>YobeZhou.github.io/2019/03/30/0002-什么是Markdown？/</id>
+    <published>2019-03-30T03:31:52.000Z</published>
+    <updated>2019-04-27T15:10:46.905Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Markdown的简单介绍"><a href="#Markdown的简单介绍" class="headerlink" title="Markdown的简单介绍"></a>Markdown的简单介绍</h1><p>&emsp;&emsp;&emsp;&emsp;<a href="https://www.markdownguide.org/" target="_blank" rel="noopener">Markdown</a> 是由 ‘John Gruber’ 和 ‘Aaron Swartz’ 共同创建的一种轻量级纯文本格式语法。Markdown 可以让用户“以易读、易写的纯文本格式来进行写作，然后可以将其转换为有效格式的 XHTML（或 HTML）“。Markdown 语法只包含一些非常容易记住的符号。其学习曲线平缓；你可以在炒蘑菇的同时一点点学习 Markdown 语法（大约 10 分钟）。通过使用尽可能简单的语法，错误率达到了最小化。除了拥有友好的语法，它还具有直接输出干净、有效的（X）HTML 文件的强大功能。如果你看过我的 HTML 文件，你就会知道这个功能是多么的重要。</p><p>&emsp;&emsp;&emsp;&emsp;’Markdown’ 格式语法的主要目标是实现最大的可读性。用户能够以纯文本的形式发布一份 ‘Markdown’ 格式的文件。用 ‘Markdown’ 进行文本写作的一个优点是易于在计算机、智能手机和个人之间共享。几乎所有的内容管理系统都支持 ‘Markdown’ 。它作为一种网络写作格式流行起来，其产生一些被许多服务采用的变种，比如 GitHub 和 Stack Exchange 。</p><p>&emsp;&emsp;我们可以使用任何文本编辑器来写 ‘Markdown’ 文件。但我建议使用一个专门为这种语法设计的编辑器。这篇文章中所讨论的软件允许你使用 ‘Markdown’ 语法来写各种格式的专业文档，包括博客文章、演示文稿、报告、电子邮件以及幻灯片等。另外，所有的应用都是在开源许可证下发布的，在 Linux、OS X 和 Windows 操作系统下均可用。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Markdown的简单介绍&quot;&gt;&lt;a href=&quot;#Markdown的简单介绍&quot; class=&quot;headerlink&quot; title=&quot;Markdown的简单介绍&quot;&gt;&lt;/a&gt;Markdown的简单介绍&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&lt;a
+      
+    
+    </summary>
+    
+      <category term="Hexo相关" scheme="YobeZhou.github.io/categories/Hexo%E7%9B%B8%E5%85%B3/"/>
+    
+    
+      <category term="Markdown" scheme="YobeZhou.github.io/tags/Markdown/"/>
     
   </entry>
   
