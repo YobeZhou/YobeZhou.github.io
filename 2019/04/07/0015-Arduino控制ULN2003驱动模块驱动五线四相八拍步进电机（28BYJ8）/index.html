@@ -94,7 +94,7 @@
 <meta property="og:image" content="/images/%E4%BA%94%E7%BA%BF%E5%9B%9B%E7%9B%B8%E5%85%AB%E6%8B%8D%E6%AD%A5%E8%BF%9B%E7%94%B5%E6%9C%BA%EF%BC%8828BYJ8%EF%BC%89.jpg">
 <meta property="og:image" content="/images/ULN2003%E9%A9%B1%E5%8A%A8%E6%A8%A1%E5%9D%97.jpg">
 <meta property="og:image" content="/images/IMG_3450.JPG">
-<meta property="og:updated_time" content="2019-04-27T15:09:48.928Z">
+<meta property="og:updated_time" content="2019-06-04T01:29:40.674Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Arduino控制ULN2003驱动模块驱动五线四相八拍步进电机（28BYJ8）">
 <meta name="twitter:description" content="前言&amp;emsp;&amp;emsp;最近做的一个项目涉及对步进电机的控制，一开始时打算在树莓派中直接控制驱动步进电机，但是由于需要达到对步进电机最精确的控制需要有精确到微秒级PWM；然而Linux系统很繁忙，最多只能达到毫秒级别的控制，所以对于安装了基于ARM架构的Debian的树莓派达不到我们要求的精确控制。由此自然联想到了使用单片机进行辅助控制，而其中使用Arduino最为简单，因此最终选择Ardui">
@@ -400,7 +400,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  681
+                  701
                 </span>
               
 
@@ -443,9 +443,13 @@
 <p>&emsp;&emsp;步进电机28BYJ48型四相八拍电机，电压为DC5V—DC12V。当对步进电机施加一系列连续不断的控制脉冲时，它可以连续不断地转动。每一个脉冲信号对应步进电机的某一相或两相绕组的通电状态改变一次，也就对应转子转过一定的角度（一个步距角）。当通电状态的改变完成一个循环时，转子转过一个齿距。四相步进电机可以在不同的通电方式下运行，常见的通电方式有单（单相绕组通电）四拍（A-B-C-D-A…），双（双相绕组通电）四拍（AB-BC-CD-DA-AB-…），八拍（A-AB-B-BC-C-CD-D-DA-A…）</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">uchar code CCW[<span class="number">8</span>]=&#123;<span class="number">0x08</span>,<span class="number">0x0c</span>,<span class="number">0x04</span>,<span class="number">0x06</span>,<span class="number">0x02</span>,<span class="number">0x03</span>,<span class="number">0x01</span>,<span class="number">0x09</span>&#125;;   <span class="comment">//逆时钟旋转相序表</span></span><br><span class="line">uchar code CW[<span class="number">8</span>]=&#123;<span class="number">0x09</span>,<span class="number">0x01</span>,<span class="number">0x03</span>,<span class="number">0x02</span>,<span class="number">0x06</span>,<span class="number">0x04</span>,<span class="number">0x0c</span>,<span class="number">0x08</span>&#125;;    <span class="comment">//正时钟旋转相序表</span></span><br></pre></td></tr></table></figure>
 
-<p>&emsp;&emsp;五线四相八拍步进电机（28BYJ8）：<br><img src="/images/%E4%BA%94%E7%BA%BF%E5%9B%9B%E7%9B%B8%E5%85%AB%E6%8B%8D%E6%AD%A5%E8%BF%9B%E7%94%B5%E6%9C%BA%EF%BC%8828BYJ8%EF%BC%89.jpg" alt="五线四相八拍步进电机（28BYJ8）"></p>
+<p>&emsp;&emsp;五线四相八拍步进电机（28BYJ8）：<br><img src="/images/%E4%BA%94%E7%BA%BF%E5%9B%9B%E7%9B%B8%E5%85%AB%E6%8B%8D%E6%AD%A5%E8%BF%9B%E7%94%B5%E6%9C%BA%EF%BC%8828BYJ8%EF%BC%89.jpg" alt="五线四相八拍步进电机（28BYJ8）"><br><cneter>五线四相八拍步进电机（28BYJ8）</cneter></p>
 <p>&emsp;&emsp;ULN2003驱动模块：<br><img src="/images/ULN2003%E9%A9%B1%E5%8A%A8%E6%A8%A1%E5%9D%97.jpg" alt="ULN2003驱动模块"></p>
-<p>&emsp;&emsp;全局概览：<br><img src="/images/IMG_3450.JPG" alt></p>
+<center>ULN2003驱动模块</center>
+
+<p>&emsp;&emsp;全局概览：<br><img src="/images/IMG_3450.JPG" alt="全局概览"></p>
+<center>全局概览</center>
+
 <h1 id="项目代码"><a href="#项目代码" class="headerlink" title="项目代码"></a>项目代码</h1><p>&emsp;&emsp;详细代码及更多内容请参考我在<a href="https://github.com/YobeZhou/Stepper-28BYJ48" target="_blank" rel="noopener">GitHub仓库</a>中的项目。</p>
 
       
@@ -700,7 +704,7 @@ pure.mini.js"></script>
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">24.2k</span>
+    <span title="Site words total count">25k</span>
   
 </div>
 
@@ -751,7 +755,7 @@ pure.mini.js"></script>
 <div class="theme-info">
   <div class="powered-by"></div>
   <span class="post-meta-divider">|</span>
-  <span class="post-count">博客全站共24.2k字</span>
+  <span class="post-count">博客全站共25k字</span>
 </div>
 
 <!-- 底部隐藏由Hexo强力驱动、主题--NexT.Mist -->
