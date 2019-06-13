@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="YobeZhou.github.io/"/>
-  <updated>2019-06-04T01:45:02.280Z</updated>
+  <updated>2019-06-13T09:31:42.954Z</updated>
   <id>YobeZhou.github.io/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C标准库--string.h</title>
+    <link href="YobeZhou.github.io/2019/06/13/0023-C%E6%A0%87%E5%87%86%E5%BA%93-string-h/"/>
+    <id>YobeZhou.github.io/2019/06/13/0023-C标准库-string-h/</id>
+    <published>2019-06-13T08:03:43.000Z</published>
+    <updated>2019-06-13T09:31:42.954Z</updated>
+    
+    <content type="html"><![CDATA[<style>table th:nth-of-type(1){width: 8%;}table th:nth-of-type(2){width: 92%;}</style><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp;&emsp;在C语言中，string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。常用函数有strlen、strcmp、strcpy等等，更详细的可以到include文件夹里面查看该文件。</p><h1 id="库变量"><a href="#库变量" class="headerlink" title="库变量"></a>库变量</h1><p>&emsp;&emsp;头文件 string.h 中定义的变量类型：</p><table><thead><tr><th align="center">变量</th><th align="left">说明</th></tr></thead><tbody><tr><td align="center">size_t</td><td align="left">这是无符号整数类型，它是 sizeof 关键字的结果</td></tr></tbody></table><h1 id="库宏"><a href="#库宏" class="headerlink" title="库宏"></a>库宏</h1><p>头文件 string.h 中定义的宏：</p><table><thead><tr><th align="center">宏</th><th align="left">说明</th></tr></thead><tbody><tr><td align="center">NULL</td><td align="left">这个宏是一个空指针常量的值</td></tr></tbody></table><h1 id="库函数"><a href="#库函数" class="headerlink" title="库函数"></a>库函数</h1><p>头文件 string.h 中定义的函数，有下表列出的22种用法。</p><table><thead><tr><th align="center">序号</th><th align="left">函数&amp;描述</th></tr></thead><tbody><tr><td align="center">1</td><td align="left">void *memchr(const void *str, int c, size_t n)<br>在参数 str 所指向的字符串的前 n 个字节中搜索第一次出现字符 c（一个无符号字符）的位置。</td></tr><tr><td align="center">2</td><td align="left">int memcmp(const void *str1, const void *str2, size_t n)<br>把 str1 和 str2 的前 n 个字节进行比较。</td></tr><tr><td align="center">3</td><td align="left">void *memcpy(void *dest, const void *src, size_t n)<br>从 src 复制 n 个字符到 dest。</td></tr><tr><td align="center">4</td><td align="left">void *memmove(void *dest, const void *src, size_t n)<br>另一个用于从 src 复制 n 个字符到 dest 的函数。</td></tr><tr><td align="center">5</td><td align="left">void *memset(void *str, int c, size_t n)<br>复制字符 c（一个无符号字符）到参数 str 所指向的字符串的前 n 个字符。</td></tr><tr><td align="center">6</td><td align="left">char *strcat(char *dest, const char *src)<br>把 src 所指向的字符串追加到 dest 所指向的字符串的结尾。</td></tr><tr><td align="center">7</td><td align="left">char *strncat(char *dest, const char *src, size_t n)<br>把 src 所指向的字符串追加到 dest 所指向的字符串的结尾，直到 n 字符长度为止。</td></tr><tr><td align="center">8</td><td align="left">char *strchr(const char *str, int c)<br>在参数 str 所指向的字符串中搜索第一次出现字符 c（一个无符号字符）的位置。</td></tr><tr><td align="center">9</td><td align="left">int strcmp(const char *str1, const char *str2)<br>把 str1 所指向的字符串和 str2 所指向的字符串进行比较。</td></tr><tr><td align="center">10</td><td align="left">int strncmp(const char *str1, const char *str2, size_t n)<br>把 str1 和 str2 进行比较，最多比较前 n 个字节。</td></tr><tr><td align="center">11</td><td align="left">int strcoll(const char *str1, const char *str2)<br>把 str1 和 str2 进行比较，结果取决于 LC_COLLATE 的位置设置。</td></tr><tr><td align="center">12</td><td align="left">char *strcpy(char *dest, const char *src)<br>把 src 所指向的字符串复制到 dest。</td></tr><tr><td align="center">13</td><td align="left">char *strncpy(char *dest, const char *src, size_t n)<br>把 src 所指向的字符串复制到 dest，最多复制 n 个字符。</td></tr><tr><td align="center">14</td><td align="left">size_t strcspn(const char *str1, const char *str2)<br>检索字符串 str1 开头连续有几个字符都不含字符串 str2 中的字符。</td></tr><tr><td align="center">15</td><td align="left">char *strerror(int errnum)<br>从内部数组中搜索错误号 errnum，并返回一个指向错误消息字符串的指针。</td></tr><tr><td align="center">16</td><td align="left">size_t strlen(const char *str)<br>计算字符串 str 的长度，直到空结束字符，但不包括空结束字符。</td></tr><tr><td align="center">17</td><td align="left">char *strpbrk(const char *str1, const char *str2)<br>检索字符串 str1 中第一个匹配字符串 str2 中字符的字符，不包含空结束字符。也就是说，依次检验字符串 str1 中的字符，当被检验字符在字符串 str2 中也包含时，则停止检验，并返回该字符位置。</td></tr><tr><td align="center">18</td><td align="left">char *strrchr(const char *str, int c)<br>在参数 str 所指向的字符串中搜索最后一次出现字符 c（一个无符号字符）的位置。</td></tr><tr><td align="center">19</td><td align="left">size_t strspn(const char *str1, const char *str2)<br>检索字符串 str1 中第一个不在字符串 str2 中出现的字符下标。</td></tr><tr><td align="center">20</td><td align="left">char *strstr(const char *haystack, const char *needle)<br>在字符串 haystack 中查找第一次出现字符串 needle（不包含空结束字符）的位置。</td></tr><tr><td align="center">21</td><td align="left">char *strtok(char *str, const char *delim)<br>分解字符串 str 为一组字符串，delim 为分隔符。</td></tr><tr><td align="center">22</td><td align="left">size_t strxfrm(char *dest, const char *src, size_t n)<br>根据程序当前的区域选项中的 LC_COLLATE 来转换字符串 src 的前 n 个字符，并把它们放置在字符串 dest 中。</td></tr></tbody></table><blockquote><p>更详细的内容请查阅include文件夹中的文件。</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;style&gt;
+table th:nth-of-type(1){
+width: 8%;
+}
+table th:nth-of-type(2){
+width: 92%;
+}
+&lt;/style&gt;
+
+&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; 
+      
+    
+    </summary>
+    
+      <category term="C" scheme="YobeZhou.github.io/categories/C/"/>
+    
+    
+      <category term="C/C++" scheme="YobeZhou.github.io/tags/C-C/"/>
+    
+  </entry>
   
   <entry>
     <title>进程之进程调度</title>
@@ -433,7 +467,7 @@
     <link href="YobeZhou.github.io/2019/03/30/0006-%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%9C%AF%E8%AF%AD-%E7%B0%87/"/>
     <id>YobeZhou.github.io/2019/03/30/0006-计算机术语-簇/</id>
     <published>2019-03-30T12:31:06.000Z</published>
-    <updated>2019-06-05T03:17:30.592Z</updated>
+    <updated>2019-06-13T09:05:16.856Z</updated>
     
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp;&emsp;数据存储在硬盘的时候都是以簇为单位，所以无论文件大小是多少，除非正好是簇大小的倍数，否则文件所占用的最后一个簇或多或少都会产生一些剩余的空间，且这些空间又不能给其它文件使用，即使这个文件只有0字节，也不允许两个文件或两个以上的文件共用一个簇，不然会造成数据混乱。</p><table><thead><tr><th align="center">中文名</th><th align="center">簇</th></tr></thead><tbody><tr><td align="center">外文名</td><td align="center">CLUST</td></tr><tr><td align="center">存储管理</td><td align="center">最小单位</td></tr><tr><td align="center">属    性</td><td align="center">单位名称</td></tr><tr><td align="center">本    意</td><td align="center">“一群”、“一组”</td></tr><tr><td align="center">解    释</td><td align="center">一组扇区</td></tr></tbody></table><p>&emsp;&emsp;图1-1 磁盘上的磁道扇区和簇：</p><p><img src="/images/track-sectors-and-clusters.jpg" alt></p><center>磁盘上的磁道扇区和簇：</center>&emsp;&emsp;微软操作系统（DOS、WINDOWS等）中磁盘文件存储管理的最小单位叫做“簇”&emsp;&emsp;一个文件通常存放在一个或多个簇里，但至少要单独占据一个“簇”。 也就是说两个文件不能存放在同一个簇中。簇（CLUST）的本意就是“一群”、“一组”，即一组扇区(一个磁道可以分割成若干个大小相等的圆弧，叫扇区)的意思。因为扇区的单位太小，因此把它捆在一起，组成一个更大的单位更方便进行灵活管理。簇的大小通常是可以变化的，是由操作系统在所谓“（高级）格式化”时规定的，因此管理也更加灵活。&emsp;&emsp;通俗地讲文件就好比是一个家庭，数据就是人，即家庭成员；所谓簇就是一些单元套房；扇区是组成这些单元套房的一个个大小相等的房间。一个家庭可能住在一套或多套单元房子里，但一套房子不能同时住进两个家庭的成员。 文件系统是操作系统与驱动器之间的接口，当操作系统请求从硬盘里读取一个文件时，会请求相应的文件系统（FAT 16/FAT32/NTFS）打开文件。扇区是磁盘最小的物理存储单元，但由于操作系统无法对数目众多的扇区进行寻址，所以操作系统就将相邻的扇区组合在一起，形成一个簇，然后再对簇进行管理。每个簇可以包括2、4、8、16、32或64个扇区。显然，簇是操作系统所使用的逻辑概念，而非磁盘的物理特性。&emsp;&emsp;为了更好地管理磁盘空间和更高效地从硬盘读取数据，操作系统规定一个簇中只能放置一个文件的内容，因此文件所占用的空间，只能是簇的整数倍；如果文件实际大小小于一簇，它也要占一簇的空间。如果文件实际大小大于一簇，根据逻辑推算，那么该文件就要占两个簇的空间。所以，一般情况下文件所占空间要略大于文件的实际大小，只有在少数情况下，即文件的实际大小恰好是簇的整数倍时，文件的实际大小才会与所占空间完全一致。&emsp;&emsp;一个簇只能容纳一个文件占用，即使这个文件只有0字节，也决不允许两个文件或两个以上的文件共用一个簇，不然会造成数据混乱。]]></content>
     
@@ -495,33 +529,6 @@
       <category term="Hexo" scheme="YobeZhou.github.io/tags/Hexo/"/>
     
       <category term="Github" scheme="YobeZhou.github.io/tags/Github/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo的专用编辑器-HexoEditor</title>
-    <link href="YobeZhou.github.io/2019/03/30/0003-Hexo%E7%9A%84%E4%B8%93%E7%94%A8%E7%BC%96%E8%BE%91%E5%99%A8-HexoEditor/"/>
-    <id>YobeZhou.github.io/2019/03/30/0003-Hexo的专用编辑器-HexoEditor/</id>
-    <published>2019-03-30T03:41:40.000Z</published>
-    <updated>2019-04-27T15:08:22.113Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp;&emsp;&emsp;&emsp;’Hexo’ 是一款基于 ‘Node.js’ 的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在 ‘GitHub’ 和 ‘Coding’ 上，是搭建博客的首选框架。 由于 ‘Hexo’ 使用[markdown]语法的纯文本编辑，所以在写作的时候我们需要使用一些工具方能达到事半功倍的效果。</p><h1 id="HexoEditor"><a href="#HexoEditor" class="headerlink" title="HexoEditor"></a>HexoEditor</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>&emsp;&emsp;接下来要介绍给大家的 ‘HexoEditor’ 便是网上有人针对 ‘Hexo’ 做了优化的 ‘Markdown’ 编辑器，其使用 [Electron] 做框架，修改自 [Moeditor] 支持 Markdown，Latex 等。使用它我们可以为 ‘Hexo’ 下的博客更好的去书写内容。这是<a href="https://github.com/zhuzhuyule/HexoEditor/" target="_blank" rel="noopener">HexoEditor</a>的开源项目地址。</p><h2 id="快速下载安装"><a href="#快速下载安装" class="headerlink" title="快速下载安装"></a>快速下载安装</h2><p>&emsp;&emsp;在 ‘Github’ 项目中并没有给出，可安装的 ‘releases’ 版本，如想省去麻烦的安装过程请在下面的地址下载。<br>&emsp;&emsp;下载地址：</p><p>Windows x64:</p><figure class="highlight https"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">https://github.com/zhuzhuyule/HexoEditor/releases/download/v1.5.30/HexoEditor_1.5.30_win_x64.exe</span></span><br></pre></td></tr></table></figure><p>Macx64:</p><figure class="highlight https"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">https://github.com/zhuzhuyule/HexoEditor/releases/download/v1.5.30/HexoEditor_1.5.30_mac_x64.dmg</span></span><br></pre></td></tr></table></figure><h2 id="使用技巧"><a href="#使用技巧" class="headerlink" title="使用技巧"></a>使用技巧</h2><table><thead><tr><th align="left">按键</th><th align="center">方法</th><th align="center">说明</th></tr></thead><tbody><tr><td align="left">Tab</td><td align="center">tabAdd</td><td align="center">添加缩进</td></tr><tr><td align="left">Shift - Tab</td><td align="center">tabSubtract</td><td align="center">减少缩进</td></tr><tr><td align="left">Ctrl - B</td><td align="center">toggleBlod</td><td align="center">切换粗体</td></tr><tr><td align="left">Ctrl - I</td><td align="center">toggleItalic</td><td align="center">切换斜体</td></tr><tr><td align="left">Ctrl - D</td><td align="center">toggleDelete</td><td align="center">删除当前行</td></tr><tr><td align="left">Ctrl - `</td><td align="center">toggleComment</td><td align="center">切换注解</td></tr><tr><td align="left">Ctrl - L</td><td align="center">toggleUnOrderedList</td><td align="center">切换无序列表</td></tr><tr><td align="left">Ctrl - Alt - L</td><td align="center">toggleOrderedList</td><td align="center">切换有序列表</td></tr><tr><td align="left">Ctrl - ]</td><td align="center">toggleHeader</td><td align="center">降级标题</td></tr><tr><td align="left">Ctrl - [</td><td align="center">toggleUnHeader</td><td align="center">升级标题</td></tr><tr><td align="left">Ctrl - =</td><td align="center">toggleBlockquote</td><td align="center">增加引用</td></tr><tr><td align="left">Ctrl - -</td><td align="center">toggleUnBlockquote</td><td align="center">减少引用</td></tr><tr><td align="left">Ctrl - U</td><td align="center">drawLink</td><td align="center">添加超级链接</td></tr><tr><td align="left">Ctrl - Alt - U</td><td align="center">drawImageLink</td><td align="center">添加图片</td></tr><tr><td align="left">Ctrl - T</td><td align="center">drawTable(row col)</td><td align="center">添加表格(行 列)</td></tr><tr><td align="left">Ctrl - V</td><td align="center">pasteOriginContent</td><td align="center">源内容粘贴</td></tr><tr><td align="left">Shift - Ctrl - V</td><td align="center">pasteContent</td><td align="center">智能粘贴</td></tr><tr><td align="left">Alt - F</td><td align="center">formatTables</td><td align="center">格式化表格</td></tr><tr><td align="left">Ctrl - N</td><td align="center"></td><td align="center">新建md文档</td></tr><tr><td align="left">Ctrl - H</td><td align="center"></td><td align="center">新建Hexo文档</td></tr><tr><td align="left">Ctrl - O</td><td align="center"></td><td align="center">打开md文件</td></tr><tr><td align="left">Ctrl - S</td><td align="center"></td><td align="center">保存文档</td></tr><tr><td align="left">Shift - Ctrl - S</td><td align="center"></td><td align="center">另存为</td></tr><tr><td align="left">Alt - Ctrl - S</td><td align="center"></td><td align="center">打开设置</td></tr><tr><td align="left">Ctrl - W</td><td align="center"></td><td align="center">切换写作模式</td></tr><tr><td align="left">Ctrl - P</td><td align="center"></td><td align="center">切换预览模式</td></tr><tr><td align="left">Ctrl - R</td><td align="center"></td><td align="center">切换阅读模式</td></tr><tr><td align="left">提示: 在 Mac OS下, 请使用 Cmd 来代替 Ctrl .</td><td align="center"></td><td align="center"></td></tr></tbody></table>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;’Hexo’ 是一款基于 ‘Node.js’ 的静态博客框架，依赖少易于安装使用，可以方便的
-      
-    
-    </summary>
-    
-      <category term="Hexo相关" scheme="YobeZhou.github.io/categories/Hexo%E7%9B%B8%E5%85%B3/"/>
-    
-    
-      <category term="Hexo" scheme="YobeZhou.github.io/tags/Hexo/"/>
-    
-      <category term="tools" scheme="YobeZhou.github.io/tags/tools/"/>
     
   </entry>
   
