@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="C++,Qt,">
+  <meta name="keywords" content="Qt,C++,">
 
 
 
@@ -84,7 +84,7 @@
 
 
 <meta name="description" content="前言&amp;emsp;&amp;emsp;Qt的“信号与槽”机制极大的便利了内部事件的处理，但是在接收串口数据时我们利用到Qt的这一机制，却发现接收到的数据往往是不连贯的，这是由于当有数据到来时便立即触发读取操作，串口数据发送亦然，借此我们的程序能够及时处理串口中的数据。然而由于串口传输速率以及延迟问题，此时如果没有对接收到的串口数据做缓冲处理，最终导致我们接收到的数据呈现出来的将是断断续续的状态。因此下面的笔">
-<meta name="keywords" content="C++,Qt">
+<meta name="keywords" content="Qt,C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Qt串口读取连贯数据">
 <meta property="og:url" content="YobeZhou.github.io/2019/04/05/0013-Qt串口读取连贯数据/index.html">
@@ -464,9 +464,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/C/" rel="tag"># C++</a>
-          
             <a href="/tags/Qt/" rel="tag"># Qt</a>
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
           
         </div>
       
@@ -577,7 +577,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -696,7 +696,7 @@ pure.mini.js"></script>
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">28.8k</span>
+    <span title="Site words total count">30.9k</span>
   
 </div>
 
@@ -747,7 +747,7 @@ pure.mini.js"></script>
 <div class="theme-info">
   <div class="powered-by"></div>
   <span class="post-meta-divider">|</span>
-  <span class="post-count">博客全站共28.8k字</span>
+  <span class="post-count">博客全站共30.9k字</span>
 </div>
 
 <!-- 底部隐藏由Hexo强力驱动、主题--NexT.Mist -->
@@ -1301,6 +1301,60 @@ pure.mini.js"></script>
   
 
   
+
+  <!-- 边缘摆动效果配置文件 -->
+  
+
+  <script src="/js/wobblewindow.js"></script>
+  <script>
+    //只在桌面版网页启用特效
+    if( window.innerWidth > 768  ){
+      $(document).ready(function () {
+        
+          $('#header').wobbleWindow({
+            radius: 50,
+            movementTop: false,
+            movementLeft: false,
+            movementRight: false,
+            debug: false,
+          });
+        
+
+        
+          $('#sidebar').wobbleWindow({
+            radius: 50,
+            movementLeft: false,
+            movementTop: false,
+            movementBottom: false,
+            position: 'fixed',
+            debug: false,
+          });
+        
+
+        
+          $('#footer').wobbleWindow({
+            radius: 50,
+            movementBottom: false,
+            movementLeft: false,
+            movementRight: false,
+            offsetX: ,
+            position: 'absolute',
+            debug: false,
+          });
+        
+      });
+    }
+  </script>
+
+
+
+
+  <script src="/js/activate-power-mode.min.js"></script>
+  <script>
+    POWERMODE.colorful = true;
+    POWERMODE.shake = false;
+    document.body.addEventListener('input', POWERMODE);
+  </script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300,"opacity":0.8},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
