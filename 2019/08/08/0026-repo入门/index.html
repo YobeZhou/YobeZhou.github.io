@@ -90,7 +90,7 @@
 <meta property="og:site_name" content="YobeZhou">
 <meta property="og:description" content="1. 前言&amp;emsp;&amp;emsp;Repo是一个建立在Git之上的工具。Repo帮助管理许多Git存储库，上传到修订控制系统，并自动化部分开发工作流程。但是Repo并不是要取代Git，只是为了让Git更容易使用。repo命令只是一个可执行的Python脚本，我们可以将其放在路径中的任何位置。 Repo、Git、Gerrit三者的区别1.1 Git&amp;emsp;&amp;emsp;Git 是一个开放源代码的版">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-08T12:22:32.780Z">
+<meta property="og:updated_time" content="2019-08-09T02:19:54.264Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Repo入门">
 <meta name="twitter:description" content="1. 前言&amp;emsp;&amp;emsp;Repo是一个建立在Git之上的工具。Repo帮助管理许多Git存储库，上传到修订控制系统，并自动化部分开发工作流程。但是Repo并不是要取代Git，只是为了让Git更容易使用。repo命令只是一个可执行的Python脚本，我们可以将其放在路径中的任何位置。 Repo、Git、Gerrit三者的区别1.1 Git&amp;emsp;&amp;emsp;Git 是一个开放源代码的版">
@@ -476,15 +476,15 @@
 <li>name：在每一个.git/config文件的remote项中用到这个name，即表示每个git的远程服务器的名字(这个名字很关键，如果多个remote属性的话，default属性中需要指定default remote)。git pull、get fetch的时候会用到这个remote name。</li>
 <li>alias ：可以覆盖之前定义的remote name，name必须是固定的，但是alias可以不同，可以用来指向不同的remote url</li>
 <li>fetch ：所有git url真正路径的前缀，所有git 的project name加上这个前缀，就是git url的真正路径</li>
-<li>review ：指定Gerrit的服务器名，用于repo upload操作。如果没有指定，则repo upload没有效果<h3 id="default"><a href="#default" class="headerlink" title="default"></a>default</h3>&emsp;&emsp;设定所有projects的默认属性值，如果在project元素里没有指定一个属性，则使用default元素的属性值。</li>
+<li>review ：指定Gerrit的服务器名，用于repo upload操作。如果没有指定，则repo upload没有效果<h3 id="default"><a href="#default" class="headerlink" title="default"></a>default</h3>设定所有projects的默认属性值，如果在project元素里没有指定一个属性，则使用default元素的属性值。</li>
 <li>remote ：远程服务器的名字（上面remote属性中提到过，多个remote的时候需要指定default remote，就是这里设置了）</li>
 <li>revision ：所有git的默认branch，后面project没有特殊指出revision的话，就用这个branch</li>
 <li>sync_j ： 在repo sync中默认并行的数目</li>
 <li>sync_c ：如果设置为true，则只同步指定的分支(revision 属性指定)，而不是所有的ref内容</li>
-<li>sync_s ： 如果设置为true，则会同步git的子项目<h2 id="manifest-server"><a href="#manifest-server" class="headerlink" title="manifest-server"></a>manifest-server</h2>&emsp;&emsp;它的url属性用于指定manifest服务的URL，通常是一个XML RPC 服务<br>&emsp;&emsp;它要支持一下RPC方法：</li>
+<li>sync_s ： 如果设置为true，则会同步git的子项目<h2 id="manifest-server"><a href="#manifest-server" class="headerlink" title="manifest-server"></a>manifest-server</h2>它的url属性用于指定manifest服务的URL，通常是一个XML RPC 服务，它要支持一下RPC方法：</li>
 <li>GetApprovedManifest(branch, target) ：返回一个manifest用于指示所有projects的分支和编译目标。</li>
 <li>target参数来自环境变量TARGET_PRODUCT和TARGET_BUILD_VARIANT，组成$TARGET_PRODUCT-$TARGET_BUILD_VARIANT</li>
-<li>GetManifest(tag) ：返回指定tag的manifest<h3 id="project"><a href="#project" class="headerlink" title="project"></a>project</h3>&emsp;&emsp;需要clone的单独git</li>
+<li>GetManifest(tag) ：返回指定tag的manifest<h3 id="project"><a href="#project" class="headerlink" title="project"></a>project</h3>需要clone的单独git</li>
 <li>name ：git 的名称，用于生成git url。URL格式是：${remote fetch}/${project name}.git 其中的 fetch就是上面提到的remote 中的fetch元素，name 就是此处的name</li>
 <li>path ：clone到本地的git的工作目录，如果没有配置的话，跟name一样</li>
 <li>remote ：定义remote name，如果没有定义的话就用default中定义的remote name</li>
@@ -494,7 +494,8 @@
 <li>sync_c ：如果设置为true，则只同步指定的分支(revision 属性指定)，而不是所有的ref内容。</li>
 <li>sync_s ： 如果设置为true，则会同步git的子项目</li>
 <li>upstream ：在哪个git分支可以找到一个SHA1。用于同步revision锁定的manifest(-c 模式)。该模式可以避免同步整个ref空间</li>
-<li>annotation ：可以有0个或多个annotation，格式是name-value，repo forall命令是会用来定义环境变量<h3 id="include"><a href="#include" class="headerlink" title="include"></a>include</h3>&emsp;&emsp;通过name属性可以引入另外一个manifest文件(路径相对与当前的manifest.xml 的路径)<br>&emsp;&emsp;name ：另一个需要导入的manifest文件名字<br>&emsp;&emsp;可以在当前的路径下添加一个another_manifest.xml，这样可以在另一个xml中添加或删除project<h3 id="remove-project"><a href="#remove-project" class="headerlink" title="remove-project"></a>remove-project</h3>&emsp;&emsp;从内部的manifest表中删除指定的project。经常用于本地的manifest文件，用户可以替换一个project的定义</li>
+<li>annotation ：可以有0个或多个annotation，格式是name-value，repo forall命令是会用来定义环境变量<h3 id="include"><a href="#include" class="headerlink" title="include"></a>include</h3>通过name属性可以引入另外一个manifest文件(路径相对与当前的manifest.xml 的路径)</li>
+<li>name ：另一个需要导入的manifest文件名字<br>可以在当前的路径下添加一个another_manifest.xml，这样可以在另一个xml中添加或删除project<h3 id="remove-project"><a href="#remove-project" class="headerlink" title="remove-project"></a>remove-project</h3>&emsp;&emsp;从内部的manifest表中删除指定的project。经常用于本地的manifest文件，用户可以替换一个project的定义</li>
 </ul>
 <h1 id="Google提供的参考资源"><a href="#Google提供的参考资源" class="headerlink" title="Google提供的参考资源"></a>Google提供的参考资源</h1><p>&emsp;&emsp;主页：<a href="https://gerrit.googlesource.com/git-repo/" target="_blank" rel="noopener">https://gerrit.googlesource.com/git-repo/</a><br>&emsp;&emsp;错误报告：<a href="https://bugs.chromium.org/p/gerrit/issues/list?q=component:repo" target="_blank" rel="noopener">https://bugs.chromium.org/p/gerrit/issues/list?q=component:repo</a><br>&emsp;&emsp;资料来源：<a href="https://gerrit.googlesource.com/git-repo/" target="_blank" rel="noopener">https://gerrit.googlesource.com/git-repo/</a><br>&emsp;&emsp;概述：<a href="https://source.android.com/source/developing.html" target="_blank" rel="noopener">https://source.android.com/source/developing.html</a><br>&emsp;&emsp;文档：<a href="https://source.android.com/source/using-repo.html" target="_blank" rel="noopener">https://source.android.com/source/using-repo.html</a></p>
 
