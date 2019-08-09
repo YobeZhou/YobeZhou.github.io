@@ -90,7 +90,7 @@
 <meta property="og:site_name" content="YobeZhou">
 <meta property="og:description" content="1. 前言&amp;emsp;&amp;emsp;Repo是一个建立在Git之上的工具。Repo帮助管理许多Git存储库，上传到修订控制系统，并自动化部分开发工作流程。但是Repo并不是要取代Git，只是为了让Git更容易使用。repo命令只是一个可执行的Python脚本，我们可以将其放在路径中的任何位置。 Repo、Git、Gerrit三者的区别1.1 Git&amp;emsp;&amp;emsp;Git 是一个开放源代码的版">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-09T04:02:01.471Z">
+<meta property="og:updated_time" content="2019-08-09T04:04:57.987Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Repo入门">
 <meta name="twitter:description" content="1. 前言&amp;emsp;&amp;emsp;Repo是一个建立在Git之上的工具。Repo帮助管理许多Git存储库，上传到修订控制系统，并自动化部分开发工作流程。但是Repo并不是要取代Git，只是为了让Git更容易使用。repo命令只是一个可执行的Python脚本，我们可以将其放在路径中的任何位置。 Repo、Git、Gerrit三者的区别1.1 Git&amp;emsp;&amp;emsp;Git 是一个开放源代码的版">
@@ -373,7 +373,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.4k
+                  2.5k
                 </span>
               
 
@@ -464,11 +464,13 @@
 
 <p>.repo目录理解：</p>
 <ul>
+<li>manifests：一个git库，包含default.xml文件，用于描述repo所管理的git库的信息</li>
+<li>manifests.git：manifest这个git库的实体，manifest/.git目录下的所有文件都会链接到该目录</li>
 <li>manifests/default.xml：工作树的主配置文件，一般不要编辑这个文件</li>
 <li>projects/：每个git工程的 .git结构</li>
-<li>manifest.xml：这是一个指向 .repo/manifests/ 目录中所选清单的符号链接。</li>
-<li>project.list：</li>
-<li>repo/：其实是一个repo的python源码</li>
+<li>manifest.xml：这是一个指向 .repo/manifests/ 目录中所选清单的符号链接</li>
+<li>project.list：git库的所有仓库列表</li>
+<li>repo/： 一个git库，包含repo运行的所有脚本</li>
 </ul>
 <h1 id="8-default-xml-文件解读"><a href="#8-default-xml-文件解读" class="headerlink" title="8. default.xml 文件解读"></a>8. default.xml 文件解读</h1><ul>
 <li>manifest<br>&emsp;&emsp;这个是配置的顶层元素，即根标志</li>
@@ -771,7 +773,7 @@ pure.mini.js"></script>
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">31.2k</span>
+    <span title="Site words total count">31.3k</span>
   
 </div>
 
@@ -822,7 +824,7 @@ pure.mini.js"></script>
 <div class="theme-info">
   <div class="powered-by"></div>
   <span class="post-meta-divider">|</span>
-  <span class="post-count">博客全站共31.2k字</span>
+  <span class="post-count">博客全站共31.3k字</span>
 </div>
 
 <!-- 底部隐藏由Hexo强力驱动、主题--NexT.Mist -->
