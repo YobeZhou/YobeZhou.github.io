@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Git,">
 
 
 
@@ -84,13 +84,14 @@
 
 
 <meta name="description" content="1. 前言&amp;emsp;&amp;emsp;Repo是一个建立在Git之上的工具。Repo帮助管理许多Git存储库，上传到修订控制系统，并自动化部分开发工作流程。但是Repo并不是要取代Git，只是为了让Git更容易使用。repo命令只是一个可执行的Python脚本，我们可以将其放在路径中的任何位置。 Repo、Git、Gerrit三者的区别1.1 Git&amp;emsp;&amp;emsp;Git 是一个开放源代码的版">
+<meta name="keywords" content="Git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Repo入门">
 <meta property="og:url" content="YobeZhou.github.io/2019/08/08/0026-repo入门/index.html">
 <meta property="og:site_name" content="YobeZhou">
 <meta property="og:description" content="1. 前言&amp;emsp;&amp;emsp;Repo是一个建立在Git之上的工具。Repo帮助管理许多Git存储库，上传到修订控制系统，并自动化部分开发工作流程。但是Repo并不是要取代Git，只是为了让Git更容易使用。repo命令只是一个可执行的Python脚本，我们可以将其放在路径中的任何位置。 Repo、Git、Gerrit三者的区别1.1 Git&amp;emsp;&amp;emsp;Git 是一个开放源代码的版">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-09T04:04:57.987Z">
+<meta property="og:updated_time" content="2019-08-09T06:33:18.361Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Repo入门">
 <meta name="twitter:description" content="1. 前言&amp;emsp;&amp;emsp;Repo是一个建立在Git之上的工具。Repo帮助管理许多Git存储库，上传到修订控制系统，并自动化部分开发工作流程。但是Repo并不是要取代Git，只是为了让Git更容易使用。repo命令只是一个可执行的Python脚本，我们可以将其放在路径中的任何位置。 Repo、Git、Gerrit三者的区别1.1 Git&amp;emsp;&amp;emsp;Git 是一个开放源代码的版">
@@ -342,6 +343,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -416,24 +439,24 @@
 <h2 id="1-3-Gerrit"><a href="#1-3-Gerrit" class="headerlink" title="1.3 Gerrit"></a>1.3 Gerrit</h2><p>&emsp;&emsp;Gerrit 是一个基于网页的代码审核系统，适用于使用 Git 的项目。Gerrit 允许所有授权用户提交更改（如果通过代码审核，这些更改会自动纳入项目中），以此鼓励其他人更集中地使用 Git。此外，Gerrit 可以在浏览器中并排显示更改，并支持代码内注释，使得审核工作变得更轻松！</p>
 <h1 id="2-Repo的工作原理"><a href="#2-Repo的工作原理" class="headerlink" title="2. Repo的工作原理"></a>2. Repo的工作原理</h1><p>&emsp;&emsp;repo需要关注当前git库的数量、名称、路径等，有了这些基本信息，才能对这些git库进行操作。通过集中维护所有git库的清单，repo可以方便的从清单中获取git库的信息。 这份清单会随着版本演进升级而产生变化，同时也有一些本地的修改定制需求，所以，repo是通过一个git库来管理项目的清单文件的，这个git库名字叫manifests。<br>&emsp;&emsp;当打开repo这个可执行的python脚本后，发现代码量并不大(不超过1000行)，难道仅这一个脚本就完成了AOSP数百个git库的管理吗？并非如此。 repo是一系列脚本的集合，这些脚本也是通过git库来维护的，这个git库名字叫repo。<br>&emsp;&emsp;在客户端使用repo初始化一个项目时，就会从远程把manifests和repo这两个git库拷贝到本地，但这对于Android开发人员来说，又是近乎无形的(一般通过文件管理器，是无法看到这两个git库的)。 repo将自动化的管理信息都隐藏根目录的.repo子目录中。</p>
 <h1 id="3-安装Repo"><a href="#3-安装Repo" class="headerlink" title="3. 安装Repo"></a>3. 安装Repo</h1><p>创建目录并修改环境变量</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> mkdir ~/bin</span><br><span class="line"><span class="meta">$</span> PATH=~/bin:$PATH</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mkdir ~/bin</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> PATH=~/bin:<span class="variable">$PATH</span></span></span><br></pre></td></tr></table></figure>
 
-<h2 id="3-1-下载repo"><a href="#3-1-下载repo" class="headerlink" title="3.1 下载repo"></a>3.1 下载repo</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> curl https://storage.googleapis.com/git-repo-downloads/repo &gt; ~/bin/repo</span><br><span class="line"><span class="meta">$</span> chmod a+x ~/bin/repo</span><br></pre></td></tr></table></figure>
+<h2 id="3-1-下载repo"><a href="#3-1-下载repo" class="headerlink" title="3.1 下载repo"></a>3.1 下载repo</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> curl https://storage.googleapis.com/git-repo-downloads/repo &gt; ~/bin/repo</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> chmod a+x ~/bin/repo</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="3-3-获取帮助"><a href="#3-3-获取帮助" class="headerlink" title="3.3 获取帮助"></a>3.3 获取帮助</h2><p>&emsp;&emsp;安装 Repo 后，运行以下命令可以找到最新文档（开头是包含所有命令的摘要）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> repo help</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> repo <span class="built_in">help</span></span></span><br></pre></td></tr></table></figure>
 
 <h2 id="3-4-查询具体命令的帮助"><a href="#3-4-查询具体命令的帮助" class="headerlink" title="3.4 查询具体命令的帮助"></a>3.4 查询具体命令的帮助</h2><p>&emsp;&emsp;在 Repo 树中运行以下命令来获取有关某个命令的信息</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> repo help &lt;COMMAND&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> repo <span class="built_in">help</span> &lt;COMMAND&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="3-5-查看Repo-init-参数的说明和选项列表"><a href="#3-5-查看Repo-init-参数的说明和选项列表" class="headerlink" title="3.5 查看Repo init 参数的说明和选项列表"></a>3.5 查看Repo init 参数的说明和选项列表</h2><p>&emsp;&emsp;此命令会生成 Repo init 参数的说明和选项列表，该参数会在当前目录中初始化 Repo。（要了解详情，请参阅 <a href="https://source.android.com/source/using-repo.html#init" target="_blank" rel="noopener">init</a>。）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> repo help init</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> repo <span class="built_in">help</span> init</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="4-初始化仓库"><a href="#4-初始化仓库" class="headerlink" title="4. 初始化仓库"></a>4. 初始化仓库</h1><p>&emsp;&emsp;初始化仓库命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> repo init -u &lt;URL&gt; [&lt;OPTIONS&gt;]</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> repo init -u &lt;URL&gt; [&lt;OPTIONS&gt;]</span></span><br></pre></td></tr></table></figure>
 
 <p>&emsp;&emsp;示范：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> mkdir MY_WORKING_DIRECTORY</span><br><span class="line"><span class="meta">$</span> cd MY_WORKING_DIRECTORY</span><br><span class="line"><span class="meta">$</span> repo init -u https://android.googlesource.com/platform/manifest</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mkdir MY_WORKING_DIRECTORY</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> MY_WORKING_DIRECTORY</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> repo init -u https://android.googlesource.com/platform/manifest</span></span><br></pre></td></tr></table></figure>
 
 <p>&emsp;&emsp;这将在当前目录中安装 Repo。这会创建一个 .repo/ 目录，其中包含用于 Repo 源代码和标准 Android 清单文件的 Git 代码库。该 .repo/ 目录中还包含 manifest.xml，这是一个指向 .repo/manifests/ 目录中所选清单的符号链接。<br>选项：</p>
 <ul>
@@ -444,7 +467,7 @@
 <blockquote>
 <p>注意：对于其余的所有 Repo 命令，当前工作目录必须是 .repo/ 的父目录或相应父目录的子目录。</p>
 </blockquote>
-<h1 id="5-拉取仓库"><a href="#5-拉取仓库" class="headerlink" title="5. 拉取仓库"></a>5. 拉取仓库</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> repo sync</span><br><span class="line"><span class="meta">$</span> repo sync PROJECT0 PROJECT1 PROJECT2 ...</span><br></pre></td></tr></table></figure>
+<h1 id="5-拉取仓库"><a href="#5-拉取仓库" class="headerlink" title="5. 拉取仓库"></a>5. 拉取仓库</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> repo sync</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> repo sync PROJECT0 PROJECT1 PROJECT2 ...</span></span><br></pre></td></tr></table></figure>
 
 <p>选项：</p>
 <ul>
@@ -460,7 +483,7 @@
 <p>该文件内容的理解，请移步</p>
 </blockquote>
 <h1 id="7-理解repo-init后生成的-repo目录结构"><a href="#7-理解repo-init后生成的-repo目录结构" class="headerlink" title="7. 理解repo init后生成的.repo目录结构"></a>7. 理解repo init后生成的.repo目录结构</h1><p>&emsp;&emsp;当我们执行repo init命令之后会在当前目录下生成’.repo’目录：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> tree .repo -L 1</span><br><span class="line">.repo</span><br><span class="line">├── manifests</span><br><span class="line">├── manifests.git</span><br><span class="line">├── manifest.xml -&gt; manifests/default.xml</span><br><span class="line">├── project.list</span><br><span class="line">├── projects</span><br><span class="line">└── repo</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> tree .repo -L 1</span></span><br><span class="line">.repo</span><br><span class="line">├── manifests</span><br><span class="line">├── manifests.git</span><br><span class="line">├── manifest.xml -&gt; manifests/default.xml</span><br><span class="line">├── project.list</span><br><span class="line">├── projects</span><br><span class="line">└── repo</span><br></pre></td></tr></table></figure>
 
 <p>.repo目录理解：</p>
 <ul>
@@ -550,6 +573,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Git/" rel="tag"># Git</a>
+          
+        </div>
       
 
       
@@ -665,7 +694,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -676,7 +705,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
