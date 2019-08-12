@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="YobeZhou">
 <meta property="og:description" content="table th:nth-of-type(1){ width: 10%; } table th:nth-of-type(2){ width: 20%; } table th:nth-of-type(3){ width: 30%; } table th:nth-of-type(4){ width: 15%; } table th:nth-of-type(5){ width: 10%; } tabl">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-12T07:14:21.617Z">
+<meta property="og:updated_time" content="2019-08-12T12:04:38.535Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C语言操作符优先级">
 <meta name="twitter:description" content="table th:nth-of-type(1){ width: 10%; } table th:nth-of-type(2){ width: 20%; } table th:nth-of-type(3){ width: 30%; } table th:nth-of-type(4){ width: 15%; } table th:nth-of-type(5){ width: 10%; } tabl">
@@ -396,7 +396,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  693
+                  988
                 </span>
               
 
@@ -412,7 +412,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  4
                 </span>
               
             </div>
@@ -496,358 +496,358 @@ width: 15%;
 <td align="left">访问结构成员</td>
 <td align="center">lexp.member_name</td>
 <td align="left">lexp</td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="center">L-R</td>
+<td align="left">否</td>
 </tr>
 <tr>
 <td align="center">-&gt;</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">访问结构指针成员</td>
+<td align="center">rexp-&gt;member_name</td>
+<td align="left">lexp</td>
 <td align="center">L-R</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">++</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">后缀自增</td>
+<td align="center">lexp++</td>
+<td align="left">rexp</td>
 <td align="center">L-R</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">&#45;&#45;</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">后缀自减</td>
+<td align="center">lexp–</td>
+<td align="left">rexp</td>
 <td align="center">L-R</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">!</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">逻辑反</td>
+<td align="center">!rexp</td>
+<td align="left">rexp</td>
 <td align="center">R-L</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">~</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">按位取反</td>
+<td align="center">~rexp</td>
+<td align="left">rexp</td>
 <td align="center">R-L</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">+</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">单目，表示正值</td>
+<td align="center">+rexp</td>
+<td align="left">rexp</td>
 <td align="center">R-L</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">&#45;</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">单目，表示负值</td>
+<td align="center">-rexp</td>
+<td align="left">rexp</td>
 <td align="center">R-L</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">++</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">前缀自增</td>
+<td align="center">++lexp</td>
+<td align="left">rexp</td>
 <td align="center">R-L</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">&#45;&#45;</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">前缀自减</td>
+<td align="center">–lexp</td>
+<td align="left">rexp</td>
 <td align="center">R-L</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">*</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">间接访问</td>
+<td align="center">*rexp</td>
+<td align="left">rexp</td>
 <td align="center">R-L</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">&amp;</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">取地址</td>
+<td align="center">&amp;lexp</td>
+<td align="left">rexp</td>
 <td align="center">R-L</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">sizeof</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">取其长度</td>
+<td align="center">sizeof rexp; sizeof(类型)</td>
+<td align="left">rexp</td>
 <td align="center">R-L</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">(类型)</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">类型转换</td>
+<td align="center">(类型)rexp</td>
+<td align="left">rexp</td>
 <td align="center">R-L</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">*</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">乘法</td>
+<td align="center">rexp*rexp</td>
+<td align="left">rexp</td>
 <td align="center">L-R</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">/</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">除法</td>
+<td align="center">rexp/rexp</td>
+<td align="left">rexp</td>
 <td align="center">L-R</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">%</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">整数取余</td>
+<td align="center">rexp%rexp</td>
+<td align="left">rexp</td>
 <td align="center">L-R</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">+</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">加法</td>
+<td align="center">rexp+rexp</td>
+<td align="left">rexp</td>
 <td align="center">L-R</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">&#45;</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">减法</td>
+<td align="center">rexp&#45;rexp</td>
+<td align="left">rexp</td>
 <td align="center">L-R</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">&lt;&lt;</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">左移位</td>
+<td align="center">rexp&#60;&#60;rexp</td>
+<td align="left">rexp</td>
 <td align="center">L-R</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">&gt;&gt;</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">右移位</td>
+<td align="center">rexp&gt;&gt;rexp</td>
+<td align="left">rexp</td>
 <td align="center">L-R</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">&gt;</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">大于</td>
+<td align="center">rexp&gt;rexp</td>
+<td align="left">rexp</td>
 <td align="center">L-R</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">&gt;=</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">大于等于</td>
+<td align="center">rexp&gt;=rexp</td>
+<td align="left">rexp</td>
 <td align="center">L-R</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">&lt;</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">小于</td>
+<td align="center">rexp&#60;rexp</td>
+<td align="left">rexp</td>
 <td align="center">L-R</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">&lt;=</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">小于等于</td>
+<td align="center">rexp&#60;=rexp</td>
+<td align="left">rexp</td>
 <td align="center">L-R</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">==</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">等于</td>
+<td align="center">rexp==rexp</td>
+<td align="left">rexp</td>
 <td align="center">L-R</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">!=</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">不等于</td>
+<td align="center">rexp!=rexp</td>
+<td align="left">rexp</td>
 <td align="center">L-R</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">&amp;</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">位于</td>
+<td align="center">rexp&amp;rexp</td>
+<td align="left">rexp</td>
 <td align="center">L-R</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">^</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">位异或</td>
+<td align="center">rexp^rexp</td>
+<td align="left">rexp</td>
 <td align="center">L-R</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">&#124;</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">位或</td>
+<td align="center">rexp&#124;rexp</td>
+<td align="left">rexp</td>
 <td align="center">L-R</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">&amp;&amp;</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">逻辑与</td>
+<td align="center">rexp&amp;&amp;rexp</td>
+<td align="left">rexp</td>
 <td align="center">L-R</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">&#124;&#124;</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left">L-R</td>
+<td align="left">逻辑或</td>
+<td align="center">rexpre&#124;&#124;rexp</td>
+<td align="left">rexp</td>
+<td align="center">L-R</td>
+<td align="left">是</td>
 </tr>
 <tr>
 <td align="center">?:</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">条件操作符</td>
+<td align="center">rexp?rexp:rexp</td>
+<td align="left">rexp</td>
 <td align="center">N/A</td>
 <td align="left">是</td>
 </tr>
 <tr>
 <td align="center">=</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">赋值</td>
+<td align="center">lexp=rexp</td>
+<td align="left">rexp</td>
 <td align="center">R-L</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">+=</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">以…加</td>
+<td align="center">lexp+=rexp</td>
+<td align="left">rexp</td>
 <td align="center">R-L</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">-=</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">以…减</td>
+<td align="center">lexp-=rexp</td>
+<td align="left">rexp</td>
 <td align="center">R-L</td>
 <td align="left">否</td>
 </tr>
 <tr>
-<td align="center">*=</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="center">&#42;=</td>
+<td align="left">以…乘</td>
+<td align="center">lexp &#42;=rexp</td>
+<td align="left">rexp</td>
 <td align="center">R-L</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">/=</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">以…除</td>
+<td align="center">lexp/=rexp</td>
+<td align="left">rexp</td>
 <td align="center">R-L</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">%=</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">以…取模</td>
+<td align="center">lexp%=rexp</td>
+<td align="left">rexp</td>
 <td align="center">R-L</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">&lt;&lt;=</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">以…左移</td>
+<td align="center">lexp&lt;&lt;=rexp</td>
+<td align="left">rexp</td>
 <td align="center">R-L</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">&gt;&gt;=</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">以…右移</td>
+<td align="center">lexp&gt;&gt;=rexp</td>
+<td align="left">rexp</td>
 <td align="center">R-L</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">&amp;=</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">以…与</td>
+<td align="center">lexp&amp;=rexp</td>
+<td align="left">rexp</td>
 <td align="center">R-L</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">^=</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">以…异或</td>
+<td align="center">lexp^=rexp</td>
+<td align="left">rexp</td>
 <td align="center">R-L</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">&#124;=</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">以…或</td>
+<td align="center">lexp&#124;=rexp</td>
+<td align="left">rexp</td>
 <td align="center">R-L</td>
 <td align="left">否</td>
 </tr>
 <tr>
 <td align="center">,</td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="left"></td>
+<td align="left">逗号</td>
+<td align="center">rexp,rexp</td>
+<td align="left">rexp</td>
 <td align="center">L-R</td>
 <td align="left">是</td>
 </tr>
@@ -1127,7 +1127,7 @@ pure.mini.js"></script>
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">32k</span>
+    <span title="Site words total count">32.3k</span>
   
 </div>
 
@@ -1178,7 +1178,7 @@ pure.mini.js"></script>
 <div class="theme-info">
   <div class="powered-by"></div>
   <span class="post-meta-divider">|</span>
-  <span class="post-count">博客全站共32k字</span>
+  <span class="post-count">博客全站共32.3k字</span>
 </div>
 
 <!-- 底部隐藏由Hexo强力驱动、主题--NexT.Mist -->
