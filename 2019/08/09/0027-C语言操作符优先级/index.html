@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="YobeZhou">
 <meta property="og:description" content="table th:nth-of-type(1){ width: 10%; } table th:nth-of-type(2){ width: 20%; } table th:nth-of-type(3){ width: 30%; } table th:nth-of-type(4){ width: 15%; } table th:nth-of-type(5){ width: 10%; } tabl">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-09T07:01:31.027Z">
+<meta property="og:updated_time" content="2019-08-12T06:54:19.477Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C语言操作符优先级">
 <meta name="twitter:description" content="table th:nth-of-type(1){ width: 10%; } table th:nth-of-type(2){ width: 20%; } table th:nth-of-type(3){ width: 30%; } table th:nth-of-type(4){ width: 15%; } table th:nth-of-type(5){ width: 10%; } tabl">
@@ -396,7 +396,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  391
+                  659
                 </span>
               
 
@@ -412,7 +412,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -516,7 +516,7 @@ width: 15%;
 <td align="left">否</td>
 </tr>
 <tr>
-<td align="center">–</td>
+<td align="center">&#45;&#45;</td>
 <td align="left"></td>
 <td align="center"></td>
 <td align="left"></td>
@@ -548,7 +548,7 @@ width: 15%;
 <td align="left">否</td>
 </tr>
 <tr>
-<td align="center">-</td>
+<td align="center">&#45;</td>
 <td align="left"></td>
 <td align="center"></td>
 <td align="left"></td>
@@ -564,7 +564,7 @@ width: 15%;
 <td align="left">否</td>
 </tr>
 <tr>
-<td align="center">–</td>
+<td align="center">&#45;&#45;</td>
 <td align="left"></td>
 <td align="center"></td>
 <td align="left"></td>
@@ -636,7 +636,7 @@ width: 15%;
 <td align="left">否</td>
 </tr>
 <tr>
-<td align="center">-</td>
+<td align="center">&#45;</td>
 <td align="left"></td>
 <td align="center"></td>
 <td align="left"></td>
@@ -724,12 +724,12 @@ width: 15%;
 <td align="left">否</td>
 </tr>
 <tr>
-<td align="center"></td>
+<td align="center">&#124;</td>
 <td align="left"></td>
 <td align="center"></td>
 <td align="left"></td>
-<td align="center"></td>
-<td align="left">L-R</td>
+<td align="center">L-R</td>
+<td align="left">否</td>
 </tr>
 <tr>
 <td align="center">&amp;&amp;</td>
@@ -740,12 +740,12 @@ width: 15%;
 <td align="left">否</td>
 </tr>
 <tr>
-<td align="center">‘</td>
-<td align="left">‘</td>
-<td align="center"></td>
+<td align="center">&#124;&#124;</td>
 <td align="left"></td>
 <td align="center"></td>
 <td align="left"></td>
+<td align="center"></td>
+<td align="left">L-R</td>
 </tr>
 <tr>
 <td align="center">?:</td>
@@ -836,12 +836,12 @@ width: 15%;
 <td align="left">否</td>
 </tr>
 <tr>
-<td align="center">‘</td>
-<td align="left">=’</td>
-<td align="center"></td>
+<td align="center">&#124;=</td>
 <td align="left"></td>
 <td align="center"></td>
-<td align="left">R-L</td>
+<td align="left"></td>
+<td align="center">R-L</td>
+<td align="left">否</td>
 </tr>
 <tr>
 <td align="center">,</td>
@@ -852,7 +852,30 @@ width: 15%;
 <td align="left">是</td>
 </tr>
 </tbody></table>
-
+<h1 id="附：Markdown特殊字符转义"><a href="#附：Markdown特殊字符转义" class="headerlink" title="附：Markdown特殊字符转义"></a>附：Markdown特殊字符转义</h1><p>&emsp;&emsp;hexo时Markdown的语法格式，在书写时对于特殊字符使用“\“转义是不严谨的做法，最好的方式是使用特殊字符对应的编码，对应如下：</p>
+<pre><code>空格    &amp;emsp;
+-       &amp;#45; &amp;minus; — 减号
+!       &amp;#33; — 惊叹号Exclamation mark 
+”       &amp;#34; &amp;quot; 双引号Quotation mark # &amp;#35; — 数字标志Number sign $ &amp;#36; — 美元标志Dollar sign 
+%       &amp;#37; — 百分号Percent sign 
+&amp;       &amp;#38; &amp;amp; Ampersand 
+‘       &amp;#39; — 单引号Apostrophe 
+(       &amp;#40; — 小括号左边部分Left parenthesis 
+)       &amp;#41; — 小括号右边部分Right parenthesis 
+*       &amp;#42; — 星号Asterisk 
++       &amp;#43; — 加号Plus sign 
+&lt;       &amp;#60; &amp;lt; 小于号Less than 
+=       &amp;#61; — 等于符号Equals sign 
+&gt;  &amp;#62; &amp;gt; 大于号Greater than 
+?  &amp;#63; — 问号Question mark 
+@  &amp;#64; — Commercial at 
+[  &amp;#91; --- 中括号左边部分Left square bracket 
+\  &amp;#92; --- 反斜杠Reverse solidus (backslash) 
+]  &amp;#93; — 中括号右边部分Right square bracket 
+{  &amp;#123; — 大括号左边部分Left curly brace 
+|  &amp;#124; — 竖线Vertical bar 
+}  &amp;#125; — 大括号右边部分Right curly brace 
+```Markdown</code></pre>
       
     </div>
     
@@ -1061,7 +1084,7 @@ width: 15%;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C语言操作符的优先级"><span class="nav-number">2.</span> <span class="nav-text">C语言操作符的优先级</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C语言操作符的优先级"><span class="nav-number">2.</span> <span class="nav-text">C语言操作符的优先级</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附：Markdown特殊字符转义"><span class="nav-number">3.</span> <span class="nav-text">附：Markdown特殊字符转义</span></a></li></ol></div>
             
 
           </div>
@@ -1102,7 +1125,7 @@ pure.mini.js"></script>
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">31.7k</span>
+    <span title="Site words total count">32k</span>
   
 </div>
 
@@ -1153,7 +1176,7 @@ pure.mini.js"></script>
 <div class="theme-info">
   <div class="powered-by"></div>
   <span class="post-meta-divider">|</span>
-  <span class="post-count">博客全站共31.7k字</span>
+  <span class="post-count">博客全站共32k字</span>
 </div>
 
 <!-- 底部隐藏由Hexo强力驱动、主题--NexT.Mist -->
