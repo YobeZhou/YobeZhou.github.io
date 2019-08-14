@@ -94,8 +94,9 @@
 <meta property="og:image" content="/images/Android/android_in_google.jpg">
 <meta property="og:image" content="/images/Android/Android_Robot.png">
 <meta property="og:image" content="/images/Android/android_logo_no_2x.png">
+<meta property="og:image" content="/images/Android/ape_fwk_all.png">
 <meta property="og:image" content="/images/Android/Android%E5%A0%86%E6%A0%88.png">
-<meta property="og:updated_time" content="2019-08-14T03:56:41.883Z">
+<meta property="og:updated_time" content="2019-08-14T06:29:13.587Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android之源起">
 <meta name="twitter:description" content="table th:nth-of-type(1){ width: 35%; } table th:nth-of-type(2){ width: 16%; } table th:nth-of-type(3){ width: 25%; } table th:nth-of-type(4){ width: 16%; } table th:nth-of-type(5){ width: 18%; }    前">
@@ -401,7 +402,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.3k
+                  1.9k
                 </span>
               
 
@@ -417,7 +418,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5
+                  7
                 </span>
               
             </div>
@@ -472,6 +473,14 @@ width: 18%;
 <h1 id="Android标志"><a href="#Android标志" class="headerlink" title="Android标志"></a>Android标志</h1><p>&emsp;&emsp;Android是一个全身绿色的机器人，半圆形的头部，有两支天线和空白的点作为眼睛。它的头部与身体之间有空白的区域，相似于一枚有平底的鸡蛋，两侧各有两个圆角矩形，作为它的双臂。Android的标志是由Ascender公司设计，颜色采用了PMS 376C和RGB中十六进制的#A4C639来绘制，这是Android操作系统的品牌象征。当中的文字使用了Ascender公司专门制作的称之为“Google Droid”的字体有时候，它会以纯文字的标志展示。</p>
 <h2 id="Android机器人"><a href="#Android机器人" class="headerlink" title="Android机器人"></a>Android机器人</h2><p><img src="/images/Android/Android_Robot.png" alt="Android_Robot"></p>
 <h2 id="Android字标"><a href="#Android字标" class="headerlink" title="Android字标"></a>Android字标</h2><p><img src="/images/Android/android_logo_no_2x.png" alt="android_logo"></p>
+<h1 id="Android系统架构"><a href="#Android系统架构" class="headerlink" title="Android系统架构"></a>Android系统架构</h1><p>&emsp;&emsp;Android系统架构包含以下组件：<br><img src="/images/Android/ape_fwk_all.png" alt="ape_fwk_all"></p>
+<ul>
+<li>应用框架。应用框架最常被应用开发者使用。很多此类 API 都可以直接映射到底层 HAL 接口，并可提供与实现驱动程序相关的实用信息，因此如果作为硬件开发者，需要非常了解其中的 API。</li>
+<li>Binder IPC。Binder 进程间通信 (IPC) 机制允许应用框架跨越进程边界并调用 Android 系统服务代码，这使得高级框架 API 能与 Android 系统服务进行交互。在应用框架级别，开发者无法看到此类通信的过程，但一切似乎都在“按部就班地运行”。</li>
+<li>系统服务。系统服务是专注于特定功能的模块化组件，例如窗口管理器、搜索服务或通知管理器。 应用框架 API 所提供的功能可与系统服务通信，以访问底层硬件。Android 包含两组服务：“系统”（诸如窗口管理器和通知管理器之类的服务）和“媒体”（与播放和录制媒体相关的服务）。</li>
+<li>硬件抽象层 (HAL)。HAL 可定义一个标准接口以供硬件供应商实现，这可让 Android 忽略较低级别的驱动程序实现。借助 HAL，您可以顺利实现相关功能，而不会影响或更改更高级别的系统。HAL 实现会被封装成模块，并会由 Android 系统适时地加载。</li>
+<li>Linux 内核。开发设备驱动程序与开发典型的 Linux 设备驱动程序类似。Android 使用的 Linux 内核版本包含几个特殊的补充功能，例如：Low Memory Killer（一种内存管理系统，可更主动地保留内存）、唤醒锁定（一种 PowerManager 系统服务）、Binder IPC 驱动程序以及对移动嵌入式平台来说非常重要的其他功能。这些补充功能主要用于增强系统功能，不会影响驱动程序开发。我们可以使用任意版本的内核，只要它支持所需功能（如 Binder 驱动程序）即可。</li>
+</ul>
 <h1 id="Android堆栈"><a href="#Android堆栈" class="headerlink" title="Android堆栈"></a>Android堆栈</h1><p>&emsp;&emsp;Android 是一个针对多种不同设备类型打造的开放源代码软件堆栈。Android 的主要目的是为运营商、OEM 和开发者打造一个开放的软件平台，使他们能够将创新理念变为现实，并推出能够卓有成效地改善用户移动体验的真实产品。<br>&emsp;&emsp;Android 平台的设计可确保不存在一个集中瓶颈，即没有任何行业参与者可一手限制或控制其他参与者的创新。这样，我们不但可以打造功能完善的高品质消费类产品，而且可以完全开放源代码，供第三方自由定制和移植。<br><img src="/images/Android/Android%E5%A0%86%E6%A0%88.png" alt="Android 堆栈"></p>
 <h1 id="Android更新时间表"><a href="#Android更新时间表" class="headerlink" title="Android更新时间表"></a>Android更新时间表</h1><table>
 <thead>
@@ -815,7 +824,7 @@ width: 18%;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android的成立"><span class="nav-number">2.</span> <span class="nav-text">Android的成立</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android命名由来"><span class="nav-number">3.</span> <span class="nav-text">Android命名由来</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android标志"><span class="nav-number">4.</span> <span class="nav-text">Android标志</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Android机器人"><span class="nav-number">4.1.</span> <span class="nav-text">Android机器人</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android字标"><span class="nav-number">4.2.</span> <span class="nav-text">Android字标</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android堆栈"><span class="nav-number">5.</span> <span class="nav-text">Android堆栈</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android更新时间表"><span class="nav-number">6.</span> <span class="nav-text">Android更新时间表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资源"><span class="nav-number">7.</span> <span class="nav-text">参考资源</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android的成立"><span class="nav-number">2.</span> <span class="nav-text">Android的成立</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android命名由来"><span class="nav-number">3.</span> <span class="nav-text">Android命名由来</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android标志"><span class="nav-number">4.</span> <span class="nav-text">Android标志</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Android机器人"><span class="nav-number">4.1.</span> <span class="nav-text">Android机器人</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android字标"><span class="nav-number">4.2.</span> <span class="nav-text">Android字标</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android系统架构"><span class="nav-number">5.</span> <span class="nav-text">Android系统架构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android堆栈"><span class="nav-number">6.</span> <span class="nav-text">Android堆栈</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android更新时间表"><span class="nav-number">7.</span> <span class="nav-text">Android更新时间表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资源"><span class="nav-number">8.</span> <span class="nav-text">参考资源</span></a></li></ol></div>
             
 
           </div>
@@ -856,7 +865,7 @@ pure.mini.js"></script>
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">33.6k</span>
+    <span title="Site words total count">34.2k</span>
   
 </div>
 
@@ -907,7 +916,7 @@ pure.mini.js"></script>
 <div class="theme-info">
   <div class="powered-by"></div>
   <span class="post-meta-divider">|</span>
-  <span class="post-count">博客全站共33.6k字</span>
+  <span class="post-count">博客全站共34.2k字</span>
 </div>
 
 <!-- 底部隐藏由Hexo强力驱动、主题--NexT.Mist -->
