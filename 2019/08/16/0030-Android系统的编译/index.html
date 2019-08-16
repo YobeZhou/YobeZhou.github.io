@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Android,">
 
 
 
@@ -83,17 +83,20 @@
 
 
 
-<meta name="description" content="google-site-verification: googled4284855989bc02e.html">
-<meta property="og:type" content="website">
-<meta property="og:title" content="YobeZhou">
-<meta property="og:url" content="YobeZhou.github.io/googled4284855989bc02e.html">
+<meta name="description" content="前言&amp;emsp;&amp;emsp;Android 系统的编译环境目前只支持 Ubuntu 以及 Mac OS 两种操作系统。关于编译环境的构建方法请参见以下路径：http://source.android.com/source/initializing.html Android模块编译流程&amp;emsp;&amp;emsp;在完成编译环境的准备工作以及获取到完整的 Android 源码之后，想要编译出整个 And">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android系统的编译">
+<meta property="og:url" content="YobeZhou.github.io/2019/08/16/0030-Android系统的编译/index.html">
 <meta property="og:site_name" content="YobeZhou">
-<meta property="og:description" content="google-site-verification: googled4284855989bc02e.html">
+<meta property="og:description" content="前言&amp;emsp;&amp;emsp;Android 系统的编译环境目前只支持 Ubuntu 以及 Mac OS 两种操作系统。关于编译环境的构建方法请参见以下路径：http://source.android.com/source/initializing.html Android模块编译流程&amp;emsp;&amp;emsp;在完成编译环境的准备工作以及获取到完整的 Android 源码之后，想要编译出整个 And">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-31T05:43:11.540Z">
+<meta property="og:image" content="/images/Android/android_m_marshmallow.jpg">
+<meta property="og:updated_time" content="2019-08-16T01:19:17.912Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YobeZhou">
-<meta name="twitter:description" content="google-site-verification: googled4284855989bc02e.html">
+<meta name="twitter:title" content="Android系统的编译">
+<meta name="twitter:description" content="前言&amp;emsp;&amp;emsp;Android 系统的编译环境目前只支持 Ubuntu 以及 Mac OS 两种操作系统。关于编译环境的构建方法请参见以下路径：http://source.android.com/source/initializing.html Android模块编译流程&amp;emsp;&amp;emsp;在完成编译环境的准备工作以及获取到完整的 Android 源码之后，想要编译出整个 And">
+<meta name="twitter:image" content="/images/Android/android_m_marshmallow.jpg">
 
 
 
@@ -123,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="YobeZhou.github.io/googled4284855989bc02e.html">
+  <link rel="canonical" href="YobeZhou.github.io/2019/08/16/0030-Android系统的编译/">
 
 
 
 
 
-  <title> | YobeZhou</title>
+  <title>Android系统的编译 | YobeZhou</title>
   
 
 
@@ -290,33 +293,286 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="YobeZhou.github.io/2019/08/16/0030-Android系统的编译/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YobeZhou">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YobeZhou">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline"></h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          google-site-verification: googled4284855989bc02e.html
+          <h1 class="post-title" itemprop="name headline">Android系统的编译</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-16T09:16:12+08:00">
+                2019-08-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/08/16/0030-Android系统的编译/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/08/16/0030-Android系统的编译/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  860
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p><img src="/images/Android/android_m_marshmallow.jpg" alt="android_m_marshmallow"></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp;&emsp;Android 系统的编译环境目前只支持 Ubuntu 以及 Mac OS 两种操作系统。关于编译环境的构建方法请参见以下路径：<a href="http://source.android.com/source/initializing.html" target="_blank" rel="noopener">http://source.android.com/source/initializing.html</a></p>
+<h1 id="Android模块编译流程"><a href="#Android模块编译流程" class="headerlink" title="Android模块编译流程"></a>Android模块编译流程</h1><p>&emsp;&emsp;在完成编译环境的准备工作以及获取到完整的 Android 源码之后，想要编译出整个 Android 系统非常的容易。</p>
+<h2 id="第一步使build-envsetup-sh生效"><a href="#第一步使build-envsetup-sh生效" class="headerlink" title="第一步使build/envsetup.sh生效"></a>第一步使build/envsetup.sh生效</h2><p>&emsp;&emsp;命令“source build/envsetup.sh”引入了 build/envsetup.sh脚本。该脚本的作用是初始化编译环境，并引入一些辅助的 Shell 函数，这其中就包括第二步使用 lunch 函数。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> . build/envsetup.sh</span><br><span class="line"><span class="meta">#</span> 或者</span><br><span class="line"><span class="meta">$</span> source build/envsetup.sh</span><br></pre></td></tr></table></figure>
+
+<h2 id="第二步选择一个特定的编译类型"><a href="#第二步选择一个特定的编译类型" class="headerlink" title="第二步选择一个特定的编译类型"></a>第二步选择一个特定的编译类型</h2><p>&emsp;&emsp;lunch 函数的参数用来指定此次编译的目标设备以及编译类型。在这里，这两个值分别是“full”和“eng”。“full”是 Android 源码中已经定义好的一种产品，是为模拟器而设置的。编译类型会影响最终系统中包含的模块。<br>&emsp;&emsp;如果调用 lunch 函数的时候没有指定参数，那么该函数将输出列表以供选择，此时可以通过输入编号或者名称进行选择。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ lunch full</span><br><span class="line"># 或者</span><br><span class="line">$ lunch &lt;选择一个特定的编译类型&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="最后一步make"><a href="#最后一步make" class="headerlink" title="最后一步make"></a>最后一步make</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> make -j8</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;在这里，make的选择有多种，具体内容分到下小节讨论。</p>
+<blockquote>
+<p>make 的参数“-j”指定了同时编译的 Job 数量，这是个整数，该值通常是编译主机 CPU 支持的并发线程总数的 1 倍或 2 倍（例如：在一个 4 核，每个核支持两个线程的 CPU 上，可以使用 make -j8 或 make -j16）。</p>
+</blockquote>
+<h2 id="最最后一步清理编译结果"><a href="#最最后一步清理编译结果" class="headerlink" title="最最后一步清理编译结果"></a>最最后一步清理编译结果</h2><h3 id="清理所有编译结果"><a href="#清理所有编译结果" class="headerlink" title="清理所有编译结果"></a>清理所有编译结果</h3><p>&emsp;&emsp;执行清理，相当于：rm -rf out/。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> make clean</span><br></pre></td></tr></table></figure>
+
+<h3 id="清理一个指定模块的编译结果。"><a href="#清理一个指定模块的编译结果。" class="headerlink" title="清理一个指定模块的编译结果。"></a>清理一个指定模块的编译结果。</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> make clean-&lt;local_target&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="关于make的更多选项"><a href="#关于make的更多选项" class="headerlink" title="关于make的更多选项"></a>关于make的更多选项</h1><p>&emsp;&emsp;以下编译的编译选项可加上 “-j &lt;线程数&gt;”来启动多线程编译，加快编译的速度。</p>
+<h2 id="编译当前选定产品的OTA全量包"><a href="#编译当前选定产品的OTA全量包" class="headerlink" title="编译当前选定产品的OTA全量包"></a>编译当前选定产品的OTA全量包</h2><p>&emsp;&emsp;也叫整包编译(all partitions)。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> make otapackage</span><br></pre></td></tr></table></figure>
+
+<h2 id="编译所有内容"><a href="#编译所有内容" class="headerlink" title="编译所有内容"></a>编译所有内容</h2><p>&emsp;&emsp;编译所有内容，不管当前产品的定义中是否会包含。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> make all</span><br></pre></td></tr></table></figure>
+
+<h2 id="编译boot-img"><a href="#编译boot-img" class="headerlink" title="编译boot.img"></a>编译boot.img</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> make bootimage</span><br></pre></td></tr></table></figure>
+
+<h2 id="编译logo-img"><a href="#编译logo-img" class="headerlink" title="编译logo.img"></a>编译logo.img</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> make logoimage</span><br></pre></td></tr></table></figure>
+
+<h2 id="编译-recovery-img-ramdisk-recovery-img"><a href="#编译-recovery-img-ramdisk-recovery-img" class="headerlink" title="编译 recovery.img(ramdisk-recovery.img)"></a>编译 recovery.img(ramdisk-recovery.img)</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> make recoveryimage</span><br></pre></td></tr></table></figure>
+
+<h2 id="编译-dtb"><a href="#编译-dtb" class="headerlink" title="编译 dtb"></a>编译 dtb</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> make dtbimage</span><br></pre></td></tr></table></figure>
+
+<h2 id="编译uboot-bin"><a href="#编译uboot-bin" class="headerlink" title="编译uboot.bin"></a>编译uboot.bin</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ./mk &lt;uboot对应的版本&gt;  --systemroot</span><br></pre></td></tr></table></figure>
+
+<h2 id="编译vendor-img"><a href="#编译vendor-img" class="headerlink" title="编译vendor.img"></a>编译vendor.img</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> make vendorimage</span><br></pre></td></tr></table></figure>
+
+<h2 id="编译system-img"><a href="#编译system-img" class="headerlink" title="编译system.img"></a>编译system.img</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> make systemimage</span><br></pre></td></tr></table></figure>
+
+<h2 id="编译-userdata-img"><a href="#编译-userdata-img" class="headerlink" title="编译 userdata.img"></a>编译 userdata.img</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> make odm_image</span><br></pre></td></tr></table></figure>
+
+<h2 id="编译-userdata-img-1"><a href="#编译-userdata-img-1" class="headerlink" title="编译 userdata.img"></a>编译 userdata.img</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> make userdataimage</span><br></pre></td></tr></table></figure>
+
+<h2 id="编译ramdisk-img"><a href="#编译ramdisk-img" class="headerlink" title="编译ramdisk.img"></a>编译ramdisk.img</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> make ramdisk</span><br></pre></td></tr></table></figure>
+
+<h2 id="编译出-Android-的-SDK"><a href="#编译出-Android-的-SDK" class="headerlink" title="编译出 Android 的 SDK"></a>编译出 Android 的 SDK</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> make sdk</span><br></pre></td></tr></table></figure>
+
+<h2 id="快速重建系统镜像"><a href="#快速重建系统镜像" class="headerlink" title="快速重建系统镜像"></a>快速重建系统镜像</h2><p>&emsp;&emsp;从已经编译出的包快速重建系统镜像。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> make snod</span><br></pre></td></tr></table></figure>
+
+<h2 id="编译所有-JNI-framework"><a href="#编译所有-JNI-framework" class="headerlink" title="编译所有 JNI framework"></a>编译所有 JNI framework</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> make libandroid_runtime</span><br></pre></td></tr></table></figure>
+
+<h2 id="编译所有-Java-framework"><a href="#编译所有-Java-framework" class="headerlink" title="编译所有 Java framework"></a>编译所有 Java framework</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> make framework</span><br></pre></td></tr></table></figure>
+
+<h2 id="编译系统服务和相关内容"><a href="#编译系统服务和相关内容" class="headerlink" title="编译系统服务和相关内容"></a>编译系统服务和相关内容</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> make services</span><br></pre></td></tr></table></figure>
+
+<h2 id="编译指定模块"><a href="#编译指定模块" class="headerlink" title="编译指定模块"></a>编译指定模块</h2><p>&emsp;&emsp;编译一个指定的模块，local_target 为模块的名称。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> make &lt;local_target&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="获取所有产品的编译配置信息"><a href="#获取所有产品的编译配置信息" class="headerlink" title="获取所有产品的编译配置信息"></a>获取所有产品的编译配置信息</h2><p>&emsp;&emsp;显示所有产品的编译配置信息，例如：产品名，产品支持的地区语言，产品中会包含的模块等信息。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> make dump-products</span><br></pre></td></tr></table></figure>
+
+<h2 id="编译指定产品"><a href="#编译指定产品" class="headerlink" title="编译指定产品"></a>编译指定产品</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> make PRODUCT-xxx-yyy</span><br></pre></td></tr></table></figure>
+
+<h2 id="获取帮助信息"><a href="#获取帮助信息" class="headerlink" title="获取帮助信息"></a>获取帮助信息</h2><p>&emsp;&emsp;显示帮助信息，显示主要的make目标。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> make help</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
     
     
     
+    
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+  
+</div>
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/15/0029-Android的分区和映像/" rel="next" title="Android的分区和映像">
+                <i class="fa fa-chevron-left"></i> Android的分区和映像
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -352,8 +608,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -438,6 +703,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android模块编译流程"><span class="nav-number">2.</span> <span class="nav-text">Android模块编译流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步使build-envsetup-sh生效"><span class="nav-number">2.1.</span> <span class="nav-text">第一步使build/envsetup.sh生效</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步选择一个特定的编译类型"><span class="nav-number">2.2.</span> <span class="nav-text">第二步选择一个特定的编译类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后一步make"><span class="nav-number">2.3.</span> <span class="nav-text">最后一步make</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最最后一步清理编译结果"><span class="nav-number">2.4.</span> <span class="nav-text">最最后一步清理编译结果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#清理所有编译结果"><span class="nav-number">2.4.1.</span> <span class="nav-text">清理所有编译结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清理一个指定模块的编译结果。"><span class="nav-number">2.4.2.</span> <span class="nav-text">清理一个指定模块的编译结果。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于make的更多选项"><span class="nav-number">3.</span> <span class="nav-text">关于make的更多选项</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#编译当前选定产品的OTA全量包"><span class="nav-number">3.1.</span> <span class="nav-text">编译当前选定产品的OTA全量包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译所有内容"><span class="nav-number">3.2.</span> <span class="nav-text">编译所有内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译boot-img"><span class="nav-number">3.3.</span> <span class="nav-text">编译boot.img</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译logo-img"><span class="nav-number">3.4.</span> <span class="nav-text">编译logo.img</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译-recovery-img-ramdisk-recovery-img"><span class="nav-number">3.5.</span> <span class="nav-text">编译 recovery.img(ramdisk-recovery.img)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译-dtb"><span class="nav-number">3.6.</span> <span class="nav-text">编译 dtb</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译uboot-bin"><span class="nav-number">3.7.</span> <span class="nav-text">编译uboot.bin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译vendor-img"><span class="nav-number">3.8.</span> <span class="nav-text">编译vendor.img</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译system-img"><span class="nav-number">3.9.</span> <span class="nav-text">编译system.img</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译-userdata-img"><span class="nav-number">3.10.</span> <span class="nav-text">编译 userdata.img</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译-userdata-img-1"><span class="nav-number">3.11.</span> <span class="nav-text">编译 userdata.img</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译ramdisk-img"><span class="nav-number">3.12.</span> <span class="nav-text">编译ramdisk.img</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译出-Android-的-SDK"><span class="nav-number">3.13.</span> <span class="nav-text">编译出 Android 的 SDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速重建系统镜像"><span class="nav-number">3.14.</span> <span class="nav-text">快速重建系统镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译所有-JNI-framework"><span class="nav-number">3.15.</span> <span class="nav-text">编译所有 JNI framework</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译所有-Java-framework"><span class="nav-number">3.16.</span> <span class="nav-text">编译所有 Java framework</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译系统服务和相关内容"><span class="nav-number">3.17.</span> <span class="nav-text">编译系统服务和相关内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译指定模块"><span class="nav-number">3.18.</span> <span class="nav-text">编译指定模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取所有产品的编译配置信息"><span class="nav-number">3.19.</span> <span class="nav-text">获取所有产品的编译配置信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译指定产品"><span class="nav-number">3.20.</span> <span class="nav-text">编译指定产品</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取帮助信息"><span class="nav-number">3.21.</span> <span class="nav-text">获取帮助信息</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
