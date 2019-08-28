@@ -1,0 +1,2028 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+
+
+  <meta name="keywords" content="tools,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="YobeZhou" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="前言不可不知的两大编辑器：  编辑器之神——Vim 神之编辑器——Emacs  &amp;emsp;&amp;emsp;有趣的编辑器之战。 &amp;emsp;&amp;emsp;vim与神的编辑器emacs的争论从来没有停止过。两种编辑器的设计哲学完全不同，风格迥异。vim的特点是Composability（组合性），Emacs的特点是Extensibility（可扩展性）。vim使用键序列输入，Emacs则经常使用组合键（">
+<meta name="keywords" content="tools">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vi&amp;vim学习笔记">
+<meta property="og:url" content="YobeZhou.github.io/2019/08/28/0032-vi&vim学习笔记/index.html">
+<meta property="og:site_name" content="YobeZhou">
+<meta property="og:description" content="前言不可不知的两大编辑器：  编辑器之神——Vim 神之编辑器——Emacs  &amp;emsp;&amp;emsp;有趣的编辑器之战。 &amp;emsp;&amp;emsp;vim与神的编辑器emacs的争论从来没有停止过。两种编辑器的设计哲学完全不同，风格迥异。vim的特点是Composability（组合性），Emacs的特点是Extensibility（可扩展性）。vim使用键序列输入，Emacs则经常使用组合键（">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="/images/vi&vim/vi&vimlog.png">
+<meta property="og:image" content="/images/vi&vim/huaji.jpg">
+<meta property="og:image" content="/images/vi&vim/vim-cheat-sheet-cn.png">
+<meta property="og:image" content="/images/vi&vim/vim-cheat-sheet-en.png">
+<meta property="og:image" content="/images/vi&vim/vim_cheat_sheet_for_programmers_screen.png">
+<meta property="og:image" content="/images/vi&vim/preview.webp">
+<meta property="og:image" content="/images/vi&vim/vim-movement-commands-cheatsheet.png">
+<meta property="og:updated_time" content="2019-08-28T10:04:32.256Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vi&amp;vim学习笔记">
+<meta name="twitter:description" content="前言不可不知的两大编辑器：  编辑器之神——Vim 神之编辑器——Emacs  &amp;emsp;&amp;emsp;有趣的编辑器之战。 &amp;emsp;&amp;emsp;vim与神的编辑器emacs的争论从来没有停止过。两种编辑器的设计哲学完全不同，风格迥异。vim的特点是Composability（组合性），Emacs的特点是Extensibility（可扩展性）。vim使用键序列输入，Emacs则经常使用组合键（">
+<meta name="twitter:image" content="/images/vi&vim/vi&vimlog.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="YobeZhou.github.io/2019/08/28/0032-vi&vim学习笔记/">
+
+
+
+
+
+  <title>vi&vim学习笔记 | YobeZhou</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+    <!-- a href="https://github.com/Bdeny"><img style="position:absolute; top: 0; left: 0; border: 0;" width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_left_orange_ff7600.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a> -->
+    <!-- GitHub Corners: http://tholman.com/github-corners/ -->
+    <!-- a href="https://github.com/YobeZhou" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style> -->
+    <a href="https://github.com/YobeZhou" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YobeZhou</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="YobeZhou.github.io/2019/08/28/0032-vi&vim学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YobeZhou">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YobeZhou">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">vi&vim学习笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-28T11:40:30+08:00">
+                2019-08-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tools/" itemprop="url" rel="index">
+                    <span itemprop="name">tools</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/08/28/0032-vi&vim学习笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/08/28/0032-vi&vim学习笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/images/vi&vim/vi&vimlog.png" alt="vi&amp;vimlog"></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>不可不知的两大编辑器：</p>
+<ul>
+<li>编辑器之神——Vim</li>
+<li>神之编辑器——Emacs</li>
+</ul>
+<p>&emsp;&emsp;有趣的<a href="https://zh.wikipedia.org/wiki/%E7%BC%96%E8%BE%91%E5%99%A8%E4%B9%8B%E6%88%98" target="_blank" rel="noopener">编辑器之战</a>。</p>
+<p>&emsp;&emsp;vim与神的编辑器emacs的争论从来没有停止过。两种编辑器的设计哲学完全不同，风格迥异。vim的特点是Composability（组合性），Emacs的特点是Extensibility（可扩展性）。vim使用键序列输入，Emacs则经常使用组合键（同时按）输入，所以Emacs有个绰号Esc + Meta + Alt + Ctrl + Shift。正因为各种显著的差异各种争论在所难免，对此我们应该端正自己的心态：提高自己的格局，少一些争论。</p>
+<h1 id="磨刀不误砍柴工"><a href="#磨刀不误砍柴工" class="headerlink" title="磨刀不误砍柴工"></a>磨刀不误砍柴工</h1><p>&emsp;&emsp;不做无谓的争论，工欲善其事必先利其器，我们只管选择一种自己顺手的工具（我选择vi&amp;vim）来学习，不断深入学习，提高自己的同时，不断与工具磨合，早日达到人剑合一的境界，笑看江湖。<br><img src="/images/vi&vim/huaji.jpg" alt="huaji"></p>
+<h2 id="进入vim的姿势"><a href="#进入vim的姿势" class="headerlink" title="进入vim的姿势"></a>进入vim的姿势</h2><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">vim filename</td>
+<td align="center">打开或新建文件，并将光标置于第一行首</td>
+</tr>
+<tr>
+<td align="center">vim +num filename</td>
+<td align="center">打开文件，并将光标置于第n行首</td>
+</tr>
+<tr>
+<td align="center">vim + filename</td>
+<td align="center">打开文件，并将光标置于最后一行首</td>
+</tr>
+<tr>
+<td align="center">vim +/pattern filename</td>
+<td align="center">打开文件，并将光标置于第一个与pattern匹配的串处</td>
+</tr>
+<tr>
+<td align="center">vim -r filename</td>
+<td align="center">在上次正用vim编辑时发生系统崩溃，恢复filename</td>
+</tr>
+<tr>
+<td align="center">vim filenae1…filenamen</td>
+<td align="center">打开多个文件，依次编辑</td>
+</tr>
+</tbody></table>
+<h2 id="vim配置"><a href="#vim配置" class="headerlink" title="vim配置"></a>vim配置</h2><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">all</td>
+<td align="center">列出所有选项设置情况</td>
+</tr>
+<tr>
+<td align="center">term</td>
+<td align="center">设置终端类型</td>
+</tr>
+<tr>
+<td align="center">ignorance</td>
+<td align="center">在搜索中忽略大小写</td>
+</tr>
+<tr>
+<td align="center">list</td>
+<td align="center">显示制表位（Ctrl+1）和行尾标志（$）显示行号</td>
+</tr>
+<tr>
+<td align="center">number</td>
+<td align="center">显示由面向行的命令修改过的数目</td>
+</tr>
+<tr>
+<td align="center">report</td>
+<td align="center">显示简短的警告信息</td>
+</tr>
+<tr>
+<td align="center">terse</td>
+<td align="center">在转到别的文件时若没保存当前文件则显示NO write信息</td>
+</tr>
+<tr>
+<td align="center">nomagic</td>
+<td align="center">允许在搜索模式中，使用前面不带“V的特殊字符</td>
+</tr>
+<tr>
+<td align="center">nowrapscan</td>
+<td align="center">禁止vi在搜索到达文件两端时，又从另一端开始</td>
+</tr>
+<tr>
+<td align="center">mesg</td>
+<td align="center">允许vi显示其他用户用write写到自己终端上的信息</td>
+</tr>
+<tr>
+<td align="center">:set number</td>
+<td align="center">显示行号</td>
+</tr>
+<tr>
+<td align="center">:set nonumber</td>
+<td align="center">不显示行号</td>
+</tr>
+<tr>
+<td align="center">set ruler</td>
+<td align="center">显示标尺</td>
+</tr>
+<tr>
+<td align="center">set noruler</td>
+<td align="center">不显示标尺</td>
+</tr>
+<tr>
+<td align="center">:set hlsearch</td>
+<td align="center">高亮显示查找到的单词</td>
+</tr>
+<tr>
+<td align="center">:set nohlsearch</td>
+<td align="center">关闭高亮显示</td>
+</tr>
+<tr>
+<td align="center">:syntax on</td>
+<td align="center">语法高亮显示行号</td>
+</tr>
+<tr>
+<td align="center">:set tabstop=8</td>
+<td align="center">设置tab大小，8为最常用最普遍的设置4.4个空格，8.正常的制表符，12:一个制表符4个空格，16.两个制表符</td>
+</tr>
+<tr>
+<td align="center">:set autoindent</td>
+<td align="center">自动缩进</td>
+</tr>
+<tr>
+<td align="center">:set cindent</td>
+<td align="center">C语言格式里面的自动缩进</td>
+</tr>
+</tbody></table>
+<h2 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h2><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">k</td>
+<td align="center">向上移动</td>
+</tr>
+<tr>
+<td align="center">j</td>
+<td align="center">向下移动</td>
+</tr>
+<tr>
+<td align="center">h</td>
+<td align="center">向左移动</td>
+</tr>
+<tr>
+<td align="center">l</td>
+<td align="center">向右移动</td>
+</tr>
+<tr>
+<td align="center">k nk</td>
+<td align="center">向上移动n行</td>
+</tr>
+<tr>
+<td align="center">j nk</td>
+<td align="center">向下移动n行</td>
+</tr>
+<tr>
+<td align="center">h nh</td>
+<td align="center">向左移动n行</td>
+</tr>
+<tr>
+<td align="center">l nl</td>
+<td align="center">向右移动n行</td>
+</tr>
+<tr>
+<td align="center">Spach</td>
+<td align="center">光标右移一个字符</td>
+</tr>
+<tr>
+<td align="center">Backspace</td>
+<td align="center">光标左移一个字符</td>
+</tr>
+<tr>
+<td align="center">Enter</td>
+<td align="center">光标下移一行</td>
+</tr>
+<tr>
+<td align="center">w/W</td>
+<td align="center">光标右移一个字至字首</td>
+</tr>
+<tr>
+<td align="center">b/B</td>
+<td align="center">光标左移一个字至字首</td>
+</tr>
+<tr>
+<td align="center">e/e</td>
+<td align="center">光标右移一个字至字尾</td>
+</tr>
+<tr>
+<td align="center">)</td>
+<td align="center">光标移至句尾</td>
+</tr>
+<tr>
+<td align="center">(</td>
+<td align="center">光标移至句首</td>
+</tr>
+<tr>
+<td align="center">}</td>
+<td align="center">光标移至段落开头</td>
+</tr>
+<tr>
+<td align="center">{</td>
+<td align="center">光标移至段落结尾</td>
+</tr>
+<tr>
+<td align="center">n$</td>
+<td align="center">光标移至第n行尾</td>
+</tr>
+<tr>
+<td align="center">H</td>
+<td align="center">光标移至屏幕顶行</td>
+</tr>
+<tr>
+<td align="center">M</td>
+<td align="center">光标移至屏幕中间行</td>
+</tr>
+<tr>
+<td align="center">L</td>
+<td align="center">光标移至屏幕最后行</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">（注意是数字零）光标移至当前行首</td>
+</tr>
+<tr>
+<td align="center">^</td>
+<td align="center">移动光标到行首第一个非空字符上去</td>
+</tr>
+<tr>
+<td align="center">$</td>
+<td align="center">光标移至当前行尾</td>
+</tr>
+<tr>
+<td align="center">gg</td>
+<td align="center">移到第一行</td>
+</tr>
+<tr>
+<td align="center">G</td>
+<td align="center">移到最后一行</td>
+</tr>
+<tr>
+<td align="center">f</td>
+<td align="center">移动光标到当前行的字符a上</td>
+</tr>
+<tr>
+<td align="center">F</td>
+<td align="center">与f相反</td>
+</tr>
+<tr>
+<td align="center">%</td>
+<td align="center">移动到与制匹配的括号上去（），}，Ⅱ，&lt;&gt;等</td>
+</tr>
+<tr>
+<td align="center">nG</td>
+<td align="center">移动到第n行上</td>
+</tr>
+<tr>
+<td align="center">G</td>
+<td align="center">到最后一行</td>
+</tr>
+</tbody></table>
+<h2 id="屏幕滚动"><a href="#屏幕滚动" class="headerlink" title="屏幕滚动"></a>屏幕滚动</h2><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Ctrl+u</td>
+<td align="center">向文件首翻半屏</td>
+</tr>
+<tr>
+<td align="center">Ctrl+d</td>
+<td align="center">向文件尾翻半屏</td>
+</tr>
+<tr>
+<td align="center">Ctrl+f</td>
+<td align="center">向文件尾翻一屏</td>
+</tr>
+<tr>
+<td align="center">Ctrl+b</td>
+<td align="center">向文件首翻一屏</td>
+</tr>
+<tr>
+<td align="center">nz</td>
+<td align="center">将第n行滚至屏幕顶部，不指定n时将当前行滚至屏幕顶部</td>
+</tr>
+</tbody></table>
+<h2 id="插入文本类"><a href="#插入文本类" class="headerlink" title="插入文本类"></a>插入文本类</h2><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">i</td>
+<td align="center">在光标前</td>
+</tr>
+<tr>
+<td align="center">I</td>
+<td align="center">在当前行首</td>
+</tr>
+<tr>
+<td align="center">a</td>
+<td align="center">光标后</td>
+</tr>
+<tr>
+<td align="center">A</td>
+<td align="center">在当前行尾</td>
+</tr>
+<tr>
+<td align="center">o</td>
+<td align="center">在当前行之下新开一行</td>
+</tr>
+<tr>
+<td align="center">O</td>
+<td align="center">在当前行之上新开一行</td>
+</tr>
+<tr>
+<td align="center">r</td>
+<td align="center">替换当前字符</td>
+</tr>
+<tr>
+<td align="center">R</td>
+<td align="center">替换当前字符及其后的字符，直至按ESC键</td>
+</tr>
+<tr>
+<td align="center">s</td>
+<td align="center">从当前光标位置处开始，以输入的文本替代指定数目的字符</td>
+</tr>
+<tr>
+<td align="center">S</td>
+<td align="center">删除指定数目的行，并以所输入文本代替之</td>
+</tr>
+<tr>
+<td align="center">ncw/nCW</td>
+<td align="center">修改指定数目的字</td>
+</tr>
+<tr>
+<td align="center">nCC</td>
+<td align="center">修改指定数目的行</td>
+</tr>
+</tbody></table>
+<h2 id="删除命令"><a href="#删除命令" class="headerlink" title="删除命令"></a>删除命令</h2><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">x/X</td>
+<td align="center">删除一个字符，x删除光标后的，而X删除光标前的</td>
+</tr>
+<tr>
+<td align="center">dw</td>
+<td align="center">删除一个单词（删除光标位置到下一个单词开始的位置）</td>
+</tr>
+<tr>
+<td align="center">dnw</td>
+<td align="center">删除n个单词</td>
+</tr>
+<tr>
+<td align="center">dne</td>
+<td align="center">也可，只是删除到单词尾</td>
+</tr>
+<tr>
+<td align="center">do</td>
+<td align="center">删至行首</td>
+</tr>
+<tr>
+<td align="center">d$</td>
+<td align="center">删至行尾</td>
+</tr>
+<tr>
+<td align="center">dd</td>
+<td align="center">删除一行</td>
+</tr>
+<tr>
+<td align="center">ndd</td>
+<td align="center">删除当前行及其后n-1行</td>
+</tr>
+<tr>
+<td align="center">dnl</td>
+<td align="center">向右删除n个字母</td>
+</tr>
+<tr>
+<td align="center">dnh</td>
+<td align="center">向左删除n个字母</td>
+</tr>
+<tr>
+<td align="center">dnj</td>
+<td align="center">向下删除n行，当前行+其上n行</td>
+</tr>
+<tr>
+<td align="center">dnk</td>
+<td align="center">向上删除n行，当期行+其下n行</td>
+</tr>
+<tr>
+<td align="center">cnw[word]</td>
+<td align="center">将n个word改变为word</td>
+</tr>
+<tr>
+<td align="center">C$</td>
+<td align="center">改变到行尾</td>
+</tr>
+<tr>
+<td align="center">cc</td>
+<td align="center">改变整行</td>
+</tr>
+<tr>
+<td align="center">shift+j</td>
+<td align="center">删除行尾的换行符，下一行接上来了</td>
+</tr>
+</tbody></table>
+<h2 id="复制粘贴"><a href="#复制粘贴" class="headerlink" title="复制粘贴"></a>复制粘贴</h2><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">p</td>
+<td align="center">粘贴用x或d删除的文本</td>
+</tr>
+<tr>
+<td align="center">ynw</td>
+<td align="center">复制n个单词</td>
+</tr>
+<tr>
+<td align="center">yy</td>
+<td align="center">复制一行</td>
+</tr>
+<tr>
+<td align="center">ynl</td>
+<td align="center">复制n个字符</td>
+</tr>
+<tr>
+<td align="center">y$</td>
+<td align="center">复制当前光标至行尾处</td>
+</tr>
+<tr>
+<td align="center">nyy</td>
+<td align="center">拷贝n行</td>
+</tr>
+</tbody></table>
+<h2 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h2><p>|u          |撤销前一次的操作<br>|shif+u(U)  |撤销对该行的所有操作</p>
+<h2 id="搜索及替换"><a href="#搜索及替换" class="headerlink" title="搜索及替换"></a>搜索及替换</h2><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">/pattern</td>
+<td align="center">从光标开始处向文件尾搜索pattern</td>
+</tr>
+<tr>
+<td align="center">?pattern</td>
+<td align="center">从光标开始处向文件首搜索pattern</td>
+</tr>
+<tr>
+<td align="center">n</td>
+<td align="center">在同一方向重复上一次搜索命令</td>
+</tr>
+<tr>
+<td align="center">N</td>
+<td align="center">在反方向上重复上一次搜索命令</td>
+</tr>
+<tr>
+<td align="center">cw newword</td>
+<td align="center">替换为newword</td>
+</tr>
+<tr>
+<td align="center">n</td>
+<td align="center">继续查找</td>
+</tr>
+<tr>
+<td align="center">.</td>
+<td align="center">执行替换</td>
+</tr>
+<tr>
+<td align="center">:s/p1/p2/g</td>
+<td align="center">将当前行中所有p1均用p2替代，g表示执行用c表示需要确认</td>
+</tr>
+<tr>
+<td align="center">:n1,n2 s/p1/p2/g</td>
+<td align="center">将第n1至n2行中所有p1均用p2替代</td>
+</tr>
+<tr>
+<td align="center">:g/p1/s//p2/g</td>
+<td align="center">将文件中所有p1均用p2替换</td>
+</tr>
+<tr>
+<td align="center">:1,$ s/string1/string2/g</td>
+<td align="center">在全文中将string1替换为string2</td>
+</tr>
+</tbody></table>
+<h2 id="书签"><a href="#书签" class="headerlink" title="书签"></a>书签</h2><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">,[a-z]</td>
+<td align="center">在文中做标记，标记号可为a-z的26个字母</td>
+</tr>
+<tr>
+<td align="center">`a</td>
+<td align="center">移动到标记a处</td>
+</tr>
+</tbody></table>
+<h2 id="visual模式"><a href="#visual模式" class="headerlink" title="visual模式"></a>visual模式</h2><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">v</td>
+<td align="center">进入visual模式</td>
+</tr>
+<tr>
+<td align="center">V</td>
+<td align="center">进入行的visual模式</td>
+</tr>
+<tr>
+<td align="center">ctrl+V</td>
+<td align="center">进如块操作模式用o和O改变选择的边的大小</td>
+</tr>
+<tr>
+<td align="center">在所有行插入相同的内容如include&lt;</td>
+<td align="center">将光标移到开始插入的位置，按CTRL+V进入VISUAL模式，选择好模块后按1（shit+），后插入要插入的文本，按IESC]完成</td>
+</tr>
+</tbody></table>
+<h2 id="行方式命令"><a href="#行方式命令" class="headerlink" title="行方式命令"></a>行方式命令</h2><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">:n1,n2 co n3</td>
+<td align="center">将n1行到n2行之间的内容拷贝到第n3行下</td>
+</tr>
+<tr>
+<td align="center">:n1,n2 m n3</td>
+<td align="center">将n1行到n2行之间的内容移至到第n3行下</td>
+</tr>
+<tr>
+<td align="center">:n1,n2 d</td>
+<td align="center">将n1行到n2行之间的内容删除</td>
+</tr>
+<tr>
+<td align="center">:n1,n2 wlcommand</td>
+<td align="center">将文件中n1行至n2行的内容作为command的输入并执行之</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>若不指定n1，n2，则表示将整个文件内容作为command的输入 |</p>
+</blockquote>
+<h2 id="宏"><a href="#宏" class="headerlink" title="宏"></a>宏</h2><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">q[a-z]</td>
+<td align="center">开始记录但前开始的操作为宏，名称可为【a-z】，然后用q终止录制宏</td>
+</tr>
+<tr>
+<td align="center">reg</td>
+<td align="center">显示当前定义的所有的宏，用@[a-z]来在当前光标处执行宏[a-z]</td>
+</tr>
+</tbody></table>
+<h2 id="操作窗口"><a href="#操作窗口" class="headerlink" title="操作窗口"></a>操作窗口</h2><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">:split</td>
+<td align="center">分割一个窗口</td>
+</tr>
+<tr>
+<td align="center">:split file.c</td>
+<td align="center">为另一个文件fle.c分隔窗口</td>
+</tr>
+<tr>
+<td align="center">:nsplit file.c</td>
+<td align="center">为另一个文件file.c分隔窗口，并指定其行数</td>
+</tr>
+<tr>
+<td align="center">ctrl + W</td>
+<td align="center">在窗口中切换</td>
+</tr>
+<tr>
+<td align="center">:close</td>
+<td align="center">关闭当前窗口</td>
+</tr>
+</tbody></table>
+<h2 id="文件及其他"><a href="#文件及其他" class="headerlink" title="文件及其他"></a>文件及其他</h2><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">:q退出vi</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">:q!</td>
+<td align="center">不保存文件并退出vi/vim</td>
+</tr>
+<tr>
+<td align="center">:e filename</td>
+<td align="center">打开文件filename进行编辑</td>
+</tr>
+<tr>
+<td align="center">:e!</td>
+<td align="center">放弃修改文件内容，重新载入该文件编辑</td>
+</tr>
+<tr>
+<td align="center">:W</td>
+<td align="center">保存当前文件</td>
+</tr>
+<tr>
+<td align="center">:wq</td>
+<td align="center">存盘后再退出</td>
+</tr>
+<tr>
+<td align="center">:ZZ</td>
+<td align="center">保存当前文档并退出vi/vim</td>
+</tr>
+<tr>
+<td align="center">:!command</td>
+<td align="center">执行shell命令command</td>
+</tr>
+<tr>
+<td align="center">:r!command</td>
+<td align="center">将命令command的输出结果放到当前行</td>
+</tr>
+<tr>
+<td align="center">:n1,n2 write temp.c</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">:read file.c</td>
+<td align="center">将文件file.c的内容插入到当前光标所在的下面</td>
+</tr>
+</tbody></table>
+<h1 id="学习资源整合"><a href="#学习资源整合" class="headerlink" title="学习资源整合"></a>学习资源整合</h1><h2 id="寓教于乐"><a href="#寓教于乐" class="headerlink" title="寓教于乐"></a>寓教于乐</h2><p>&emsp;&emsp;<a href="https://vim-adventures.com/" target="_blank" rel="noopener">非常有趣的VIM学习小游戏。</a></p>
+<h2 id="修炼秘籍"><a href="#修炼秘籍" class="headerlink" title="修炼秘籍"></a>修炼秘籍</h2><h2 id="vim命令图解（中文版）"><a href="#vim命令图解（中文版）" class="headerlink" title="vim命令图解（中文版）"></a>vim命令图解（中文版）</h2><p><img src="/images/vi&vim/vim-cheat-sheet-cn.png" alt="vim命令图解cn"></p>
+<h2 id="vim命令图解（英文版）"><a href="#vim命令图解（英文版）" class="headerlink" title="vim命令图解（英文版）"></a>vim命令图解（英文版）</h2><p><img src="/images/vi&vim/vim-cheat-sheet-en.png" alt="vim命令图解en"></p>
+<h2 id="vim命令图解大全"><a href="#vim命令图解大全" class="headerlink" title="vim命令图解大全"></a>vim命令图解大全</h2><p>&emsp;&emsp;此图内容比较繁多，窃以为入门学习上面两个图足矣。<br><img src="/images/vi&vim/vim_cheat_sheet_for_programmers_screen.png" alt="vim命令图解大全"></p>
+<p>&emsp;&emsp;当然，如果对此资源感兴趣，可前往<a href="http://michael.peopleofhonoronly.com/vim/" target="_blank" rel="noopener">此处获取</a>更全面的资源。</p>
+<h2 id="其他未分类资源"><a href="#其他未分类资源" class="headerlink" title="其他未分类资源"></a>其他未分类资源</h2><p><img src="/images/vi&vim/preview.webp" alt="vim-preview"></p>
+<p><img src="/images/vi&vim/vim-movement-commands-cheatsheet.png" alt="vim-movement-commands-cheatsheet"></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>&emsp;&emsp;<a href="https://zh.wikipedia.org/wiki/%E7%BC%96%E8%BE%91%E5%99%A8%E4%B9%8B%E6%88%98" target="_blank" rel="noopener">编辑器之战</a></p>
+<style>
+table th:nth-of-type(1){
+width: 20%;
+}
+table th:nth-of-type(2){
+width: 80%;
+}
+</style>
+
+
+      
+    </div>
+    
+    
+    
+    
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+  
+</div>
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/tools/" rel="tag"># tools</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/21/0031-Git信条与Git指令速查/" rel="next" title="Git指令速查与Git信条">
+                <i class="fa fa-chevron-left"></i> Git指令速查与Git信条
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/touxiang.jpg" alt="YobeZhou">
+            
+              <p class="site-author-name" itemprop="name">YobeZhou</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/YobeZhou" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:837574599@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+			
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#磨刀不误砍柴工"><span class="nav-number">2.</span> <span class="nav-text">磨刀不误砍柴工</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#进入vim的姿势"><span class="nav-number">2.1.</span> <span class="nav-text">进入vim的姿势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim配置"><span class="nav-number">2.2.</span> <span class="nav-text">vim配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动光标"><span class="nav-number">2.3.</span> <span class="nav-text">移动光标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#屏幕滚动"><span class="nav-number">2.4.</span> <span class="nav-text">屏幕滚动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入文本类"><span class="nav-number">2.5.</span> <span class="nav-text">插入文本类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除命令"><span class="nav-number">2.6.</span> <span class="nav-text">删除命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复制粘贴"><span class="nav-number">2.7.</span> <span class="nav-text">复制粘贴</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#撤销"><span class="nav-number">2.8.</span> <span class="nav-text">撤销</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索及替换"><span class="nav-number">2.9.</span> <span class="nav-text">搜索及替换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#书签"><span class="nav-number">2.10.</span> <span class="nav-text">书签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#visual模式"><span class="nav-number">2.11.</span> <span class="nav-text">visual模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#行方式命令"><span class="nav-number">2.12.</span> <span class="nav-text">行方式命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#宏"><span class="nav-number">2.13.</span> <span class="nav-text">宏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作窗口"><span class="nav-number">2.14.</span> <span class="nav-text">操作窗口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件及其他"><span class="nav-number">2.15.</span> <span class="nav-text">文件及其他</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#学习资源整合"><span class="nav-number">3.</span> <span class="nav-text">学习资源整合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#寓教于乐"><span class="nav-number">3.1.</span> <span class="nav-text">寓教于乐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修炼秘籍"><span class="nav-number">3.2.</span> <span class="nav-text">修炼秘籍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim命令图解（中文版）"><span class="nav-number">3.3.</span> <span class="nav-text">vim命令图解（中文版）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim命令图解（英文版）"><span class="nav-number">3.4.</span> <span class="nav-text">vim命令图解（英文版）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim命令图解大全"><span class="nav-number">3.5.</span> <span class="nav-text">vim命令图解大全</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他未分类资源"><span class="nav-number">3.6.</span> <span class="nav-text">其他未分类资源</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+	
+	<!-- 音乐播放器 -->
+	<div>
+		
+			<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="210" height="110" src="//music.163.com/outchain/player?type=0&id=2832643434&auto=1&height==66"></iframe>
+		
+
+
+        
+      </div>
+    </aside></div></main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.
+pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YobeZhou</span>
+  
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">40.4k</span>
+  
+</div>
+
+<span id="sitetime"></span>
+<script language="javascript">
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+		var t1 = Date.UTC(2019,03,28,20,31,54); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 我已经存在"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒啦";
+	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+	siteTime();
+</script>
+
+<div class="powered-by">
+<span class="post-meta-divider">|</span>
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-meta-divider">|</span>
+  <span class="post-count">博客全站共40.4k字</span>
+</div>
+
+<!-- 底部隐藏由Hexo强力驱动、主题--NexT.Mist -->
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+-->
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'wNPbvtyIOb0CnLcNu8Xx49yd-gzGzoHsz',
+        appKey: 'kKD82yfA2k5gcqBNq4xKiPLn',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  <script src="/js/wobblewindow.js"></script>
+  <script>
+    //只在桌面版网页启用特效
+    if( window.innerWidth > 768  ){
+      $(document).ready(function () {
+        
+          $('#header').wobbleWindow({
+            radius: 50,
+            movementTop: false,
+            movementLeft: false,
+            movementRight: false,
+            debug: false,
+          });
+        
+
+        
+          $('#sidebar').wobbleWindow({
+            radius: 50,
+            movementLeft: false,
+            movementTop: false,
+            movementBottom: false,
+            position: 'fixed',
+            debug: false,
+          });
+        
+
+        
+          $('#footer').wobbleWindow({
+            radius: 50,
+            movementBottom: false,
+            movementLeft: false,
+            movementRight: false,
+            offsetX: ,
+            position: 'absolute',
+            debug: false,
+          });
+        
+      });
+    }
+  </script>
+
+
+
+
+  <script src="/js/activate-power-mode.min.js"></script>
+  <script>
+    POWERMODE.colorful = true;
+    POWERMODE.shake = false;
+    document.body.addEventListener('input', POWERMODE);
+  </script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300,"opacity":0.8},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+
+<!-- 页面点击小红心，在末尾添加，避免找不到 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
