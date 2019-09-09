@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>YobeZhou.github.io/2019/09/09/0034-%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%B8%B8%E8%A7%81%E7%BB%8F%E5%85%B8%E7%AC%94%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/</loc>
+    
+    <lastmod>2019-09-09T10:13:44.184Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>YobeZhou.github.io/2019/08/16/0030-Android%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%BC%96%E8%AF%91/</loc>
     
     <lastmod>2019-09-04T01:36:20.523Z</lastmod>
@@ -79,14 +86,7 @@
   </url>
   
   <url>
-    <loc>YobeZhou.github.io/2019/03/30/0001-Hexo%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</loc>
-    
-    <lastmod>2019-07-04T11:30:16.178Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>YobeZhou.github.io/2019/03/30/0007-Hexo%E5%8D%9A%E5%AE%A2next%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0Gitment%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</loc>
+    <loc>YobeZhou.github.io/2019/03/31/0011-Hexo%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A1%B5%E6%96%87%E7%AB%A0%E5%B1%95%E7%A4%BA%E5%AE%9E%E7%94%A8%E8%AE%BE%E7%BD%AE/</loc>
     
     <lastmod>2019-07-04T11:30:16.178Z</lastmod>
     
@@ -100,7 +100,7 @@
   </url>
   
   <url>
-    <loc>YobeZhou.github.io/2019/03/30/0004-%E2%80%9CHexo+Github_Page+%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D%E2%80%9D%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E4%B8%93%E5%B1%9E%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>YobeZhou.github.io/2019/03/30/0007-Hexo%E5%8D%9A%E5%AE%A2next%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0Gitment%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</loc>
     
     <lastmod>2019-07-04T11:30:16.178Z</lastmod>
     
@@ -114,7 +114,14 @@
   </url>
   
   <url>
-    <loc>YobeZhou.github.io/2019/03/31/0011-Hexo%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A1%B5%E6%96%87%E7%AB%A0%E5%B1%95%E7%A4%BA%E5%AE%9E%E7%94%A8%E8%AE%BE%E7%BD%AE/</loc>
+    <loc>YobeZhou.github.io/2019/03/30/0001-Hexo%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</loc>
+    
+    <lastmod>2019-07-04T11:30:16.178Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>YobeZhou.github.io/2019/03/30/0004-%E2%80%9CHexo+Github_Page+%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D%E2%80%9D%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E4%B8%93%E5%B1%9E%E5%8D%9A%E5%AE%A2/</loc>
     
     <lastmod>2019-07-04T11:30:16.178Z</lastmod>
     
