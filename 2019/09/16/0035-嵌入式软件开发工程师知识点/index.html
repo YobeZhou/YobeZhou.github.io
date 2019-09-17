@@ -92,7 +92,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="/images/cover/learn_dog.jpg">
 <meta property="og:image" content="/images/network/OSI_Mode.png">
-<meta property="og:updated_time" content="2019-09-16T13:27:04.145Z">
+<meta property="og:updated_time" content="2019-09-17T03:02:45.683Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="嵌入式软件开发工程师知识点">
 <meta name="twitter:description" content="什么是预编译，何时需要预编译？&amp;emsp;&amp;emsp;预编译又称预处理，是做一些代码文本的替换工作，处理‘#’开头的指令 , 比如拷贝 #include包含的文件代码， #define 宏定义的替换 , 条件编译等就是为编译做的预备工作的阶段预编译指令指示了在程序正式编译前就由编译器进行了操作，可以放在程序的任何位置。&amp;emsp;&amp;emsp;何时使用：当大部分文件代码基本上不会更改时，比如 MF">
@@ -421,8 +421,9 @@
 <h1 id="左定值右定向"><a href="#左定值右定向" class="headerlink" title="左定值右定向"></a>左定值右定向</h1><p>&emsp;&emsp;深入理解 char * const p,char const *p,const char *p 的区别</p>
 <ol>
 <li>关键看 const 修饰的是谁</li>
-<li>由于没有 const * 的运算，若出现 const * 的形式，则 const 实际上是修饰前面的。<br>&emsp;&emsp;char <em>const p （const 修饰的是 p）：只能对“某个固定的位置” 进 行读写操作，并且在定义 p 时就必须初始化 （因为在后面不能执行“ p=.. ”的操作， 因此就不能在后面初始化，因此只能在定义时初始化） 。（“某个固定的位 置”是相对于 char *p 来说所限定的内容）<br>&emsp;&emsp;char const</em>p, 由于没有 const* 运算， 则 const 实际上是修饰前面的 char ， 因此 char const<em>p等价于 const char</em>p 。 const char<em>p 或者 char const *p （因为没有 const</em>p 运算，因此const 修饰的还是前面的 char ） ： 可以对任意位置 （非系统敏感区域） 进行“只读” 操作。<br>（“只读”是相对于 char *p 来说所限定的内容）</li>
+<li>由于没有 const * 的运算，若出现 const * 的形式，则 const 实际上是修饰前面的。</li>
 </ol>
+<p>&emsp;&emsp;char <em>const p （const 修饰的是 p）：只能对“某个固定的位置” 进 行读写操作，并且在定义 p 时就必须初始化 （因为在后面不能执行“ p=.. ”的操作， 因此就不能在后面初始化，因此只能在定义时初始化） 。（“某个固定的位 置”是相对于 char *p 来说所限定的内容）<br>&emsp;&emsp;char const</em>p, 由于没有 const* 运算， 则 const 实际上是修饰前面的 char ， 因此 char const<em>p等价于 const char</em>p 。 const char<em>p 或者 char const *p （因为没有 const</em>p 运算，因此const 修饰的还是前面的 char ） ： 可以对任意位置 （非系统敏感区域） 进行“只读” 操作。<br>（“只读”是相对于 char *p 来说所限定的内容）</p>
 <h1 id="指针的长度？"><a href="#指针的长度？" class="headerlink" title="指针的长度？"></a>指针的长度？</h1><p>&emsp;&emsp;一个 32 位的机器 , 该机器的指针是多少位?：<br>&emsp;&emsp;指针是多少位只要看地址总线的位数就行了。 80386 以后的机子都是 32 的数据总线。所以指针的位数就是 4 个字节了。 </p>
 <h1 id="进程的同步机制"><a href="#进程的同步机制" class="headerlink" title="进程的同步机制"></a>进程的同步机制</h1><p>&emsp;&emsp;列举几种进程的同步机制，并比较其优缺点 。</p>
 <ul>
@@ -451,7 +452,7 @@
 
 <h2 id="有名管道-named-pipe"><a href="#有名管道-named-pipe" class="headerlink" title="有名管道(named pipe)"></a>有名管道(named pipe)</h2><p>&emsp;&emsp;有名管道也是半双工的通信方式，但是它允许无亲缘关系进程间的通信。</p>
 <h2 id="信号量-semophore"><a href="#信号量-semophore" class="headerlink" title="信号量(semophore)"></a>信号量(semophore)</h2><p>&emsp;&emsp;信号量是一个计数器，可以用来控制多个进程对共享资源的访问。 它常作为一种锁机制， 防止某进程正在访问共享资源时， 其他进程也访问该资源。 因此，主要作为进程间以及同一进程内不同线程之间的同步手段。</p>
-<h2 id="消息队列-message-queue"><a href="#消息队列-message-queue" class="headerlink" title="消息队列(message queue)"></a>消息队列(message queue)</h2><p> 消息队列是由消息的链表，存放在内核中并由消息队列标识符标识。 消息队列克服了信号传递信息少、 管道只能承载无格式字节流以及缓冲区大小受限等缺点。</p>
+<h2 id="消息队列-message-queue"><a href="#消息队列-message-queue" class="headerlink" title="消息队列(message queue)"></a>消息队列(message queue)</h2><p>&emsp;&emsp;消息队列是由消息的链表，存放在内核中并由消息队列标识符标识。 消息队列克服了信号传递信息少、 管道只能承载无格式字节流以及缓冲区大小受限等缺点。</p>
 <h2 id="信号-sinal"><a href="#信号-sinal" class="headerlink" title="信号(sinal)"></a>信号(sinal)</h2><p>&emsp;&emsp;信号是一种比较复杂的通信方式，用于通知接收进程某个事件已经发生。信号是软件中断。信号（ signal ）机制是 Unix 系统中最为古老的进程之间的能信机制。它用于在一个或多个进程之间传递异步信号。很多条件可以产生一个信号。</p>
 <h2 id="共享内存-shared-memory"><a href="#共享内存-shared-memory" class="headerlink" title="共享内存(shared memory)"></a>共享内存(shared memory)</h2><p>&emsp;&emsp;共享内存就是映射一段能被其他进程所访问的内存，这段共享内存由一个进程创建，但多个进程都可以访问。共享内存是最快的 IPC 方式，它是针对其他进程间通信方式运行效率低而专门设计的。 它往往与其他通信机制， 如信号两， 配合使用，来实现进程间的同步和通信。</p>
 <h2 id="套接字-socket"><a href="#套接字-socket" class="headerlink" title="套接字(socket)"></a>套接字(socket)</h2><p>&emsp;&emsp;套解口也是一种进程间通信机制，与其他通信机制不同的是，它可用于不同及其间的进程通信。</p>
@@ -517,11 +518,11 @@
 <ul>
 <li>第一次握手： 客户端发送 syn 包(syn=j) 到服务器， 并进入 SYN_SEND状态， 等待服务器确认 ;</li>
 <li>第二次握手：服务器收到 syn 包，必须确认客户的 SYN(ack=j+1) ，同时自己也发送一个SYN包(syn=k) ，即 SYN+ACK包，此时服务器进入 SYN_RECV状态 ;</li>
-<li>第三次握手：客户端收到服务器的 SYN+ACK包，向服务器发送确认包 ACK(ack=k+1)，此包发送完毕，客户端和服务器进入 ESTABLISHED状态，完成三次握手。<blockquote>
+<li>第三次握手：客户端收到服务器的 SYN+ACK包，向服务器发送确认包 ACK(ack=k+1)，此包发送完毕，客户端和服务器进入 ESTABLISHED状态，完成三次握手。</li>
+</ul>
+<blockquote>
 <p>握手过程中传送的包里不包含数据，三次握手完毕后，客户端与服务器才正式开始传送数据。</p>
 </blockquote>
-</li>
-</ul>
 <p>&emsp;&emsp;理想状态下， TCP连接一旦建立，在通信双方中的任何一方主动关闭连接之前， TCP 连接都将被一直保持下去。断开连接时服务器和客户端均可以主动发起断开 TCP连接的请求，断开过程需要经过“四次握手” ( 过程就不细写了，就是服务器和客户端交互，最终确定断开 )</p>
 <h1 id="TCP-UDP区别"><a href="#TCP-UDP区别" class="headerlink" title="TCP/UDP区别"></a>TCP/UDP区别</h1><p>&emsp;&emsp;TCP-传输控制协议， 提供的是面向连接、 可靠的字节流服务。 但客户端和服务器端彼此交换数据前，必须现在双方建立 TCP连接，然后才能传输数据。TCP提供方超时重发，丢弃重复的数据，检验数据，流量控制等功能，保证数据能从一端传到另一端。<br>&emsp;&emsp;UDP：用户数据报协议，是一个简单的面向数据报的运输层协议， UDP不提供平可靠性，他只是负者吧应用程序传给 IP 层的数据报发送出去，但是并不能保证它们能够到达目的地，<br>&emsp;&emsp;由于 UDP在传输数据报前不用再客户和服务器之间建立一个连接，且没有超时重发等机制，故而传输速度快</p>
 <h1 id="局部变量能否和全局变量重名？"><a href="#局部变量能否和全局变量重名？" class="headerlink" title="局部变量能否和全局变量重名？"></a>局部变量能否和全局变量重名？</h1><p>&emsp;&emsp;能， 局部会屏蔽全局。 要用全局变量， 需要使用 “::” 局部变量可以与全局变量同名，在函数内引用这个变量时， 会用到同名的局部变量， 而不会用到全局变量。 对于有些编译器而言， 在同一个函数内可以定义多个同名的局部变量， 比如在两个循环体内都定义一个同名的局部变量，而那个局部变量的作用域就在那个循环体内</p>
@@ -540,33 +541,34 @@
 </ol>
 <h1 id="线程和进程"><a href="#线程和进程" class="headerlink" title="线程和进程"></a>线程和进程</h1><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ol>
 <li>进程：子进程是父进程的复制品。子进程获得父进程数据空间、堆和栈的复制品。</li>
-<li>线程：相对与进程而言，线程是一个更加接近与执行体的概念，它可以与同进程的其他线程共享数据，但拥有自己的栈空间，拥有独立的执行序列。<blockquote>
+<li>线程：相对与进程而言，线程是一个更加接近与执行体的概念，它可以与同进程的其他线程共享数据，但拥有自己的栈空间，拥有独立的执行序列。</li>
+</ol>
+<blockquote>
 <p>两者都可以提高程序的并发度，提高程序运行效率和响应时间。</p>
 </blockquote>
-</li>
-</ol>
 <h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><p>&emsp;&emsp;线程和进程在使用上各有优缺点： </p>
 <ol>
 <li>线程执行开销小， 但不利于资源管理和保护，而进程正相反。</li>
-<li>同时，线程适合于在 SMP机器上运行，而进程则可以跨机器迁移。<br>根本区别就一点：用多进程每个进程有自己的地址空间 (address space) ，线程则共享地址空间。所有其它区别都是由此而来的：</li>
+<li>同时，线程适合于在 SMP机器上运行，而进程则可以跨机器迁移。</li>
 </ol>
+<p>&emsp;&emsp;根本区别就一点：用多进程每个进程有自己的地址空间 (address space) ，线程则共享地址空间。所有其它区别都是由此而来的：</p>
 <ul>
 <li>速度： 线程产生的速度快， 线程间的通讯快、 切换快等， 因为他们在同一个地址空间内。</li>
 <li>资源利用率：线程的资源利用率比较好也是因为他们在同一个地址空间内。</li>
-<li>同步问题： 线程使用公共变量 / 内存时需要使用同步机制还是因为他们在同一个地址空间内<blockquote>
+<li>同步问题： 线程使用公共变量 / 内存时需要使用同步机制还是因为他们在同一个地址空间内。</li>
+</ul>
+<blockquote>
 <p>实时操作系统 ： 所谓实时操作系统， 实际上是指操作系统工作时， 其资源可以根据需要随时进行动态分配，由于各种资源可以进行动态分配，因此其处理事务的能力较强、速度较快。其主要的特点是提供及时的响应和高可靠性。</p>
 </blockquote>
-</li>
-</ul>
 <h1 id="堆栈溢出的主要原因是没有回收垃圾资源。"><a href="#堆栈溢出的主要原因是没有回收垃圾资源。" class="headerlink" title="堆栈溢出的主要原因是没有回收垃圾资源。"></a>堆栈溢出的主要原因是没有回收垃圾资源。</h1><h1 id="C语言的定义和声明"><a href="#C语言的定义和声明" class="headerlink" title="C语言的定义和声明"></a>C语言的定义和声明</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>&emsp;&emsp;编译器在创建一个对象时， 为该对象申请开辟的内存空间， 这个空间的的名字就是变量名或者对象名。同一个变量名在摸个区域内只能定义一次，重复定义会出现错误的。</p>
 <h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><p>&emsp;&emsp;声明有两种作用：</p>
 <ol>
 <li>告诉编译器， 这个变量或者函数， 我已经定义了 （开辟空间了） ， 但是在别的地方，我先说明一下，免得编译器报错。当然，声明可以多次出现。</li>
-<li>告诉编译器，这个变量名或者对象名，我先预定了， 其他地方不可以用了。和在饭馆吃饭（人多）要提前预约一样的道理。<blockquote>
+<li>告诉编译器，这个变量名或者对象名，我先预定了， 其他地方不可以用了。和在饭馆吃饭（人多）要提前预约一样的道理。</li>
+</ol>
+<blockquote>
 <p>定义和声明最本质的区别在于， 声明没开辟空间， 而定义则创建对象 （变量） 并开辟了空间。这是最重要的一点。</p>
 </blockquote>
-</li>
-</ol>
 <h1 id="结构体的大小"><a href="#结构体的大小" class="headerlink" title="结构体的大小"></a>结构体的大小</h1><p>&emsp;&emsp;这个结构体的大小多少？</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Test</span></span></span><br><span class="line"><span class="class">&#123;</span> <span class="keyword">int</span> Num ；</span><br><span class="line"><span class="keyword">char</span>*Pc ；</span><br><span class="line"><span class="keyword">short</span> sDtate ；</span><br><span class="line"><span class="keyword">char</span> ch[<span class="number">2</span>];</span><br><span class="line"><span class="keyword">short</span> S[<span class="number">4</span>];</span><br><span class="line">&#125;*p;</span><br></pre></td></tr></table></figure>
 
@@ -605,7 +607,10 @@
 <li>调用 ServerSocket （int port ）创建一个服务器端的套接字，并绑定到指定的端口号。</li>
 <li>调用 accept （），监听连接请求，则接收连接，返回通信套接字。</li>
 <li>调用 Socket 类的 getOutStream （）和 getinputStream() 获取输出流和输入流，开始网络的输出与输入。</li>
-<li>关闭通信套接字 Socket.close （）<br>&emsp;&emsp;客户端的程序编写：</li>
+<li>关闭通信套接字 Socket.close （）</li>
+</ol>
+<p>&emsp;&emsp;客户端的程序编写：</p>
+<ol>
 <li>调用 Socket 创建一个流套接字，并连接到服务器。</li>
 <li>调用 Socket 类的 getoutputstream() 和 fetInputStream 获取输出流和输入流，开始网络的数据的发送和接收。</li>
 <li>关闭通信套接字 socket.close().</li>
