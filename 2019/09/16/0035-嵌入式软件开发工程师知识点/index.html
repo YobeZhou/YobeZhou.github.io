@@ -92,7 +92,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="/images/cover/learn_dog.jpg">
 <meta property="og:image" content="/images/network/OSI_Mode.png">
-<meta property="og:updated_time" content="2019-09-17T03:02:45.683Z">
+<meta property="og:updated_time" content="2019-09-17T03:06:05.655Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="嵌入式软件开发工程师知识点">
 <meta name="twitter:description" content="什么是预编译，何时需要预编译？&amp;emsp;&amp;emsp;预编译又称预处理，是做一些代码文本的替换工作，处理‘#’开头的指令 , 比如拷贝 #include包含的文件代码， #define 宏定义的替换 , 条件编译等就是为编译做的预备工作的阶段预编译指令指示了在程序正式编译前就由编译器进行了操作，可以放在程序的任何位置。&amp;emsp;&amp;emsp;何时使用：当大部分文件代码基本上不会更改时，比如 MF">
@@ -418,12 +418,12 @@
 <blockquote>
 <p>注意：过多的使用预编译头文件会大大降低编译的速度。</p>
 </blockquote>
-<h1 id="左定值右定向"><a href="#左定值右定向" class="headerlink" title="左定值右定向"></a>左定值右定向</h1><p>&emsp;&emsp;深入理解 char * const p,char const *p,const char *p 的区别</p>
+<h1 id="左定值右定向"><a href="#左定值右定向" class="headerlink" title="左定值右定向"></a>左定值右定向</h1><p>&emsp;&emsp;深入理解 char &#42;  const p,char const &#42; p,const char &#42; p 的区别</p>
 <ol>
 <li>关键看 const 修饰的是谁</li>
-<li>由于没有 const * 的运算，若出现 const * 的形式，则 const 实际上是修饰前面的。</li>
+<li>由于没有 const &#42;  的运算，若出现 const &#42;  的形式，则 const 实际上是修饰前面的。</li>
 </ol>
-<p>&emsp;&emsp;char <em>const p （const 修饰的是 p）：只能对“某个固定的位置” 进 行读写操作，并且在定义 p 时就必须初始化 （因为在后面不能执行“ p=.. ”的操作， 因此就不能在后面初始化，因此只能在定义时初始化） 。（“某个固定的位 置”是相对于 char *p 来说所限定的内容）<br>&emsp;&emsp;char const</em>p, 由于没有 const* 运算， 则 const 实际上是修饰前面的 char ， 因此 char const<em>p等价于 const char</em>p 。 const char<em>p 或者 char const *p （因为没有 const</em>p 运算，因此const 修饰的还是前面的 char ） ： 可以对任意位置 （非系统敏感区域） 进行“只读” 操作。<br>（“只读”是相对于 char *p 来说所限定的内容）</p>
+<p>&emsp;&emsp;char &#42; const p （const 修饰的是 p）：只能对“某个固定的位置” 进 行读写操作，并且在定义 p 时就必须初始化 （因为在后面不能执行“ p=.. ”的操作， 因此就不能在后面初始化，因此只能在定义时初始化） 。（“某个固定的位 置”是相对于 char &#42; p 来说所限定的内容）<br>&emsp;&emsp;char const&#42; p, 由于没有 const&#42;  运算， 则 const 实际上是修饰前面的 char ， 因此 char const&#42; p等价于 const char&#42; p 。 const char&#42; p 或者 char const &#42; p （因为没有 const&#42; p 运算，因此const 修饰的还是前面的 char ） ： 可以对任意位置 （非系统敏感区域） 进行“只读” 操作。<br>（“只读”是相对于 char &#42; p 来说所限定的内容）</p>
 <h1 id="指针的长度？"><a href="#指针的长度？" class="headerlink" title="指针的长度？"></a>指针的长度？</h1><p>&emsp;&emsp;一个 32 位的机器 , 该机器的指针是多少位?：<br>&emsp;&emsp;指针是多少位只要看地址总线的位数就行了。 80386 以后的机子都是 32 的数据总线。所以指针的位数就是 4 个字节了。 </p>
 <h1 id="进程的同步机制"><a href="#进程的同步机制" class="headerlink" title="进程的同步机制"></a>进程的同步机制</h1><p>&emsp;&emsp;列举几种进程的同步机制，并比较其优缺点 。</p>
 <ul>
