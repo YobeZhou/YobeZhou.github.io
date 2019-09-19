@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="YobeZhou.github.io/"/>
-  <updated>2019-09-17T03:14:25.087Z</updated>
+  <updated>2019-09-19T08:04:12.812Z</updated>
   <id>YobeZhou.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android的系统架构、核心组件及源码结构</title>
+    <link href="YobeZhou.github.io/2019/09/19/0036-Android%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E4%B8%8E%E6%A0%B8%E5%BF%83%E7%BB%84%E4%BB%B6%E5%8F%8A%E6%BA%90%E7%A0%81%E7%BB%93%E6%9E%84/"/>
+    <id>YobeZhou.github.io/2019/09/19/0036-Android的系统架构与核心组件及源码结构/</id>
+    <published>2019-09-19T06:41:19.000Z</published>
+    <updated>2019-09-19T08:04:12.812Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>基于Android 9.0<br><img src="/images/Android/android_training.jpg" alt="android_training"></p><h1 id="Android系统架构介绍"><a href="#Android系统架构介绍" class="headerlink" title="Android系统架构介绍"></a>Android系统架构介绍</h1><p>&emsp;&emsp;Android系统架构分为五层，从下到上依次是Linux内核层、硬件抽象层、系统运行库层、应用框架层和应用层。<br><img src="/images/Android/android-stack_2x%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84.png" alt="Android系统架构"></p><h2 id="Linux内核层"><a href="#Linux内核层" class="headerlink" title="Linux内核层"></a>Linux内核层</h2><p>&emsp;&emsp;Android站在巨人的肩膀之上，其基于Linux对Linux的依赖主要包括核心和驱动程序两部分。</p><h2 id="硬件抽象层"><a href="#硬件抽象层" class="headerlink" title="硬件抽象层"></a>硬件抽象层</h2><p>&emsp;&emsp;Android的硬件抽象层，简单来说，就是对Linux内核驱动程序的封装，向上提供接口，向下屏蔽了具体的实现细节。也就是将Linux内核对硬件的支持分成了两层，一层放在用户空间（User Space），一层放在内核空间（Kernel Space），其中，硬件抽象层运行在用户空间，对应具体的驱动实现细节，而Linux内核驱动程序运行在内核空间，只提供简单的数据访问逻辑。</p><h3 id="为什么要将驱动的具体实现细节封装到硬件抽象层呢？"><a href="#为什么要将驱动的具体实现细节封装到硬件抽象层呢？" class="headerlink" title="为什么要将驱动的具体实现细节封装到硬件抽象层呢？"></a>为什么要将驱动的具体实现细节封装到硬件抽象层呢？</h3><p>&emsp;&emsp;Android系统使用的是Linux内核，Linux内核是基于GPL许可（GNU License），即对源码的修改都必须开源，如果将驱动的实现细节放在Linux内核层，那么就意味着需要公开驱动程序的源代码，这样显然是违背了硬件厂商的自身利益。</p><h3 id="为什么将其抽象到硬件抽象层就可以规避这个问题呢？"><a href="#为什么将其抽象到硬件抽象层就可以规避这个问题呢？" class="headerlink" title="为什么将其抽象到硬件抽象层就可以规避这个问题呢？"></a>为什么将其抽象到硬件抽象层就可以规避这个问题呢？</h3><p>&emsp;&emsp;除Linux内核外的Android源码使用的是ASL许可（Apache License），而ASL许可无须发布源代码，这样Android就可以对该部分的代码不开源。另外，HAL也可以屏蔽不同硬件设备的差异，为Android提供了统一的访问硬件设备的接口。不同的硬件厂商遵循HAL标准来实现自己的硬件控制逻辑，这样开发者不必关心不同硬件设备的差异，只需要按照HAL提供的标准接口访问硬件就可以了。</p><h2 id="系统运行层（库Libraries和运行环境Runtime）"><a href="#系统运行层（库Libraries和运行环境Runtime）" class="headerlink" title="系统运行层（库Libraries和运行环境Runtime）"></a>系统运行层（库Libraries和运行环境Runtime）</h2><p>&emsp;&emsp;本层次对应一般的嵌入式系统，相当于中间件层次。Android的本层次分成两个部分，一个是各种库，另一个是Android运行环境。本层的内容大多是使用C语言实现。<br>&emsp;&emsp;在一般情况下，Android的各种库是以系统中间件的形式提供的，它们的显著特点是与移动设备平台的应用密切相关。<br>另外，Android的运行环境主要是基于Dalvik（虚拟机）技术的。而Dalvik与一般的Java虚拟机（Java Virtual Machine，JVM）有如下区别：</p><ul><li>Java虚拟机：执行的是Java标准的字节码（Bytecode）。</li><li>Dalvik：执行的是Dalyik可执行格式（.dex）的文件。在执行的过程中，每一个应用程序即一个进程（Linux的一个Process）。</li></ul><p>&emsp;&emsp;二者最大的区别在于，JVM是基于栈的虚拟机（Stack-based），而Dalvik是基于寄存器的虚拟机（Register-based）。显然，后者最大的好处在于可以依据硬件实现更大的优化，这更适合移动设备的特点。</p><h2 id="应用框架层（Application-Framework）"><a href="#应用框架层（Application-Framework）" class="headerlink" title="应用框架层（Application Framework）"></a>应用框架层（Application Framework）</h2><p>&emsp;&emsp;在整个Android系统中，与应用开发最相关的是Application Framework，在这一层，Android为应用程序层的开发者提供了各种功能强大的APIs，这实际上是一个应用程序的框架。由于上层的应用程序是以Java构建的。在本层提供了程序中所需要的各种控件，例如：Views（视图组件）、List（列表）、Grid（栅格）、Text Box（文本框）、Button（按钮），甚至还有一个嵌入式的Web浏览器。<br>&emsp;&emsp;这一层提供的主要组件有：</p><table><thead><tr><th align="center">名称</th><th align="center">描述</th></tr></thead><tbody><tr><td align="center">Activity Manager(活动管理器)</td><td align="center">管理各个应用程序生命周期以及通常的导航回退功能</td></tr><tr><td align="center">Location Manager(位置管理器)</td><td align="center">提供地理位置以及定位功能服务</td></tr><tr><td align="center">Package Manager(包管理器)</td><td align="center">管理所有安装在Android系统中的应用程序</td></tr><tr><td align="center">Notification Manager(通知管理器)</td><td align="center">使得应用程序可以在状态栏中显示自定义的提示信息</td></tr><tr><td align="center">Resource Manager（资源管理器）</td><td align="center">提供应用程序使用的各种非代码资源，如本地化字符串、图片、布局文件、颜色文件等</td></tr><tr><td align="center">Telephony Manager(电话管理器)</td><td align="center">管理所有的移动设备功能</td></tr><tr><td align="center">Window Manager（窗口管理器）</td><td align="center">管理所有开启的窗口程序</td></tr><tr><td align="center">Content Providers（内容提供器）</td><td align="center">使得不同应用程序之间可以共享数据</td></tr><tr><td align="center">View System（视图系统）</td><td align="center">构建应用程序的基本组件</td></tr></tbody></table><h2 id="应用层（Application）"><a href="#应用层（Application）" class="headerlink" title="应用层（Application）"></a>应用层（Application）</h2><p>&emsp;&emsp;系统内置的应用程序以及非系统级的应用程序都是属于应用层。Android的应用程序负责与用户进行直接交互（GUI），通常基于Java进行开发，有时候还包含各种被放置在“res”目录中的资源文件。Java源码和相关资源在经过编译后会生成一个APK包。此外应用程序的开发者还可以使用应用程序框架层的API实现自己的程序。应用层是Android巨大潜力的体现。</p><h1 id="Android源码结构"><a href="#Android源码结构" class="headerlink" title="Android源码结构"></a>Android源码结构</h1><p>&emsp;&emsp;源码的全部工程可以分为三个部分：</p><ol><li>Core Project：核心工程部分，这是建立Android系统的基础，保存在根目录的各个文件夹中。</li><li>External Project：扩展工程部分，可以使其他开源项目具有扩展功能，保存在external文件夹中。</li><li>Package：包部分，提供了Android的应用程序、内容提供者、输入法和服务，保存在package文件夹中。</li></ol><p>&emsp;&emsp;源码中包含了原始的Android的目标机器代码、主机编译工具和仿真环境。第一级别目录结构如下：</p><table><thead><tr><th align="center">名称</th><th align="center">描述</th></tr></thead><tbody><tr><td align="center">abi</td><td align="center">应用程序二进制接口</td></tr><tr><td align="center">art</td><td align="center">全新的ART运行环境</td></tr><tr><td align="center">bionic</td><td align="center">系统C库</td></tr><tr><td align="center">bootable</td><td align="center">启动引导相关代码</td></tr><tr><td align="center">build</td><td align="center">存放系统编译规则及generic等基础开发包配置</td></tr><tr><td align="center">cts</td><td align="center">Android兼容性测试套件标准</td></tr><tr><td align="center">dalvik</td><td align="center">dalvik虚拟机</td></tr><tr><td align="center">developers</td><td align="center">开发者目录</td></tr><tr><td align="center">development</td><td align="center">应用程序开发相关代码</td></tr><tr><td align="center">device</td><td align="center">设备相关配置</td></tr><tr><td align="center">docs</td><td align="center">参考文档目录</td></tr><tr><td align="center">external</td><td align="center">开源模组相关文件</td></tr><tr><td align="center">frameworks</td><td align="center">应用程序框架，Android系统核心部分，由Java和C++编写</td></tr><tr><td align="center">hardware</td><td align="center">主要是硬件抽象层的代码</td></tr><tr><td align="center">libcore</td><td align="center">核心库相关文件</td></tr><tr><td align="center">libnativehelper</td><td align="center">动态库，实现JNI库的基础</td></tr><tr><td align="center">ndk</td><td align="center">NDK相关代码。Android NDK（Android Native Development Kit）是一系列的开发工具，允许程序开发人员在Android应用程序中嵌入C/C++语言编写的非托管代码</td></tr><tr><td align="center">out</td><td align="center">编译完成后代码输出在此目录</td></tr><tr><td align="center">packages</td><td align="center">应用程序包</td></tr><tr><td align="center">pdk</td><td align="center">Plug Development Kit 的缩写，本地开发套件</td></tr><tr><td align="center">platform_testing</td><td align="center">平台测试</td></tr><tr><td align="center">prebuilts</td><td align="center">x86和arm架构下预编译的一些资源</td></tr><tr><td align="center">sdk</td><td align="center">sdk和模拟器</td></tr><tr><td align="center">system</td><td align="center">底层文件系统库、应用和组件，C语言实现</td></tr><tr><td align="center">toolchain</td><td align="center">工具链文件</td></tr><tr><td align="center">tools</td><td align="center">工具文件</td></tr><tr><td align="center">Makefile</td><td align="center">全局Makefile文件，用来定义编译规则</td></tr></tbody></table><p><img src="/images/Android/Android9.0.0%E6%BA%90%E7%A0%81%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png" alt="Android9.0.0源码目录结构"></p><h1 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料"></a>学习资料</h1><p><a href="http://androidxref.com/" target="_blank" rel="noopener">Android系统源码阅读</a><br><a href="https://mirrors.tuna.tsinghua.edu.cn/help/AOSP/" target="_blank" rel="noopener">清华大学开源软件镜像站</a></p><h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><p><a href="https://juejin.im/post/5c0f7b90f265da613b6f9e97" target="_blank" rel="noopener">https://juejin.im/post/5c0f7b90f265da613b6f9e97</a></p><style>table th:nth-of-type(1){width:35%;}table th:nth-of-type(2){width: 65%;}</style>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;基于Android 9.0&lt;br&gt;&lt;img src=&quot;/images/Android/android_training.jpg&quot; alt=&quot;
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="YobeZhou.github.io/categories/Android/"/>
+    
+    
+      <category term="Android" scheme="YobeZhou.github.io/tags/Android/"/>
+    
+  </entry>
   
   <entry>
     <title>嵌入式软件开发工程师知识点</title>
@@ -493,34 +518,9 @@
       <category term="嵌入式Linux" scheme="YobeZhou.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8FLinux/"/>
     
     
-      <category term="嵌入式" scheme="YobeZhou.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
       <category term="Linux" scheme="YobeZhou.github.io/tags/Linux/"/>
     
-  </entry>
-  
-  <entry>
-    <title>什么是操作系统？</title>
-    <link href="YobeZhou.github.io/2019/04/08/0016-%E4%BB%80%E4%B9%88%E6%98%AF%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%9F/"/>
-    <id>YobeZhou.github.io/2019/04/08/0016-什么是操作系统？/</id>
-    <published>2019-04-08T14:04:54.000Z</published>
-    <updated>2019-06-04T01:31:28.573Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp;&emsp;操作系统位于计算机用户与计算机硬件之间。操作系统的目的是提供环境，以便用户能够便捷而且高效地执行程序。<br>&emsp;&emsp;操作系统是管理计算机硬件的软件。硬件必须提供适当机制，以确保计算机系统的正确运行并且防止用户程序干扰系统的正常运行。<br>&emsp;&emsp;操作系统可以采用许多不同的组织方式，因此内部结构也有很大差异。设计新的操作系统的任务是艰巨的。在设计开始之前，明确界定设计系统的目标是非常重要的。这些目标是选择不回算法和策略的基础。<br>&emsp;&emsp;操作系统既庞大又复杂，因此应分块构造。每块都应具有描述明确的系统部分，并且具有严格定义的输入、输出和功能。</p><blockquote><p>有一个重点我们是必须get住的，那就是：操作系统（operating system）是管理计算机硬件的程序。也就是说操作系统是只是一个管理、控制的程序，它为其他应用程序提供基础，并且从当计算机用户和计算机硬件的中介，所以我们平时所作的所有操作都是在操作系统这个程序下进行的。</p></blockquote><h1 id="什么是操作系统"><a href="#什么是操作系统" class="headerlink" title="什么是操作系统"></a>什么是操作系统</h1><p>&emsp;&emsp;操作系统的存在是因为其提供了合理的方式来解决创建可用计算系统的问题，计算机系统的根本目的是，执行用户程序帮助用户解决实际问题。<br>&emsp;&emsp;操作系统是一直运行在计算机上的程序（通常称为内核（kernel））。除了内核外还有其他两类程序：系统程序（system program）和应用程序。前者是与系统运行息息相关的程序（其保证着系统的正常运作），但不是内核的一部分，后者是与系统运行无关的其他应用程序（可以理解为用户程序）。</p><h1 id="操作系统的功能"><a href="#操作系统的功能" class="headerlink" title="操作系统的功能"></a>操作系统的功能</h1><p>&emsp;&emsp;计算机操作系统可粗分了四个组件：硬件、操作系统、应用程序和用户。<br><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%84%E4%BB%B6%E7%9A%84%E6%8A%BD%E8%B1%A1%E8%A7%86%E5%9B%BE.png" alt="计算机系统组件的抽象视图"></p><center>计算机系统组件的抽象视图</center><ul><li>硬件（hardware）为我们的系统提供基本的计算资源；</li><li>应用程序规定了用户为解决计算问题而使用硬件资源的方式；</li><li>而操作系统决定应用程序使用资源的方式和权限。</li></ul><p>至此，计算机系统也可分为硬件、软件和数据，当计算机系统运行时，操作系统提供正确的手段来让这些资源得到合理的利用。</p><blockquote><p>正如刚才强调的，至此，我们可以更形象的将操作系统理解为：操作系统类似于政府，其本身不能实现任何有用的功能，而是为其他程序的执行提供一个合理安全的环境。</p></blockquote><h2 id="用户视角"><a href="#用户视角" class="headerlink" title="用户视角"></a>用户视角</h2><p>&emsp;&emsp;计算机的用户视角因使用界面的不同而不同。<br>&emsp;&emsp;大多数的计算机用户的都是普通用户，即PC又显示器、键盘、鼠标和主机。这样的计算机是为了让单个用户单独使用资源，目的是优化用户进行的工作（或娱乐）。因此在对于这类群体，操作系统的设计的主要目的是为了用户的使用便利，而次要的是性能，不在乎资源的共享和利用。当然其中也包括我们程序员这一群体。<br>&emsp;&emsp;接着就是服务器了，对于这个视角的用户面对的是与大型机或小型机相连的终端前。这类系统的设计目标是优化资源的利用效率，确保所有的CPU时间、内存和I/O都能得到有效的使用，并且确保没有用户使用操作限制以外的资源。<br>&emsp;&emsp;与我们日常工作接触的是这样一种情况，我们处于工作站内，这类工作站与其他工作站和服务器相连。这时我们作为用户不仅可以使用专用资源，而且可以使用网络和服务器的共享资源，如：文件，计算和打印服务等。这类的操作系统的设计便是上述两种情况的折中方案，即考虑资源利用率与便利性。</p><h2 id="系统视角"><a href="#系统视角" class="headerlink" title="系统视角"></a>系统视角</h2><p>&emsp;&emsp;从计算机的是视角来看，操作系统是与硬件紧密相连的程序。因此，可将操作系统看作资源分配器。操作系统管理着（如：CPU时间、内存空间、文件存储空间、I/O设备等）这些资源，当面对许多甚至冲突的资源请求时，操作系统应该考虑如何为各个程序和用户分配资源，以便计算机能有效且公平地运行。</p><blockquote><p>说到资源请求，此时操作系统是一个控制程序，它特别注重I/O设备的运行和控制，其管理着用户程序的执行，以防止计算机资源的错误或不当使用。</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;操作系统位于计算机用户与计算机硬件之间。操作系统的目的是提供环境，以便用户能够便捷而且高效地执行程序。&lt;br&gt;&amp;em
-      
-    
-    </summary>
-    
-      <category term="操作系统" scheme="YobeZhou.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
-    
-    
-      <category term="操作系统" scheme="YobeZhou.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+      <category term="嵌入式" scheme="YobeZhou.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
     
   </entry>
   
