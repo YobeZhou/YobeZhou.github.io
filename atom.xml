@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="YobeZhou.github.io/"/>
+  <link href="https://zhouyuebiao.cn/"/>
   <updated>2019-09-19T08:48:55.183Z</updated>
-  <id>YobeZhou.github.io/</id>
+  <id>https://zhouyuebiao.cn/</id>
   
   <author>
     <name>YobeZhou</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Android的系统架构、核心组件及源码结构</title>
-    <link href="YobeZhou.github.io/2019/09/19/0036-Android%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E4%B8%8E%E6%A0%B8%E5%BF%83%E7%BB%84%E4%BB%B6%E5%8F%8A%E6%BA%90%E7%A0%81%E7%BB%93%E6%9E%84/"/>
-    <id>YobeZhou.github.io/2019/09/19/0036-Android的系统架构与核心组件及源码结构/</id>
+    <link href="https://zhouyuebiao.cn/2019/09/19/0036-Android%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E4%B8%8E%E6%A0%B8%E5%BF%83%E7%BB%84%E4%BB%B6%E5%8F%8A%E6%BA%90%E7%A0%81%E7%BB%93%E6%9E%84/"/>
+    <id>https://zhouyuebiao.cn/2019/09/19/0036-Android的系统架构与核心组件及源码结构/</id>
     <published>2019-09-19T06:41:19.000Z</published>
     <updated>2019-09-19T08:48:55.183Z</updated>
     
@@ -34,17 +34,17 @@
     
     </summary>
     
-      <category term="Android" scheme="YobeZhou.github.io/categories/Android/"/>
+      <category term="Android" scheme="https://zhouyuebiao.cn/categories/Android/"/>
     
     
-      <category term="Android" scheme="YobeZhou.github.io/tags/Android/"/>
+      <category term="Android" scheme="https://zhouyuebiao.cn/tags/Android/"/>
     
   </entry>
   
   <entry>
     <title>嵌入式软件开发工程师知识点</title>
-    <link href="YobeZhou.github.io/2019/09/16/0035-%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
-    <id>YobeZhou.github.io/2019/09/16/0035-嵌入式软件开发工程师知识点/</id>
+    <link href="https://zhouyuebiao.cn/2019/09/16/0035-%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+    <id>https://zhouyuebiao.cn/2019/09/16/0035-嵌入式软件开发工程师知识点/</id>
     <published>2019-09-16T12:18:29.000Z</published>
     <updated>2019-09-19T08:48:52.349Z</updated>
     
@@ -60,17 +60,17 @@
     
     </summary>
     
-      <category term="知识总结" scheme="YobeZhou.github.io/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
+      <category term="知识总结" scheme="https://zhouyuebiao.cn/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="知识总结" scheme="YobeZhou.github.io/tags/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
+      <category term="知识总结" scheme="https://zhouyuebiao.cn/tags/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   
   <entry>
     <title>嵌入式常见经典考点总结</title>
-    <link href="YobeZhou.github.io/2019/09/09/0034-%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%B8%B8%E8%A7%81%E7%BB%8F%E5%85%B8%E8%80%83%E7%82%B9%E6%80%BB%E7%BB%93/"/>
-    <id>YobeZhou.github.io/2019/09/09/0034-嵌入式常见经典考点总结/</id>
+    <link href="https://zhouyuebiao.cn/2019/09/09/0034-%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%B8%B8%E8%A7%81%E7%BB%8F%E5%85%B8%E8%80%83%E7%82%B9%E6%80%BB%E7%BB%93/"/>
+    <id>https://zhouyuebiao.cn/2019/09/09/0034-嵌入式常见经典考点总结/</id>
     <published>2019-09-09T10:13:13.000Z</published>
     <updated>2019-09-19T08:48:46.735Z</updated>
     
@@ -86,17 +86,17 @@
     
     </summary>
     
-      <category term="知识总结" scheme="YobeZhou.github.io/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
+      <category term="知识总结" scheme="https://zhouyuebiao.cn/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="知识总结" scheme="YobeZhou.github.io/tags/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
+      <category term="知识总结" scheme="https://zhouyuebiao.cn/tags/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   
   <entry>
     <title>Linux搬砖三剑客之shell</title>
-    <link href="YobeZhou.github.io/2019/08/29/0033-Linux%E6%90%AC%E7%A0%96%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bshell/"/>
-    <id>YobeZhou.github.io/2019/08/29/0033-Linux搬砖三剑客之shell/</id>
+    <link href="https://zhouyuebiao.cn/2019/08/29/0033-Linux%E6%90%AC%E7%A0%96%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bshell/"/>
+    <id>https://zhouyuebiao.cn/2019/08/29/0033-Linux搬砖三剑客之shell/</id>
     <published>2019-08-29T03:22:02.000Z</published>
     <updated>2019-08-29T06:14:48.365Z</updated>
     
@@ -112,19 +112,19 @@
     
     </summary>
     
-      <category term="shell" scheme="YobeZhou.github.io/categories/shell/"/>
+      <category term="shell" scheme="https://zhouyuebiao.cn/categories/shell/"/>
     
     
-      <category term="shell" scheme="YobeZhou.github.io/tags/shell/"/>
+      <category term="shell" scheme="https://zhouyuebiao.cn/tags/shell/"/>
     
   </entry>
   
   <entry>
     <title>Linux搬砖三剑客之vi&amp;vim</title>
-    <link href="YobeZhou.github.io/2019/08/28/0032-Linux%E6%90%AC%E7%A0%96%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bvi&amp;vim/"/>
-    <id>YobeZhou.github.io/2019/08/28/0032-Linux搬砖三剑客之vi&amp;vim/</id>
+    <link href="https://zhouyuebiao.cn/2019/08/28/0032-Linux%E6%90%AC%E7%A0%96%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bvi&amp;vim/"/>
+    <id>https://zhouyuebiao.cn/2019/08/28/0032-Linux搬砖三剑客之vi&amp;vim/</id>
     <published>2019-08-28T03:40:30.000Z</published>
-    <updated>2019-08-29T07:53:26.990Z</updated>
+    <updated>2019-09-19T08:52:53.783Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/images/vi&vim/vi&vimlog.png" alt="vi&amp;vimlog"></p><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>不可不知的两大编辑器：</p><ul><li>编辑器之神——Vim</li><li>神之编辑器——Emacs</li></ul><p>&emsp;&emsp;有趣的<a href="https://zh.wikipedia.org/wiki/%E7%BC%96%E8%BE%91%E5%99%A8%E4%B9%8B%E6%88%98" target="_blank" rel="noopener">编辑器之战</a>。</p><p>&emsp;&emsp;vim与神的编辑器emacs的争论从来没有停止过。两种编辑器的设计哲学完全不同，风格迥异。vim的特点是Composability（组合性），Emacs的特点是Extensibility（可扩展性）。vim使用键序列输入，Emacs则经常使用组合键（同时按）输入，所以Emacs有个绰号Esc + Meta + Alt + Ctrl + Shift。正因为各种显著的差异各种争论在所难免，对此我们应该端正自己的心态：提高自己的格局，少一些争论。</p><h1 id="磨刀不误砍柴工"><a href="#磨刀不误砍柴工" class="headerlink" title="磨刀不误砍柴工"></a>磨刀不误砍柴工</h1><p>&emsp;&emsp;不做无谓的争论，工欲善其事必先利其器，我们只管选择一种自己顺手的工具（我选择vi&amp;vim）来学习，不断深入学习，提高自己的同时，不断与工具磨合，早日达到人剑合一的境界，笑看江湖。<br><img src="/images/vi&vim/huaji.jpg" alt="huaji"></p><h2 id="进入vim的姿势"><a href="#进入vim的姿势" class="headerlink" title="进入vim的姿势"></a>进入vim的姿势</h2><table><thead><tr><th align="center">命令</th><th align="center">描述</th></tr></thead><tbody><tr><td align="center">vim filename</td><td align="center">打开或新建文件，并将光标置于第一行首</td></tr><tr><td align="center">vim +num filename</td><td align="center">打开文件，并将光标置于第n行首</td></tr><tr><td align="center">vim + filename</td><td align="center">打开文件，并将光标置于最后一行首</td></tr><tr><td align="center">vim +/pattern filename</td><td align="center">打开文件，并将光标置于第一个与pattern匹配的串处</td></tr><tr><td align="center">vim -r filename</td><td align="center">在上次正用vim编辑时发生系统崩溃，恢复filename</td></tr><tr><td align="center">vim filenae1…filenamen</td><td align="center">打开多个文件，依次编辑</td></tr></tbody></table><h2 id="vim配置"><a href="#vim配置" class="headerlink" title="vim配置"></a>vim配置</h2><table><thead><tr><th align="center">命令</th><th align="center">描述</th></tr></thead><tbody><tr><td align="center">all</td><td align="center">列出所有选项设置情况</td></tr><tr><td align="center">term</td><td align="center">设置终端类型</td></tr><tr><td align="center">ignorance</td><td align="center">在搜索中忽略大小写</td></tr><tr><td align="center">list</td><td align="center">显示制表位（Ctrl+1）和行尾标志（$）显示行号</td></tr><tr><td align="center">number</td><td align="center">显示由面向行的命令修改过的数目</td></tr><tr><td align="center">report</td><td align="center">显示简短的警告信息</td></tr><tr><td align="center">terse</td><td align="center">在转到别的文件时若没保存当前文件则显示NO write信息</td></tr><tr><td align="center">nomagic</td><td align="center">允许在搜索模式中，使用前面不带“V的特殊字符</td></tr><tr><td align="center">nowrapscan</td><td align="center">禁止vi在搜索到达文件两端时，又从另一端开始</td></tr><tr><td align="center">mesg</td><td align="center">允许vi显示其他用户用write写到自己终端上的信息</td></tr><tr><td align="center">:set number</td><td align="center">显示行号</td></tr><tr><td align="center">:set nonumber</td><td align="center">不显示行号</td></tr><tr><td align="center">set ruler</td><td align="center">显示标尺</td></tr><tr><td align="center">set noruler</td><td align="center">不显示标尺</td></tr><tr><td align="center">:set hlsearch</td><td align="center">高亮显示查找到的单词</td></tr><tr><td align="center">:set nohlsearch</td><td align="center">关闭高亮显示</td></tr><tr><td align="center">:syntax on</td><td align="center">语法高亮显示行号</td></tr><tr><td align="center">:set tabstop=8</td><td align="center">设置tab大小，8为最常用最普遍的设置4.4个空格，8.正常的制表符，12:一个制表符4个空格，16.两个制表符</td></tr><tr><td align="center">:set autoindent</td><td align="center">自动缩进</td></tr><tr><td align="center">:set cindent</td><td align="center">C语言格式里面的自动缩进</td></tr></tbody></table><h2 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h2><table><thead><tr><th align="center">命令</th><th align="center">描述</th></tr></thead><tbody><tr><td align="center">k</td><td align="center">向上移动</td></tr><tr><td align="center">j</td><td align="center">向下移动</td></tr><tr><td align="center">h</td><td align="center">向左移动</td></tr><tr><td align="center">l</td><td align="center">向右移动</td></tr><tr><td align="center">k nk</td><td align="center">向上移动n行</td></tr><tr><td align="center">j nk</td><td align="center">向下移动n行</td></tr><tr><td align="center">h nh</td><td align="center">向左移动n行</td></tr><tr><td align="center">l nl</td><td align="center">向右移动n行</td></tr><tr><td align="center">Spach</td><td align="center">光标右移一个字符</td></tr><tr><td align="center">Backspace</td><td align="center">光标左移一个字符</td></tr><tr><td align="center">Enter</td><td align="center">光标下移一行</td></tr><tr><td align="center">w/W</td><td align="center">光标右移一个字至字首</td></tr><tr><td align="center">b/B</td><td align="center">光标左移一个字至字首</td></tr><tr><td align="center">e/e</td><td align="center">光标右移一个字至字尾</td></tr><tr><td align="center">)</td><td align="center">光标移至句尾</td></tr><tr><td align="center">(</td><td align="center">光标移至句首</td></tr><tr><td align="center">}</td><td align="center">光标移至段落开头</td></tr><tr><td align="center">{</td><td align="center">光标移至段落结尾</td></tr><tr><td align="center">n$</td><td align="center">光标移至第n行尾</td></tr><tr><td align="center">H</td><td align="center">光标移至屏幕顶行</td></tr><tr><td align="center">M</td><td align="center">光标移至屏幕中间行</td></tr><tr><td align="center">L</td><td align="center">光标移至屏幕最后行</td></tr><tr><td align="center">0</td><td align="center">（注意是数字零）光标移至当前行首</td></tr><tr><td align="center">^</td><td align="center">移动光标到行首第一个非空字符上去</td></tr><tr><td align="center">$</td><td align="center">光标移至当前行尾</td></tr><tr><td align="center">gg</td><td align="center">移到第一行</td></tr><tr><td align="center">G</td><td align="center">移到最后一行</td></tr><tr><td align="center">f</td><td align="center">移动光标到当前行的字符a上</td></tr><tr><td align="center">F</td><td align="center">与f相反</td></tr><tr><td align="center">%</td><td align="center">移动到与制匹配的括号上去（），}，Ⅱ，&lt;&gt;等</td></tr><tr><td align="center">nG</td><td align="center">移动到第n行上</td></tr><tr><td align="center">G</td><td align="center">到最后一行</td></tr></tbody></table><h2 id="屏幕滚动"><a href="#屏幕滚动" class="headerlink" title="屏幕滚动"></a>屏幕滚动</h2><table><thead><tr><th align="center">命令</th><th align="center">描述</th></tr></thead><tbody><tr><td align="center">Ctrl+u</td><td align="center">向文件首翻半屏</td></tr><tr><td align="center">Ctrl+d</td><td align="center">向文件尾翻半屏</td></tr><tr><td align="center">Ctrl+f</td><td align="center">向文件尾翻一屏</td></tr><tr><td align="center">Ctrl+b</td><td align="center">向文件首翻一屏</td></tr><tr><td align="center">nz</td><td align="center">将第n行滚至屏幕顶部，不指定n时将当前行滚至屏幕顶部</td></tr></tbody></table><h2 id="插入文本类"><a href="#插入文本类" class="headerlink" title="插入文本类"></a>插入文本类</h2><table><thead><tr><th align="center">命令</th><th align="center">描述</th></tr></thead><tbody><tr><td align="center">i</td><td align="center">在光标前</td></tr><tr><td align="center">I</td><td align="center">在当前行首</td></tr><tr><td align="center">a</td><td align="center">光标后</td></tr><tr><td align="center">A</td><td align="center">在当前行尾</td></tr><tr><td align="center">o</td><td align="center">在当前行之下新开一行</td></tr><tr><td align="center">O</td><td align="center">在当前行之上新开一行</td></tr><tr><td align="center">r</td><td align="center">替换当前字符</td></tr><tr><td align="center">R</td><td align="center">替换当前字符及其后的字符，直至按ESC键</td></tr><tr><td align="center">s</td><td align="center">从当前光标位置处开始，以输入的文本替代指定数目的字符</td></tr><tr><td align="center">S</td><td align="center">删除指定数目的行，并以所输入文本代替之</td></tr><tr><td align="center">ncw/nCW</td><td align="center">修改指定数目的字</td></tr><tr><td align="center">nCC</td><td align="center">修改指定数目的行</td></tr></tbody></table><h2 id="删除命令"><a href="#删除命令" class="headerlink" title="删除命令"></a>删除命令</h2><table><thead><tr><th align="center">命令</th><th align="center">描述</th></tr></thead><tbody><tr><td align="center">x/X</td><td align="center">删除一个字符，x删除光标后的，而X删除光标前的</td></tr><tr><td align="center">dw</td><td align="center">删除一个单词（删除光标位置到下一个单词开始的位置）</td></tr><tr><td align="center">dnw</td><td align="center">删除n个单词</td></tr><tr><td align="center">dne</td><td align="center">也可，只是删除到单词尾</td></tr><tr><td align="center">do</td><td align="center">删至行首</td></tr><tr><td align="center">d$</td><td align="center">删至行尾</td></tr><tr><td align="center">dd</td><td align="center">删除一行</td></tr><tr><td align="center">ndd</td><td align="center">删除当前行及其后n-1行</td></tr><tr><td align="center">dnl</td><td align="center">向右删除n个字母</td></tr><tr><td align="center">dnh</td><td align="center">向左删除n个字母</td></tr><tr><td align="center">dnj</td><td align="center">向下删除n行，当前行+其上n行</td></tr><tr><td align="center">dnk</td><td align="center">向上删除n行，当期行+其下n行</td></tr><tr><td align="center">cnw[word]</td><td align="center">将n个word改变为word</td></tr><tr><td align="center">C$</td><td align="center">改变到行尾</td></tr><tr><td align="center">cc</td><td align="center">改变整行</td></tr><tr><td align="center">shift+j</td><td align="center">删除行尾的换行符，下一行接上来了</td></tr></tbody></table><h2 id="复制粘贴"><a href="#复制粘贴" class="headerlink" title="复制粘贴"></a>复制粘贴</h2><table><thead><tr><th align="center">命令</th><th align="center">描述</th></tr></thead><tbody><tr><td align="center">p</td><td align="center">粘贴用x或d删除的文本</td></tr><tr><td align="center">ynw</td><td align="center">复制n个单词</td></tr><tr><td align="center">yy</td><td align="center">复制一行</td></tr><tr><td align="center">ynl</td><td align="center">复制n个字符</td></tr><tr><td align="center">y$</td><td align="center">复制当前光标至行尾处</td></tr><tr><td align="center">nyy</td><td align="center">拷贝n行</td></tr></tbody></table><h2 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h2><p>|u          |撤销前一次的操作<br>|shif+u(U)  |撤销对该行的所有操作</p><h2 id="搜索及替换"><a href="#搜索及替换" class="headerlink" title="搜索及替换"></a>搜索及替换</h2><table><thead><tr><th align="center">命令</th><th align="center">描述</th></tr></thead><tbody><tr><td align="center">/pattern</td><td align="center">从光标开始处向文件尾搜索pattern</td></tr><tr><td align="center">?pattern</td><td align="center">从光标开始处向文件首搜索pattern</td></tr><tr><td align="center">n</td><td align="center">在同一方向重复上一次搜索命令</td></tr><tr><td align="center">N</td><td align="center">在反方向上重复上一次搜索命令</td></tr><tr><td align="center">cw newword</td><td align="center">替换为newword</td></tr><tr><td align="center">n</td><td align="center">继续查找</td></tr><tr><td align="center">.</td><td align="center">执行替换</td></tr><tr><td align="center">:s/p1/p2/g</td><td align="center">将当前行中所有p1均用p2替代，g表示执行用c表示需要确认</td></tr><tr><td align="center">:n1,n2 s/p1/p2/g</td><td align="center">将第n1至n2行中所有p1均用p2替代</td></tr><tr><td align="center">:g/p1/s//p2/g</td><td align="center">将文件中所有p1均用p2替换</td></tr><tr><td align="center">:1,$ s/string1/string2/g</td><td align="center">在全文中将string1替换为string2</td></tr></tbody></table><h2 id="书签"><a href="#书签" class="headerlink" title="书签"></a>书签</h2><table><thead><tr><th align="center">命令</th><th align="center">描述</th></tr></thead><tbody><tr><td align="center">,[a-z]</td><td align="center">在文中做标记，标记号可为a-z的26个字母</td></tr><tr><td align="center">`a</td><td align="center">移动到标记a处</td></tr></tbody></table><h2 id="visual模式"><a href="#visual模式" class="headerlink" title="visual模式"></a>visual模式</h2><table><thead><tr><th align="center">命令</th><th align="center">描述</th></tr></thead><tbody><tr><td align="center">v</td><td align="center">进入visual模式</td></tr><tr><td align="center">V</td><td align="center">进入行的visual模式</td></tr><tr><td align="center">ctrl+V</td><td align="center">进如块操作模式用o和O改变选择的边的大小</td></tr><tr><td align="center">在所有行插入相同的内容如include&lt;</td><td align="center">将光标移到开始插入的位置，按CTRL+V进入VISUAL模式，选择好模块后按1（shit+），后插入要插入的文本，按IESC]完成</td></tr></tbody></table><h2 id="行方式命令"><a href="#行方式命令" class="headerlink" title="行方式命令"></a>行方式命令</h2><table><thead><tr><th align="center">命令</th><th align="center">描述</th></tr></thead><tbody><tr><td align="center">:n1,n2 co n3</td><td align="center">将n1行到n2行之间的内容拷贝到第n3行下</td></tr><tr><td align="center">:n1,n2 m n3</td><td align="center">将n1行到n2行之间的内容移至到第n3行下</td></tr><tr><td align="center">:n1,n2 d</td><td align="center">将n1行到n2行之间的内容删除</td></tr><tr><td align="center">:n1,n2 wlcommand</td><td align="center">将文件中n1行至n2行的内容作为command的输入并执行之</td></tr></tbody></table><blockquote><p>若不指定n1，n2，则表示将整个文件内容作为command的输入 |</p></blockquote><h2 id="宏"><a href="#宏" class="headerlink" title="宏"></a>宏</h2><table><thead><tr><th align="center">命令</th><th align="center">描述</th></tr></thead><tbody><tr><td align="center">q[a-z]</td><td align="center">开始记录但前开始的操作为宏，名称可为【a-z】，然后用q终止录制宏</td></tr><tr><td align="center">reg</td><td align="center">显示当前定义的所有的宏，用@[a-z]来在当前光标处执行宏[a-z]</td></tr></tbody></table><h2 id="操作窗口"><a href="#操作窗口" class="headerlink" title="操作窗口"></a>操作窗口</h2><table><thead><tr><th align="center">命令</th><th align="center">描述</th></tr></thead><tbody><tr><td align="center">:split</td><td align="center">分割一个窗口</td></tr><tr><td align="center">:split file.c</td><td align="center">为另一个文件fle.c分隔窗口</td></tr><tr><td align="center">:nsplit file.c</td><td align="center">为另一个文件file.c分隔窗口，并指定其行数</td></tr><tr><td align="center">ctrl + W</td><td align="center">在窗口中切换</td></tr><tr><td align="center">:close</td><td align="center">关闭当前窗口</td></tr></tbody></table><h2 id="文件及其他"><a href="#文件及其他" class="headerlink" title="文件及其他"></a>文件及其他</h2><table><thead><tr><th align="center">命令</th><th align="center">描述</th></tr></thead><tbody><tr><td align="center">:q退出vi</td><td align="center"></td></tr><tr><td align="center">:q!</td><td align="center">不保存文件并退出vi/vim</td></tr><tr><td align="center">:e filename</td><td align="center">打开文件filename进行编辑</td></tr><tr><td align="center">:e!</td><td align="center">放弃修改文件内容，重新载入该文件编辑</td></tr><tr><td align="center">:W</td><td align="center">保存当前文件</td></tr><tr><td align="center">:wq</td><td align="center">存盘后再退出</td></tr><tr><td align="center">:ZZ</td><td align="center">保存当前文档并退出vi/vim</td></tr><tr><td align="center">:!command</td><td align="center">执行shell命令command</td></tr><tr><td align="center">:r!command</td><td align="center">将命令command的输出结果放到当前行</td></tr><tr><td align="center">:n1,n2 write temp.c</td><td align="center"></td></tr><tr><td align="center">:read file.c</td><td align="center">将文件file.c的内容插入到当前光标所在的下面</td></tr></tbody></table><h1 id="修炼秘籍"><a href="#修炼秘籍" class="headerlink" title="修炼秘籍"></a>修炼秘籍</h1><h2 id="寓教于乐"><a href="#寓教于乐" class="headerlink" title="寓教于乐"></a>寓教于乐</h2><p>&emsp;&emsp;<a href="https://vim-adventures.com/" target="_blank" rel="noopener">非常有趣的VIM学习小游戏。</a></p><h2 id="修炼秘籍-1"><a href="#修炼秘籍-1" class="headerlink" title="修炼秘籍"></a>修炼秘籍</h2><h2 id="vim命令图解（中文版）"><a href="#vim命令图解（中文版）" class="headerlink" title="vim命令图解（中文版）"></a>vim命令图解（中文版）</h2><p><img src="/images/vi&vim/vim-cheat-sheet-cn.png" alt="vim命令图解cn"></p><h2 id="vim命令图解（英文版）"><a href="#vim命令图解（英文版）" class="headerlink" title="vim命令图解（英文版）"></a>vim命令图解（英文版）</h2><p><img src="/images/vi&vim/vim-cheat-sheet-en.png" alt="vim命令图解en"></p><h2 id="vim命令图解大全"><a href="#vim命令图解大全" class="headerlink" title="vim命令图解大全"></a>vim命令图解大全</h2><p>&emsp;&emsp;此图内容比较繁多，窃以为入门学习上面两个图足矣。<br><img src="/images/vi&vim/vim_cheat_sheet_for_programmers_screen.png" alt="vim命令图解大全"></p><p>&emsp;&emsp;当然，如果对此资源感兴趣，可前往<a href="http://michael.peopleofhonoronly.com/vim/" target="_blank" rel="noopener">此处获取</a>更全面的资源。</p><h2 id="其他未分类资源"><a href="#其他未分类资源" class="headerlink" title="其他未分类资源"></a>其他未分类资源</h2><p><img src="/images/vi&vim/preview.webp" alt="vim-preview"></p><p><img src="/images/vi&vim/vim-movement-commands-cheatsheet.png" alt="vim-movement-commands-cheatsheet"></p><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>&emsp;&emsp;<a href="https://zh.wikipedia.org/wiki/%E7%BC%96%E8%BE%91%E5%99%A8%E4%B9%8B%E6%88%98" target="_blank" rel="noopener">编辑器之战</a></p><style>table th:nth-of-type(1){width: 20%;}table th:nth-of-type(2){width: 80%;}</style>]]></content>
     
@@ -138,17 +138,17 @@
     
     </summary>
     
-      <category term="tools" scheme="YobeZhou.github.io/categories/tools/"/>
+      <category term="tools" scheme="https://zhouyuebiao.cn/categories/tools/"/>
     
     
-      <category term="tools" scheme="YobeZhou.github.io/tags/tools/"/>
+      <category term="tools" scheme="https://zhouyuebiao.cn/tags/tools/"/>
     
   </entry>
   
   <entry>
     <title>Linux搬砖三剑客之git</title>
-    <link href="YobeZhou.github.io/2019/08/21/0031-Linux%E6%90%AC%E7%A0%96%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8BGit/"/>
-    <id>YobeZhou.github.io/2019/08/21/0031-Linux搬砖三剑客之Git/</id>
+    <link href="https://zhouyuebiao.cn/2019/08/21/0031-Linux%E6%90%AC%E7%A0%96%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8BGit/"/>
+    <id>https://zhouyuebiao.cn/2019/08/21/0031-Linux搬砖三剑客之Git/</id>
     <published>2019-08-21T11:49:00.000Z</published>
     <updated>2019-08-29T07:53:42.763Z</updated>
     
@@ -164,17 +164,17 @@
     
     </summary>
     
-      <category term="tools" scheme="YobeZhou.github.io/categories/tools/"/>
+      <category term="tools" scheme="https://zhouyuebiao.cn/categories/tools/"/>
     
     
-      <category term="git" scheme="YobeZhou.github.io/tags/git/"/>
+      <category term="git" scheme="https://zhouyuebiao.cn/tags/git/"/>
     
   </entry>
   
   <entry>
     <title>Android系统的编译</title>
-    <link href="YobeZhou.github.io/2019/08/16/0030-Android%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%BC%96%E8%AF%91/"/>
-    <id>YobeZhou.github.io/2019/08/16/0030-Android系统的编译/</id>
+    <link href="https://zhouyuebiao.cn/2019/08/16/0030-Android%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%BC%96%E8%AF%91/"/>
+    <id>https://zhouyuebiao.cn/2019/08/16/0030-Android系统的编译/</id>
     <published>2019-08-16T01:16:12.000Z</published>
     <updated>2019-09-04T01:36:20.523Z</updated>
     
@@ -190,19 +190,19 @@
     
     </summary>
     
-      <category term="Android" scheme="YobeZhou.github.io/categories/Android/"/>
+      <category term="Android" scheme="https://zhouyuebiao.cn/categories/Android/"/>
     
     
-      <category term="Android" scheme="YobeZhou.github.io/tags/Android/"/>
+      <category term="Android" scheme="https://zhouyuebiao.cn/tags/Android/"/>
     
   </entry>
   
   <entry>
     <title>Android的分区和映像</title>
-    <link href="YobeZhou.github.io/2019/08/15/0029-Android%E7%9A%84%E5%88%86%E5%8C%BA%E5%92%8C%E6%98%A0%E5%83%8F/"/>
-    <id>YobeZhou.github.io/2019/08/15/0029-Android的分区和映像/</id>
+    <link href="https://zhouyuebiao.cn/2019/08/15/0029-Android%E7%9A%84%E5%88%86%E5%8C%BA%E5%92%8C%E6%98%A0%E5%83%8F/"/>
+    <id>https://zhouyuebiao.cn/2019/08/15/0029-Android的分区和映像/</id>
     <published>2019-08-15T01:18:03.000Z</published>
-    <updated>2019-08-15T12:58:42.791Z</updated>
+    <updated>2019-09-19T08:53:01.326Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/images/Android/andioid_happy.jpg" alt="android"></p><h1 id="Android分区"><a href="#Android分区" class="headerlink" title="Android分区"></a>Android分区</h1><p>&emsp;&emsp;Android 设备包含若干个分区，这些分区在启动过程中发挥不同的作用。</p><ul><li>boot：boot 分区包含通过 mkbootimg 组合在一起的内核映像和 RAM 磁盘。为了直接刷写内核而不刷写新的 boot 分区，可以使用虚拟分区：</li></ul><ul><li>kernel：kernel 虚拟分区仅覆盖内核（zImage、zImage-dtb、Image.gz-dtb），方法是写入新的映像来覆盖旧的映像。为此，它会确定 eMMC 中现有内核映像的起始位置并将新内核映像复制到该位置。请记住，新内核映像可能会大于现有内核映像。引导加载程序可以通过移动其后的任何数据来腾出空间或放弃出错的操作。如果提供的开发内核不兼容，则可能需要使用相关的内核模块更新 dtb 分区（如果存在）、vendor 分区或 system 分区。</li><li>ramdisk：ramdisk 虚拟分区通过将新映像写入旧磁盘来仅覆盖 RAM 磁盘。为此，它会确定 eMMC 中现有 ramdisk.img 的起始位置并将新 RAM 磁盘映像复制到该位置。请记住，新 RAM 磁盘映像可能会大于现有 RAM 磁盘映像。引导加载程序可以通过移动其后的任何数据来腾出空间或放弃出错的操作。</li></ul><ul><li>system：system 分区主要包含 Android 框架。</li><li>recovery：recovery 分区用于存储在 OTA 过程中启动的恢复映像。如果设备支持 A/B 更新，则恢复映像可以是启动映像中包含的 RAM 磁盘，而不是单独的映像。</li><li>cache：cache 分区用于存储临时数据，如果设备使用 A/B 更新，则可以不要此分区。cache 分区不需要可从引导加载程序写入，而只需要可清空。大小取决于设备类型和 userdata 分区的可用空间。目前，50MB 至 100MB 应该没问题。</li><li>misc：misc 分区供恢复映像使用，存储空间不能小于 4KB。</li><li>userdata：userdata 分区包含用户安装的应用和数据，包括自定义数据。</li><li>metadata：如果设备被加密，则需要使用 metadata 分区，该分区的存储空间不能小于 16MB。</li><li>vendor：vendor 分区包含所有不可分发给 Android 开源项目 (AOSP) 的二进制文件。如果没有专有信息，则可以省略此分区。</li><li>radio：radio 分区包含无线装置映像。只有包含无线装置且在专用分区中包含无线装置专用软件的设备才需要此分区。</li><li>tos：tos 分区用于存储 Trusty 操作系统的二进制映像文件，仅在设备包含 Trusty 时使用。</li></ul><blockquote><p>摘自：<a href="https://source.android.google.cn/devices/bootloader/partitions-images" target="_blank" rel="noopener">source.android.google</a></p></blockquote><p>&emsp;&emsp;<em>注：在启动时将被 Linux 内核挂载为只读分区，它包含了 /init 文件和一些配置文件。它用来挂载其他系统镜像并启动 init 进程。</em></p><h1 id="通用的Android系统分区"><a href="#通用的Android系统分区" class="headerlink" title="通用的Android系统分区"></a>通用的Android系统分区</h1><p>&emsp;&emsp;安卓手机和平板一般包括以下分区：</p><ul><li>/u-boot   –&gt; 启动分区</li><li>/misc     –&gt; 升级存储的一些升级信息</li><li>/logo     –&gt; 开机画面</li><li>/recovery –&gt; 升级模块</li><li>/boot     –&gt; 内核分区</li><li>/system   –&gt; 系统分区</li><li>/data     –&gt; 用户数据分区</li></ul><p><img src="/images/Android/Android%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%88%86%E5%8C%BA.jpg" alt="Android系统的分区"></p><h2 id="misc"><a href="#misc" class="headerlink" title="misc"></a>misc</h2><p>&emsp;&emsp;此分区包含了一些系统设置和系统功能启用禁用的相关设置。这些设置包括CID(运营商或区域识别码）、USB设置和一些硬件设置等等。这是一个很重要的分区，如果此分区损坏或者部分数据丢失，手机的一些特定功能可能不能正常工作。</p><h2 id="recovery"><a href="#recovery" class="headerlink" title="recovery"></a>recovery</h2><p>&emsp;&emsp;在正常分区或内核分区被破坏，不能正常启动时，可以进入此分区进行恢复，他相当与一个简易的OS或blos，可以认为是一个boot分区的替代品，通过他可以让我们在这一分区进行备份维护和恢复，我们通常说的刷机便指的是此分区。<br><img src="/images/Android/android_recovery.jpg" alt="android_recovery"><br>&emsp;&emsp;进入此分区方法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1、通过 adb reboot recovery</span><br><span class="line">2、通过组合键，电源键+音量键</span><br></pre></td></tr></table></figure><h2 id="boot"><a href="#boot" class="headerlink" title="boot"></a>boot</h2><p>&emsp;&emsp;此分区可以保证设备正常启动，它包含了kernel（内核）、ramdisk（虚拟内存盘：通过软件将一部分内存（RAM）模拟为硬盘来使用的一种技术，可以极大的提高在其上进行的文件访问的速度)，如果没有此分区，设备通常不能正常启动。只有必要的时候，才去通过Recovery软件擦除（format）这个分区，一旦擦除，设备只有再重新安装一个新的boot分区，可以通过安装一个包含boot分区的ROM来实现，否则无法启动安卓系统。</p><h2 id="system"><a href="#system" class="headerlink" title="system"></a>system</h2><p>&emsp;&emsp;此分区用来存放除kernel和ramdisk以外的系统相关配置，他包括了用户界面、手机预装的软件等。擦除这个分区将会删除整个系统，但不会导致不能启动。可以通过进入Recovery程序或者bootloader程序中，安装一个新ROM(安卓系统)。</p><h2 id="data"><a href="#data" class="headerlink" title="data"></a>data</h2><p>&emsp;&emsp;此分区包含了用户的数据信息，如：联系人、短信、设置、用户安装的程序的，擦除此分区，相当于手机恢复出厂设置，可以在Recovery模式中选择“data/factory reset ”擦除此分区。</p><p>&emsp;&emsp;此分区下的一些常见目录：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/data/data/[packagename]/files 文件缓存目录,一般存小的文件缓存，如果是图片，不建议放这里，一般放到外置卡;</span><br><span class="line">/data/data/[packagename]/cache目录，存放一些其他缓存;</span><br><span class="line">/data/data/[packagename]/databases，存放数据库;</span><br><span class="line">/data/data/[packagename]/lib，应用的so目录;</span><br><span class="line">/data/data/[packagename]/shared_prefs 应用的SharedPreferences保存;</span><br></pre></td></tr></table></figure><h2 id="cache"><a href="#cache" class="headerlink" title="cache"></a>cache</h2><p>&emsp;&emsp;此分区是安卓系统缓存区，他保存系统最常访问的数据和应用程序。擦除这个分区，不会影响个人数据，只是删除了这个分区中已经保存的缓存内容，缓存内容会在后续手机使用过程中重新自动生成。</p>]]></content>
     
@@ -216,17 +216,17 @@
     
     </summary>
     
-      <category term="Android" scheme="YobeZhou.github.io/categories/Android/"/>
+      <category term="Android" scheme="https://zhouyuebiao.cn/categories/Android/"/>
     
     
-      <category term="Android" scheme="YobeZhou.github.io/tags/Android/"/>
+      <category term="Android" scheme="https://zhouyuebiao.cn/tags/Android/"/>
     
   </entry>
   
   <entry>
     <title>Android之源起</title>
-    <link href="YobeZhou.github.io/2019/08/14/0028-Android%E4%B9%8B%E6%BA%90%E8%B5%B7/"/>
-    <id>YobeZhou.github.io/2019/08/14/0028-Android之源起/</id>
+    <link href="https://zhouyuebiao.cn/2019/08/14/0028-Android%E4%B9%8B%E6%BA%90%E8%B5%B7/"/>
+    <id>https://zhouyuebiao.cn/2019/08/14/0028-Android之源起/</id>
     <published>2019-08-14T03:38:25.000Z</published>
     <updated>2019-08-15T01:21:34.497Z</updated>
     
@@ -242,17 +242,17 @@
     
     </summary>
     
-      <category term="Android" scheme="YobeZhou.github.io/categories/Android/"/>
+      <category term="Android" scheme="https://zhouyuebiao.cn/categories/Android/"/>
     
     
-      <category term="Android" scheme="YobeZhou.github.io/tags/Android/"/>
+      <category term="Android" scheme="https://zhouyuebiao.cn/tags/Android/"/>
     
   </entry>
   
   <entry>
     <title>C语言操作符优先级</title>
-    <link href="YobeZhou.github.io/2019/08/09/0027-C%E8%AF%AD%E8%A8%80%E6%93%8D%E4%BD%9C%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/"/>
-    <id>YobeZhou.github.io/2019/08/09/0027-C语言操作符优先级/</id>
+    <link href="https://zhouyuebiao.cn/2019/08/09/0027-C%E8%AF%AD%E8%A8%80%E6%93%8D%E4%BD%9C%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/"/>
+    <id>https://zhouyuebiao.cn/2019/08/09/0027-C语言操作符优先级/</id>
     <published>2019-08-09T06:32:01.000Z</published>
     <updated>2019-08-26T01:24:41.911Z</updated>
     
@@ -268,17 +268,17 @@
     
     </summary>
     
-      <category term="C/C++" scheme="YobeZhou.github.io/categories/C-C/"/>
+      <category term="C/C++" scheme="https://zhouyuebiao.cn/categories/C-C/"/>
     
     
-      <category term="C/C++" scheme="YobeZhou.github.io/tags/C-C/"/>
+      <category term="C/C++" scheme="https://zhouyuebiao.cn/tags/C-C/"/>
     
   </entry>
   
   <entry>
     <title>Repo入门</title>
-    <link href="YobeZhou.github.io/2019/08/08/0026-repo%E5%85%A5%E9%97%A8/"/>
-    <id>YobeZhou.github.io/2019/08/08/0026-repo入门/</id>
+    <link href="https://zhouyuebiao.cn/2019/08/08/0026-repo%E5%85%A5%E9%97%A8/"/>
+    <id>https://zhouyuebiao.cn/2019/08/08/0026-repo入门/</id>
     <published>2019-08-08T09:49:55.000Z</published>
     <updated>2019-08-09T06:33:18.361Z</updated>
     
@@ -293,17 +293,17 @@
     
     </summary>
     
-      <category term="Git" scheme="YobeZhou.github.io/categories/Git/"/>
+      <category term="Git" scheme="https://zhouyuebiao.cn/categories/Git/"/>
     
     
-      <category term="Git" scheme="YobeZhou.github.io/tags/Git/"/>
+      <category term="Git" scheme="https://zhouyuebiao.cn/tags/Git/"/>
     
   </entry>
   
   <entry>
     <title>C语言显示数据处理进度条</title>
-    <link href="YobeZhou.github.io/2019/07/11/0025-C%E8%AF%AD%E8%A8%80%E6%98%BE%E7%A4%BA%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E8%BF%9B%E5%BA%A6%E6%9D%A1/"/>
-    <id>YobeZhou.github.io/2019/07/11/0025-C语言显示数据处理进度条/</id>
+    <link href="https://zhouyuebiao.cn/2019/07/11/0025-C%E8%AF%AD%E8%A8%80%E6%98%BE%E7%A4%BA%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E8%BF%9B%E5%BA%A6%E6%9D%A1/"/>
+    <id>https://zhouyuebiao.cn/2019/07/11/0025-C语言显示数据处理进度条/</id>
     <published>2019-07-11T07:03:41.000Z</published>
     <updated>2019-07-11T09:42:18.371Z</updated>
     
@@ -318,17 +318,17 @@
     
     </summary>
     
-      <category term="C/C++" scheme="YobeZhou.github.io/categories/C-C/"/>
+      <category term="C/C++" scheme="https://zhouyuebiao.cn/categories/C-C/"/>
     
     
-      <category term="C/C++" scheme="YobeZhou.github.io/tags/C-C/"/>
+      <category term="C/C++" scheme="https://zhouyuebiao.cn/tags/C-C/"/>
     
   </entry>
   
   <entry>
     <title>使用C语言对IP地址排序</title>
-    <link href="YobeZhou.github.io/2019/06/21/0024-%E4%BD%BF%E7%94%A8C%E8%AF%AD%E8%A8%80%E5%AF%B9IP%E5%9C%B0%E5%9D%80%E6%8E%92%E5%BA%8F/"/>
-    <id>YobeZhou.github.io/2019/06/21/0024-使用C语言对IP地址排序/</id>
+    <link href="https://zhouyuebiao.cn/2019/06/21/0024-%E4%BD%BF%E7%94%A8C%E8%AF%AD%E8%A8%80%E5%AF%B9IP%E5%9C%B0%E5%9D%80%E6%8E%92%E5%BA%8F/"/>
+    <id>https://zhouyuebiao.cn/2019/06/21/0024-使用C语言对IP地址排序/</id>
     <published>2019-06-21T03:50:30.000Z</published>
     <updated>2019-07-04T11:21:28.824Z</updated>
     
@@ -343,17 +343,17 @@
     
     </summary>
     
-      <category term="C/C++" scheme="YobeZhou.github.io/categories/C-C/"/>
+      <category term="C/C++" scheme="https://zhouyuebiao.cn/categories/C-C/"/>
     
     
-      <category term="C/C++,排序,链表" scheme="YobeZhou.github.io/tags/C-C-%E6%8E%92%E5%BA%8F-%E9%93%BE%E8%A1%A8/"/>
+      <category term="C/C++,排序,链表" scheme="https://zhouyuebiao.cn/tags/C-C-%E6%8E%92%E5%BA%8F-%E9%93%BE%E8%A1%A8/"/>
     
   </entry>
   
   <entry>
     <title>C标准库--string.h</title>
-    <link href="YobeZhou.github.io/2019/06/13/0023-C%E6%A0%87%E5%87%86%E5%BA%93-string-h/"/>
-    <id>YobeZhou.github.io/2019/06/13/0023-C标准库-string-h/</id>
+    <link href="https://zhouyuebiao.cn/2019/06/13/0023-C%E6%A0%87%E5%87%86%E5%BA%93-string-h/"/>
+    <id>https://zhouyuebiao.cn/2019/06/13/0023-C标准库-string-h/</id>
     <published>2019-06-13T08:03:43.000Z</published>
     <updated>2019-08-15T01:25:06.063Z</updated>
     
@@ -368,17 +368,17 @@
     
     </summary>
     
-      <category term="C/++" scheme="YobeZhou.github.io/categories/C/"/>
+      <category term="C/++" scheme="https://zhouyuebiao.cn/categories/C/"/>
     
     
-      <category term="C/C++" scheme="YobeZhou.github.io/tags/C-C/"/>
+      <category term="C/C++" scheme="https://zhouyuebiao.cn/tags/C-C/"/>
     
   </entry>
   
   <entry>
     <title>进程之进程调度</title>
-    <link href="YobeZhou.github.io/2019/06/04/0022-%E8%BF%9B%E7%A8%8B%E4%B9%8B%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6/"/>
-    <id>YobeZhou.github.io/2019/06/04/0022-进程之进程调度/</id>
+    <link href="https://zhouyuebiao.cn/2019/06/04/0022-%E8%BF%9B%E7%A8%8B%E4%B9%8B%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6/"/>
+    <id>https://zhouyuebiao.cn/2019/06/04/0022-进程之进程调度/</id>
     <published>2019-06-04T01:00:00.000Z</published>
     <updated>2019-06-04T01:45:02.280Z</updated>
     
@@ -393,19 +393,19 @@
     
     </summary>
     
-      <category term="操作系统" scheme="YobeZhou.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+      <category term="操作系统" scheme="https://zhouyuebiao.cn/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     
-      <category term="操作系统" scheme="YobeZhou.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+      <category term="操作系统" scheme="https://zhouyuebiao.cn/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
-      <category term="进程" scheme="YobeZhou.github.io/tags/%E8%BF%9B%E7%A8%8B/"/>
+      <category term="进程" scheme="https://zhouyuebiao.cn/tags/%E8%BF%9B%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
     <title>进程之基础概念</title>
-    <link href="YobeZhou.github.io/2019/06/03/0021-%E8%BF%9B%E7%A8%8B%E4%B9%8B%E6%A6%82%E5%BF%B5/"/>
-    <id>YobeZhou.github.io/2019/06/03/0021-进程之概念/</id>
+    <link href="https://zhouyuebiao.cn/2019/06/03/0021-%E8%BF%9B%E7%A8%8B%E4%B9%8B%E6%A6%82%E5%BF%B5/"/>
+    <id>https://zhouyuebiao.cn/2019/06/03/0021-进程之概念/</id>
     <published>2019-06-03T00:51:52.000Z</published>
     <updated>2019-06-04T01:37:40.233Z</updated>
     
@@ -420,19 +420,19 @@
     
     </summary>
     
-      <category term="操作系统" scheme="YobeZhou.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+      <category term="操作系统" scheme="https://zhouyuebiao.cn/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     
-      <category term="操作系统" scheme="YobeZhou.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+      <category term="操作系统" scheme="https://zhouyuebiao.cn/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
-      <category term="进程" scheme="YobeZhou.github.io/tags/%E8%BF%9B%E7%A8%8B/"/>
+      <category term="进程" scheme="https://zhouyuebiao.cn/tags/%E8%BF%9B%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
     <title>理解Makefile及典型的Makefile示例</title>
-    <link href="YobeZhou.github.io/2019/04/27/0020-%E7%90%86%E8%A7%A3Makefile%E5%8F%8A%E5%85%B8%E5%9E%8B%E7%9A%84Makefile%E7%A4%BA%E4%BE%8B/"/>
-    <id>YobeZhou.github.io/2019/04/27/0020-理解Makefile及典型的Makefile示例/</id>
+    <link href="https://zhouyuebiao.cn/2019/04/27/0020-%E7%90%86%E8%A7%A3Makefile%E5%8F%8A%E5%85%B8%E5%9E%8B%E7%9A%84Makefile%E7%A4%BA%E4%BE%8B/"/>
+    <id>https://zhouyuebiao.cn/2019/04/27/0020-理解Makefile及典型的Makefile示例/</id>
     <published>2019-04-27T13:56:48.000Z</published>
     <updated>2019-04-27T15:08:09.945Z</updated>
     
@@ -447,19 +447,19 @@
     
     </summary>
     
-      <category term="嵌入式Linux" scheme="YobeZhou.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8FLinux/"/>
+      <category term="嵌入式Linux" scheme="https://zhouyuebiao.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8FLinux/"/>
     
     
-      <category term="Linux" scheme="YobeZhou.github.io/tags/Linux/"/>
+      <category term="Linux" scheme="https://zhouyuebiao.cn/tags/Linux/"/>
     
-      <category term="嵌入式Linux" scheme="YobeZhou.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8FLinux/"/>
+      <category term="嵌入式Linux" scheme="https://zhouyuebiao.cn/tags/%E5%B5%8C%E5%85%A5%E5%BC%8FLinux/"/>
     
   </entry>
   
   <entry>
     <title>什么是BootLoader？</title>
-    <link href="YobeZhou.github.io/2019/04/21/0019-%E4%BB%80%E4%B9%88%E6%98%AFBootloader%EF%BC%9F/"/>
-    <id>YobeZhou.github.io/2019/04/21/0019-什么是Bootloader？/</id>
+    <link href="https://zhouyuebiao.cn/2019/04/21/0019-%E4%BB%80%E4%B9%88%E6%98%AFBootloader%EF%BC%9F/"/>
+    <id>https://zhouyuebiao.cn/2019/04/21/0019-什么是Bootloader？/</id>
     <published>2019-04-21T01:15:32.000Z</published>
     <updated>2019-04-27T15:08:37.786Z</updated>
     
@@ -474,19 +474,19 @@
     
     </summary>
     
-      <category term="嵌入式Linux" scheme="YobeZhou.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8FLinux/"/>
+      <category term="嵌入式Linux" scheme="https://zhouyuebiao.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8FLinux/"/>
     
     
-      <category term="操作系统" scheme="YobeZhou.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+      <category term="操作系统" scheme="https://zhouyuebiao.cn/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
-      <category term="嵌入式Linux" scheme="YobeZhou.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8FLinux/"/>
+      <category term="嵌入式Linux" scheme="https://zhouyuebiao.cn/tags/%E5%B5%8C%E5%85%A5%E5%BC%8FLinux/"/>
     
   </entry>
   
   <entry>
     <title>文件描述符、文件指针和文件偏移量之甄别</title>
-    <link href="YobeZhou.github.io/2019/04/18/0018-%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6%E3%80%81%E6%96%87%E4%BB%B6%E6%8C%87%E9%92%88%E5%92%8C%E6%96%87%E4%BB%B6%E5%81%8F%E7%A7%BB%E9%87%8F%E4%B9%8B%E7%94%84%E5%88%AB/"/>
-    <id>YobeZhou.github.io/2019/04/18/0018-文件描述符、文件指针和文件偏移量之甄别/</id>
+    <link href="https://zhouyuebiao.cn/2019/04/18/0018-%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6%E3%80%81%E6%96%87%E4%BB%B6%E6%8C%87%E9%92%88%E5%92%8C%E6%96%87%E4%BB%B6%E5%81%8F%E7%A7%BB%E9%87%8F%E4%B9%8B%E7%94%84%E5%88%AB/"/>
+    <id>https://zhouyuebiao.cn/2019/04/18/0018-文件描述符、文件指针和文件偏移量之甄别/</id>
     <published>2019-04-18T07:14:34.000Z</published>
     <updated>2019-04-27T15:09:48.858Z</updated>
     
@@ -507,8 +507,8 @@
   
   <entry>
     <title>Linux下.so、.ko、.a、.o文件的区别</title>
-    <link href="YobeZhou.github.io/2019/04/16/0017-Linux%E4%B8%8B-so%E3%80%81-ko%E3%80%81-a%E3%80%81.o%E6%96%87%E4%BB%B6%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
-    <id>YobeZhou.github.io/2019/04/16/0017-Linux下-so、-ko、-a、.o文件的区别/</id>
+    <link href="https://zhouyuebiao.cn/2019/04/16/0017-Linux%E4%B8%8B-so%E3%80%81-ko%E3%80%81-a%E3%80%81.o%E6%96%87%E4%BB%B6%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>https://zhouyuebiao.cn/2019/04/16/0017-Linux下-so、-ko、-a、.o文件的区别/</id>
     <published>2019-04-16T14:02:36.000Z</published>
     <updated>2019-06-03T05:56:14.434Z</updated>
     
@@ -523,12 +523,12 @@
     
     </summary>
     
-      <category term="嵌入式Linux" scheme="YobeZhou.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8FLinux/"/>
+      <category term="嵌入式Linux" scheme="https://zhouyuebiao.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8FLinux/"/>
     
     
-      <category term="嵌入式" scheme="YobeZhou.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+      <category term="嵌入式" scheme="https://zhouyuebiao.cn/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
     
-      <category term="Linux" scheme="YobeZhou.github.io/tags/Linux/"/>
+      <category term="Linux" scheme="https://zhouyuebiao.cn/tags/Linux/"/>
     
   </entry>
   
