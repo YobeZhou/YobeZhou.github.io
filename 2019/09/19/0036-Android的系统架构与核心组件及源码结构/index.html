@@ -94,7 +94,7 @@
 <meta property="og:image" content="https://zhouyuebiao.cn/images/Android/android_training.jpg">
 <meta property="og:image" content="https://zhouyuebiao.cn/images/Android/android-stack_2x%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84.png">
 <meta property="og:image" content="https://zhouyuebiao.cn/images/Android/Android9.0.0%E6%BA%90%E7%A0%81%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png">
-<meta property="og:updated_time" content="2019-09-19T08:48:55.183Z">
+<meta property="og:updated_time" content="2019-09-25T06:32:09.082Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android的系统架构、核心组件及源码结构">
 <meta name="twitter:description" content="前言基于Android 9.0 Android系统架构介绍&amp;emsp;&amp;emsp;Android系统架构分为五层，从下到上依次是Linux内核层、硬件抽象层、系统运行库层、应用框架层和应用层。 Linux内核层&amp;emsp;&amp;emsp;Android站在巨人的肩膀之上，其基于Linux对Linux的依赖主要包括核心和驱动程序两部分。 硬件抽象层&amp;emsp;&amp;emsp;Android的硬件抽象层，简单">
@@ -400,7 +400,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.8k
+                  2k
                 </span>
               
 
@@ -416,7 +416,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6
+                  7
                 </span>
               
             </div>
@@ -441,8 +441,8 @@
 <h1 id="Android系统架构介绍"><a href="#Android系统架构介绍" class="headerlink" title="Android系统架构介绍"></a>Android系统架构介绍</h1><p>&emsp;&emsp;Android系统架构分为五层，从下到上依次是Linux内核层、硬件抽象层、系统运行库层、应用框架层和应用层。<br><img src="/images/Android/android-stack_2x%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84.png" alt="Android系统架构"></p>
 <h2 id="Linux内核层"><a href="#Linux内核层" class="headerlink" title="Linux内核层"></a>Linux内核层</h2><p>&emsp;&emsp;Android站在巨人的肩膀之上，其基于Linux对Linux的依赖主要包括核心和驱动程序两部分。</p>
 <h2 id="硬件抽象层"><a href="#硬件抽象层" class="headerlink" title="硬件抽象层"></a>硬件抽象层</h2><p>&emsp;&emsp;Android的硬件抽象层，简单来说，就是对Linux内核驱动程序的封装，向上提供接口，向下屏蔽了具体的实现细节。也就是将Linux内核对硬件的支持分成了两层，一层放在用户空间（User Space），一层放在内核空间（Kernel Space），其中，硬件抽象层运行在用户空间，对应具体的驱动实现细节，而Linux内核驱动程序运行在内核空间，只提供简单的数据访问逻辑。</p>
-<h3 id="为什么要将驱动的具体实现细节封装到硬件抽象层呢？"><a href="#为什么要将驱动的具体实现细节封装到硬件抽象层呢？" class="headerlink" title="为什么要将驱动的具体实现细节封装到硬件抽象层呢？"></a>为什么要将驱动的具体实现细节封装到硬件抽象层呢？</h3><p>&emsp;&emsp;Android系统使用的是Linux内核，Linux内核是基于GPL许可（GNU License），即对源码的修改都必须开源，如果将驱动的实现细节放在Linux内核层，那么就意味着需要公开驱动程序的源代码，这样显然是违背了硬件厂商的自身利益。</p>
-<h3 id="为什么将其抽象到硬件抽象层就可以规避这个问题呢？"><a href="#为什么将其抽象到硬件抽象层就可以规避这个问题呢？" class="headerlink" title="为什么将其抽象到硬件抽象层就可以规避这个问题呢？"></a>为什么将其抽象到硬件抽象层就可以规避这个问题呢？</h3><p>&emsp;&emsp;除Linux内核外的Android源码使用的是ASL许可（Apache License），而ASL许可无须发布源代码，这样Android就可以对该部分的代码不开源。另外，HAL也可以屏蔽不同硬件设备的差异，为Android提供了统一的访问硬件设备的接口。不同的硬件厂商遵循HAL标准来实现自己的硬件控制逻辑，这样开发者不必关心不同硬件设备的差异，只需要按照HAL提供的标准接口访问硬件就可以了。</p>
+<h3 id="Android系统为什么要把对硬件的支持划分为两层来实现呢？"><a href="#Android系统为什么要把对硬件的支持划分为两层来实现呢？" class="headerlink" title="Android系统为什么要把对硬件的支持划分为两层来实现呢？"></a>Android系统为什么要把对硬件的支持划分为两层来实现呢？</h3><p>&emsp;&emsp;Linux内核代码遵循GPL1协议，如果在Android系统所使用的Linux内核中添加或者修改了代码，那么就必须将它们公开。因此，如果Android系统像其他的Linux系统一样，把对硬件的支持完全实现在硬件驱动模块中，那么就必须将这些硬件驱动模块源代码公开，这样就可能会损害移动设备厂商的利益，因为这相当于暴露了硬件的实现细节和参数。</p>
+<h3 id="为什么将其抽象到硬件抽象层就可以规避这个问题呢？"><a href="#为什么将其抽象到硬件抽象层就可以规避这个问题呢？" class="headerlink" title="为什么将其抽象到硬件抽象层就可以规避这个问题呢？"></a>为什么将其抽象到硬件抽象层就可以规避这个问题呢？</h3><p>&emsp;&emsp;Android 系统代码是遵循Apache License2协议的，它允许移动设备厂商添加或者修改Android系统源代码，而又不必公开这些代码。因此，如果把对硬件的支持完全实现在Android系统的用户空间中，那么就可以隐藏硬件的实现细节和参数。然而，这是无法做到的，因为只有内核空间才有特权操作硬件设备。一个折中的解决方案便是将对硬件的支持分别实现在内核空间和用户空间中，其中，内核空间仍然是以硬件驱动模块的形式来支持，不过它只提供简单的硬件访问通道；而用户空间以硬件抽象层模块的形式来支持，它封装了硬件的实现细节和参数。这样就可以保护移动设备厂商的利益了。</p>
 <h2 id="系统运行层（库Libraries和运行环境Runtime）"><a href="#系统运行层（库Libraries和运行环境Runtime）" class="headerlink" title="系统运行层（库Libraries和运行环境Runtime）"></a>系统运行层（库Libraries和运行环境Runtime）</h2><p>&emsp;&emsp;本层次对应一般的嵌入式系统，相当于中间件层次。Android的本层次分成两个部分，一个是各种库，另一个是Android运行环境。本层的内容大多是使用C语言实现。<br>&emsp;&emsp;在一般情况下，Android的各种库是以系统中间件的形式提供的，它们的显著特点是与移动设备平台的应用密切相关。<br>另外，Android的运行环境主要是基于Dalvik（虚拟机）技术的。而Dalvik与一般的Java虚拟机（Java Virtual Machine，JVM）有如下区别：</p>
 <ul>
 <li>Java虚拟机：执行的是Java标准的字节码（Bytecode）。</li>
@@ -680,6 +680,10 @@ width: 65%;
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/10/09/0037-Android的升级流程分析/" rel="prev" title="Android的升级流程">
+                Android的升级流程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -760,7 +764,7 @@ width: 65%;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -838,7 +842,7 @@ width: 65%;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android系统架构介绍"><span class="nav-number">2.</span> <span class="nav-text">Android系统架构介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux内核层"><span class="nav-number">2.1.</span> <span class="nav-text">Linux内核层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#硬件抽象层"><span class="nav-number">2.2.</span> <span class="nav-text">硬件抽象层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要将驱动的具体实现细节封装到硬件抽象层呢？"><span class="nav-number">2.2.1.</span> <span class="nav-text">为什么要将驱动的具体实现细节封装到硬件抽象层呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么将其抽象到硬件抽象层就可以规避这个问题呢？"><span class="nav-number">2.2.2.</span> <span class="nav-text">为什么将其抽象到硬件抽象层就可以规避这个问题呢？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统运行层（库Libraries和运行环境Runtime）"><span class="nav-number">2.3.</span> <span class="nav-text">系统运行层（库Libraries和运行环境Runtime）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用框架层（Application-Framework）"><span class="nav-number">2.4.</span> <span class="nav-text">应用框架层（Application Framework）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用层（Application）"><span class="nav-number">2.5.</span> <span class="nav-text">应用层（Application）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android源码结构"><span class="nav-number">3.</span> <span class="nav-text">Android源码结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#学习资料"><span class="nav-number">4.</span> <span class="nav-text">学习资料</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文章"><span class="nav-number">5.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android系统架构介绍"><span class="nav-number">2.</span> <span class="nav-text">Android系统架构介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux内核层"><span class="nav-number">2.1.</span> <span class="nav-text">Linux内核层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#硬件抽象层"><span class="nav-number">2.2.</span> <span class="nav-text">硬件抽象层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Android系统为什么要把对硬件的支持划分为两层来实现呢？"><span class="nav-number">2.2.1.</span> <span class="nav-text">Android系统为什么要把对硬件的支持划分为两层来实现呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么将其抽象到硬件抽象层就可以规避这个问题呢？"><span class="nav-number">2.2.2.</span> <span class="nav-text">为什么将其抽象到硬件抽象层就可以规避这个问题呢？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统运行层（库Libraries和运行环境Runtime）"><span class="nav-number">2.3.</span> <span class="nav-text">系统运行层（库Libraries和运行环境Runtime）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用框架层（Application-Framework）"><span class="nav-number">2.4.</span> <span class="nav-text">应用框架层（Application Framework）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用层（Application）"><span class="nav-number">2.5.</span> <span class="nav-text">应用层（Application）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android源码结构"><span class="nav-number">3.</span> <span class="nav-text">Android源码结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#学习资料"><span class="nav-number">4.</span> <span class="nav-text">学习资料</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文章"><span class="nav-number">5.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
             
 
           </div>
@@ -879,7 +883,7 @@ pure.mini.js"></script>
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">58.5k</span>
+    <span title="Site words total count">60.2k</span>
   
 </div>
 
@@ -930,7 +934,7 @@ pure.mini.js"></script>
 <div class="theme-info">
   <div class="powered-by"></div>
   <span class="post-meta-divider">|</span>
-  <span class="post-count">博客全站共58.5k字</span>
+  <span class="post-count">博客全站共60.2k字</span>
 </div>
 
 <!-- 底部隐藏由Hexo强力驱动、主题--NexT.Mist -->

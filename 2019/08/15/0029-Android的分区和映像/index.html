@@ -83,22 +83,22 @@
 
 
 
-<meta name="description" content="Android分区什么是分区&amp;emsp;&amp;emsp;Android的分区就像是盖房子那样一块块砖块垒起来的，每块砖块放在合适的位置，遇到特特殊的需求，我们就将砖块修正一下（增加或裁减分区），这样我们的房子（Android系统）就慢慢起来了。盖房子需要很多砖头，但是我们Android的大楼主要是由几块砖块组成，这样我们学习起来就简单很多了，毕竟我们不用学习怎么盖一栋楼那么难（手动滑鸡）。分区的重要">
+<meta name="description" content="Android分区什么是分区&amp;emsp;&amp;emsp;Android的分区就像是盖房子那样一块块砖块垒起来的，每块砖块放在合适的位置，遇到特特殊的需求，我们就将砖块修正一下（增加或裁减分区），这样我们的房子（Android系统）就慢慢起来了。盖房子需要很多砖头，但是我们Android的大楼主要是由几块砖块组成，这样我们学习起来就简单很多了，毕竟我们不用学习怎么盖一栋楼那么难（手动滑鸡）。&amp;emsp">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android的分区和启动流程">
 <meta property="og:url" content="https://zhouyuebiao.cn/2019/08/15/0029-Android的分区和映像/index.html">
 <meta property="og:site_name" content="YobeZhou">
-<meta property="og:description" content="Android分区什么是分区&amp;emsp;&amp;emsp;Android的分区就像是盖房子那样一块块砖块垒起来的，每块砖块放在合适的位置，遇到特特殊的需求，我们就将砖块修正一下（增加或裁减分区），这样我们的房子（Android系统）就慢慢起来了。盖房子需要很多砖头，但是我们Android的大楼主要是由几块砖块组成，这样我们学习起来就简单很多了，毕竟我们不用学习怎么盖一栋楼那么难（手动滑鸡）。分区的重要">
+<meta property="og:description" content="Android分区什么是分区&amp;emsp;&amp;emsp;Android的分区就像是盖房子那样一块块砖块垒起来的，每块砖块放在合适的位置，遇到特特殊的需求，我们就将砖块修正一下（增加或裁减分区），这样我们的房子（Android系统）就慢慢起来了。盖房子需要很多砖头，但是我们Android的大楼主要是由几块砖块组成，这样我们学习起来就简单很多了，毕竟我们不用学习怎么盖一栋楼那么难（手动滑鸡）。&amp;emsp">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://zhouyuebiao.cn/images/Android/andioid_happy.jpg">
 <meta property="og:image" content="https://zhouyuebiao.cn/images/Android/Android%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%88%86%E5%8C%BA.jpg">
 <meta property="og:image" content="https://zhouyuebiao.cn/images/Android/android_recovery.jpg">
 <meta property="og:image" content="https://zhouyuebiao.cn/images/Android/Android%E7%9A%84%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B.png">
-<meta property="og:updated_time" content="2019-09-20T09:17:49.923Z">
+<meta property="og:updated_time" content="2019-09-23T01:49:23.566Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android的分区和启动流程">
-<meta name="twitter:description" content="Android分区什么是分区&amp;emsp;&amp;emsp;Android的分区就像是盖房子那样一块块砖块垒起来的，每块砖块放在合适的位置，遇到特特殊的需求，我们就将砖块修正一下（增加或裁减分区），这样我们的房子（Android系统）就慢慢起来了。盖房子需要很多砖头，但是我们Android的大楼主要是由几块砖块组成，这样我们学习起来就简单很多了，毕竟我们不用学习怎么盖一栋楼那么难（手动滑鸡）。分区的重要">
+<meta name="twitter:description" content="Android分区什么是分区&amp;emsp;&amp;emsp;Android的分区就像是盖房子那样一块块砖块垒起来的，每块砖块放在合适的位置，遇到特特殊的需求，我们就将砖块修正一下（增加或裁减分区），这样我们的房子（Android系统）就慢慢起来了。盖房子需要很多砖头，但是我们Android的大楼主要是由几块砖块组成，这样我们学习起来就简单很多了，毕竟我们不用学习怎么盖一栋楼那么难（手动滑鸡）。&amp;emsp">
 <meta name="twitter:image" content="https://zhouyuebiao.cn/images/Android/andioid_happy.jpg">
 
 
@@ -439,9 +439,9 @@
 
       
         <p><img src="/images/Android/andioid_happy.jpg" alt="android"></p>
-<h1 id="Android分区"><a href="#Android分区" class="headerlink" title="Android分区"></a>Android分区</h1><h2 id="什么是分区"><a href="#什么是分区" class="headerlink" title="什么是分区"></a>什么是分区</h2><p>&emsp;&emsp;Android的分区就像是盖房子那样一块块砖块垒起来的，每块砖块放在合适的位置，遇到特特殊的需求，我们就将砖块修正一下（增加或裁减分区），这样我们的房子（Android系统）就慢慢起来了。盖房子需要很多砖头，但是我们Android的大楼主要是由几块砖块组成，这样我们学习起来就简单很多了，毕竟我们不用学习怎么盖一栋楼那么难（手动滑鸡）。<br>分区的重要性我们可以总结起来：分划决定发展，大小决定成败</p>
+<h1 id="Android分区"><a href="#Android分区" class="headerlink" title="Android分区"></a>Android分区</h1><h2 id="什么是分区"><a href="#什么是分区" class="headerlink" title="什么是分区"></a>什么是分区</h2><p>&emsp;&emsp;Android的分区就像是盖房子那样一块块砖块垒起来的，每块砖块放在合适的位置，遇到特特殊的需求，我们就将砖块修正一下（增加或裁减分区），这样我们的房子（Android系统）就慢慢起来了。盖房子需要很多砖头，但是我们Android的大楼主要是由几块砖块组成，这样我们学习起来就简单很多了，毕竟我们不用学习怎么盖一栋楼那么难（手动滑鸡）。<br>&emsp;&emsp;分区的重要性我们可以总结起来：分划决定发展，大小决定成败</p>
 <blockquote>
-<p>分划决定我们要划分不同的大小不同的分区，这个决定了整个平台的规划<br>分区的大小，影响了我们存储的数据量</p>
+<p>分划决定我们要划分不同的大小不同的分区，这个决定了整个平台的规划分区的大小，影响了我们存储的数据量</p>
 </blockquote>
 <p><img src="/images/Android/Android%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%88%86%E5%8C%BA.jpg" alt="Android系统的分区"></p>
 <h2 id="分区的类型"><a href="#分区的类型" class="headerlink" title="分区的类型"></a>分区的类型</h2><p>&emsp;&emsp;分区类型有裸分区和文件系统分区两部分。</p>
@@ -471,17 +471,50 @@
 </blockquote>
 <p>&emsp;&emsp;<em>注：在启动时将被 Linux 内核挂载为只读分区，它包含了 /init 文件和一些配置文件。它用来挂载其他系统镜像并启动 init 进程。</em></p>
 <h1 id="通用的Android系统分区"><a href="#通用的Android系统分区" class="headerlink" title="通用的Android系统分区"></a>通用的Android系统分区</h1><p>&emsp;&emsp;安卓手机和平板一般包括以下分区：</p>
-<ul>
-<li>/u-boot    –&gt; 启动分区，引导加载kernel和烧录的作用</li>
-<li>/partition –&gt; partition/parameter.txt存储分区表信息</li>
-<li>/misc      –&gt; 存储标记升级存储的一些升级信息</li>
-<li>/logo      –&gt; 开机画面</li>
-<li>/recovery  –&gt; 升级模块</li>
-<li>/boot      –&gt; 内核分区（启动Android系统）</li>
-<li>/system    –&gt; 系统分区</li>
-<li>/cache     –&gt; 缓存临时文件，和下载升级包存储升级</li>
-<li>/data      –&gt; 用户数据分区，安装的apk，缓存文件，系统启动的必要文件，数据库等用户相关信息。</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">/u-boot</td>
+<td align="center">启动分区，引导加载kernel和烧录的作用</td>
+</tr>
+<tr>
+<td align="center">/partition</td>
+<td align="center">partition/parameter.txt存储分区表信息</td>
+</tr>
+<tr>
+<td align="center">/misc</td>
+<td align="center">存储标记升级存储的一些升级信息</td>
+</tr>
+<tr>
+<td align="center">/logo</td>
+<td align="center">开机画面</td>
+</tr>
+<tr>
+<td align="center">/recovery</td>
+<td align="center">升级模块</td>
+</tr>
+<tr>
+<td align="center">/boot</td>
+<td align="center">内核分区（启动Android系统）</td>
+</tr>
+<tr>
+<td align="center">/system</td>
+<td align="center">系统分区</td>
+</tr>
+<tr>
+<td align="center">/cache</td>
+<td align="center">缓存临时文件，和下载升级包存储升级</td>
+</tr>
+<tr>
+<td align="center">/data</td>
+<td align="center">用户数据分区，安装的apk，缓存文件，系统启动的必要文件，数据库等用户相关信息。</td>
+</tr>
+</tbody></table>
 <h2 id="misc"><a href="#misc" class="headerlink" title="misc"></a>misc</h2><p>&emsp;&emsp;此分区包含了一些系统设置和系统功能启用禁用的相关设置。这些设置包括CID(运营商或区域识别码）、USB设置和一些硬件设置等等。这是一个很重要的分区，如果此分区损坏或者部分数据丢失，手机的一些特定功能可能不能正常工作。</p>
 <h2 id="recovery"><a href="#recovery" class="headerlink" title="recovery"></a>recovery</h2><p>&emsp;&emsp;在正常分区或内核分区被破坏，不能正常启动时，可以进入此分区进行恢复，他相当与一个简易的OS或blos，可以认为是一个boot分区的替代品，通过他可以让我们在这一分区进行备份维护和恢复，我们通常说的刷机便指的是此分区。<br><img src="/images/Android/android_recovery.jpg" alt="android_recovery"><br>&emsp;&emsp;进入此分区方法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1、通过 adb reboot recovery</span><br><span class="line">2、通过组合键，电源键+音量键</span><br></pre></td></tr></table></figure>
@@ -685,7 +718,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -804,7 +837,7 @@ pure.mini.js"></script>
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">58.5k</span>
+    <span title="Site words total count">60.2k</span>
   
 </div>
 
@@ -855,7 +888,7 @@ pure.mini.js"></script>
 <div class="theme-info">
   <div class="powered-by"></div>
   <span class="post-meta-divider">|</span>
-  <span class="post-count">博客全站共58.5k字</span>
+  <span class="post-count">博客全站共60.2k字</span>
 </div>
 
 <!-- 底部隐藏由Hexo强力驱动、主题--NexT.Mist -->
