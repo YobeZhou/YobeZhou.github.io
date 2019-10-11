@@ -83,23 +83,23 @@
 
 
 
-<meta name="description" content="从Android的启动模式说起&amp;emsp;&amp;emsp;Android系统一般有三种启动模式：Fastboot、Recovery system、Main system。这三种启动模式对应不同的启动场景需求：  Fastboot：在这种模式下，可以修改手机的硬件，并且允许我们发送一些命令给Bootloader。如使用电脑刷机，则需要进入fastboot模式，通过电脑执行命令将系统镜像刷到通过USB刷">
+<meta name="description" content="前言&amp;emsp;&amp;emsp;以Android P原生代码作为分析材料。 从Android的启动模式说起&amp;emsp;&amp;emsp;Android系统一般有三种启动模式：Fastboot、Recovery system、Main system。这三种启动模式对应不同的启动场景需求：  Fastboot：在这种模式下，可以修改手机的硬件，并且允许我们发送一些命令给Bootloader。如使用电脑刷机，则">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android的升级流程">
 <meta property="og:url" content="https://zhouyuebiao.cn/2019/10/09/0037-Android的升级流程分析/index.html">
 <meta property="og:site_name" content="YobeZhou">
-<meta property="og:description" content="从Android的启动模式说起&amp;emsp;&amp;emsp;Android系统一般有三种启动模式：Fastboot、Recovery system、Main system。这三种启动模式对应不同的启动场景需求：  Fastboot：在这种模式下，可以修改手机的硬件，并且允许我们发送一些命令给Bootloader。如使用电脑刷机，则需要进入fastboot模式，通过电脑执行命令将系统镜像刷到通过USB刷">
+<meta property="og:description" content="前言&amp;emsp;&amp;emsp;以Android P原生代码作为分析材料。 从Android的启动模式说起&amp;emsp;&amp;emsp;Android系统一般有三种启动模式：Fastboot、Recovery system、Main system。这三种启动模式对应不同的启动场景需求：  Fastboot：在这种模式下，可以修改手机的硬件，并且允许我们发送一些命令给Bootloader。如使用电脑刷机，则">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://zhouyuebiao.cn/images/Android/upgrade.jpg">
 <meta property="og:image" content="https://zhouyuebiao.cn/images/Android/%E5%BC%80%E6%9C%BA%E8%BF%9B%E5%85%A5recovery%E8%BF%98%E6%98%AFAndroid%E7%B3%BB%E7%BB%9F.png">
 <meta property="og:image" content="https://zhouyuebiao.cn/images/Android/Android%E5%BA%94%E7%94%A8%E5%B1%82%E5%8D%87%E7%BA%A7%E6%B5%81%E7%A8%8B.jpg">
 <meta property="og:image" content="https://zhouyuebiao.cn/images/Android/Recovery%E6%A8%A1%E5%BC%8F%E4%B8%8B%E7%9A%84OTA%E5%8D%87%E7%BA%A7%E6%B5%81%E7%A8%8B.jpg">
 <meta property="og:image" content="https://zhouyuebiao.cn/images/Android/Bootloader%E3%80%81BCB%E3%80%81Recovery%E4%B8%8EMainSystem%E5%9B%9B%E8%80%85%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB.jpg">
-<meta property="og:updated_time" content="2019-10-11T09:23:04.321Z">
+<meta property="og:updated_time" content="2019-10-11T09:39:12.053Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android的升级流程">
-<meta name="twitter:description" content="从Android的启动模式说起&amp;emsp;&amp;emsp;Android系统一般有三种启动模式：Fastboot、Recovery system、Main system。这三种启动模式对应不同的启动场景需求：  Fastboot：在这种模式下，可以修改手机的硬件，并且允许我们发送一些命令给Bootloader。如使用电脑刷机，则需要进入fastboot模式，通过电脑执行命令将系统镜像刷到通过USB刷">
+<meta name="twitter:description" content="前言&amp;emsp;&amp;emsp;以Android P原生代码作为分析材料。 从Android的启动模式说起&amp;emsp;&amp;emsp;Android系统一般有三种启动模式：Fastboot、Recovery system、Main system。这三种启动模式对应不同的启动场景需求：  Fastboot：在这种模式下，可以修改手机的硬件，并且允许我们发送一些命令给Bootloader。如使用电脑刷机，则">
 <meta name="twitter:image" content="https://zhouyuebiao.cn/images/Android/upgrade.jpg">
 
 
@@ -440,6 +440,7 @@
 
       
         <p><img src="/images/Android/upgrade.jpg" alt="upgrade"></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp;&emsp;以Android P原生代码作为分析材料。</p>
 <h1 id="从Android的启动模式说起"><a href="#从Android的启动模式说起" class="headerlink" title="从Android的启动模式说起"></a>从Android的启动模式说起</h1><p>&emsp;&emsp;Android系统一般有三种启动模式：Fastboot、Recovery system、Main system。这三种启动模式对应不同的启动场景需求：</p>
 <ul>
 <li>Fastboot：在这种模式下，可以修改手机的硬件，并且允许我们发送一些命令给Bootloader。如使用电脑刷机，则需要进入fastboot模式，通过电脑执行命令将系统镜像刷到通过USB刷到Android设备中中。</li>
@@ -760,7 +761,7 @@ width: 55%;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#从Android的启动模式说起"><span class="nav-number">1.</span> <span class="nav-text">从Android的启动模式说起</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#升级流程之升级方式"><span class="nav-number">2.</span> <span class="nav-text">升级流程之升级方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#应用层ota升级流程："><span class="nav-number">2.1.</span> <span class="nav-text">应用层ota升级流程：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Recovery模式下的OTA升级流程"><span class="nav-number">2.2.</span> <span class="nav-text">Recovery模式下的OTA升级流程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#升级流程之升级包"><span class="nav-number">3.</span> <span class="nav-text">升级流程之升级包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#升级包的制作"><span class="nav-number">3.1.</span> <span class="nav-text">升级包的制作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#升级包的架构"><span class="nav-number">3.2.</span> <span class="nav-text">升级包的架构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#升级流程之升级脚本"><span class="nav-number">4.</span> <span class="nav-text">升级流程之升级脚本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#升级流程之启动升级"><span class="nav-number">5.</span> <span class="nav-text">升级流程之启动升级</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#【拓展】Bootloader、BCB、Recovery与Main-System之间的交互"><span class="nav-number">6.</span> <span class="nav-text">【拓展】Bootloader、BCB、Recovery与Main System之间的交互</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#从Android的启动模式说起"><span class="nav-number">2.</span> <span class="nav-text">从Android的启动模式说起</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#升级流程之升级方式"><span class="nav-number">3.</span> <span class="nav-text">升级流程之升级方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#应用层ota升级流程："><span class="nav-number">3.1.</span> <span class="nav-text">应用层ota升级流程：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Recovery模式下的OTA升级流程"><span class="nav-number">3.2.</span> <span class="nav-text">Recovery模式下的OTA升级流程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#升级流程之升级包"><span class="nav-number">4.</span> <span class="nav-text">升级流程之升级包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#升级包的制作"><span class="nav-number">4.1.</span> <span class="nav-text">升级包的制作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#升级包的架构"><span class="nav-number">4.2.</span> <span class="nav-text">升级包的架构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#升级流程之升级脚本"><span class="nav-number">5.</span> <span class="nav-text">升级流程之升级脚本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#升级流程之启动升级"><span class="nav-number">6.</span> <span class="nav-text">升级流程之启动升级</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#【拓展】Bootloader、BCB、Recovery与Main-System之间的交互"><span class="nav-number">7.</span> <span class="nav-text">【拓展】Bootloader、BCB、Recovery与Main System之间的交互</span></a></li></ol></div>
             
 
           </div>
@@ -801,7 +802,7 @@ pure.mini.js"></script>
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">63.7k</span>
+    <span title="Site words total count">63.8k</span>
   
 </div>
 
@@ -852,7 +853,7 @@ pure.mini.js"></script>
 <div class="theme-info">
   <div class="powered-by"></div>
   <span class="post-meta-divider">|</span>
-  <span class="post-count">博客全站共63.7k字</span>
+  <span class="post-count">博客全站共63.8k字</span>
 </div>
 
 <!-- 底部隐藏由Hexo强力驱动、主题--NexT.Mist -->
