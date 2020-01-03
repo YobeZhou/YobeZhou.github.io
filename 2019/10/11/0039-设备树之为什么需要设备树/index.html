@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Linux,Device tree,">
 
 
 
@@ -83,13 +83,23 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="YobeZhou">
-<meta property="og:url" content="https://zhouyuebiao.cn/archives/2020/01/index.html">
+<meta name="description" content="前言&amp;emsp;&amp;emsp;设备树(Device Tree)是一种描述硬件的数据结构，由一系列被命名的结点（node）和属性（property）组成，而结点本身可包含子结点。所谓属性，其实就是成对出现的name和value。&amp;emsp;&amp;emsp;设备树的出现是为了解决内核中大量的板级文件代码，通过 DTS 可以像应用程序里的 XML 语言一样很方便的对硬件信息进行配置。 字符设备驱动程序的三种">
+<meta name="keywords" content="Linux,Device tree">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设备树之为什么需要设备树(1)">
+<meta property="og:url" content="https://zhouyuebiao.cn/2019/10/11/0039-设备树之为什么需要设备树/index.html">
 <meta property="og:site_name" content="YobeZhou">
+<meta property="og:description" content="前言&amp;emsp;&amp;emsp;设备树(Device Tree)是一种描述硬件的数据结构，由一系列被命名的结点（node）和属性（property）组成，而结点本身可包含子结点。所谓属性，其实就是成对出现的name和value。&amp;emsp;&amp;emsp;设备树的出现是为了解决内核中大量的板级文件代码，通过 DTS 可以像应用程序里的 XML 语言一样很方便的对硬件信息进行配置。 字符设备驱动程序的三种">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://zhouyuebiao.cn/images/device_tree/devicetree.png">
+<meta property="og:image" content="https://zhouyuebiao.cn/images/device_tree/%E8%BE%93%E5%85%A5%E5%AD%90%E7%B3%BB%E7%BB%9F.png">
+<meta property="og:image" content="https://zhouyuebiao.cn/images/device_tree/%E6%80%BB%E7%BA%BF-%E8%AE%BE%E5%A4%87-%E9%A9%B1%E5%8A%A8%E6%A8%A1%E5%9E%8B.png">
+<meta property="og:image" content="https://zhouyuebiao.cn/images/device_tree/%E8%AE%BE%E5%A4%87%E6%A0%91.png">
+<meta property="og:updated_time" content="2020-01-03T08:03:01.902Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YobeZhou">
+<meta name="twitter:title" content="设备树之为什么需要设备树(1)">
+<meta name="twitter:description" content="前言&amp;emsp;&amp;emsp;设备树(Device Tree)是一种描述硬件的数据结构，由一系列被命名的结点（node）和属性（property）组成，而结点本身可包含子结点。所谓属性，其实就是成对出现的name和value。&amp;emsp;&amp;emsp;设备树的出现是为了解决内核中大量的板级文件代码，通过 DTS 可以像应用程序里的 XML 语言一样很方便的对硬件信息进行配置。 字符设备驱动程序的三种">
+<meta name="twitter:image" content="https://zhouyuebiao.cn/images/device_tree/devicetree.png">
 
 
 
@@ -119,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="https://zhouyuebiao.cn/archives/2020/01/">
+  <link rel="canonical" href="https://zhouyuebiao.cn/2019/10/11/0039-设备树之为什么需要设备树/">
 
 
 
 
 
-  <title>归档 | YobeZhou</title>
+  <title>设备树之为什么需要设备树(1) | YobeZhou</title>
   
 
 
@@ -144,7 +154,7 @@
     
   
 
-  <div class="container sidebar-position-right page-archive">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
     <!-- a href="https://github.com/Bdeny"><img style="position:absolute; top: 0; left: 0; border: 0;" width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_left_orange_ff7600.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a> -->
     <!-- GitHub Corners: http://tholman.com/github-corners/ -->
@@ -284,71 +294,238 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-         
-        
-        OK! 目前共计 39 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2020">2020</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhouyuebiao.cn/2019/10/11/0039-设备树之为什么需要设备树/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YobeZhou">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YobeZhou">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2020/01/03/0039-设备树之为什么需要设备树/" itemprop="url">
-              
-                <span itemprop="name">未命名</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">设备树之为什么需要设备树(1)</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-01-03T15:19:18+08:00" content="2020-01-03">
-          01-03
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-11T17:26:43+08:00">
+                2019-10-11
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/10/11/0039-设备树之为什么需要设备树/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/11/0039-设备树之为什么需要设备树/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <p><img src="/images/device_tree/devicetree.png" alt="输入子系统"></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp;&emsp;设备树(Device Tree)是一种描述硬件的数据结构，由一系列被命名的结点（node）和属性（property）组成，而结点本身可包含子结点。所谓属性，其实就是成对出现的name和value。<br><br>&emsp;&emsp;设备树的出现是为了解决内核中大量的板级文件代码，通过 DTS 可以像应用程序里的 XML 语言一样很方便的对硬件信息进行配置。<br></p>
+<h2 id="字符设备驱动程序的三种写法"><a href="#字符设备驱动程序的三种写法" class="headerlink" title="字符设备驱动程序的三种写法"></a>字符设备驱动程序的三种写法</h2><p>&emsp;&emsp;驱动程序编写有 3 种方法：传统方法、使用总线设备驱动模型、使用设备树<br><br>&emsp;&emsp;这3种方法也核心都是一样的: 分配、设置、注册 file_operations 结构体<br><br>&emsp;&emsp;&emsp;&emsp;这个 file_operations 结构体中有 .open, .read, .write, .ioctl 等成员<br><br>&emsp;&emsp;&emsp;&emsp;驱动程序要实现这些成员，通过这些成员函数中操作硬件<br><br>&emsp;&emsp;这 3 种方法的差别在于：如何指定硬件资源？（比如：如何指定 LED 引脚是哪个？）<br><br>&emsp;&emsp;这 3 中方法的做法分别是：<br></p>
+<h3 id="传统方法"><a href="#传统方法" class="headerlink" title="传统方法"></a>传统方法</h3><p>&emsp;&emsp;在驱动程序代码中写死硬件资源, 代码简单/不易扩展：<br><br>&emsp;&emsp;&emsp;&emsp;a. 分配file_operations结构体<br><br>&emsp;&emsp;&emsp;&emsp;b. 设置file_operations结构体<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;该结构体中有.open,.read,.write等成员,<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;在这些成员函数中去操作硬件<br><br>&emsp;&emsp;&emsp;&emsp;c. 注册file_operations结构体:<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;register_chrdev(major, name, &amp;fops)<br><br>&emsp;&emsp;&emsp;&emsp;d. 入口函数: 调用register_chrdev<br><br>&emsp;&emsp;&emsp;&emsp;e. 出口函数: 调用unregister_chrdev<br><br><img src="/images/device_tree/%E8%BE%93%E5%85%A5%E5%AD%90%E7%B3%BB%E7%BB%9F.png" alt="输入子系统"></p>
+<h3 id="总线设备驱动模型"><a href="#总线设备驱动模型" class="headerlink" title="总线设备驱动模型"></a>总线设备驱动模型</h3><p>&emsp;&emsp;a. 把驱动程序分为两部分(platform_driver, platform_device)<br><br>&emsp;&emsp;&emsp;&emsp;* 在 platform_device 中指定硬件资源,<br><br>&emsp;&emsp;&emsp;&emsp;* 在 platform_driver 根据与之匹配的platform_device获得硬件资源，分配/设置/注册 file_operations结构体（从platform_device获得硬件资源信息）<br><br>&emsp;&emsp;b. 如何确定platform_device和platform_driver是否匹配?<br><br>&emsp;&emsp;&emsp;&emsp;b.1 platform_device含有name<br><br>&emsp;&emsp;&emsp;&emsp;b.2 platform_driver.id_table”可能”指向一个数组, 每个数组项都有name, 表示该platform_driver所能支持的platform_device<br><br>&emsp;&emsp;&emsp;&emsp;b.3  platform_driver.driver含有name, 表示该platform_driver所能支持的platform_device<br><br>&emsp;&emsp;&emsp;&emsp;b.4 优先比较b.1, b.2两者的name, 若相同则表示互相匹配<br><br>&emsp;&emsp;&emsp;&emsp;b.5 如果platform_driver.id_table为NULL, 则比较b.1, b.3两者的name, 若相同则表示互相匹配<br><br><img src="/images/device_tree/%E6%80%BB%E7%BA%BF-%E8%AE%BE%E5%A4%87-%E9%A9%B1%E5%8A%A8%E6%A8%A1%E5%9E%8B.png" alt="总线-设备-驱动模型"></p>
+<p>&emsp;&emsp;特点：<br><br>&emsp;&emsp;&emsp;&emsp;优点：易于扩展，但是有很多冗余代码(每种配置都对应一个platform_device结构体), <br><br>&emsp;&emsp;&emsp;&emsp;缺点：硬件有变动时需要重新编译内核或驱动程序。<br></p>
+<h3 id="使用设备树指定硬件资源"><a href="#使用设备树指定硬件资源" class="headerlink" title="使用设备树指定硬件资源"></a>使用设备树指定硬件资源</h3><p>&emsp;&emsp;驱动程序也分为两部分(platform_driver, 设备树<em>.dts)<br><br>&emsp;&emsp;在设备树</em>.dts中指定硬件资源, dts被编译为dtb文件, 在启动单板时会将dtb文件传给内核,<br><br>&emsp;&emsp;内核根据dtb文件分配/设置/注册多个platform_device<br><br>&emsp;&emsp;而platform_driver的编写方法跟”总线设备驱动模型”一样。<br></p>
+<p>&emsp;&emsp;特点：<br><br>&emsp;&emsp;&emsp;&emsp;易于扩展，没有冗余代码<br><br>&emsp;&emsp;&emsp;&emsp;硬件有变动时不需要重新编译内核或驱动程序，只需要提供不一样的dtb文件<br><br>&emsp;&emsp;注: <br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dts  - device tree source  // 设备树源文件</span><br><span class="line">dtb  - device tree blob    // 设备树二进制文件, 由dts编译得来</span><br><span class="line">blob - binary large object&lt;br&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/device_tree/%E8%AE%BE%E5%A4%87%E6%A0%91.png" alt="设备树写法"></p>
+<h2 id="使用设备树编写驱动的详细过程"><a href="#使用设备树编写驱动的详细过程" class="headerlink" title="使用设备树编写驱动的详细过程"></a>使用设备树编写驱动的详细过程</h2><p>&emsp;&emsp;a. 使用”总线设备驱动模型”编写的驱动程序分为 platform_device 和 platform_driver 两部分<br><br>&emsp;&emsp;&emsp;&emsp;* platform_device : 指定硬件资源, 来自 .c 文件<br><br>&emsp;&emsp;&emsp;&emsp;* platform_driver : 根据与之匹配的 platform_device 获得硬件资源, 并分配-&gt;设置-&gt;注册 file_operations 结构体<br><br>&emsp;&emsp;b. 实际上platform_device也可以来自设备树文件.dts<br><br>&emsp;&emsp;&emsp;&emsp;* 1. dts 文件被编译为 dtb 文件, <br><br>&emsp;&emsp;&emsp;&emsp;* 2. dtb 文件会传给内核, <br><br>&emsp;&emsp;&emsp;&emsp;* 3. 内核会解析 dtb 文件, 构造出一系列的 device_node 结构体,<br><br>&emsp;&emsp;&emsp;&emsp;* 4. device_node 结构体会转换为 platform_device 结构体<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dts -&gt; dtv -&gt; 内核解析dtb -&gt; device_node -&gt; platform_device</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;&emsp;&emsp;所以: 我们在 dts 文件中指定资源即可； 不再需要在 .c 文件中设置 platform_device 结构体。<br><br>&emsp;&emsp;c.  “来自 dts 的 platform_device 结构体” 与 “我们写的 platform_driver “ 的匹配过程:<br><br>&emsp;&emsp;&emsp;&emsp;”来自 dts 的 platform_device 结构体”里面有成员”.dev.of_node”, 它里面含有各种属性, 比如 compatible, reg, pin<br><br>&emsp;&emsp;&emsp;&emsp;”我们写的 platform_driver “ 里面有成员 “.driver.of_match_table”, 它表示能支持哪些来自于 dts 的 platform_device<br></p>
+<p>&emsp;&emsp;&emsp;&emsp;如果 “of_node 中的 compatible” 跟 “of_match_table 中的 compatible” 一致, 就表示匹配成功, 则调用 platform_driver 中的 probe 函数;<br><br>&emsp;&emsp;&emsp;&emsp;在 probe 函数中, 可以继续从 of_node 中获得各种属性来确定硬件资源<br></p>
+
+      
     </div>
+    
+    
+    
+    
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+  
+</div>
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/Device-tree/" rel="tag"># Device tree</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/11/0038-分析Android-Recovery-UI的实现过程/" rel="next" title="分析Android-Recovery-UI的实现过程">
+                <i class="fa fa-chevron-left"></i> 分析Android-Recovery-UI的实现过程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -356,6 +533,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -376,8 +560,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -405,7 +598,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -416,7 +609,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -463,6 +656,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符设备驱动程序的三种写法"><span class="nav-number">1.1.</span> <span class="nav-text">字符设备驱动程序的三种写法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#传统方法"><span class="nav-number">1.1.1.</span> <span class="nav-text">传统方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总线设备驱动模型"><span class="nav-number">1.1.2.</span> <span class="nav-text">总线设备驱动模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用设备树指定硬件资源"><span class="nav-number">1.1.3.</span> <span class="nav-text">使用设备树指定硬件资源</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用设备树编写驱动的详细过程"><span class="nav-number">1.2.</span> <span class="nav-text">使用设备树编写驱动的详细过程</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -497,7 +706,7 @@ pure.mini.js"></script>
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">65.1k</span>
+    <span title="Site words total count">65k</span>
   
 </div>
 
@@ -548,7 +757,7 @@ pure.mini.js"></script>
 <div class="theme-info">
   <div class="powered-by"></div>
   <span class="post-meta-divider">|</span>
-  <span class="post-count">博客全站共65.1k字</span>
+  <span class="post-count">博客全站共65k字</span>
 </div>
 
 <!-- 底部隐藏由Hexo强力驱动、主题--NexT.Mist -->
@@ -665,6 +874,10 @@ pure.mini.js"></script>
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
