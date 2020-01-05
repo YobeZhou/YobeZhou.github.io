@@ -95,7 +95,7 @@
 <meta property="og:image" content="https://zhouyuebiao.cn/images/device_tree/%E8%BE%93%E5%85%A5%E5%AD%90%E7%B3%BB%E7%BB%9F.png">
 <meta property="og:image" content="https://zhouyuebiao.cn/images/device_tree/%E6%80%BB%E7%BA%BF-%E8%AE%BE%E5%A4%87-%E9%A9%B1%E5%8A%A8%E6%A8%A1%E5%9E%8B.png">
 <meta property="og:image" content="https://zhouyuebiao.cn/images/device_tree/%E8%AE%BE%E5%A4%87%E6%A0%91.png">
-<meta property="og:updated_time" content="2020-01-05T06:19:10.699Z">
+<meta property="og:updated_time" content="2020-01-05T06:24:41.243Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设备树之为什么需要设备树(1)">
 <meta name="twitter:description" content="前言&amp;emsp;&amp;emsp;设备树(Device Tree)是一种描述硬件的数据结构，由一系列被命名的结点（node）和属性（property）组成，而结点本身可包含子结点。所谓属性，其实就是成对出现的name和value。&amp;emsp;&amp;emsp;设备树的出现是为了解决内核中大量的板级文件代码，通过 DTS 可以像应用程序里的 XML 语言一样很方便的对硬件信息进行配置。 字符设备驱动程序的三种">
@@ -438,7 +438,7 @@
       
 
       
-        <p><img src="/images/device_tree/devicetree.png" alt="输入子系统"></p>
+        <p><img src="/images/device_tree/devicetree.png" alt="devicetree"></p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp;&emsp;设备树(Device Tree)是一种描述硬件的数据结构，由一系列被命名的结点（node）和属性（property）组成，而结点本身可包含子结点。所谓属性，其实就是成对出现的name和value。<br>&emsp;&emsp;设备树的出现是为了解决内核中大量的板级文件代码，通过 DTS 可以像应用程序里的 XML 语言一样很方便的对硬件信息进行配置。</p>
 <h2 id="字符设备驱动程序的三种写法"><a href="#字符设备驱动程序的三种写法" class="headerlink" title="字符设备驱动程序的三种写法"></a>字符设备驱动程序的三种写法</h2><p>&emsp;&emsp;驱动程序编写有 3 种方法：传统方法、使用总线设备驱动模型、使用设备树<br>&emsp;&emsp;这3种方法也核心都是一样的: 分配、设置、注册 file_operations 结构体<br>&emsp;&emsp;&emsp;&emsp;这个 file_operations 结构体中有 .open, .read, .write, .ioctl 等成员<br>&emsp;&emsp;&emsp;&emsp;驱动程序要实现这些成员，通过这些成员函数中操作硬件<br>&emsp;&emsp;这 3 种方法的差别在于：如何指定硬件资源？（比如：如何指定 LED 引脚是哪个？）<br>&emsp;&emsp;这 3 中方法的做法分别是：</p>
 <h3 id="传统方法"><a href="#传统方法" class="headerlink" title="传统方法"></a>传统方法</h3><p>&emsp;&emsp;在驱动程序代码中写死硬件资源, 代码简单/不易扩展：<br>&emsp;&emsp;&emsp;&emsp;a. 分配file_operations结构体<br>&emsp;&emsp;&emsp;&emsp;b. 设置file_operations结构体<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;该结构体中有.open,.read,.write等成员,<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;在这些成员函数中去操作硬件<br>&emsp;&emsp;&emsp;&emsp;c. 注册file_operations结构体:<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;register_chrdev(major, name, &amp;fops)<br>&emsp;&emsp;&emsp;&emsp;d. 入口函数: 调用register_chrdev<br>&emsp;&emsp;&emsp;&emsp;e. 出口函数: 调用unregister_chrdev<br><img src="/images/device_tree/%E8%BE%93%E5%85%A5%E5%AD%90%E7%B3%BB%E7%BB%9F.png" alt="输入子系统"></p>
