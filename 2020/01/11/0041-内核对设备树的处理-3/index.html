@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<meta name="google-site-verification" content="SUWj4LRJN8xAJitZR75Slg8ZTpldlm4XWPxtn8PY0io">
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+
+
+  <meta name="keywords" content="Linux,Device tree,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="YobeZhou" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="前言&amp;emsp;&amp;emsp;根据 devicetree-specification-v0.2.pdf p43 中的说明:  1234Linux uses DT data for three major purposes:  1) platform identification,  2) runtime configuration, and  3) device population.  &amp;emsp">
+<meta name="keywords" content="Linux,Device tree">
+<meta property="og:type" content="article">
+<meta property="og:title" content="内核对设备树的处理(3)">
+<meta property="og:url" content="https://zhouyuebiao.cn/2020/01/11/0041-内核对设备树的处理-3/index.html">
+<meta property="og:site_name" content="YobeZhou">
+<meta property="og:description" content="前言&amp;emsp;&amp;emsp;根据 devicetree-specification-v0.2.pdf p43 中的说明:  1234Linux uses DT data for three major purposes:  1) platform identification,  2) runtime configuration, and  3) device population.  &amp;emsp">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://zhouyuebiao.cn/images/device_tree/dtb%E8%BD%AC%E6%8D%A2%E4%B8%BAdevice_node.png">
+<meta property="og:image" content="https://zhouyuebiao.cn/images/device_tree/device_node%E8%BD%AC%E6%8D%A2%E4%B8%BAplatform_device%E7%9A%84%E5%81%87%E6%83%B3%E8%AE%BE%E5%A4%87.png">
+<meta property="og:updated_time" content="2020-01-11T00:10:21.570Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="内核对设备树的处理(3)">
+<meta name="twitter:description" content="前言&amp;emsp;&amp;emsp;根据 devicetree-specification-v0.2.pdf p43 中的说明:  1234Linux uses DT data for three major purposes:  1) platform identification,  2) runtime configuration, and  3) device population.  &amp;emsp">
+<meta name="twitter:image" content="https://zhouyuebiao.cn/images/device_tree/dtb%E8%BD%AC%E6%8D%A2%E4%B8%BAdevice_node.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zhouyuebiao.cn/2020/01/11/0041-内核对设备树的处理-3/">
+
+
+
+
+
+  <title>内核对设备树的处理(3) | YobeZhou</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+    <!-- a href="https://github.com/Bdeny"><img style="position:absolute; top: 0; left: 0; border: 0;" width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_left_orange_ff7600.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a> -->
+    <!-- GitHub Corners: http://tholman.com/github-corners/ -->
+    <!-- a href="https://github.com/YobeZhou" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style> -->
+    <a href="https://github.com/YobeZhou" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YobeZhou</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhouyuebiao.cn/2020/01/11/0041-内核对设备树的处理-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YobeZhou">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YobeZhou">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">内核对设备树的处理(3)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-11T08:05:51+08:00">
+                2020-01-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/01/11/0041-内核对设备树的处理-3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/01/11/0041-内核对设备树的处理-3/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.5k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  16
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp;&emsp;根据 devicetree-specification-v0.2.pdf p43 中的说明: </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Linux uses DT data <span class="keyword">for</span> three major purposes:</span><br><span class="line">  1) platform identification,</span><br><span class="line">  2) runtime configuration, and</span><br><span class="line">  3) device population.</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;本文根据这个过程分析内核对设备树的处理流程。 </p>
+<h1 id="从源头分析"><a href="#从源头分析" class="headerlink" title="从源头分析"></a>从源头分析</h1><p>&emsp;&emsp;内核head.S对dtb的简单处理：<br>&emsp;&emsp;bootloader启动内核时,会设置r0,r1,r2三个寄存器：<br>&emsp;&emsp;&emsp;&emsp;r0 一般设置为 0;<br>&emsp;&emsp;&emsp;&emsp;r1 一般设置为 machine id (在使用设备树时该参数没有被使用);<br>&emsp;&emsp;&emsp;&emsp;r2 一般设置 ATAGS 或 DTB 的开始地址 </p>
+<p>&emsp;&emsp;bootloader给内核传递的参数时有2种方法：<br>&emsp;&emsp;&emsp;&emsp;ATAGS 或 DTB<br>&emsp;&emsp;&emsp;&emsp;ATAGS 传参方法：<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;a. <strong>lookup_processor_type : 使用汇编指令读取CPU ID, 根据该ID找到对应的proc_info_list结构体(里面含有这类CPU的初始化函数、信息)<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;b. __vet_atags             : 判断是否存在可用的ATAGS或DTB<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;c. __create_page_tables    : 创建页表, 即创建虚拟地址和物理地址的映射关系<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;d. __enable_mmu            : 使能MMU, 以后就要使用虚拟地址了<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;e. __mmap_switched         : 上述函数里将会调用</strong>mmap_switched<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;f. 把bootloader传入的r2参数, 保存到变量__atags_pointer中<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;g. 调用C函数start_kernel </p>
+<p>&emsp;&emsp;head.S/head-common.S 中:<br>&emsp;&emsp;&emsp;&emsp;把bootloader传来的r1值, 赋给了C变量: __machine_arch_type<br>&emsp;&emsp;&emsp;&emsp;把bootloader传来的r2值, 赋给了C变量: __atags_pointer     // dtb首地址 </p>
+<h1 id="内核设备树中平台信息的处理-选择-machine-desc"><a href="#内核设备树中平台信息的处理-选择-machine-desc" class="headerlink" title="内核设备树中平台信息的处理 (选择 machine_desc)"></a>内核设备树中平台信息的处理 (选择 machine_desc)</h1><p>&emsp;&emsp;a. 设备树 dts 根节点的 compatible 属性列出了一系列的字符串,<br>&emsp;&emsp;&emsp;&emsp;表示它兼容的单板名,<br>&emsp;&emsp;&emsp;&emsp;从左到右列出的表示：从”最兼容”到次之 </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* dts 声明了期望哪些 madine_desc */</span></span><br><span class="line">/&#123;</span><br><span class="line">    model = <span class="string">"SMDK2440"</span>;</span><br><span class="line">    compatible = <span class="string">"samsung,smdk2440"</span>,<span class="string">"samsung,smdk2410"</span>,<span class="string">"samsung,smdk24xx"</span>;</span><br><span class="line">    <span class="comment">/* 单板         最好                次之                第三选择 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;b. 内核中有多个 machine_desc ，每个 machine_desc 表明能支持哪些单板： </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">machine_desc</span>&#123;</span></span><br><span class="line">    .init;</span><br><span class="line">    .nr;</span><br><span class="line">    .dt_compat;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">char</span>*<span class="keyword">const</span> smdk2440 dt_compat[]initconst=&#123;</span><br><span class="line">    <span class="string">"samsung,smdk2440"</span>,</span><br><span class="line">    <span class="literal">NULL</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">MACHINE START（S3C2440,<span class="string">"SMDK2440"</span>）</span><br><span class="line">    <span class="comment">/*aintainer:Ben Dooks &lt;ben-linuxefluff.org&gt;*/</span></span><br><span class="line">    .atag offset  = <span class="number">0x100</span>,</span><br><span class="line">    ·dt compat    = smak240_dt_compat,</span><br><span class="line">    .init_irg     = s3c2440_init_irq,</span><br><span class="line">    .map_io       = smdk2440_map_io,</span><br><span class="line">    .init_machine = smdk2440_machine_init,</span><br><span class="line">    .init_time    = smdk2440 init time,</span><br><span class="line">MACHINE_END</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;&emsp;&emsp;其中有 dt_compat 成员, 它指向一个字符串数组, 里面表示该 machine_desc 支持哪些单板 </p>
+<p>&emsp;&emsp;c. 有多个 machine_desc 跟 dts 吻合，选择哪个？<br>&emsp;&emsp;&emsp;&emsp;使用 compatile 属性的值,<br>&emsp;&emsp;&emsp;&emsp;跟<br>&emsp;&emsp;&emsp;&emsp;每一个 machine_desc.dt_compat<br>&emsp;&emsp;&emsp;&emsp;比较,<br>&emsp;&emsp;&emsp;&emsp;成绩为”吻合的 compatile 属性值的位置”, </p>
+<p>&emsp;&emsp;&emsp;&emsp;成绩越低越匹配, 对应的 machine_desc 即被选中 </p>
+<p>&emsp;&emsp;&emsp;&emsp;函数调用过程: </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">start_kernel <span class="comment">// init/main.c</span></span><br><span class="line">    setup_arch(&amp;command_line);  <span class="comment">// arch/arm/kernel/setup.c</span></span><br><span class="line">        mdesc = setup_machine_fdt(__atags_pointer);  <span class="comment">// arch/arm/kernel/devtree.c</span></span><br><span class="line">                    early_init_dt_verify(phys_to_virt(dt_phys)  <span class="comment">// 判断是否有效的dtb, drivers/of/ftd.c</span></span><br><span class="line">                                    initial_boot_params = params;</span><br><span class="line">                    mdesc = of_flat_dt_match_machine(mdesc_best, arch_get_next_mach);  <span class="comment">// 找到最匹配的machine_desc, drivers/of/ftd.c</span></span><br><span class="line">                                    <span class="keyword">while</span> ((data = get_next_compat(&amp;compat))) &#123;</span><br><span class="line">                                        score = of_flat_dt_match(dt_root, compat);</span><br><span class="line">                                        <span class="keyword">if</span> (score &gt; <span class="number">0</span> &amp;&amp; score &lt; best_score) &#123;</span><br><span class="line">                                            best_data = data;</span><br><span class="line">                                            best_score = score;</span><br><span class="line">                                        &#125;</span><br><span class="line">                                    &#125;</span><br><span class="line">                    </span><br><span class="line">        machine_desc = mdesc;</span><br></pre></td></tr></table></figure>
+
+<h1 id="内核对设备树中运行时配置信息的处理"><a href="#内核对设备树中运行时配置信息的处理" class="headerlink" title="内核对设备树中运行时配置信息的处理"></a>内核对设备树中运行时配置信息的处理</h1><p>&emsp;&emsp;函数调用过程: </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">start_kernel <span class="comment">// init/main.c</span></span><br><span class="line">    setup_arch(&amp;command_line);  <span class="comment">// arch/arm/kernel/setup.c</span></span><br><span class="line">        mdesc = setup_machine_fdt(__atags_pointer);  <span class="comment">// arch/arm/kernel/devtree.c</span></span><br><span class="line">                    early_init_dt_scan_nodes();      <span class="comment">// drivers/of/ftd.c</span></span><br><span class="line">                        <span class="comment">/* Retrieve various information from the /chosen node */</span></span><br><span class="line">                        of_scan_flat_dt(early_init_dt_scan_chosen, boot_command_line);</span><br><span class="line"></span><br><span class="line">                        <span class="comment">/* Initialize &#123;size,address&#125;-cells info */</span></span><br><span class="line">                        of_scan_flat_dt(early_init_dt_scan_root, <span class="literal">NULL</span>);</span><br><span class="line"></span><br><span class="line">                        <span class="comment">/* Setup memory, calling early_init_dt_add_memory_arch */</span></span><br><span class="line">                        of_scan_flat_dt(early_init_dt_scan_memory, <span class="literal">NULL</span>);</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;a. /chosen 节点中 bootargs 属性的值, 存入全局变量： boot_command_line<br>&emsp;&emsp;b. 确定根节点的这 2 个属性的值: #address-cells, #size-cells<br>   存入全局变量: dt_root_addr_cells, dt_root_size_cells<br>&emsp;&emsp;c. 解析 /memory 中的 reg 属性, 提取出 “base, size”, 最终调用 memblock_add(base, size); </p>
+<h1 id="dtb-转换为-device-node-unflatten"><a href="#dtb-转换为-device-node-unflatten" class="headerlink" title="dtb 转换为 device_node (unflatten)"></a>dtb 转换为 device_node (unflatten)</h1><p>&emsp;&emsp;函数调用过程: </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">start_kernel <span class="comment">// init/main.c</span></span><br><span class="line">    setup_arch(&amp;command_line);  <span class="comment">// arch/arm/kernel/setup.c</span></span><br><span class="line">        arm_memblock_init(mdesc);   <span class="comment">// arch/arm/kernel/setup.c</span></span><br><span class="line">            early_init_fdt_reserve_self();</span><br><span class="line">                    <span class="comment">/* Reserve the dtb region */</span></span><br><span class="line">                    <span class="comment">// 把DTB所占区域保留下来, 即调用: memblock_reserve</span></span><br><span class="line">                    early_init_dt_reserve_memory_arch(__pa(initial_boot_params),</span><br><span class="line">                                    fdt_totalsize(initial_boot_params),</span><br><span class="line">                                    <span class="number">0</span>);           </span><br><span class="line">            early_init_fdt_scan_reserved_mem();  <span class="comment">// 根据dtb中的memreserve信息, 调用memblock_reserve</span></span><br><span class="line">            </span><br><span class="line">        unflatten_device_tree();    <span class="comment">// arch/arm/kernel/setup.c</span></span><br><span class="line">            __unflatten_device_tree(initial_boot_params, <span class="literal">NULL</span>, &amp;of_root,</span><br><span class="line">                        early_init_dt_alloc_memory_arch, <span class="literal">false</span>);            <span class="comment">// drivers/of/fdt.c</span></span><br><span class="line">                </span><br><span class="line">                <span class="comment">/* First pass, scan for size */</span></span><br><span class="line">                size = unflatten_dt_nodes(blob, <span class="literal">NULL</span>, dad, <span class="literal">NULL</span>);</span><br><span class="line">                </span><br><span class="line">                <span class="comment">/* Allocate memory for the expanded device tree */</span></span><br><span class="line">                mem = dt_alloc(size + <span class="number">4</span>, __alignof__(struct device_node));</span><br><span class="line">                </span><br><span class="line">                <span class="comment">/* Second pass, do actual unflattening */</span></span><br><span class="line">                unflatten_dt_nodes(blob, mem, dad, mynodes);</span><br><span class="line">                    populate_node</span><br><span class="line">                        np = unflatten_dt_alloc(mem, <span class="keyword">sizeof</span>(struct device_node) + allocl,</span><br><span class="line">                                    __alignof__(struct device_node));</span><br><span class="line">                        </span><br><span class="line">                        np-&gt;full_name = fn = ((<span class="keyword">char</span> *)np) + <span class="keyword">sizeof</span>(*np);</span><br><span class="line">                        </span><br><span class="line">                        populate_properties</span><br><span class="line">                                pp = unflatten_dt_alloc(mem, <span class="keyword">sizeof</span>(struct property),</span><br><span class="line">                                            __alignof__(struct property));</span><br><span class="line">                            </span><br><span class="line">                                pp-&gt;name   = (<span class="keyword">char</span> *)pname;</span><br><span class="line">                                pp-&gt;length = sz;</span><br><span class="line">                                pp-&gt;value  = (__be32 *)val;</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;a. 在DTB文件中,<br>&emsp;&emsp;&emsp;&emsp;每一个节点都以 TAG(FDT_BEGIN_NODE, 0x00000001) 开始, 节点内部可以嵌套其他节点,<br>&emsp;&emsp;&emsp;&emsp;每一个属性都以 TAG(FDT_PROP, 0x00000003) 开始 </p>
+<p>&emsp;&emsp;b. 每一个节点都转换为一个 device_node 结构体: </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">device_node</span> &#123;</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *name;  <span class="comment">// 来自节点中的name属性, 如果没有该属性, 则设为"NULL"</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *type;  <span class="comment">// 来自节点中的device_type属性, 如果没有该属性, 则设为"NULL"</span></span><br><span class="line">    phandle phandle;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *full_name;  <span class="comment">// 节点的名字, node-name[@unit-address]</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">fwnode_handle</span> <span class="title">fwnode</span>;</span></span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">struct</span>  <span class="title">property</span> *<span class="title">properties</span>;</span>  <span class="comment">// 节点的属性</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span>  <span class="title">property</span> *<span class="title">deadprops</span>;</span>    <span class="comment">/* removed properties */</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span>  <span class="title">device_node</span> *<span class="title">parent</span>;</span>   <span class="comment">// 节点的父亲</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span>  <span class="title">device_node</span> *<span class="title">child</span>;</span>    <span class="comment">// 节点的孩子(子节点)</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span>  <span class="title">device_node</span> *<span class="title">sibling</span>;</span>  <span class="comment">// 节点的兄弟(同级节点)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> defined(CONFIG_OF_KOBJ)</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span>  <span class="title">kobject</span> <span class="title">kobj</span>;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> _flags;</span><br><span class="line">    <span class="keyword">void</span>    *data;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> defined(CONFIG_SPARC)</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *path_component_name;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> unique_id;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">of_irq_controller</span> *<span class="title">irq_trans</span>;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;c. device_node 结构体中有 properties, 用来表示该节点的属性<br>&emsp;&emsp;&emsp;&emsp;每一个属性对应一个 property 结构体: </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">property</span> &#123;</span></span><br><span class="line">    <span class="keyword">char</span>    *name;    <span class="comment">// 属性名字, 指向dtb文件中的字符串</span></span><br><span class="line">    <span class="keyword">int</span> length;       <span class="comment">// 属性值的长度</span></span><br><span class="line">    <span class="keyword">void</span>    *value;   <span class="comment">// 属性值, 指向dtb文件中value所在位置, 数据仍以big endian存储</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">property</span> *<span class="title">next</span>;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> defined(CONFIG_OF_DYNAMIC) || defined(CONFIG_SPARC)</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> _flags;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> defined(CONFIG_OF_PROMTREE)</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> unique_id;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> defined(CONFIG_OF_KOBJ)</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">bin_attribute</span> <span class="title">attr</span>;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;d. 这些 device_node 构成一棵树, 根节点为: of_root<br><img src="/images/device_tree/dtb%E8%BD%AC%E6%8D%A2%E4%B8%BAdevice_node.png" alt="dtb转换为device_node"></p>
+<h1 id="device-node-转换为-platform-device"><a href="#device-node-转换为-platform-device" class="headerlink" title="device_node 转换为 platform_device"></a>device_node 转换为 platform_device</h1><p>&emsp;&emsp;从 dts 到 platform_device 的转化过程： </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dts -&gt; dtb -&gt; device_node -&gt; platform_device</span><br></pre></td></tr></table></figure>
+
+<h2 id="两个问题"><a href="#两个问题" class="headerlink" title="两个问题"></a>两个问题</h2><p>&emsp;&emsp;要理解这个过程得先理解这两个问题:<br>&emsp;&emsp;&emsp;&emsp;a. 哪些device_node可以转换为platform_device?<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;根节点下含有compatile属性的子节点<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;如果一个结点的compatile属性含有这些特殊的值(“simple-bus”,”simple-mfd”,”isa”,”arm,amba-bus”)之一, 那么它的子结点(需含compatile属性)也可以转换为platform_device<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;i2c, spi等总线节点下的子节点, 应该交给对应的总线驱动程序来处理, 它们不应该被转换为platform_device </p>
+<p>&emsp;&emsp;&emsp;&emsp;b. 怎么转换?<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;platform_device中含有resource数组, 它来自device_node的reg, interrupts属性;<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;platform_device.dev.of_node指向device_node, 可以通过它获得其他属性 </p>
+<h2 id="内核的处理过程"><a href="#内核的处理过程" class="headerlink" title="内核的处理过程"></a>内核的处理过程</h2><p>&emsp;&emsp;a. 内核函数 of_platform_default_populate_init, 遍历 device_node 树, 生成 platform_device<br>&emsp;&emsp;b. 并非所有的 device_node 都会转换为 platform_device<br>&emsp;&emsp;&emsp;&emsp;只有以下的 device_node 会转换:<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;b.1 该节点必须含有compatible属性<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;b.2 根节点的子节点(节点必须含有compatible属性)<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;b.3 含有特殊compatible属性的节点的子节点(子节点必须含有compatible属性):<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;这些特殊的compatilbe属性为: “simple-bus”,”simple-mfd”,”isa”,”arm,amba-bus” </p>
+<p>&emsp;&emsp;b.4 示例:<br>&emsp;&emsp;&emsp;&emsp;假设当前接入设备如下：<br><img src="/images/device_tree/device_node%E8%BD%AC%E6%8D%A2%E4%B8%BAplatform_device%E7%9A%84%E5%81%87%E6%83%B3%E8%AE%BE%E5%A4%87.png" alt="dtb转换为device_node"></p>
+<p>&emsp;&emsp;&emsp;&emsp;比如以下的节点,  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">/ &#123;</span><br><span class="line">        i2c &#123;                           <span class="comment">// --&gt; platform_device &lt;--&gt; platform_driver.probe</span></span><br><span class="line">            compatile = <span class="string">"samsung,i2c"</span>;</span><br><span class="line">            at24c02 &#123;                   <span class="comment">// 交给 probe 处理转换为 I2C_client</span></span><br><span class="line">                compatile = <span class="string">"at24c02"</span>;                      </span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        spi &#123;</span><br><span class="line">            compatile = <span class="string">"samsung,spi"</span>;              </span><br><span class="line">            flash@<span class="number">0</span> &#123;                   <span class="comment">// spi_device</span></span><br><span class="line">                compatible = <span class="string">"winbond,w25q32dw"</span>;</span><br><span class="line">                spi-max-frequency = &lt;<span class="number">25000000</span>&gt;;</span><br><span class="line">                reg = &lt;<span class="number">0</span>&gt;;</span><br><span class="line">                &#125;;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        led &#123;</span><br><span class="line">            compatile = <span class="string">"jz2550_led"</span>;              </span><br><span class="line">            reg = &lt;<span class="number">5</span>, <span class="number">1</span>&gt;;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        mytest &#123;</span><br><span class="line">            compatile = <span class="string">"mytest"</span>, <span class="string">"simple-bus"</span>; <span class="comment">// 如果有 "simple-bus" ，mytest 会转换为 platform_device</span></span><br><span class="line">            mytest@<span class="number">0</span> &#123;</span><br><span class="line">                compatile = <span class="string">"mytest_0"</span>;</span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;&emsp;&emsp;/mytest会被转换为platform_device,<br>&emsp;&emsp;&emsp;&emsp;因为它兼容”simple-bus”, 它的子节点/mytest/mytest@0 也会被转换为platform_device </p>
+<p>&emsp;&emsp;&emsp;&emsp;/i2c节点一般表示i2c控制器, 它会被转换为platform_device, 在内核中有对应的platform_driver;<br>&emsp;&emsp;&emsp;&emsp;/i2c/at24c02节点不会被转换为platform_device, 它被如何处理完全由父节点的platform_driver决定, 一般是被创建为一个i2c_client。 </p>
+<p>&emsp;&emsp;&emsp;&emsp;类似的也有/spi节点, 它一般也是用来表示SPI控制器, 它会被转换为platform_device, 在内核中有对应的platform_driver;<br>&emsp;&emsp;&emsp;&emsp;/spi/flash@0节点不会被转换为platform_device, 它被如何处理完全由父节点的platform_driver决定, 一般是被创建为一个spi_device。 </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">/ &#123;</span><br><span class="line">        mytest &#123;</span><br><span class="line">            compatile = <span class="string">"mytest"</span>, <span class="string">"simple-bus"</span>;</span><br><span class="line">            mytest@<span class="number">0</span> &#123;</span><br><span class="line">                compatile = <span class="string">"mytest_0"</span>;</span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;;</span><br><span class="line">        </span><br><span class="line">        i2c &#123;</span><br><span class="line">            compatile = <span class="string">"samsung,i2c"</span>;</span><br><span class="line">            at24c02 &#123;</span><br><span class="line">                compatile = <span class="string">"at24c02"</span>;                      </span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        spi &#123;</span><br><span class="line">            compatile = <span class="string">"samsung,spi"</span>;              </span><br><span class="line">            flash@<span class="number">0</span> &#123;</span><br><span class="line">                compatible = <span class="string">"winbond,w25q32dw"</span>;</span><br><span class="line">                spi-max-frequency = &lt;<span class="number">25000000</span>&gt;;</span><br><span class="line">                reg = &lt;<span class="number">0</span>&gt;;</span><br><span class="line">                &#125;;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="函数调用过程"><a href="#函数调用过程" class="headerlink" title="函数调用过程"></a>函数调用过程</h2><h3 id="调用-of-platform-default-populate-init-函数"><a href="#调用-of-platform-default-populate-init-函数" class="headerlink" title="调用 of_platform_default_populate_init 函数"></a>调用 of_platform_default_populate_init 函数</h3><p>&emsp;&emsp;of_platform_default_populate_init (drivers/of/platform.c) 被调用的过程: </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">start_kernel     <span class="comment">// init/main.c</span></span><br><span class="line">    rest_init();</span><br><span class="line">        pid = kernel_thread(kernel_init, <span class="literal">NULL</span>, CLONE_FS);</span><br><span class="line">                    kernel_init</span><br><span class="line">                        kernel_init_freeable();</span><br><span class="line">                            do_basic_setup();</span><br><span class="line">                                do_initcalls();</span><br><span class="line">                                    <span class="keyword">for</span> (level = <span class="number">0</span>; level &lt; ARRAY_SIZE(initcall_levels) - <span class="number">1</span>; level++)</span><br><span class="line">                                        do_initcall_level(level);  <span class="comment">// 比如 do_initcall_level(3)</span></span><br><span class="line">                                                                            <span class="keyword">for</span> (fn = initcall_levels[<span class="number">3</span>]; fn &lt; initcall_levels[<span class="number">3</span>+<span class="number">1</span>]; fn++)</span><br><span class="line">                                                                                    do_one_initcall(initcall_from_entry(fn));  <span class="comment">// 就是调用"arch_initcall_sync(fn)"中定义的fn函数</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="调用-of-platform-default-populate-init-函数-1"><a href="#调用-of-platform-default-populate-init-函数-1" class="headerlink" title="调用 of_platform_default_populate_init 函数"></a>调用 of_platform_default_populate_init 函数</h3><p>&emsp;&emsp;of_platform_default_populate_init  (drivers/of/platform.c) 生成platform_device的过程: </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">of_platform_default_populate_init</span><br><span class="line">    of_platform_default_populate(<span class="literal">NULL</span>, <span class="literal">NULL</span>, <span class="literal">NULL</span>);</span><br><span class="line">        of_platform_populate(<span class="literal">NULL</span>, of_default_bus_match_table, <span class="literal">NULL</span>, <span class="literal">NULL</span>)</span><br><span class="line">            for_each_child_of_node(root, child) &#123;</span><br><span class="line">                rc = of_platform_bus_create(child, matches, lookup, parent, <span class="literal">true</span>);  <span class="comment">// 调用过程看下面</span></span><br><span class="line">                            dev = of_device_alloc(np, bus_id, parent);   <span class="comment">// 根据device_node节点的属性设置platform_device的resource</span></span><br><span class="line">                <span class="keyword">if</span> (rc) &#123;</span><br><span class="line">                    of_node_put(child);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="调用-of-platform-bus-create-函数"><a href="#调用-of-platform-bus-create-函数" class="headerlink" title="调用 of_platform_bus_create 函数"></a>调用 of_platform_bus_create 函数</h3><p>&emsp;&emsp;of_platform_bus_create(bus, matches, …)的调用过程(处理bus节点生成platform_devie, 并决定是否处理它的子节点): </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">dev = of_platform_device_create_pdata(bus, bus_id, platform_data, parent);  <span class="comment">// 生成bus节点的platform_device结构体</span></span><br><span class="line"><span class="keyword">if</span> (!dev || !of_match_node(matches, bus))  <span class="comment">// 如果bus节点的compatile属性不吻合matches成表, 就不处理它的子节点</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">for_each_child_of_node(bus, child) &#123;    <span class="comment">// 取出每一个子节点</span></span><br><span class="line">    pr_debug(<span class="string">"   create child: %pOF\n"</span>, child);</span><br><span class="line">    rc = of_platform_bus_create(child, matches, lookup, &amp;dev-&gt;dev, strict);   <span class="comment">// 处理它的子节点, of_platform_bus_create是一个递归调用</span></span><br><span class="line">    <span class="keyword">if</span> (rc) &#123;</span><br><span class="line">        of_node_put(child);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="I2C-总线节点的处理过程"><a href="#I2C-总线节点的处理过程" class="headerlink" title="I2C 总线节点的处理过程"></a>I2C 总线节点的处理过程</h3><p>&emsp;&emsp;/i2c节点一般表示i2c控制器, 它会被转换为platform_device, 在内核中有对应的platform_driver;<br>&emsp;&emsp;platform_driver的probe函数中会调用i2c_add_numbered_adapter: </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">i2c_add_numbered_adapter   <span class="comment">// drivers/i2c/i2c-core-base.c</span></span><br><span class="line">     __i2c_add_numbered_adapter</span><br><span class="line">         i2c_register_adapter</span><br><span class="line">             of_i2c_register_devices(adap);   <span class="comment">// drivers/i2c/i2c-core-of.c</span></span><br><span class="line">                 for_each_available_child_of_node(bus, node) &#123;</span><br><span class="line">                     client = of_i2c_register_device(adap, node);</span><br><span class="line">                                     client = i2c_new_device(adap, &amp;info);   <span class="comment">// 设备树中的i2c子节点被转换为i2c_client</span></span><br><span class="line">                 &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="SPI-总线节点的处理过程"><a href="#SPI-总线节点的处理过程" class="headerlink" title="SPI 总线节点的处理过程"></a>SPI 总线节点的处理过程</h3><p>&emsp;&emsp;/spi节点一般表示spi控制器, 它会被转换为platform_device, 在内核中有对应的platform_driver;<br>&emsp;&emsp;platform_driver的probe函数中会调用spi_register_master, 即spi_register_controller: </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">   spi_register_controller        <span class="comment">// drivers/spi/spi.c</span></span><br><span class="line">        of_register_spi_devices   <span class="comment">// drivers/spi/spi.c</span></span><br><span class="line">            for_each_available_child_of_node(ctlr-&gt;dev.of_node, nc) &#123;</span><br><span class="line">                spi = of_register_spi_device(ctlr, nc);  <span class="comment">// 设备树中的spi子节点被转换为spi_device</span></span><br><span class="line">                                spi = spi_alloc_device(ctlr);</span><br><span class="line">                                rc = of_spi_parse_dt(ctlr, spi, nc);</span><br><span class="line">                                rc = spi_add_device(spi);</span><br><span class="line">            &#125;</span><br><span class="line">```                   </span><br><span class="line"></span><br><span class="line"># platform_device 与 platform_driver 的匹配</span><br><span class="line">&amp;emsp;&amp;emsp;参考内核代码： </span><br><span class="line">```bash</span><br><span class="line">    drivers/base/platform.c</span><br></pre></td></tr></table></figure>
+
+<h2 id="注册-platform-driver-的过程"><a href="#注册-platform-driver-的过程" class="headerlink" title="注册 platform_driver 的过程:"></a>注册 platform_driver 的过程:</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">platform_driver_register</span><br><span class="line">    __platform_driver_register</span><br><span class="line">        drv-&gt;driver.probe = platform_drv_probe;</span><br><span class="line">        driver_register</span><br><span class="line">            bus_add_driver</span><br><span class="line">                klist_add_tail(&amp;priv-&gt;knode_bus, &amp;bus-&gt;p-&gt;klist_drivers);    <span class="comment">// 把 platform_driver 放入 platform_bus_type 的driver链表中</span></span><br><span class="line">                driver_attach</span><br><span class="line">                    bus_for_each_dev(drv-&gt;bus, <span class="literal">NULL</span>, drv, __driver_attach);  <span class="comment">// 对于plarform_bus_type下的每一个设备, 调用__driver_attach</span></span><br><span class="line">                        __driver_attach</span><br><span class="line">                            ret = driver_match_device(drv, dev);  <span class="comment">// 判断dev和drv是否匹配成功</span></span><br><span class="line">                                        <span class="keyword">return</span> drv-&gt;bus-&gt;match ? drv-&gt;bus-&gt;match(dev, drv) : <span class="number">1</span>;  <span class="comment">// 调用 platform_bus_type.match</span></span><br><span class="line">                            driver_probe_device(drv, dev);</span><br><span class="line">                                        really_probe</span><br><span class="line">                                            drv-&gt;probe  <span class="comment">// platform_drv_probe</span></span><br><span class="line">                                                platform_drv_probe</span><br><span class="line">                                                    <span class="class"><span class="keyword">struct</span> <span class="title">platform_driver</span> *<span class="title">drv</span> = <span class="title">to_platform_driver</span>(_<span class="title">dev</span>-&gt;<span class="title">driver</span>);</span></span><br><span class="line">                                                    drv-&gt;probe</span><br></pre></td></tr></table></figure>
+
+<h2 id="注册-platform-device-的过程"><a href="#注册-platform-device-的过程" class="headerlink" title="注册 platform_device 的过程:"></a>注册 platform_device 的过程:</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">platform_device_register</span><br><span class="line">    platform_device_add</span><br><span class="line">        device_add</span><br><span class="line">            bus_add_device</span><br><span class="line">                klist_add_tail(&amp;dev-&gt;p-&gt;knode_bus, &amp;bus-&gt;p-&gt;klist_devices); <span class="comment">// 把 platform_device 放入 platform_bus_type的device链表中</span></span><br><span class="line">            bus_probe_device(dev);</span><br><span class="line">                device_initial_probe</span><br><span class="line">                    __device_attach</span><br><span class="line">                        ret = bus_for_each_drv(dev-&gt;bus, <span class="literal">NULL</span>, &amp;data, __device_attach_driver); <span class="comment">// // 对于plarform_bus_type下的每一个driver, 调用 __device_attach_driver</span></span><br><span class="line">                                    __device_attach_driver</span><br><span class="line">                                        ret = driver_match_device(drv, dev);</span><br><span class="line">                                                    <span class="keyword">return</span> drv-&gt;bus-&gt;match ? drv-&gt;bus-&gt;match(dev, drv) : <span class="number">1</span>;  <span class="comment">// 调用platform_bus_type.match</span></span><br><span class="line">                                        driver_probe_device</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;匹配函数是 platform_bus_type.match, 即 platform_match,<br>&emsp;&emsp;匹配过程按优先顺序罗列如下:<br>&emsp;&emsp;&emsp;&emsp;a. 比较 platform_dev.driver_override 和 platform_driver.drv-&gt;name<br>&emsp;&emsp;&emsp;&emsp;b. 比较 platform_dev.dev.of_node的compatible属性 和 platform_driver.drv-&gt;of_match_table<br>&emsp;&emsp;&emsp;&emsp;c. 比较 platform_dev.name 和 platform_driver.id_table<br>&emsp;&emsp;&emsp;&emsp;d. 比较 platform_dev.name 和 platform_driver.drv-&gt;name<br>&emsp;&emsp;有一个成功, 即匹配成功 </p>
+<h1 id="内核中设备树的操作函数"><a href="#内核中设备树的操作函数" class="headerlink" title="内核中设备树的操作函数"></a>内核中设备树的操作函数</h1><p>&emsp;&emsp;参考内核源代码 include/linux/ 目录下有很多 of 前缀开头的文件，这些就是内核中操作设备树的函数，下面对这些文件的作用作一个简单的说明。 </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 处理DTB */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;of_fdt.h&gt;           // dtb文件的相关操作函数, 我们一般用不到, 因为dtb文件在内核中已经被转换为device_node树(它更易于使用)</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 处理device_node */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;of.h&gt;                // 提供设备树的一般处理函数, 比如 of_property_read_u32(读取某个属性的u32值), of_get_child_count(获取某个device_node的子节点数)</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;of_address.h&gt;        // 地址相关的函数, 比如 of_get_address(获得reg属性中的addr, size值)</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> &lt;of_match_device(从matches数组中取出与当前设备最匹配的一项)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;of_dma.h&gt;            // 设备树中DMA相关属性的函数</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;of_gpio.h&gt;           // GPIO相关的函数</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;of_graph.h&gt;          // GPU相关驱动中用到的函数, 从设备树中获得GPU信息</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;of_iommu.h&gt;          // 很少用到</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;of_irq.h&gt;            // 中断相关的函数</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;of_mdio.h&gt;           // MDIO (Ethernet PHY) API</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;of_net.h&gt;            // OF helpers for network devices. </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;of_pci.h&gt;            // PCI相关函数</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;of_pdt.h&gt;            // 很少用到</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;of_reserved_mem.h&gt;   // reserved_mem的相关函数</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 处理 platform_device */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;of_platform.h&gt;       // 把device_node转换为platform_device时用到的函数, </span></span></span><br><span class="line">                                    <span class="comment">// 比如： of_device_alloc (根据 device_node 分配设置 platform_device), </span></span><br><span class="line">                                    <span class="comment">//        of_find_device_by_node (根据 device_node 查找到 platform_device),</span></span><br><span class="line">                                    <span class="comment">//        of_platform_bus_probe (处理 device_node 及它的子节点)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;of_device.h&gt;         // 设备相关的函数, 比如 of_match_device</span></span></span><br></pre></td></tr></table></figure>
+
+<h1 id="在根文件系统中查看设备树-有助于调试"><a href="#在根文件系统中查看设备树-有助于调试" class="headerlink" title="在根文件系统中查看设备树(有助于调试)"></a>在根文件系统中查看设备树(有助于调试)</h1><h2 id="原始-dtb-文件的存放位置"><a href="#原始-dtb-文件的存放位置" class="headerlink" title="原始 dtb 文件的存放位置"></a>原始 dtb 文件的存放位置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/sys/firmware/fdt</span><br></pre></td></tr></table></figure>
+
+<h2 id="16-进制查看-dtb-文件"><a href="#16-进制查看-dtb-文件" class="headerlink" title="16 进制查看 dtb 文件"></a>16 进制查看 dtb 文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexdump -C /sys/firmware/fdt</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看以目录结构存放的-dtb-文件"><a href="#查看以目录结构存放的-dtb-文件" class="headerlink" title="查看以目录结构存放的 dtb 文件"></a>查看以目录结构存放的 dtb 文件</h2><p>&emsp;&emsp;以目录结构程现的dtb文件, 根节点对应base目录, 每一个节点对应一个目录, 每一个属性对应一个文件 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/sys/firmware/devicetree</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看系统中所有的-platform-device"><a href="#查看系统中所有的-platform-device" class="headerlink" title="查看系统中所有的 platform_device"></a>查看系统中所有的 platform_device</h2><p>&emsp;&emsp;系统中所有的platform_device, 有来自设备树的, 也有来有.c文件中注册的<br>&emsp;&emsp;对于来自设备树的platform_device,<br>&emsp;&emsp;可以进入 /sys/devices/platform/&lt;设备名&gt;/of_node 查看它的设备树属性 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/sys/devices/platform</span><br></pre></td></tr></table></figure>
+
+<h2 id="proc-device-tree-文件"><a href="#proc-device-tree-文件" class="headerlink" title="/proc/device-tree 文件"></a>/proc/device-tree 文件</h2><p>&emsp;&emsp;/proc/device-tree 是链接文件, 指向 /sys/firmware/devicetree/base </p>
+
+      
+    </div>
+    
+    
+    
+    
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+  
+</div>
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/Device-tree/" rel="tag"># Device tree</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/05/0040-设备树之设备树的规范-2/" rel="next" title="设备树之设备树的规范(2)">
+                <i class="fa fa-chevron-left"></i> 设备树之设备树的规范(2)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/touxiang.jpg" alt="YobeZhou">
+            
+              <p class="site-author-name" itemprop="name">YobeZhou</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/YobeZhou" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:837574599@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+			
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#从源头分析"><span class="nav-number">2.</span> <span class="nav-text">从源头分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内核设备树中平台信息的处理-选择-machine-desc"><span class="nav-number">3.</span> <span class="nav-text">内核设备树中平台信息的处理 (选择 machine_desc)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内核对设备树中运行时配置信息的处理"><span class="nav-number">4.</span> <span class="nav-text">内核对设备树中运行时配置信息的处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dtb-转换为-device-node-unflatten"><span class="nav-number">5.</span> <span class="nav-text">dtb 转换为 device_node (unflatten)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#device-node-转换为-platform-device"><span class="nav-number">6.</span> <span class="nav-text">device_node 转换为 platform_device</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#两个问题"><span class="nav-number">6.1.</span> <span class="nav-text">两个问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内核的处理过程"><span class="nav-number">6.2.</span> <span class="nav-text">内核的处理过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数调用过程"><span class="nav-number">6.3.</span> <span class="nav-text">函数调用过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#调用-of-platform-default-populate-init-函数"><span class="nav-number">6.3.1.</span> <span class="nav-text">调用 of_platform_default_populate_init 函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调用-of-platform-default-populate-init-函数-1"><span class="nav-number">6.3.2.</span> <span class="nav-text">调用 of_platform_default_populate_init 函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调用-of-platform-bus-create-函数"><span class="nav-number">6.3.3.</span> <span class="nav-text">调用 of_platform_bus_create 函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#I2C-总线节点的处理过程"><span class="nav-number">6.3.4.</span> <span class="nav-text">I2C 总线节点的处理过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SPI-总线节点的处理过程"><span class="nav-number">6.3.5.</span> <span class="nav-text">SPI 总线节点的处理过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注册-platform-driver-的过程"><span class="nav-number">6.4.</span> <span class="nav-text">注册 platform_driver 的过程:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注册-platform-device-的过程"><span class="nav-number">6.5.</span> <span class="nav-text">注册 platform_device 的过程:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">6.6.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内核中设备树的操作函数"><span class="nav-number">7.</span> <span class="nav-text">内核中设备树的操作函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在根文件系统中查看设备树-有助于调试"><span class="nav-number">8.</span> <span class="nav-text">在根文件系统中查看设备树(有助于调试)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原始-dtb-文件的存放位置"><span class="nav-number">8.1.</span> <span class="nav-text">原始 dtb 文件的存放位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-进制查看-dtb-文件"><span class="nav-number">8.2.</span> <span class="nav-text">16 进制查看 dtb 文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看以目录结构存放的-dtb-文件"><span class="nav-number">8.3.</span> <span class="nav-text">查看以目录结构存放的 dtb 文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看系统中所有的-platform-device"><span class="nav-number">8.4.</span> <span class="nav-text">查看系统中所有的 platform_device</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#proc-device-tree-文件"><span class="nav-number">8.5.</span> <span class="nav-text">/proc/device-tree 文件</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+	
+	<!-- 音乐播放器 -->
+	<div>
+		
+			<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="210" height="110" src="//music.163.com/outchain/player?type=0&id=2832643434&auto=1&height==66"></iframe>
+		
+
+
+        
+      </div>
+    </aside></div></main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.
+pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YobeZhou</span>
+  
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">70.6k</span>
+  
+</div>
+
+<span id="sitetime"></span>
+<script language="javascript">
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+		var t1 = Date.UTC(2019,03,28,20,31,54); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 我已经存在"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒啦";
+	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+	siteTime();
+</script>
+
+<div class="powered-by">
+<span class="post-meta-divider">|</span>
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-meta-divider">|</span>
+  <span class="post-count">博客全站共70.6k字</span>
+</div>
+
+<!-- 底部隐藏由Hexo强力驱动、主题--NexT.Mist -->
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+-->
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'wNPbvtyIOb0CnLcNu8Xx49yd-gzGzoHsz',
+        appKey: 'kKD82yfA2k5gcqBNq4xKiPLn',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  <script src="/js/wobblewindow.js"></script>
+  <script>
+    //只在桌面版网页启用特效
+    if( window.innerWidth > 768  ){
+      $(document).ready(function () {
+        
+          $('#header').wobbleWindow({
+            radius: 50,
+            movementTop: false,
+            movementLeft: false,
+            movementRight: false,
+            debug: false,
+          });
+        
+
+        
+          $('#sidebar').wobbleWindow({
+            radius: 50,
+            movementLeft: false,
+            movementTop: false,
+            movementBottom: false,
+            position: 'fixed',
+            debug: false,
+          });
+        
+
+        
+          $('#footer').wobbleWindow({
+            radius: 50,
+            movementBottom: false,
+            movementLeft: false,
+            movementRight: false,
+            offsetX: ,
+            position: 'absolute',
+            debug: false,
+          });
+        
+      });
+    }
+  </script>
+
+
+
+
+  <script src="/js/activate-power-mode.min.js"></script>
+  <script>
+    POWERMODE.colorful = true;
+    POWERMODE.shake = false;
+    document.body.addEventListener('input', POWERMODE);
+  </script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300,"opacity":0.8},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+
+<!-- 页面点击小红心，在末尾添加，避免找不到 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
