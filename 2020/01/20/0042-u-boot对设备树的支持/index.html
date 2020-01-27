@@ -83,19 +83,19 @@
 
 
 
-<meta name="description" content="第01节_传递dtb给内核(r2 寄存器)u-boot 中的内核启动命令:&amp;emsp;&amp;emsp;无设备树时启动命令格式：   1bootm &amp;lt;uImage_addr&amp;gt;                            // 无设备树，如: bootm 0x30007FC0  &amp;emsp;&amp;emsp;有设备树的启动命令格式：   1234567   bootm &amp;lt;uImag">
+<meta name="description" content="第01节_传递dtb给内核(r2 寄存器)u-boot 中的内核启动命令:&amp;emsp;&amp;emsp;无设备树时启动命令格式： 1bootm &amp;lt;uImage_addr&amp;gt;                            // 无设备树，如: bootm 0x30007FC0  &amp;emsp;&amp;emsp;有设备树的启动命令格式： 1bootm &amp;lt;uImage_addr&amp;gt; &amp;l">
 <meta name="keywords" content="Linux,Device tree">
 <meta property="og:type" content="article">
 <meta property="og:title" content="u-boot对设备树的支持(4)">
 <meta property="og:url" content="https://zhouyuebiao.cn/2020/01/20/0042-u-boot对设备树的支持/index.html">
 <meta property="og:site_name" content="YobeZhou">
-<meta property="og:description" content="第01节_传递dtb给内核(r2 寄存器)u-boot 中的内核启动命令:&amp;emsp;&amp;emsp;无设备树时启动命令格式：   1bootm &amp;lt;uImage_addr&amp;gt;                            // 无设备树，如: bootm 0x30007FC0  &amp;emsp;&amp;emsp;有设备树的启动命令格式：   1234567   bootm &amp;lt;uImag">
+<meta property="og:description" content="第01节_传递dtb给内核(r2 寄存器)u-boot 中的内核启动命令:&amp;emsp;&amp;emsp;无设备树时启动命令格式： 1bootm &amp;lt;uImage_addr&amp;gt;                            // 无设备树，如: bootm 0x30007FC0  &amp;emsp;&amp;emsp;有设备树的启动命令格式： 1bootm &amp;lt;uImage_addr&amp;gt; &amp;l">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://zhouyuebiao.cn/images/device_tree/u-boot%E5%AD%98%E5%82%A8%E6%98%A0%E5%B0%84.png">
-<meta property="og:updated_time" content="2020-01-20T02:00:56.473Z">
+<meta property="og:updated_time" content="2020-01-27T13:19:47.209Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="u-boot对设备树的支持(4)">
-<meta name="twitter:description" content="第01节_传递dtb给内核(r2 寄存器)u-boot 中的内核启动命令:&amp;emsp;&amp;emsp;无设备树时启动命令格式：   1bootm &amp;lt;uImage_addr&amp;gt;                            // 无设备树，如: bootm 0x30007FC0  &amp;emsp;&amp;emsp;有设备树的启动命令格式：   1234567   bootm &amp;lt;uImag">
+<meta name="twitter:description" content="第01节_传递dtb给内核(r2 寄存器)u-boot 中的内核启动命令:&amp;emsp;&amp;emsp;无设备树时启动命令格式： 1bootm &amp;lt;uImage_addr&amp;gt;                            // 无设备树，如: bootm 0x30007FC0  &amp;emsp;&amp;emsp;有设备树的启动命令格式： 1bootm &amp;lt;uImage_addr&amp;gt; &amp;l">
 <meta name="twitter:image" content="https://zhouyuebiao.cn/images/device_tree/u-boot%E5%AD%98%E5%82%A8%E6%98%A0%E5%B0%84.png">
 
 
@@ -398,7 +398,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  550
+                  537
                 </span>
               
 
@@ -436,17 +436,23 @@
 
       
         <p><img src="/images/device_tree/u-boot%E5%AD%98%E5%82%A8%E6%98%A0%E5%B0%84.png" alt="devicetree"></p>
-<h1 id="第01节-传递dtb给内核-r2-寄存器"><a href="#第01节-传递dtb给内核-r2-寄存器" class="headerlink" title="第01节_传递dtb给内核(r2 寄存器)"></a>第01节_传递dtb给内核(r2 寄存器)</h1><h2 id="u-boot-中的内核启动命令"><a href="#u-boot-中的内核启动命令" class="headerlink" title="u-boot 中的内核启动命令:"></a>u-boot 中的内核启动命令:</h2><p>&emsp;&emsp;无设备树时启动命令格式：  </p>
+<h1 id="第01节-传递dtb给内核-r2-寄存器"><a href="#第01节-传递dtb给内核-r2-寄存器" class="headerlink" title="第01节_传递dtb给内核(r2 寄存器)"></a>第01节_传递dtb给内核(r2 寄存器)</h1><h2 id="u-boot-中的内核启动命令"><a href="#u-boot-中的内核启动命令" class="headerlink" title="u-boot 中的内核启动命令:"></a>u-boot 中的内核启动命令:</h2><p>&emsp;&emsp;无设备树时启动命令格式：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bootm &lt;uImage_addr&gt;                            <span class="comment">// 无设备树，如: bootm 0x30007FC0</span></span><br></pre></td></tr></table></figure>
 
-<p>&emsp;&emsp;有设备树的启动命令格式：  </p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">   bootm &lt;uImage_addr&gt; &lt;initrd_addr&gt; &lt;dtb_addr&gt;   <span class="comment">// 有设备树</span></span><br><span class="line">```   </span><br><span class="line">&amp;emsp;&amp;emsp;比如 :  </span><br><span class="line">```C</span><br><span class="line">      nand read.jffs2 <span class="number">0x30007FC0</span> kernel;     <span class="comment">// 读内核 uImage 到内存 0x30007FC0</span></span><br><span class="line">      nand read.jffs2 <span class="number">32000000</span> device_tree;  <span class="comment">// 读 dtb 到内存 32000000</span></span><br><span class="line">      bootm <span class="number">0x30007FC0</span> - <span class="number">0x32000000</span>          <span class="comment">// 启动, 没有 initrd 时对应参数写为"-"（如果所使用的 uboot 不支持 initrd）</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;有设备树的启动命令格式：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bootm &lt;uImage_addr&gt; &lt;initrd_addr&gt; &lt;dtb_addr&gt;   <span class="comment">// 有设备树</span></span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;比如 : </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nand read.jffs2 <span class="number">0x30007FC0</span> kernel;     <span class="comment">// 读内核 uImage 到内存 0x30007FC0</span></span><br><span class="line">nand read.jffs2 <span class="number">32000000</span> device_tree;  <span class="comment">// 读 dtb 到内存 32000000</span></span><br><span class="line">bootm <span class="number">0x30007FC0</span> - <span class="number">0x32000000</span>          <span class="comment">// 启动, 没有 initrd 时对应参数写为"-"（如果所使用的 uboot 不支持 initrd）</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="这个过程是怎样的呢？"><a href="#这个过程是怎样的呢？" class="headerlink" title="这个过程是怎样的呢？"></a>这个过程是怎样的呢？</h2><blockquote>
 <p>bootm 命令怎么把 dtb_addr 写入 r2 寄存器传给内核?  </p>
 </blockquote>
 <p>&emsp;&emsp;根据 <strong>ARM 程序调用规则(ATPCS)</strong> 一个 C 函数即可实现，如：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">      c_function(p0, p1, p2) <span class="comment">// p0 =&gt; r0, p1 =&gt; r1, p2 =&gt; r2</span></span><br><span class="line">```   </span><br><span class="line"></span><br><span class="line">&amp;emsp;&amp;emsp;内核代码中，  </span><br><span class="line">&amp;emsp;&amp;emsp;定义函数指针 the_kernel, 指向内核的启动地址,  </span><br><span class="line">&amp;emsp;&amp;emsp;然后执行:   </span><br><span class="line">```C</span><br><span class="line">      <span class="comment">/* uboot代码， armlinux.c */</span></span><br><span class="line">      do_bootm_linux()</span><br><span class="line">         the_kernel(<span class="number">0</span>, machine_id, <span class="number">0x32000000</span>); <span class="comment">// r0 =&gt; 0, r1 =&gt; machine id, r3 =&gt; dtb addr</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c_function(p0, p1, p2) <span class="comment">// p0 =&gt; r0, p1 =&gt; r1, p2 =&gt; r2</span></span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;内核代码中，<br>&emsp;&emsp;定义函数指针 the_kernel, 指向内核的启动地址,<br>&emsp;&emsp;然后执行: </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* uboot代码， armlinux.c */</span></span><br><span class="line">do_bootm_linux()</span><br><span class="line">   the_kernel(<span class="number">0</span>, machine_id, <span class="number">0x32000000</span>); <span class="comment">// r0 =&gt; 0, r1 =&gt; machine id, r3 =&gt; dtb addr</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="dtb-addr-可以随便选吗"><a href="#dtb-addr-可以随便选吗" class="headerlink" title="dtb_addr 可以随便选吗?"></a>dtb_addr 可以随便选吗?</h2><ul>
 <li>必须遵循两个原则:  <ul>
@@ -459,8 +465,9 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">                   ------------------------------</span><br><span class="line">0x33f80000       -&gt;|    u-boot                  |</span><br><span class="line">                   ------------------------------</span><br><span class="line">                   |    u-boot所使用的内存(栈等) |</span><br><span class="line">                   ------------------------------</span><br><span class="line">                   |                            |</span><br><span class="line">                   |                            |</span><br><span class="line">                   |          空闲区域           |</span><br><span class="line">                   |                            |</span><br><span class="line">                   |                            |</span><br><span class="line">                   |                            |</span><br><span class="line">                   |                            |</span><br><span class="line">                   ------------------------------</span><br><span class="line">0x30008000       -&gt;|      zImage                |</span><br><span class="line">                   ------------------------------  uImage = 64 字节的头部 + zImage</span><br><span class="line">0x30007FC0       -&gt;|      uImage 头部           |</span><br><span class="line">                   ------------------------------</span><br><span class="line">0x30004000       -&gt;|      内核创建的页表         |  head.S</span><br><span class="line">                   ------------------------------</span><br><span class="line">                   |                            |</span><br><span class="line">                   |                            |</span><br><span class="line">            -----&gt; ------------------------------</span><br><span class="line">            |</span><br><span class="line">            |</span><br><span class="line">            --- (内存基址 0x30000000)</span><br></pre></td></tr></table></figure>
 
 <h2 id="确定内核存放的地址"><a href="#确定内核存放的地址" class="headerlink" title="确定内核存放的地址"></a>确定内核存放的地址</h2><blockquote>
-<p>如何确定内核是放在 <strong>0x30008000</strong> 的位置？<br>&emsp;&emsp;进入内核的目录：  </p>
+<p>如何确定内核是放在 <strong>0x30008000</strong> 的位置？  </p>
 </blockquote>
+<p>&emsp;&emsp;进入内核的目录：  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /work/system/<span class="built_in">cd</span> linux-4.19-rc3</span><br><span class="line">$ make uImage</span><br><span class="line">$ mkimage -l arch/arm/boot/uImage <span class="comment"># make uImage 工具</span></span><br><span class="line">Image Name:    Linux-4.19.0-rc3</span><br><span class="line">Created:       Fri oct 19 16:53:58 2018</span><br><span class="line">Image Type:    ARM Linux Kernel Image (uncompressed)</span><br><span class="line">Data Size:     3444952 Bytes=3364.21 kB=3.29 MB </span><br><span class="line">Load Address:  30008000</span><br><span class="line">Entry Point:   30008000</span><br></pre></td></tr></table></figure>
 
 <h2 id="命令示例"><a href="#命令示例" class="headerlink" title="命令示例"></a>命令示例</h2><ol>
@@ -627,7 +634,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
