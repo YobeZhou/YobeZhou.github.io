@@ -46,8 +46,8 @@
   
   <entry>
     <title>中断系统中的设备树(5)</title>
-    <link href="https://zhouyuebiao.cn/2020/01/29/0043-%E4%B8%AD%E6%96%AD%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E8%AE%BE%E5%A4%87%E6%A0%91-5/"/>
-    <id>https://zhouyuebiao.cn/2020/01/29/0043-中断系统中的设备树-5/</id>
+    <link href="https://zhouyuebiao.cn/2020/01/29/0043-%E8%AE%BE%E5%A4%87%E6%A0%91%E4%B9%8B%E4%B8%AD%E6%96%AD%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E8%AE%BE%E5%A4%87%E6%A0%91-5/"/>
+    <id>https://zhouyuebiao.cn/2020/01/29/0043-设备树之中断系统中的设备树-5/</id>
     <published>2020-01-29T06:04:03.000Z</published>
     <updated>2020-01-29T07:03:09.724Z</updated>
     
@@ -74,8 +74,8 @@
   
   <entry>
     <title>u-boot对设备树的支持(4)</title>
-    <link href="https://zhouyuebiao.cn/2020/01/20/0042-u-boot%E5%AF%B9%E8%AE%BE%E5%A4%87%E6%A0%91%E7%9A%84%E6%94%AF%E6%8C%81-4/"/>
-    <id>https://zhouyuebiao.cn/2020/01/20/0042-u-boot对设备树的支持-4/</id>
+    <link href="https://zhouyuebiao.cn/2020/01/20/0042-%E8%AE%BE%E5%A4%87%E6%A0%91%E4%B9%8Bu-boot%E5%AF%B9%E8%AE%BE%E5%A4%87%E6%A0%91%E7%9A%84%E6%94%AF%E6%8C%81-4/"/>
+    <id>https://zhouyuebiao.cn/2020/01/20/0042-设备树之u-boot对设备树的支持-4/</id>
     <published>2020-01-20T01:44:06.000Z</published>
     <updated>2020-01-29T07:03:06.363Z</updated>
     
@@ -102,8 +102,8 @@
   
   <entry>
     <title>内核对设备树的处理(3)</title>
-    <link href="https://zhouyuebiao.cn/2020/01/11/0041-%E5%86%85%E6%A0%B8%E5%AF%B9%E8%AE%BE%E5%A4%87%E6%A0%91%E7%9A%84%E5%A4%84%E7%90%86-3/"/>
-    <id>https://zhouyuebiao.cn/2020/01/11/0041-内核对设备树的处理-3/</id>
+    <link href="https://zhouyuebiao.cn/2020/01/11/0041-%E8%AE%BE%E5%A4%87%E6%A0%91%E4%B9%8B%E5%86%85%E6%A0%B8%E5%AF%B9%E8%AE%BE%E5%A4%87%E6%A0%91%E7%9A%84%E5%A4%84%E7%90%86-3/"/>
+    <id>https://zhouyuebiao.cn/2020/01/11/0041-设备树之内核对设备树的处理-3/</id>
     <published>2020-01-11T00:05:51.000Z</published>
     <updated>2020-01-20T01:50:20.557Z</updated>
     
