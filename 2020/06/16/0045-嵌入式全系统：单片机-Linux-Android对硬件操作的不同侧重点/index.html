@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="Linux,Device tree,">
+  <meta name="keywords" content="韦东山嵌入式,">
 
 
 
@@ -83,23 +83,20 @@
 
 
 
-<meta name="description" content="前言&amp;emsp;&amp;emsp;设备树(Device Tree)是一种描述硬件的数据结构，由一系列被命名的结点（node）和属性（property）组成，而结点本身可包含子结点。所谓属性，其实就是成对出现的name和value。&amp;emsp;&amp;emsp;设备树的出现是为了解决内核中大量的板级文件代码，通过 DTS 可以像应用程序里的 XML 语言一样很方便的对硬件信息进行配置。 字符设备驱动程序的三种">
-<meta name="keywords" content="Linux,Device tree">
+<meta name="description" content="前言我是百问网团队(韦东山嵌入式)的成员之一，本专栏将会连载韦东山编写的一系列文章。 1.概念只要涉及编程，并且所用硬件不是电脑的话，都可以认为是嵌入式软件开发。所谓“嵌入”，就是把处理器嵌入某个物体中，让它具备计算能力。比如手表中有单片机，那么手表就是一个嵌入式设备，在上面开发的单片机程序就是嵌入式软件；手机中有性能强大的处理器，它也是一个嵌入式设备，手机中运行Linux系统，在Linux系统上">
+<meta name="keywords" content="韦东山嵌入式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设备树之为什么需要设备树(1)">
-<meta property="og:url" content="https://zhouyuebiao.cn/2020/01/03/0039-设备树之为什么需要设备树-1/index.html">
+<meta property="og:title" content="嵌入式全系统：单片机-Linux-Android对硬件操作的不同侧重点">
+<meta property="og:url" content="https://zhouyuebiao.cn/2020/06/16/0045-嵌入式全系统：单片机-Linux-Android对硬件操作的不同侧重点/index.html">
 <meta property="og:site_name" content="YobeZhou">
-<meta property="og:description" content="前言&amp;emsp;&amp;emsp;设备树(Device Tree)是一种描述硬件的数据结构，由一系列被命名的结点（node）和属性（property）组成，而结点本身可包含子结点。所谓属性，其实就是成对出现的name和value。&amp;emsp;&amp;emsp;设备树的出现是为了解决内核中大量的板级文件代码，通过 DTS 可以像应用程序里的 XML 语言一样很方便的对硬件信息进行配置。 字符设备驱动程序的三种">
+<meta property="og:description" content="前言我是百问网团队(韦东山嵌入式)的成员之一，本专栏将会连载韦东山编写的一系列文章。 1.概念只要涉及编程，并且所用硬件不是电脑的话，都可以认为是嵌入式软件开发。所谓“嵌入”，就是把处理器嵌入某个物体中，让它具备计算能力。比如手表中有单片机，那么手表就是一个嵌入式设备，在上面开发的单片机程序就是嵌入式软件；手机中有性能强大的处理器，它也是一个嵌入式设备，手机中运行Linux系统，在Linux系统上">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://zhouyuebiao.cn/images/device_tree/devicetree.png">
-<meta property="og:image" content="https://zhouyuebiao.cn/images/device_tree/%E8%BE%93%E5%85%A5%E5%AD%90%E7%B3%BB%E7%BB%9F.png">
-<meta property="og:image" content="https://zhouyuebiao.cn/images/device_tree/%E6%80%BB%E7%BA%BF-%E8%AE%BE%E5%A4%87-%E9%A9%B1%E5%8A%A8%E6%A8%A1%E5%9E%8B.png">
-<meta property="og:image" content="https://zhouyuebiao.cn/images/device_tree/%E8%AE%BE%E5%A4%87%E6%A0%91.png">
-<meta property="og:updated_time" content="2020-01-05T06:24:41.243Z">
+<meta property="og:image" content="http://photos.100ask.net//ELADCMSecond/aboutus/followus.png">
+<meta property="og:updated_time" content="2020-06-16T09:00:32.855Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设备树之为什么需要设备树(1)">
-<meta name="twitter:description" content="前言&amp;emsp;&amp;emsp;设备树(Device Tree)是一种描述硬件的数据结构，由一系列被命名的结点（node）和属性（property）组成，而结点本身可包含子结点。所谓属性，其实就是成对出现的name和value。&amp;emsp;&amp;emsp;设备树的出现是为了解决内核中大量的板级文件代码，通过 DTS 可以像应用程序里的 XML 语言一样很方便的对硬件信息进行配置。 字符设备驱动程序的三种">
-<meta name="twitter:image" content="https://zhouyuebiao.cn/images/device_tree/devicetree.png">
+<meta name="twitter:title" content="嵌入式全系统：单片机-Linux-Android对硬件操作的不同侧重点">
+<meta name="twitter:description" content="前言我是百问网团队(韦东山嵌入式)的成员之一，本专栏将会连载韦东山编写的一系列文章。 1.概念只要涉及编程，并且所用硬件不是电脑的话，都可以认为是嵌入式软件开发。所谓“嵌入”，就是把处理器嵌入某个物体中，让它具备计算能力。比如手表中有单片机，那么手表就是一个嵌入式设备，在上面开发的单片机程序就是嵌入式软件；手机中有性能强大的处理器，它也是一个嵌入式设备，手机中运行Linux系统，在Linux系统上">
+<meta name="twitter:image" content="http://photos.100ask.net//ELADCMSecond/aboutus/followus.png">
 
 
 
@@ -129,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="https://zhouyuebiao.cn/2020/01/03/0039-设备树之为什么需要设备树-1/">
+  <link rel="canonical" href="https://zhouyuebiao.cn/2020/06/16/0045-嵌入式全系统：单片机-Linux-Android对硬件操作的不同侧重点/">
 
 
 
 
 
-  <title>设备树之为什么需要设备树(1) | YobeZhou</title>
+  <title>嵌入式全系统：单片机-Linux-Android对硬件操作的不同侧重点 | YobeZhou</title>
   
 
 
@@ -308,7 +305,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhouyuebiao.cn/2020/01/03/0039-设备树之为什么需要设备树-1/">
+    <link itemprop="mainEntityOfPage" href="https://zhouyuebiao.cn/2020/06/16/0045-嵌入式全系统：单片机-Linux-Android对硬件操作的不同侧重点/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YobeZhou">
@@ -325,7 +322,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">设备树之为什么需要设备树(1)</h1>
+          <h1 class="post-title" itemprop="name headline">嵌入式全系统：单片机-Linux-Android对硬件操作的不同侧重点</h1>
         
 
         <div class="post-meta">
@@ -337,8 +334,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-03T16:11:44+08:00">
-                2020-01-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-16T16:45:26+08:00">
+                2020-06-16
               </time>
             
 
@@ -360,8 +357,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
+                  <a href="/categories/嵌入式/" itemprop="url" rel="index">
+                    <span itemprop="name">嵌入式</span>
                   </a>
                 </span>
 
@@ -378,8 +375,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/01/03/0039-设备树之为什么需要设备树-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/01/03/0039-设备树之为什么需要设备树-1/" itemprop="commentCount"></span>
+                <a href="/2020/06/16/0045-嵌入式全系统：单片机-Linux-Android对硬件操作的不同侧重点/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/06/16/0045-嵌入式全系统：单片机-Linux-Android对硬件操作的不同侧重点/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -401,7 +398,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.3k
+                  4k
                 </span>
               
 
@@ -417,7 +414,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5
+                  14
                 </span>
               
             </div>
@@ -438,23 +435,127 @@
       
 
       
-        <p><img src="/images/device_tree/devicetree.png" alt="devicetree"></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp;&emsp;设备树(Device Tree)是一种描述硬件的数据结构，由一系列被命名的结点（node）和属性（property）组成，而结点本身可包含子结点。所谓属性，其实就是成对出现的name和value。<br>&emsp;&emsp;设备树的出现是为了解决内核中大量的板级文件代码，通过 DTS 可以像应用程序里的 XML 语言一样很方便的对硬件信息进行配置。</p>
-<h2 id="字符设备驱动程序的三种写法"><a href="#字符设备驱动程序的三种写法" class="headerlink" title="字符设备驱动程序的三种写法"></a>字符设备驱动程序的三种写法</h2><p>&emsp;&emsp;驱动程序编写有 3 种方法：传统方法、使用总线设备驱动模型、使用设备树<br>&emsp;&emsp;这3种方法也核心都是一样的: 分配、设置、注册 file_operations 结构体<br>&emsp;&emsp;&emsp;&emsp;这个 file_operations 结构体中有 .open, .read, .write, .ioctl 等成员<br>&emsp;&emsp;&emsp;&emsp;驱动程序要实现这些成员，通过这些成员函数中操作硬件<br>&emsp;&emsp;这 3 种方法的差别在于：如何指定硬件资源？（比如：如何指定 LED 引脚是哪个？）<br>&emsp;&emsp;这 3 中方法的做法分别是：</p>
-<h3 id="传统方法"><a href="#传统方法" class="headerlink" title="传统方法"></a>传统方法</h3><p>&emsp;&emsp;在驱动程序代码中写死硬件资源, 代码简单/不易扩展：<br>&emsp;&emsp;&emsp;&emsp;a. 分配file_operations结构体<br>&emsp;&emsp;&emsp;&emsp;b. 设置file_operations结构体<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;该结构体中有.open,.read,.write等成员,<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;在这些成员函数中去操作硬件<br>&emsp;&emsp;&emsp;&emsp;c. 注册file_operations结构体:<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;register_chrdev(major, name, &amp;fops)<br>&emsp;&emsp;&emsp;&emsp;d. 入口函数: 调用register_chrdev<br>&emsp;&emsp;&emsp;&emsp;e. 出口函数: 调用unregister_chrdev<br><img src="/images/device_tree/%E8%BE%93%E5%85%A5%E5%AD%90%E7%B3%BB%E7%BB%9F.png" alt="输入子系统"></p>
-<h3 id="总线设备驱动模型"><a href="#总线设备驱动模型" class="headerlink" title="总线设备驱动模型"></a>总线设备驱动模型</h3><p>&emsp;&emsp;a. 把驱动程序分为两部分(platform_driver, platform_device)<br>&emsp;&emsp;&emsp;&emsp;* 在 platform_device 中指定硬件资源,<br>&emsp;&emsp;&emsp;&emsp;* 在 platform_driver 根据与之匹配的platform_device获得硬件资源，分配/设置/注册 file_operations结构体（从platform_device获得硬件资源信息）<br>&emsp;&emsp;b. 如何确定platform_device和platform_driver是否匹配?<br>&emsp;&emsp;&emsp;&emsp;b.1 platform_device含有name<br>&emsp;&emsp;&emsp;&emsp;b.2 platform_driver.id_table”可能”指向一个数组, 每个数组项都有name, 表示该platform_driver所能支持的platform_device<br>&emsp;&emsp;&emsp;&emsp;b.3  platform_driver.driver含有name, 表示该platform_driver所能支持的platform_device<br>&emsp;&emsp;&emsp;&emsp;b.4 优先比较b.1, b.2两者的name, 若相同则表示互相匹配<br>&emsp;&emsp;&emsp;&emsp;b.5 如果platform_driver.id_table为NULL, 则比较b.1, b.3两者的name, 若相同则表示互相匹配<br><img src="/images/device_tree/%E6%80%BB%E7%BA%BF-%E8%AE%BE%E5%A4%87-%E9%A9%B1%E5%8A%A8%E6%A8%A1%E5%9E%8B.png" alt="总线-设备-驱动模型"></p>
-<p>&emsp;&emsp;特点：<br>&emsp;&emsp;&emsp;&emsp;优点：易于扩展，但是有很多冗余代码(每种配置都对应一个platform_device结构体),<br>&emsp;&emsp;&emsp;&emsp;缺点：硬件有变动时需要重新编译内核或驱动程序。</p>
-<h3 id="使用设备树指定硬件资源"><a href="#使用设备树指定硬件资源" class="headerlink" title="使用设备树指定硬件资源"></a>使用设备树指定硬件资源</h3><p>&emsp;&emsp;驱动程序也分为两部分(platform_driver, 设备树<em>.dts)<br>&emsp;&emsp;在设备树</em>.dts中指定硬件资源, dts被编译为dtb文件, 在启动单板时会将dtb文件传给内核,<br>&emsp;&emsp;内核根据dtb文件分配/设置/注册多个platform_device<br>&emsp;&emsp;而platform_driver的编写方法跟”总线设备驱动模型”一样。</p>
-<p>&emsp;&emsp;特点：<br>&emsp;&emsp;&emsp;&emsp;易于扩展，没有冗余代码<br>&emsp;&emsp;&emsp;&emsp;硬件有变动时不需要重新编译内核或驱动程序，只需要提供不一样的dtb文件<br>&emsp;&emsp;注: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dts  - device tree source  // 设备树源文件</span><br><span class="line">dtb  - device tree blob    // 设备树二进制文件, 由dts编译得来</span><br><span class="line">blob - binary large object</span><br></pre></td></tr></table></figure>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我是<a href="https://www.100ask.net/" target="_blank" rel="noopener">百问网</a>团队(<a href="https://baike.baidu.com/item/%E9%9F%A6%E4%B8%9C%E5%B1%B1/1035866?fr=aladdin" target="_blank" rel="noopener">韦东山嵌入式</a>)的成员之一，本专栏将会连载韦东山编写的一系列文章。</p>
+<h1 id="1-概念"><a href="#1-概念" class="headerlink" title="1.概念"></a>1.概念</h1><p>只要涉及编程，并且所用硬件不是电脑的话，都可以认为是嵌入式软件开发。所谓“嵌入”，就是把处理器嵌入某个物体中，让它具备计算能力。比如手表中有单片机，那么手表就是一个嵌入式设备，在上面开发的单片机程序就是嵌入式软件；手机中有性能强大的处理器，它也是一个嵌入式设备，手机中运行Linux系统，在Linux系统上运行Android系统，这些Linux、Android都属于嵌入式软件。</p>
+<p>嵌入式设备上运行的软件或系统可以分为三类：单片机、Linux/WinCE等大型操作系统、Android/IOS/QT等GUI系统。</p>
+<p>做产品时我们考虑的是性价比，什么合适就用什么，这需要我们具备多方面的开发能力。本文将介绍单片机、Linux、Android系统的侧重点。 </p>
+<p>我是韦东山，一直从事嵌入式Linux培训，最近打算连载一系列文章。</p>
+<h1 id="2-有哪些产品使用这3类技术"><a href="#2-有哪些产品使用这3类技术" class="headerlink" title="2. 有哪些产品使用这3类技术"></a>2. 有哪些产品使用这3类技术</h1><p>![image-20200609135436283](<a href="http://photos.100ask.net/blog/beginner/SCM-Linux-Android" target="_blank" rel="noopener">http://photos.100ask.net/blog/beginner/SCM-Linux-Android</a> different focus on hardware operation_Image1.png)</p>
+<p>![image-20200609135518041](<a href="http://photos.100ask.net/blog/beginner/SCM-Linux-Android" target="_blank" rel="noopener">http://photos.100ask.net/blog/beginner/SCM-Linux-Android</a> different focus on hardware operation_Image2.png)</p>
+<p>![image-20200609135530960](<a href="http://photos.100ask.net/blog/beginner/SCM-Linux-Android" target="_blank" rel="noopener">http://photos.100ask.net/blog/beginner/SCM-Linux-Android</a> different focus on hardware operation_Image3.png)</p>
+<p>![image-20200609135540698](<a href="http://photos.100ask.net/blog/beginner/SCM-Linux-Android" target="_blank" rel="noopener">http://photos.100ask.net/blog/beginner/SCM-Linux-Android</a> different focus on hardware operation_Image4.png)</p>
+<p>​        没有一样技术可以适用于所有设备，很多时候需要组合起来。比如无人机，使用单片机才能更快处理各种控制事件，使用Linux才能更好进行图像处理、传输，在手机端还得给你开发一个安卓APP让你更容易操控。</p>
+<h1 id="3-谁的工作机会更多"><a href="#3-谁的工作机会更多" class="headerlink" title="3. 谁的工作机会更多"></a>3. 谁的工作机会更多</h1><p>我们要用数据说话，看下图：</p>
+<p>![image-20200609135640249](<a href="http://photos.100ask.net/blog/beginner/SCM-Linux-Android" target="_blank" rel="noopener">http://photos.100ask.net/blog/beginner/SCM-Linux-Android</a> different focus on hardware operation_Image5.png)</p>
+<p>让人意外，Linux的职位竟然是最多的。但是很多互联网产品也使用Linux，比如虚拟化、云计算、云存储领域。这些互联网公司、云产品公司对Linux开发人员也有大量的需求，把这些公司的职位来跟单片机职位进行对比，很不公平。</p>
+<p>所以我再细分一下，把涉及硬件操作的Linux职位单独抽出来，如下：</p>
+<p>![image-20200609135705670](<a href="http://photos.100ask.net/blog/beginner/SCM-Linux-Android" target="_blank" rel="noopener">http://photos.100ask.net/blog/beginner/SCM-Linux-Android</a> different focus on hardware operation_Image6.png)</p>
+<p>这些数据统计稍显粗略，但是也能说明一些问题，我先做个柱形图：</p>
+<p>![image-20200609135722203](<a href="http://photos.100ask.net/blog/beginner/SCM-Linux-Android" target="_blank" rel="noopener">http://photos.100ask.net/blog/beginner/SCM-Linux-Android</a> different focus on hardware operation_Image6-1.png)</p>
+<p>也许，我们可以得出这么个结论：跟硬件打交道的职位里单片机最多，嵌入式Linux的数量是单片机的三分之二。<br>如果把Linux APP的职位算上，那是最多的，这似乎有些不公平，Linux APP应该去跟JAVA等相比。<br>这些职位需求也是吻合现实的，一个公司里硬件职位最少，驱动稍多点，APP最多。很多时候APP职位里几个老员工把驱动的活也全包了。</p>
+<h2 id="3-1-单片机工作机会门槛最低"><a href="#3-1-单片机工作机会门槛最低" class="headerlink" title="3.1 单片机工作机会门槛最低"></a>3.1 单片机工作机会门槛最低</h2><p>身边触手可及的电灯开关、洗衣机、冰箱、微波炉等小家电，使用的都是单片机技术；家里的无线路由器、智能电视，用的是Linux；你天天用的手机要么是安卓要么是苹果。</p>
+<p>可以大概猜得出来，单片机的工作机会更多地集中在小家电领域，门槛比较低，单纯的技术上升空间也有限。注意，我说的是“技术上升空间”。我几年前发表过一个观点“学习单片机没有前途”，这过于激烈，被很多人骂。我今天把它改为“只学习单片机没有前途”。</p>
+<p>最近有一个高手在教我CAN的知识，CAN编程基本只用在单片机上，但是华为年薪80万挖不走他；并且他才刚开始学习Linux。他给我发过两张图：</p>
+<p>![image-20200609135808748](<a href="http://photos.100ask.net/blog/beginner/SCM-Linux-Android" target="_blank" rel="noopener">http://photos.100ask.net/blog/beginner/SCM-Linux-Android</a> different focus on hardware operation_Image7.png)</p>
+<p>各位看看上面的图，要想拿高薪，单片机工程师必须深入行业，掌握行业的核心技术。否则，单就单片机技术来说，10年经验跟2年经验并没有太大区别。<br>做单片机很容易从上到下整个程序都是你一个人掌握，所有问题你都清楚，这很安逸，也意味麻痹及危机。<br>现在5G、物联网时代到来，单片机也将会有新的发展，我认为重点在于各类RTOS、各类物联网规范。</p>
+<h2 id="3-2-Linux的职位反而是最多的"><a href="#3-2-Linux的职位反而是最多的" class="headerlink" title="3.2 Linux的职位反而是最多的"></a>3.2 Linux的职位反而是最多的</h2><p>在写这篇文章之前，我也倾向于认为单片机的职位是最多的。但是在51JOB上进行粗略搜索之后，linux的职位反而是最多的，即使仅仅计算“嵌入式 linux”的职位，也达到了单片机职位的三分之二。这也许预示着中国的产业升级，大家都不再满足于使用单片机完成简单的功能，需要添加更多更炫的功能。</p>
+<p>如果你是电子工程师，想从事“linux驱动”等跟硬件密切相关的工作，可能机会不多，因为这需要你有经验。这就是行业尴尬的地方，单片机工程师想跳槽，最适配的是嵌入式Linux中跟硬件编程相关的职位，但是这个职位又太看重经验；实际上很容易找到的是电子产品的Linux APP开发。</p>
+<p>现在的中小公司里有这么一个趋势，扔一个项目给你，从上到下APP、驱动、硬件都要你的团队完成，很多人都是多面手。</p>
+<p>所以，技多不压身，如果你是电子工程师话，单片机、Linux驱动、Linux APP都掌握，也许生存能力才能大辐增强。</p>
+<h2 id="3-3-Android"><a href="#3-3-Android" class="headerlink" title="3.3 Android"></a>3.3 Android</h2><p>安卓的热度有点退了，一个中小公司没有一定的实力真做不来安卓系统，这个系统太庞大了，乱配个蓝牙就分分钟卡上1、2个月。<br>所以需要用安卓系统的公司，多是采购方案公司的板卡，方案公司帮你改好安卓系统。<br>买来方案后，这些公司多是做些安卓APP；要研究安卓系统的人，也许去手机厂家或是方案公司会比较好。<br>比如我知道的科大讯飞下某子公司，就是使用中山firefly的瑞芯微系列板卡。</p>
+<h1 id="4-电片机-Linux-Android工程师怎么点灯"><a href="#4-电片机-Linux-Android工程师怎么点灯" class="headerlink" title="4 电片机/Linux/Android工程师怎么点灯"></a>4 电片机/Linux/Android工程师怎么点灯</h1><p>LED的原理图如下，只要让某个引脚输出高电平或低电平，就能让LED亮或灭。</p>
+<p>![image-20200609135940274](<a href="http://photos.100ask.net/blog/beginner/SCM-Linux-Android" target="_blank" rel="noopener">http://photos.100ask.net/blog/beginner/SCM-Linux-Android</a> different focus on hardware operation_Image8.png)</p>
+<h2 id="4-1-单片机怎么点灯"><a href="#4-1-单片机怎么点灯" class="headerlink" title="4.1 单片机怎么点灯"></a>4.1 单片机怎么点灯</h2><p>![image-20200609140100721](<a href="http://photos.100ask.net/blog/beginner/SCM-Linux-Android" target="_blank" rel="noopener">http://photos.100ask.net/blog/beginner/SCM-Linux-Android</a> different focus on hardware operation_Image9.png)</p>
+<p>简单地说就是需要工作师去看原理图确定引脚是哪一个，输出什么电平能点亮LED。再去看芯片手册，确定怎么操作寄存器。最后写程序。</p>
+<p>至于你写的程序，风格如何、函数名怎么取，完全由你自由发挥。以后别的同事想来重用你的代码，就得看你写的说明，或是看你的代码。</p>
+<p>现在ARM公司在推出一些HAL规范，就是规定一些硬件操作函数接口，如果大家都遵守这些规范的话，在单片机上的APP也很容易移植到其他板子上。</p>
+<h2 id="4-2-Linux怎么点灯"><a href="#4-2-Linux怎么点灯" class="headerlink" title="4.2 Linux怎么点灯"></a>4.2 Linux怎么点灯</h2><p>![image-20200609140130007](<a href="http://photos.100ask.net/blog/beginner/SCM-Linux-Android" target="_blank" rel="noopener">http://photos.100ask.net/blog/beginner/SCM-Linux-Android</a> different focus on hardware operation_Image10.png)</p>
+<p>在Linux中，驱动程序负责操作硬件，APP调用open、write这些标准接口就可以点亮LED。APP调用open，会导致驱动程序中的led_open被调用；APP调用write，会导致驱动程序中的led_write被调用。</p>
+<p>所以，驱动怎么写？驱动程序中要写出led_open、led_write这些函数。在写出这些函数之前，驱动工程师也要去看原理图、看芯片手册，这跟单片机工程师是一样的。然后就按照Linux的规范提供这些led_open、led_write函数。<br>所以，Linux驱动 = 驱动框架+硬件操作 = 驱动框架+单片机知识。<br>为什么要多此一举引入驱动框架？直接操作硬件多爽、多直接。</p>
+<p>原因有2<br>​    1．术业有专攻，不要让写APP的人去看原理图、芯片手册，他们只需要调用标准的open,read,write等接口即可操作硬件<br>​    2．软件和硬件隔离，硬件再怎么变化，只需要改驱动，APP不需要改</p>
+<h4 id="3-3-Android怎么点灯"><a href="#3-3-Android怎么点灯" class="headerlink" title="3.3 Android怎么点灯"></a>3.3 Android怎么点灯</h4><p>![image-20200609140243124](<a href="http://photos.100ask.net/blog/beginner/SCM-Linux-Android" target="_blank" rel="noopener">http://photos.100ask.net/blog/beginner/SCM-Linux-Android</a> different focus on hardware operation_Image11.png)</p>
+<p>Android是一套GUI系统，它是运行在Linux上面的，硬件操作由Linux完成。所以你可以认为Android就是一套APP，它也是通open、write这些接口来访问驱动，进而操作硬件的。</p>
+<p>但是Android中程序太多数是用JAVA编写的，这些open、write是C语言函数，所以要引入一个层：JNI接口(Java Native Interface)，通过这个接口Java可以调用C函数。</p>
+<h1 id="5-电片机-Linux-Android工程师怎么使用LCD"><a href="#5-电片机-Linux-Android工程师怎么使用LCD" class="headerlink" title="5.  电片机/Linux/Android工程师怎么使用LCD"></a>5.  电片机/Linux/Android工程师怎么使用LCD</h1><p>用点灯举例太简单，可以突出单片机和Linux的区别；但是Linux和Android的区别似乎不大。</p>
+<p>下面我们用LCD为例讲解。 </p>
+<h2 id="5-1-LCD操作原理"><a href="#5-1-LCD操作原理" class="headerlink" title="5.1 LCD操作原理"></a>5.1 LCD操作原理</h2><p>![image-20200609140318623](<a href="http://photos.100ask.net/blog/beginner/SCM-Linux-Android" target="_blank" rel="noopener">http://photos.100ask.net/blog/beginner/SCM-Linux-Android</a> different focus on hardware operation_Image12.png)</p>
+<p>假设上图是一个LCD屏幕，屏幕中一个一个密密麻麻的黑点称之为像素点，每一行有若干个点，试想下有一个电子枪，电子枪位于某一个像素点的背后，然后向这个像素发射红，绿，蓝三种原色，这三种颜色按不同的比例组合成任意一种颜色。电子枪在像素点的背后，一边移动一边发出各种颜色的光，电子枪从左往右移动，到右边边缘之后就跳到下一行的行首，继续从左往右移动，如此往复，一直移动到屏幕右下角的像素点，最后就跳回原点。</p>
+<p>问题1：电子枪如何移动？</p>
+<blockquote>
+<p>答： 有一条像素时钟信号线（DCLK），连接屏幕，每来一个像素时钟信号（DCLK），电子枪就移动一个像素。</p>
+</blockquote>
+<p>问题2：电子枪打出的颜色该如何确定？</p>
+<blockquote>
+<p>答：有三组红，绿，蓝信号线（RGB），连接屏幕，由这三组信号线（RGB）传递颜色</p>
+</blockquote>
+<p>问题3：电子枪移动到LCD屏幕右边边缘时，如何得知需要跳到下一行的行首？</p>
+<blockquote>
+<p>答：有一条水平同步信号线（HSYNC），连接屏幕，当接收到水平同步信号（HSYNC），电子枪就跳到下一行的最左边</p>
+</blockquote>
+<p>问题4：电子枪如何得知需要跳到原点？</p>
+<blockquote>
+<p>答：有一条垂直同步信号线（VSYNC），连接屏幕，当接收到垂直同步信号线（VSYNC），电子枪就由屏幕右下脚跳到左上角（原点）</p>
+</blockquote>
+<p>问题5：电子枪如何得知三组信号线（RGB）确定的颜色就是它是需要的呢？</p>
+<blockquote>
+<p>答：有一条RGB数据使能信号线（DE），连接屏幕，当接收到数据使能信号线（DE），电子枪就知道这时由这三组信号线（RGB）确定的颜色是有效的，可以发射到该像素点。</p>
+</blockquote>
+<p>下图是开发板，LCD控制器，LCD屏幕的框图</p>
+<p>![image-20200609140636433](<a href="http://photos.100ask.net/blog/beginner/SCM-Linux-Android" target="_blank" rel="noopener">http://photos.100ask.net/blog/beginner/SCM-Linux-Android</a> different focus on hardware operation_Image16.png)</p>
+<p>之前提到的像素时钟（DCLK）， 三组红，绿，蓝信号线（RGB），水平同步信号线（HSYNC），垂直同步信号线（VSYNC），RGB数据使能信号线（DE）都是从LCD控制器发出的，只要开发板支持LCD显示，它肯定就会有一个LCD控制器。</p>
+<p>问题6：RGB三组信号线上的数据从何而来？</p>
+<p>![image-20200609140703261](<a href="http://photos.100ask.net/blog/beginner/SCM-Linux-Android" target="_blank" rel="noopener">http://photos.100ask.net/blog/beginner/SCM-Linux-Android</a> different focus on hardware operation_Image17.png)</p>
+<blockquote>
+<p>上图是RGB数据来源框图，内存中划出一部分区域，这块区域被称为Framebuffer。在Framebuffer里面我们会构造好每一个颜色所对应的像素。Framebuffer中的值会被LCD控制器读出来，通过RGB三组线传给电子枪，电子枪再把它转换成红绿蓝三种颜色打到屏幕上。在屏幕上的每一个像素，在Frambuffer里面都有一个对应存储空间，里面存有屏幕上对应像素的颜色。</p>
+<p>LCD控制器会周而复始的从Framebuffer中取出一个个像素的颜色值，发给电子枪，同时需要和DCLK，VSYNC，HSYNC，DE这些信号配合好。</p>
+<p>总结起来，程序需要做的就是2点：设置好LCD控制器，然后在显存中写入数据。</p>
+</blockquote>
+<h2 id="5-2-单片机怎么操作LCD"><a href="#5-2-单片机怎么操作LCD" class="headerlink" title="5.2    单片机怎么操作LCD"></a>5.2    单片机怎么操作LCD</h2><p>![image-20200609140443622](<a href="http://photos.100ask.net/blog/beginner/SCM-Linux-Android" target="_blank" rel="noopener">http://photos.100ask.net/blog/beginner/SCM-Linux-Android</a> different focus on hardware operation_Image13.png)</p>
+<p>单片机程序员要做的事很直接：<br>1．设置LCD控制器，它会自动从FrameBuffer中读取每个像素的数据发送到LCD上<br>2．把要显示的文字、图像放入FrameBuffer中</p>
+<h2 id="5-3-Linux怎么操作LCD"><a href="#5-3-Linux怎么操作LCD" class="headerlink" title="5.3 Linux怎么操作LCD"></a>5.3 Linux怎么操作LCD</h2><p>![image-20200609140501684](<a href="http://photos.100ask.net/blog/beginner/SCM-Linux-Android" target="_blank" rel="noopener">http://photos.100ask.net/blog/beginner/SCM-Linux-Android</a> different focus on hardware operation_Image14.png)</p>
+<p>在Linux中，驱动程序负责操作硬件，APP调用open、ioctl这些标准接口就可以获得LCD的参数，设置LCD。然后使用mmap获得Framebuffer的地址，就可以往里面填入数据。<br>至于LCD控制器的设置，这由驱动来做。</p>
+<p>所以，驱动怎么写？初始化LCD控制器，提供lcd_open、lcd_ioctl、lcd_mmap函数，让APP可以通过这些函数获得LCD参数，设置参数，获得Framebuffer地址。<br>所以，Linux驱动 = 驱动框架+硬件操作 = 驱动框架+单片机知识。<br>为什么要多此一举引入驱动框架？直接操作硬件多爽、多直接。</p>
+<p>原因有2<br>1．术业有专攻，不要让写APP的人去看原理图、芯片手册，他们只需要调用标准的open,read,write,ioctl,mmap等接口即可操作硬件<br>2．软件和硬件隔离，硬件再怎么变化，只需要改驱动，APP不需要改</p>
+<h2 id="5-4-Android怎么操作LCD"><a href="#5-4-Android怎么操作LCD" class="headerlink" title="5.4 Android怎么操作LCD"></a>5.4 Android怎么操作LCD</h2><p>![image-20200609140609853](<a href="http://photos.100ask.net/blog/beginner/SCM-Linux-Android" target="_blank" rel="noopener">http://photos.100ask.net/blog/beginner/SCM-Linux-Android</a> different focus on hardware operation_Image15.png)</p>
+<p>Android是一套GUI系统，跟QT是类似的。在Android/QT等GUI系统里：</p>
+<ul>
+<li><ol>
+<li>LCD会被多个APP使用，如果不统一管理必定乱套；</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>所以，肯定有一个管理软件，或称为服务软件：<ul>
+<li>2.1 APP自行构造自己的界面，提交给显示显示服务软件</li>
+<li>2.2 显示服务软件：根据多个APP的前后层次，合并最终的显示图像</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>最后再调用驱动程序显示出来</li>
+</ol>
+</li>
+</ul>
+<p>所以在Android系统中，它的重心在于显示服务、在于多个窗口的层叠、管理、销毁。硬件的操作交给是Linux实现。</p>
+<h1 id="6-写在最后"><a href="#6-写在最后" class="headerlink" title="6 写在最后"></a>6 写在最后</h1><p>我无意引起单片机、Linux、Android孰优孰劣的讨论，我确实不看好纯粹的单片机软件开发，但是很看好RTOS及物联网在单片机上的应用。<br>生活不容易，码农不容易，走上码农之路，只有不断学习了。</p>
+<h1 id="关注我们"><a href="#关注我们" class="headerlink" title="关注我们"></a>关注我们</h1><ul>
+<li>百问网官方wiki：<a href="http://wiki.100ask.org" target="_blank" rel="noopener">http://wiki.100ask.org</a></li>
+<li>百问网官方论坛：<a href="http://bbs.100ask.net" target="_blank" rel="noopener">http://bbs.100ask.net</a></li>
+<li>百问网官网：<a href="http://www.100ask.net" target="_blank" rel="noopener">http://www.100ask.net</a></li>
+<li>微信公众号：百问科技</li>
+<li>CSDN：<a href="https://edu.csdn.net/lecturer/90" target="_blank" rel="noopener">韦东山</a></li>
+<li>B站：<a href="https://space.bilibili.com/275908810?from=search&seid=10505231074028238949" target="_blank" rel="noopener">韦东山</a></li>
+<li>知乎：<a href="https://www.zhihu.com/people/www.100ask/" target="_blank" rel="noopener">韦东山嵌入式</a></li>
+<li>微博：<a href="https://weibo.com/888wds?topnav=1&wvr=6" target="_blank" rel="noopener">百问科技</a></li>
+<li>电子发烧友学院：<a href="http://t.elecfans.com/teacher/3.html" target="_blank" rel="noopener">韦东山</a></li>
+</ul>
+<p>微信公众号  |  视频教程在线学习平台</p>
+<center class="half">
+   <img src="http://photos.100ask.net//ELADCMSecond/aboutus/followus.png" width="800">
+</center>
 
-<p><img src="/images/device_tree/%E8%AE%BE%E5%A4%87%E6%A0%91.png" alt="设备树写法"></p>
-<h2 id="使用设备树编写驱动的详细过程"><a href="#使用设备树编写驱动的详细过程" class="headerlink" title="使用设备树编写驱动的详细过程"></a>使用设备树编写驱动的详细过程</h2><p>&emsp;&emsp;a. 使用”总线设备驱动模型”编写的驱动程序分为 platform_device 和 platform_driver 两部分<br>&emsp;&emsp;&emsp;&emsp;* platform_device : 指定硬件资源, 来自 .c 文件<br>&emsp;&emsp;&emsp;&emsp;* platform_driver : 根据与之匹配的 platform_device 获得硬件资源, 并分配-&gt;设置-&gt;注册 file_operations 结构体<br>&emsp;&emsp;b. 实际上platform_device也可以来自设备树文件.dts<br>&emsp;&emsp;&emsp;&emsp;* 1. dts 文件被编译为 dtb 文件,<br>&emsp;&emsp;&emsp;&emsp;* 2. dtb 文件会传给内核,<br>&emsp;&emsp;&emsp;&emsp;* 3. 内核会解析 dtb 文件, 构造出一系列的 device_node 结构体,<br>&emsp;&emsp;&emsp;&emsp;* 4. device_node 结构体会转换为 platform_device 结构体</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dts -&gt; dtv -&gt; 内核解析dtb -&gt; device_node -&gt; platform_device</span><br></pre></td></tr></table></figure>
 
-<p>&emsp;&emsp;&emsp;&emsp;所以: 我们在 dts 文件中指定资源即可； 不再需要在 .c 文件中设置 platform_device 结构体。<br>&emsp;&emsp;c.  “来自 dts 的 platform_device 结构体” 与 “我们写的 platform_driver “ 的匹配过程:<br>&emsp;&emsp;&emsp;&emsp;”来自 dts 的 platform_device 结构体”里面有成员”.dev.of_node”, 它里面含有各种属性, 比如 compatible, reg, pin<br>&emsp;&emsp;&emsp;&emsp;”我们写的 platform_driver “ 里面有成员 “.driver.of_match_table”, 它表示能支持哪些来自于 dts 的 platform_device</p>
-<p>&emsp;&emsp;&emsp;&emsp;如果 “of_node 中的 compatible” 跟 “of_match_table 中的 compatible” 一致, 就表示匹配成功, 则调用 platform_driver 中的 probe 函数;<br>&emsp;&emsp;&emsp;&emsp;在 probe 函数中, 可以继续从 of_node 中获得各种属性来确定硬件资源</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>&emsp;&emsp;百问网：<a href="http://www.100ask.net" target="_blank" rel="noopener">http://www.100ask.net</a></p>
+
 
       
     </div>
@@ -483,9 +584,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
-          
-            <a href="/tags/Device-tree/" rel="tag"># Device tree</a>
+            <a href="/tags/韦东山嵌入式/" rel="tag"># 韦东山嵌入式</a>
           
         </div>
       
@@ -498,8 +597,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/11/0038-分析Android-Recovery-UI的实现过程/" rel="next" title="分析Android-Recovery-UI的实现过程">
-                <i class="fa fa-chevron-left"></i> 分析Android-Recovery-UI的实现过程
+              <a href="/2020/01/29/0044-USB设备驱动程序/" rel="next" title="USB设备驱动程序">
+                <i class="fa fa-chevron-left"></i> USB设备驱动程序
               </a>
             
           </div>
@@ -507,10 +606,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/01/05/0040-设备树之设备树的规范-2/" rel="prev" title="设备树之设备树的规范(2)">
-                设备树之设备树的规范(2) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -676,7 +771,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符设备驱动程序的三种写法"><span class="nav-number">1.1.</span> <span class="nav-text">字符设备驱动程序的三种写法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#传统方法"><span class="nav-number">1.1.1.</span> <span class="nav-text">传统方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总线设备驱动模型"><span class="nav-number">1.1.2.</span> <span class="nav-text">总线设备驱动模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用设备树指定硬件资源"><span class="nav-number">1.1.3.</span> <span class="nav-text">使用设备树指定硬件资源</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用设备树编写驱动的详细过程"><span class="nav-number">1.2.</span> <span class="nav-text">使用设备树编写驱动的详细过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">1.3.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-概念"><span class="nav-number">2.</span> <span class="nav-text">1.概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-有哪些产品使用这3类技术"><span class="nav-number">3.</span> <span class="nav-text">2. 有哪些产品使用这3类技术</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-谁的工作机会更多"><span class="nav-number">4.</span> <span class="nav-text">3. 谁的工作机会更多</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-单片机工作机会门槛最低"><span class="nav-number">4.1.</span> <span class="nav-text">3.1 单片机工作机会门槛最低</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-Linux的职位反而是最多的"><span class="nav-number">4.2.</span> <span class="nav-text">3.2 Linux的职位反而是最多的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-Android"><span class="nav-number">4.3.</span> <span class="nav-text">3.3 Android</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-电片机-Linux-Android工程师怎么点灯"><span class="nav-number">5.</span> <span class="nav-text">4 电片机/Linux/Android工程师怎么点灯</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-单片机怎么点灯"><span class="nav-number">5.1.</span> <span class="nav-text">4.1 单片机怎么点灯</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-Linux怎么点灯"><span class="nav-number">5.2.</span> <span class="nav-text">4.2 Linux怎么点灯</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-Android怎么点灯"><span class="nav-number">5.2.0.1.</span> <span class="nav-text">3.3 Android怎么点灯</span></a></li></ol></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#5-电片机-Linux-Android工程师怎么使用LCD"><span class="nav-number">6.</span> <span class="nav-text">5.  电片机/Linux/Android工程师怎么使用LCD</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-LCD操作原理"><span class="nav-number">6.1.</span> <span class="nav-text">5.1 LCD操作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-单片机怎么操作LCD"><span class="nav-number">6.2.</span> <span class="nav-text">5.2    单片机怎么操作LCD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-Linux怎么操作LCD"><span class="nav-number">6.3.</span> <span class="nav-text">5.3 Linux怎么操作LCD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-4-Android怎么操作LCD"><span class="nav-number">6.4.</span> <span class="nav-text">5.4 Android怎么操作LCD</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-写在最后"><span class="nav-number">7.</span> <span class="nav-text">6 写在最后</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关注我们"><span class="nav-number">8.</span> <span class="nav-text">关注我们</span></a></li></div>
             
 
           </div>
