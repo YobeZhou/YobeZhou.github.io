@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="韦东山嵌入式,">
+  <meta name="keywords" content="树莓派pico,">
 
 
 
@@ -83,38 +83,22 @@
 
 
 
-<meta name="description" content="前言我是百问网团队(韦东山嵌入式)的成员之一，本专栏将会连载韦东山编写的一系列文章。 概念只要涉及编程，并且所用硬件不是电脑的话，都可以认为是嵌入式软件开发。所谓“嵌入”，就是把处理器嵌入某个物体中，让它具备计算能力。比如手表中有单片机，那么手表就是一个嵌入式设备，在上面开发的单片机程序就是嵌入式软件；手机中有性能强大的处理器，它也是一个嵌入式设备，手机中运行Linux系统，在Linux系统上运行">
-<meta name="keywords" content="韦东山嵌入式">
+<meta name="description" content="前言前些日子到手了一块raspberry pico和2.2寸屏ILI9341。想通过ILI9341显示屏让pico的实验做起来更加丰富多彩。下图是我的实验成果：  实验说明实验中我使用的材料如下：  raspberry pico 2.2寸屏ILI9341 滑动变阻器  实验预期效果pico在2.2寸屏ILI9341显示一个量规实时显示滑动变阻器的数值。 接线  测试代码： 123456789101">
+<meta name="keywords" content="树莓派pico">
 <meta property="og:type" content="article">
-<meta property="og:title" content="嵌入式全系统：单片机-Linux-Android对硬件操作的不同侧重点">
-<meta property="og:url" content="https://zhouyuebiao.cn/2020/06/16/0045-嵌入式全系统：单片机-Linux-Android对硬件操作的不同侧重点/index.html">
+<meta property="og:title" content="0046-树莓派-pico配置ILI9341+lvgl">
+<meta property="og:url" content="https://zhouyuebiao.cn/2022/03/04/0046-树莓派-pico配置ILI4839+lvgl/index.html">
 <meta property="og:site_name" content="YobeZhou">
-<meta property="og:description" content="前言我是百问网团队(韦东山嵌入式)的成员之一，本专栏将会连载韦东山编写的一系列文章。 概念只要涉及编程，并且所用硬件不是电脑的话，都可以认为是嵌入式软件开发。所谓“嵌入”，就是把处理器嵌入某个物体中，让它具备计算能力。比如手表中有单片机，那么手表就是一个嵌入式设备，在上面开发的单片机程序就是嵌入式软件；手机中有性能强大的处理器，它也是一个嵌入式设备，手机中运行Linux系统，在Linux系统上运行">
+<meta property="og:description" content="前言前些日子到手了一块raspberry pico和2.2寸屏ILI9341。想通过ILI9341显示屏让pico的实验做起来更加丰富多彩。下图是我的实验成果：  实验说明实验中我使用的材料如下：  raspberry pico 2.2寸屏ILI9341 滑动变阻器  实验预期效果pico在2.2寸屏ILI9341显示一个量规实时显示滑动变阻器的数值。 接线  测试代码： 123456789101">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image1.png">
-<meta property="og:image" content="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image2.png">
-<meta property="og:image" content="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image3.png">
-<meta property="og:image" content="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image4.png">
-<meta property="og:image" content="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image5.png">
-<meta property="og:image" content="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image6.png">
-<meta property="og:image" content="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image6-1.png">
-<meta property="og:image" content="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image7.png">
-<meta property="og:image" content="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image8.png">
-<meta property="og:image" content="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image9.png">
-<meta property="og:image" content="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image10.png">
-<meta property="og:image" content="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image11.png">
-<meta property="og:image" content="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image12.png">
-<meta property="og:image" content="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image16.png">
-<meta property="og:image" content="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image17.png">
-<meta property="og:image" content="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image13.png">
-<meta property="og:image" content="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image14.png">
-<meta property="og:image" content="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image15.png">
-<meta property="og:image" content="http://photos.100ask.net//ELADCMSecond/aboutus/followus.png">
-<meta property="og:updated_time" content="2020-07-02T01:23:11.519Z">
+<meta property="og:image" content="https://zhouyuebiao.cn/images/raspberry/pico/pico_lvgl_gauge/pico_lvgl_gauge.jpg">
+<meta property="og:image" content="https://zhouyuebiao.cn/images/raspberry/pico/pico_lvgl_gauge/Pico_ili9341.png">
+<meta property="og:image" content="https://zhouyuebiao.cn/images/raspberry/pico/pico_lvgl_gauge/Raspberry_Pi_Pico_Pinout_ili9341.png">
+<meta property="og:updated_time" content="2021-03-04T02:25:56.500Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="嵌入式全系统：单片机-Linux-Android对硬件操作的不同侧重点">
-<meta name="twitter:description" content="前言我是百问网团队(韦东山嵌入式)的成员之一，本专栏将会连载韦东山编写的一系列文章。 概念只要涉及编程，并且所用硬件不是电脑的话，都可以认为是嵌入式软件开发。所谓“嵌入”，就是把处理器嵌入某个物体中，让它具备计算能力。比如手表中有单片机，那么手表就是一个嵌入式设备，在上面开发的单片机程序就是嵌入式软件；手机中有性能强大的处理器，它也是一个嵌入式设备，手机中运行Linux系统，在Linux系统上运行">
-<meta name="twitter:image" content="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image1.png">
+<meta name="twitter:title" content="0046-树莓派-pico配置ILI9341+lvgl">
+<meta name="twitter:description" content="前言前些日子到手了一块raspberry pico和2.2寸屏ILI9341。想通过ILI9341显示屏让pico的实验做起来更加丰富多彩。下图是我的实验成果：  实验说明实验中我使用的材料如下：  raspberry pico 2.2寸屏ILI9341 滑动变阻器  实验预期效果pico在2.2寸屏ILI9341显示一个量规实时显示滑动变阻器的数值。 接线  测试代码： 123456789101">
+<meta name="twitter:image" content="https://zhouyuebiao.cn/images/raspberry/pico/pico_lvgl_gauge/pico_lvgl_gauge.jpg">
 
 
 
@@ -144,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="https://zhouyuebiao.cn/2020/06/16/0045-嵌入式全系统：单片机-Linux-Android对硬件操作的不同侧重点/">
+  <link rel="canonical" href="https://zhouyuebiao.cn/2022/03/04/0046-树莓派-pico配置ILI4839+lvgl/">
 
 
 
 
 
-  <title>嵌入式全系统：单片机-Linux-Android对硬件操作的不同侧重点 | YobeZhou</title>
+  <title>0046-树莓派-pico配置ILI9341+lvgl | YobeZhou</title>
   
 
 
@@ -323,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhouyuebiao.cn./2020/06/16/0045-嵌入式全系统：单片机-Linux-Android对硬件操作的不同侧重点/">
+    <link itemprop="mainEntityOfPage" href="https://zhouyuebiao.cn./2022/03/04/0046-树莓派-pico配置ILI4839+lvgl/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YobeZhou">
@@ -340,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">嵌入式全系统：单片机-Linux-Android对硬件操作的不同侧重点</h1>
+          <h1 class="post-title" itemprop="name headline">0046-树莓派-pico配置ILI9341+lvgl</h1>
         
 
         <div class="post-meta">
@@ -352,8 +336,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-16T16:45:26+08:00">
-                2020-06-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-03-04T09:45:26+08:00">
+                2022-03-04
               </time>
             
 
@@ -375,8 +359,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="./categories/嵌入式/" itemprop="url" rel="index">
-                    <span itemprop="name">嵌入式</span>
+                  <a href="./categories/树莓派/" itemprop="url" rel="index">
+                    <span itemprop="name">树莓派</span>
                   </a>
                 </span>
 
@@ -393,8 +377,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="./2020/06/16/0045-嵌入式全系统：单片机-Linux-Android对硬件操作的不同侧重点/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="./2020/06/16/0045-嵌入式全系统：单片机-Linux-Android对硬件操作的不同侧重点/" itemprop="commentCount"></span>
+                <a href="./2022/03/04/0046-树莓派-pico配置ILI4839+lvgl/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="./2022/03/04/0046-树莓派-pico配置ILI4839+lvgl/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -416,7 +400,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.6k
+                  514
                 </span>
               
 
@@ -432,7 +416,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  12
+                  2
                 </span>
               
             </div>
@@ -453,127 +437,22 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我是<a href="https://www.100ask.net/" target="_blank" rel="noopener">百问网</a>团队(<a href="https://baike.baidu.com/item/%E9%9F%A6%E4%B8%9C%E5%B1%B1/1035866?fr=aladdin" target="_blank" rel="noopener">韦东山嵌入式</a>)的成员之一，本专栏将会连载韦东山编写的一系列文章。</p>
-<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>只要涉及编程，并且所用硬件不是电脑的话，都可以认为是嵌入式软件开发。所谓“嵌入”，就是把处理器嵌入某个物体中，让它具备计算能力。比如手表中有单片机，那么手表就是一个嵌入式设备，在上面开发的单片机程序就是嵌入式软件；手机中有性能强大的处理器，它也是一个嵌入式设备，手机中运行Linux系统，在Linux系统上运行Android系统，这些Linux、Android都属于嵌入式软件。</p>
-<p>嵌入式设备上运行的软件或系统可以分为三类：单片机、Linux/WinCE等大型操作系统、Android/IOS/QT等GUI系统。</p>
-<p>做产品时我们考虑的是性价比，什么合适就用什么，这需要我们具备多方面的开发能力。本文将介绍单片机、Linux、Android系统的侧重点。 </p>
-<p>我是韦东山，一直从事嵌入式Linux培训，最近打算连载一系列文章。</p>
-<h1 id="有哪些产品使用这3类技术"><a href="#有哪些产品使用这3类技术" class="headerlink" title="有哪些产品使用这3类技术"></a>有哪些产品使用这3类技术</h1><p><img src="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image1.png" alt="image-20200609135436283"></p>
-<p><img src="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image2.png" alt="image-20200609135518041"></p>
-<p><img src="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image3.png" alt="image-20200609135530960"></p>
-<p><img src="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image4.png" alt="image-20200609135540698"></p>
-<p>​        没有一样技术可以适用于所有设备，很多时候需要组合起来。比如无人机，使用单片机才能更快处理各种控制事件，使用Linux才能更好进行图像处理、传输，在手机端还得给你开发一个安卓APP让你更容易操控。</p>
-<h1 id="谁的工作机会更多"><a href="#谁的工作机会更多" class="headerlink" title="谁的工作机会更多"></a>谁的工作机会更多</h1><p>我们要用数据说话，看下图：</p>
-<p><img src="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image5.png" alt="image-20200609135640249"></p>
-<p>让人意外，Linux的职位竟然是最多的。但是很多互联网产品也使用Linux，比如虚拟化、云计算、云存储领域。这些互联网公司、云产品公司对Linux开发人员也有大量的需求，把这些公司的职位来跟单片机职位进行对比，很不公平。</p>
-<p>所以我再细分一下，把涉及硬件操作的Linux职位单独抽出来，如下：</p>
-<p><img src="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image6.png" alt="image-20200609135705670"></p>
-<p>这些数据统计稍显粗略，但是也能说明一些问题，我先做个柱形图：</p>
-<p><img src="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image6-1.png" alt="image-20200609135722203"></p>
-<p>也许，我们可以得出这么个结论：跟硬件打交道的职位里单片机最多，嵌入式Linux的数量是单片机的三分之二。<br>如果把Linux APP的职位算上，那是最多的，这似乎有些不公平，Linux APP应该去跟JAVA等相比。<br>这些职位需求也是吻合现实的，一个公司里硬件职位最少，驱动稍多点，APP最多。很多时候APP职位里几个老员工把驱动的活也全包了。</p>
-<h2 id="单片机工作机会门槛最低"><a href="#单片机工作机会门槛最低" class="headerlink" title="单片机工作机会门槛最低"></a>单片机工作机会门槛最低</h2><p>身边触手可及的电灯开关、洗衣机、冰箱、微波炉等小家电，使用的都是单片机技术；家里的无线路由器、智能电视，用的是Linux；你天天用的手机要么是安卓要么是苹果。</p>
-<p>可以大概猜得出来，单片机的工作机会更多地集中在小家电领域，门槛比较低，单纯的技术上升空间也有限。注意，我说的是“技术上升空间”。我几年前发表过一个观点“学习单片机没有前途”，这过于激烈，被很多人骂。我今天把它改为“只学习单片机没有前途”。</p>
-<p>最近有一个高手在教我CAN的知识，CAN编程基本只用在单片机上，但是华为年薪80万挖不走他；并且他才刚开始学习Linux。他给我发过两张图：</p>
-<p><img src="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image7.png" alt="image-20200609135808748"></p>
-<p>各位看看上面的图，要想拿高薪，单片机工程师必须深入行业，掌握行业的核心技术。否则，单就单片机技术来说，10年经验跟2年经验并没有太大区别。<br>做单片机很容易从上到下整个程序都是你一个人掌握，所有问题你都清楚，这很安逸，也意味麻痹及危机。<br>现在5G、物联网时代到来，单片机也将会有新的发展，我认为重点在于各类RTOS、各类物联网规范。</p>
-<h2 id="Linux的职位反而是最多的"><a href="#Linux的职位反而是最多的" class="headerlink" title="Linux的职位反而是最多的"></a>Linux的职位反而是最多的</h2><p>在写这篇文章之前，我也倾向于认为单片机的职位是最多的。但是在51JOB上进行粗略搜索之后，linux的职位反而是最多的，即使仅仅计算“嵌入式 linux”的职位，也达到了单片机职位的三分之二。这也许预示着中国的产业升级，大家都不再满足于使用单片机完成简单的功能，需要添加更多更炫的功能。</p>
-<p>如果你是电子工程师，想从事“linux驱动”等跟硬件密切相关的工作，可能机会不多，因为这需要你有经验。这就是行业尴尬的地方，单片机工程师想跳槽，最适配的是嵌入式Linux中跟硬件编程相关的职位，但是这个职位又太看重经验；实际上很容易找到的是电子产品的Linux APP开发。</p>
-<p>现在的中小公司里有这么一个趋势，扔一个项目给你，从上到下APP、驱动、硬件都要你的团队完成，很多人都是多面手。</p>
-<p>所以，技多不压身，如果你是电子工程师话，单片机、Linux驱动、Linux APP都掌握，也许生存能力才能大辐增强。</p>
-<h2 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h2><p>安卓的热度有点退了，一个中小公司没有一定的实力真做不来安卓系统，这个系统太庞大了，乱配个蓝牙就分分钟卡上1、2个月。<br>所以需要用安卓系统的公司，多是采购方案公司的板卡，方案公司帮你改好安卓系统。<br>买来方案后，这些公司多是做些安卓APP；要研究安卓系统的人，也许去手机厂家或是方案公司会比较好。<br>比如我知道的科大讯飞下某子公司，就是使用中山firefly的瑞芯微系列板卡。</p>
-<h1 id="电片机-Linux-Android工程师怎么点灯"><a href="#电片机-Linux-Android工程师怎么点灯" class="headerlink" title="电片机/Linux/Android工程师怎么点灯"></a>电片机/Linux/Android工程师怎么点灯</h1><p>LED的原理图如下，只要让某个引脚输出高电平或低电平，就能让LED亮或灭。</p>
-<p><img src="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image8.png" alt="image-20200609135940274"></p>
-<h2 id="4-1-单片机怎么点灯"><a href="#4-1-单片机怎么点灯" class="headerlink" title="4.1 单片机怎么点灯"></a>4.1 单片机怎么点灯</h2><p><img src="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image9.png" alt="image-20200609140100721"></p>
-<p>简单地说就是需要工作师去看原理图确定引脚是哪一个，输出什么电平能点亮LED。再去看芯片手册，确定怎么操作寄存器。最后写程序。</p>
-<p>至于你写的程序，风格如何、函数名怎么取，完全由你自由发挥。以后别的同事想来重用你的代码，就得看你写的说明，或是看你的代码。</p>
-<p>现在ARM公司在推出一些HAL规范，就是规定一些硬件操作函数接口，如果大家都遵守这些规范的话，在单片机上的APP也很容易移植到其他板子上。</p>
-<h2 id="Linux怎么点灯"><a href="#Linux怎么点灯" class="headerlink" title="Linux怎么点灯"></a>Linux怎么点灯</h2><p><img src="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image10.png" alt="image-20200609140130007"></p>
-<p>在Linux中，驱动程序负责操作硬件，APP调用open、write这些标准接口就可以点亮LED。APP调用open，会导致驱动程序中的led_open被调用；APP调用write，会导致驱动程序中的led_write被调用。</p>
-<p>所以，驱动怎么写？驱动程序中要写出led_open、led_write这些函数。在写出这些函数之前，驱动工程师也要去看原理图、看芯片手册，这跟单片机工程师是一样的。然后就按照Linux的规范提供这些led_open、led_write函数。<br>所以，Linux驱动 = 驱动框架+硬件操作 = 驱动框架+单片机知识。<br>为什么要多此一举引入驱动框架？直接操作硬件多爽、多直接。</p>
-<p>原因有2<br>​    1．术业有专攻，不要让写APP的人去看原理图、芯片手册，他们只需要调用标准的open,read,write等接口即可操作硬件<br>​    2．软件和硬件隔离，硬件再怎么变化，只需要改驱动，APP不需要改</p>
-<h4 id="3-3-Android怎么点灯"><a href="#3-3-Android怎么点灯" class="headerlink" title="3.3 Android怎么点灯"></a>3.3 Android怎么点灯</h4><p><img src="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image11.png" alt="image-20200609140243124"></p>
-<p>Android是一套GUI系统，它是运行在Linux上面的，硬件操作由Linux完成。所以你可以认为Android就是一套APP，它也是通open、write这些接口来访问驱动，进而操作硬件的。</p>
-<p>但是Android中程序太多数是用JAVA编写的，这些open、write是C语言函数，所以要引入一个层：JNI接口(Java Native Interface)，通过这个接口Java可以调用C函数。</p>
-<h1 id="电片机-Linux-Android工程师怎么使用LCD"><a href="#电片机-Linux-Android工程师怎么使用LCD" class="headerlink" title="电片机/Linux/Android工程师怎么使用LCD"></a>电片机/Linux/Android工程师怎么使用LCD</h1><p>用点灯举例太简单，可以突出单片机和Linux的区别；但是Linux和Android的区别似乎不大。</p>
-<p>下面我们用LCD为例讲解。 </p>
-<h2 id="LCD操作原理"><a href="#LCD操作原理" class="headerlink" title="LCD操作原理"></a>LCD操作原理</h2><p><img src="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image12.png" alt="image-20200609140318623"></p>
-<p>假设上图是一个LCD屏幕，屏幕中一个一个密密麻麻的黑点称之为像素点，每一行有若干个点，试想下有一个电子枪，电子枪位于某一个像素点的背后，然后向这个像素发射红，绿，蓝三种原色，这三种颜色按不同的比例组合成任意一种颜色。电子枪在像素点的背后，一边移动一边发出各种颜色的光，电子枪从左往右移动，到右边边缘之后就跳到下一行的行首，继续从左往右移动，如此往复，一直移动到屏幕右下角的像素点，最后就跳回原点。</p>
-<p>问题1：电子枪如何移动？</p>
-<blockquote>
-<p>答： 有一条像素时钟信号线（DCLK），连接屏幕，每来一个像素时钟信号（DCLK），电子枪就移动一个像素。</p>
-</blockquote>
-<p>问题2：电子枪打出的颜色该如何确定？</p>
-<blockquote>
-<p>答：有三组红，绿，蓝信号线（RGB），连接屏幕，由这三组信号线（RGB）传递颜色</p>
-</blockquote>
-<p>问题3：电子枪移动到LCD屏幕右边边缘时，如何得知需要跳到下一行的行首？</p>
-<blockquote>
-<p>答：有一条水平同步信号线（HSYNC），连接屏幕，当接收到水平同步信号（HSYNC），电子枪就跳到下一行的最左边</p>
-</blockquote>
-<p>问题4：电子枪如何得知需要跳到原点？</p>
-<blockquote>
-<p>答：有一条垂直同步信号线（VSYNC），连接屏幕，当接收到垂直同步信号线（VSYNC），电子枪就由屏幕右下脚跳到左上角（原点）</p>
-</blockquote>
-<p>问题5：电子枪如何得知三组信号线（RGB）确定的颜色就是它是需要的呢？</p>
-<blockquote>
-<p>答：有一条RGB数据使能信号线（DE），连接屏幕，当接收到数据使能信号线（DE），电子枪就知道这时由这三组信号线（RGB）确定的颜色是有效的，可以发射到该像素点。</p>
-</blockquote>
-<p>下图是开发板，LCD控制器，LCD屏幕的框图</p>
-<p><img src="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image16.png" alt="image-20200609140636433"></p>
-<p>之前提到的像素时钟（DCLK）， 三组红，绿，蓝信号线（RGB），水平同步信号线（HSYNC），垂直同步信号线（VSYNC），RGB数据使能信号线（DE）都是从LCD控制器发出的，只要开发板支持LCD显示，它肯定就会有一个LCD控制器。</p>
-<p>问题6：RGB三组信号线上的数据从何而来？</p>
-<p><img src="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image17.png" alt="image-20200609140703261"></p>
-<blockquote>
-<p>上图是RGB数据来源框图，内存中划出一部分区域，这块区域被称为Framebuffer。在Framebuffer里面我们会构造好每一个颜色所对应的像素。Framebuffer中的值会被LCD控制器读出来，通过RGB三组线传给电子枪，电子枪再把它转换成红绿蓝三种颜色打到屏幕上。在屏幕上的每一个像素，在Frambuffer里面都有一个对应存储空间，里面存有屏幕上对应像素的颜色。</p>
-<p>LCD控制器会周而复始的从Framebuffer中取出一个个像素的颜色值，发给电子枪，同时需要和DCLK，VSYNC，HSYNC，DE这些信号配合好。</p>
-<p>总结起来，程序需要做的就是2点：设置好LCD控制器，然后在显存中写入数据。</p>
-</blockquote>
-<h2 id="单片机怎么操作LCD"><a href="#单片机怎么操作LCD" class="headerlink" title="单片机怎么操作LCD"></a>单片机怎么操作LCD</h2><p><img src="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image13.png" alt="image-20200609140443622"></p>
-<p>单片机程序员要做的事很直接：<br>1．设置LCD控制器，它会自动从FrameBuffer中读取每个像素的数据发送到LCD上<br>2．把要显示的文字、图像放入FrameBuffer中</p>
-<h2 id="Linux怎么操作LCD"><a href="#Linux怎么操作LCD" class="headerlink" title="Linux怎么操作LCD"></a>Linux怎么操作LCD</h2><p><img src="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image14.png" alt="image-20200609140501684"></p>
-<p>在Linux中，驱动程序负责操作硬件，APP调用open、ioctl这些标准接口就可以获得LCD的参数，设置LCD。然后使用mmap获得Framebuffer的地址，就可以往里面填入数据。<br>至于LCD控制器的设置，这由驱动来做。</p>
-<p>所以，驱动怎么写？初始化LCD控制器，提供lcd_open、lcd_ioctl、lcd_mmap函数，让APP可以通过这些函数获得LCD参数，设置参数，获得Framebuffer地址。<br>所以，Linux驱动 = 驱动框架+硬件操作 = 驱动框架+单片机知识。<br>为什么要多此一举引入驱动框架？直接操作硬件多爽、多直接。</p>
-<p>原因有2<br>1．术业有专攻，不要让写APP的人去看原理图、芯片手册，他们只需要调用标准的open,read,write,ioctl,mmap等接口即可操作硬件<br>2．软件和硬件隔离，硬件再怎么变化，只需要改驱动，APP不需要改</p>
-<h2 id="Android怎么操作LCD"><a href="#Android怎么操作LCD" class="headerlink" title="Android怎么操作LCD"></a>Android怎么操作LCD</h2><p><img src="http://photos.100ask.net/blog/beginner/SCM-Linux-Android%20different%20focus%20on%20hardware%20operation_Image15.png" alt="image-20200609140609853"></p>
-<p>Android是一套GUI系统，跟QT是类似的。在Android/QT等GUI系统里：</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前些日子到手了一块raspberry pico和2.2寸屏ILI9341。想通过ILI9341显示屏让pico的实验做起来更加丰富多彩。下图是我的实验成果：</p>
+<p><img src="/images/raspberry/pico/pico_lvgl_gauge/pico_lvgl_gauge.jpg" alt="picogui"></p>
+<h1 id="实验说明"><a href="#实验说明" class="headerlink" title="实验说明"></a>实验说明</h1><p>实验中我使用的材料如下：</p>
 <ul>
-<li><ol>
-<li>LCD会被多个APP使用，如果不统一管理必定乱套；</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>所以，肯定有一个管理软件，或称为服务软件：<ul>
-<li>2.1 APP自行构造自己的界面，提交给显示显示服务软件</li>
-<li>2.2 显示服务软件：根据多个APP的前后层次，合并最终的显示图像</li>
+<li>raspberry pico</li>
+<li>2.2寸屏ILI9341</li>
+<li>滑动变阻器</li>
 </ul>
-</li>
-</ol>
-</li>
-<li><ol start="3">
-<li>最后再调用驱动程序显示出来</li>
-</ol>
-</li>
-</ul>
-<p>所以在Android系统中，它的重心在于显示服务、在于多个窗口的层叠、管理、销毁。硬件的操作交给是Linux实现。</p>
-<h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>我无意引起单片机、Linux、Android孰优孰劣的讨论，我确实不看好纯粹的单片机软件开发，但是很看好RTOS及物联网在单片机上的应用。<br>生活不容易，码农不容易，走上码农之路，只有不断学习了。</p>
-<h1 id="关注我们"><a href="#关注我们" class="headerlink" title="关注我们"></a>关注我们</h1><ul>
-<li>百问网官方wiki：<a href="http://wiki.100ask.org" target="_blank" rel="noopener">http://wiki.100ask.org</a></li>
-<li>百问网官方论坛：<a href="http://bbs.100ask.net" target="_blank" rel="noopener">http://bbs.100ask.net</a></li>
-<li>百问网官网：<a href="http://www.100ask.net" target="_blank" rel="noopener">http://www.100ask.net</a></li>
-<li>微信公众号：百问科技</li>
-<li>CSDN：<a href="https://edu.csdn.net/lecturer/90" target="_blank" rel="noopener">韦东山</a></li>
-<li>B站：<a href="https://space.bilibili.com/275908810?from=search&seid=10505231074028238949" target="_blank" rel="noopener">韦东山</a></li>
-<li>知乎：<a href="https://www.zhihu.com/people/www.100ask/" target="_blank" rel="noopener">韦东山嵌入式</a></li>
-<li>微博：<a href="https://weibo.com/888wds?topnav=1&wvr=6" target="_blank" rel="noopener">百问科技</a></li>
-<li>电子发烧友学院：<a href="http://t.elecfans.com/teacher/3.html" target="_blank" rel="noopener">韦东山</a></li>
-</ul>
-<p>微信公众号  |  视频教程在线学习平台</p>
-<center class="half">
-   <img src="http://photos.100ask.net//ELADCMSecond/aboutus/followus.png" width="800">
-</center>
+<h2 id="实验预期效果"><a href="#实验预期效果" class="headerlink" title="实验预期效果"></a>实验预期效果</h2><p>pico在2.2寸屏ILI9341显示一个量规实时显示滑动变阻器的数值。</p>
+<h1 id="接线"><a href="#接线" class="headerlink" title="接线"></a>接线</h1><p><img src="/images/raspberry/pico/pico_lvgl_gauge/Pico_ili9341.png" alt="picogui"></p>
+<p><img src="/images/raspberry/pico/pico_lvgl_gauge/Raspberry_Pi_Pico_Pinout_ili9341.png" alt="picogui"></p>
+<p>测试代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Copyright (c) 2008-2021 深圳百问网科技有限公司&lt;http://lvgl.100ask.net&gt;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * SPDX-License-Identifier: BSD-3-Clause</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"pico/stdlib.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"hardware/adc.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"lvgl_src/lvgl.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"ili9341/ili9341.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"ili9341/lv_port_disp.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//extern void ili9341_init();</span></span><br><span class="line"><span class="comment">//extern void lv_port_disp_init(void);</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">lv_100ask_adc_gauge_anim</span><span class="params">(<span class="keyword">lv_obj_t</span> * gauge, <span class="keyword">lv_anim_value_t</span> value)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">lv_100ask_widget_test_init</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">lv_100ask_widget_test_init</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">lv_anim_t</span> a;      <span class="comment">// 表盘动画</span></span><br><span class="line">    lv_anim_init(&amp;a);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">lv_obj_t</span> * adc_gauge = lv_gauge_create(lv_scr_act(), <span class="literal">NULL</span>);</span><br><span class="line">    lv_gauge_set_range(adc_gauge, <span class="number">0</span> ,<span class="number">3000</span>);</span><br><span class="line">	lv_gauge_set_critical_value(adc_gauge, <span class="number">2400</span>);  <span class="comment">// 设置临界值，超过临界值部分的颜色为 scale_end_color</span></span><br><span class="line">    lv_obj_set_drag_parent(adc_gauge, <span class="literal">true</span>);</span><br><span class="line">    lv_obj_set_size(adc_gauge, <span class="number">200</span>, <span class="number">200</span>);</span><br><span class="line">    lv_obj_align(adc_gauge, <span class="literal">NULL</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    lv_obj_set_style_local_margin_top(adc_gauge, LV_GAUGE_PART_MAIN, LV_STATE_DEFAULT, LV_DPX(<span class="number">30</span>));</span><br><span class="line">    lv_obj_set_style_local_value_font(adc_gauge, LV_LABEL_PART_MAIN, LV_STATE_DEFAULT, &amp;lv_font_montserrat_14);	<span class="comment">// 设置文字大小</span></span><br><span class="line">    lv_obj_set_style_local_value_str(adc_gauge, LV_GAUGE_PART_MAIN, LV_STATE_DEFAULT, <span class="string">"ADC"</span>);</span><br><span class="line">    lv_obj_set_style_local_value_align(adc_gauge, LV_GAUGE_PART_MAIN, LV_STATE_DEFAULT, LV_ALIGN_CENTER);</span><br><span class="line">    lv_obj_set_style_local_value_ofs_y(adc_gauge, LV_GAUGE_PART_MAIN, LV_STATE_DEFAULT, LV_DPX(<span class="number">80</span>));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">lv_obj_t</span> * label = lv_label_create(adc_gauge, <span class="literal">NULL</span>);</span><br><span class="line">    lv_obj_set_style_local_text_font(label, LV_LABEL_PART_MAIN, LV_STATE_DEFAULT, &amp;lv_font_montserrat_10);             <span class="comment">// 设置文字大小</span></span><br><span class="line">    lv_obj_align(label, adc_gauge, LV_ALIGN_CENTER, <span class="number">0</span>, lv_obj_get_width(adc_gauge)/<span class="number">4</span>);</span><br><span class="line"></span><br><span class="line">    lv_anim_set_var(&amp;a, adc_gauge);</span><br><span class="line">    lv_anim_set_exec_cb(&amp;a, (<span class="keyword">lv_anim_exec_xcb_t</span>)lv_100ask_adc_gauge_anim);</span><br><span class="line">    lv_anim_set_values(&amp;a, <span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">    lv_anim_set_time(&amp;a, <span class="number">500</span>);</span><br><span class="line">    lv_anim_set_repeat_count(&amp;a, LV_ANIM_REPEAT_INFINITE);</span><br><span class="line">    lv_anim_start(&amp;a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> *  函数名：   static void lv_100ask_adc_gauge_anim(lv_obj_t * gauge, lv_anim_value_t value)</span></span><br><span class="line"><span class="comment"> *  输入参数： 动画对象</span></span><br><span class="line"><span class="comment"> *  输入参数： 传递给动画的数据</span></span><br><span class="line"><span class="comment"> *  返回值：   无</span></span><br><span class="line"><span class="comment"> *  函数作用： 更新展示ADC检测值</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">lv_100ask_adc_gauge_anim</span><span class="params">(<span class="keyword">lv_obj_t</span> * gauge, <span class="keyword">lv_anim_value_t</span> value)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    adc_select_input(<span class="number">0</span>);</span><br><span class="line">    uint adc_value = adc_read();</span><br><span class="line">    <span class="comment">//adc_value = f_value*1000;</span></span><br><span class="line"></span><br><span class="line">    lv_gauge_set_value(gauge, <span class="number">0</span>, adc_value);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> tmpchar[<span class="number">32</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line">    lv_snprintf(tmpchar, <span class="keyword">sizeof</span>(tmpchar), <span class="string">"AD:%d\nVoltage:%f v"</span>, adc_value, (<span class="keyword">float</span>)(adc_value * (<span class="number">3.3</span> / <span class="number">4096</span>)));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">lv_obj_t</span> * label = lv_obj_get_child(gauge, <span class="literal">NULL</span>);</span><br><span class="line">    lv_label_set_text(label, tmpchar);</span><br><span class="line">    lv_obj_align(label, gauge, LV_ALIGN_IN_BOTTOM_MID, <span class="number">0</span>, -lv_obj_get_height(label));</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    stdio_init_all();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// possibly set ili9341_config parameters if your pins/spi port don't match</span></span><br><span class="line">	ili9341_init();</span><br><span class="line">    </span><br><span class="line">    lv_init();</span><br><span class="line"></span><br><span class="line">    lv_port_disp_init();</span><br><span class="line"></span><br><span class="line">    adc_init();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Make sure GPIO is high-impedance, no pullups etc</span></span><br><span class="line">    adc_gpio_init(<span class="number">26</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//lv_obj_t * scr = lv_obj_create(NULL, NULL);</span></span><br><span class="line">    <span class="comment">//lv_scr_load(scr);</span></span><br><span class="line"></span><br><span class="line">    lv_100ask_widget_test_init();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">       sleep_ms(<span class="number">5</span>);   <span class="comment">/*Sleep for 5 millisecond*/</span></span><br><span class="line">       lv_task_handler();</span><br><span class="line">       lv_tick_inc(<span class="number">5</span>);      <span class="comment">/*Tell LVGL that 5 milliseconds were elapsed*/</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-
+<h1 id="lvgl中文教程"><a href="#lvgl中文教程" class="headerlink" title="lvgl中文教程"></a>lvgl中文教程</h1><p>lvgl部分我整理出了系列教程，需要系统学习lvgl请前往的站点进行学习：</p>
+<p><a href="http://lvgl.100ask.net" target="_blank" rel="noopener">http://lvgl.100ask.net</a></p>
 
       
     </div>
@@ -602,7 +481,7 @@
       
         <div class="post-tags">
           
-            <a href="./tags/韦东山嵌入式/" rel="tag"># 韦东山嵌入式</a>
+            <a href="./tags/树莓派pico/" rel="tag"># 树莓派pico</a>
           
         </div>
       
@@ -615,8 +494,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="./2020/01/29/0044-USB设备驱动程序/" rel="next" title="USB设备驱动程序">
-                <i class="fa fa-chevron-left"></i> USB设备驱动程序
+              <a href="./2020/06/16/0045-嵌入式全系统：单片机-Linux-Android对硬件操作的不同侧重点 - 副本/" rel="next" title="嵌入式全系统：单片机-Linux-Android对硬件操作的不同侧重点">
+                <i class="fa fa-chevron-left"></i> 嵌入式全系统：单片机-Linux-Android对硬件操作的不同侧重点
               </a>
             
           </div>
@@ -705,7 +584,7 @@
               
                 <a href="./archives/">
               
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -716,7 +595,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="./categories/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -727,7 +606,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="./tags/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -789,7 +668,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#概念"><span class="nav-number">2.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#有哪些产品使用这3类技术"><span class="nav-number">3.</span> <span class="nav-text">有哪些产品使用这3类技术</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#谁的工作机会更多"><span class="nav-number">4.</span> <span class="nav-text">谁的工作机会更多</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#单片机工作机会门槛最低"><span class="nav-number">4.1.</span> <span class="nav-text">单片机工作机会门槛最低</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux的职位反而是最多的"><span class="nav-number">4.2.</span> <span class="nav-text">Linux的职位反而是最多的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android"><span class="nav-number">4.3.</span> <span class="nav-text">Android</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#电片机-Linux-Android工程师怎么点灯"><span class="nav-number">5.</span> <span class="nav-text">电片机/Linux/Android工程师怎么点灯</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-单片机怎么点灯"><span class="nav-number">5.1.</span> <span class="nav-text">4.1 单片机怎么点灯</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux怎么点灯"><span class="nav-number">5.2.</span> <span class="nav-text">Linux怎么点灯</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-Android怎么点灯"><span class="nav-number">5.2.0.1.</span> <span class="nav-text">3.3 Android怎么点灯</span></a></li></ol></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#电片机-Linux-Android工程师怎么使用LCD"><span class="nav-number">6.</span> <span class="nav-text">电片机/Linux/Android工程师怎么使用LCD</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#LCD操作原理"><span class="nav-number">6.1.</span> <span class="nav-text">LCD操作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单片机怎么操作LCD"><span class="nav-number">6.2.</span> <span class="nav-text">单片机怎么操作LCD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux怎么操作LCD"><span class="nav-number">6.3.</span> <span class="nav-text">Linux怎么操作LCD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android怎么操作LCD"><span class="nav-number">6.4.</span> <span class="nav-text">Android怎么操作LCD</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#写在最后"><span class="nav-number">7.</span> <span class="nav-text">写在最后</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关注我们"><span class="nav-number">8.</span> <span class="nav-text">关注我们</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实验说明"><span class="nav-number">2.</span> <span class="nav-text">实验说明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实验预期效果"><span class="nav-number">2.1.</span> <span class="nav-text">实验预期效果</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#接线"><span class="nav-number">3.</span> <span class="nav-text">接线</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lvgl中文教程"><span class="nav-number">4.</span> <span class="nav-text">lvgl中文教程</span></a></li></ol></div>
             
 
           </div>
@@ -830,7 +709,7 @@ pure.mini.js"></script>
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">78.3k</span>
+    <span title="Site words total count">78.9k</span>
   
 </div>
 
@@ -881,7 +760,7 @@ pure.mini.js"></script>
 <div class="theme-info">
   <div class="powered-by"></div>
   <span class="post-meta-divider">|</span>
-  <span class="post-count">博客全站共78.3k字</span>
+  <span class="post-count">博客全站共78.9k字</span>
 </div>
 
 <!-- 底部隐藏由Hexo强力驱动、主题--NexT.Mist -->
