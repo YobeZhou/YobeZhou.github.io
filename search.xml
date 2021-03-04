@@ -291,8 +291,8 @@
         <category>嵌入式Linux</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
         <tag>嵌入式Linux</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -366,8 +366,8 @@
         <category>Qt</category>
       </categories>
       <tags>
-        <tag>Qt</tag>
         <tag>C++</tag>
+        <tag>Qt</tag>
       </tags>
   </entry>
   <entry>
